@@ -4,16 +4,9 @@
 
 - [Variables, Objects, & Types](#variables-objects--types)
   - [Types](#types)
+  - [Literals](#literals)
   - [Type Conversion](#type-conversion)
   - [Mutability](#mutability)
-  - [Identity vs Equality](#identity-vs-equality)
-  - [Literals](#literals)
-- [Major Constructs](#major-constructs)
-  - [Modules](#modules)
-  - [Conditionals](#conditionals)
-  - [Loops](#loops)
-  - [Functions](#functions)
-  - [Classes](#classes)
 - [I/O](#io)
   - [Print](#print)
     - [End](#end)
@@ -44,6 +37,10 @@ print(id(message))
 
 Everything is an object in python, including None, booleans, integers, floats, modules, classes, and functions. This means they can be assigned to variables, passes as parameters to functions, and be put into lists and dictionaries.
 
+
+
+
+
 ### Types
 
 Every object has a type, which can be checked by using the `type()` function.
@@ -67,6 +64,17 @@ p = Point()
 print(type(p)) # <class '__main__.Point'>
 print(type(Point)) # <class 'type'>
 ```
+
+### Literals
+
+The easiest way to enter data in your problem is through 'literals', which are called as such because they're *literally* written in the source code.
+
+- bool literals: `True` and `False`
+- int literals: `3`, `-20`, `294927`
+- float literals: `3.2`, `3.14e-10`
+- string literals: `'hello'` and `"world"`
+- list literals: `[]`, `[1, 2, 3]`
+- dict literals: `{}`, `{'a': 1, 'b': 2}`
 
 
 ### Type Conversion
@@ -103,44 +111,6 @@ print(y) # ['apples', 'bananas', 'pears', 'cherries']
 ```
 
 
-### Identity vs Equality
-
-
-***TODO***
-
-### Literals
-
-The easiest way to enter data in your problem is through 'literals', which are called as such because they're *literally* written in the source code.
-
-- bool literals: `True` and `False`
-- int literals: `3`, `-20`, `294927`
-- float literals: `3.2`, `3.14e-10`
-- string literals: `'hello'` and `"world"`
-- list literals: `[]`, `[1, 2, 3]`
-- dict literals: `{}`, `{'a': 1, 'b': 2}`
-
-
-
-## Major Constructs
-
-### Modules
-
-
-### Conditionals
-
-
-
-### Loops
-
-### Functions
-calling functions
-defining a function
-parameters/arguments
-
-
-### Classes
-
-You can read more about classes in the main [classes doc](10%20-%20Classes.md).
 
 
 
