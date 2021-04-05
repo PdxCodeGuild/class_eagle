@@ -3,8 +3,6 @@
 
 **Table of Contents**
 - [Topics Covered](#topics-covered)
-- [Schedule](#schedule)
-  - [Week 1 / Python / Basics](#week-1--python--basics)
 - [Course Files](#course-files)
   - [0 General](#0-general)
   - [1 Python](#1-python)
@@ -27,38 +25,6 @@ Schedule Overview:
 - Libraries: Django, Requests, Vue, Axios, Bootstrap, Materialize
 - Software: Terminal, IDE, Git, Browser (Developer Panel)
 - Technologies: HTTP Requests, AJAX, DNS
-
-## Schedule
-
-### Week 1 / Python / Basics
-- document:   Course Overview 🟡
-- document:   Setup 🟠
-- document:   Git 🟠
-- document:   Markdown 🟡
-- document:   Python Overview 🟡
-- document:   Fundamentals 🟡
-- practice:   Fundamentals 🟠
-- solution:   Fundamentals 🟠
-- assignment: Turtle 🟡
-- solution:   Turtle 🟡
-- document:   Exceptions & Testing 🟠
-- practice:   Exceptions & Testing 🔴
-- solution:   Exceptions & Testing 🔴
-- document:   Numbers & Arithmetic 🟡
-- practice:   Numbers & Arithmetic 🟠
-- solution:   Numbers & Arithmetic 🟠
-- assignment: Make Change 🟡
-- solution:   Make Change 🟡
-- document:   Booleans, Comparisons, & Conditionals 🟡
-- practice:   Booleans, Comparisons, & Conditionals 🟠
-- solution:   Booleans, Comparisons, & Conditionals 🟠
-- assignment: Grading 🟡
-- solution:   Grading 🟡
-- assignment: Rock Paper Scissors 🟡
-- solution:   Rock Paper Scissors 🟡
-- document:   Imports, Modules, & Packages 🟠
-- practice:   Imports, Modules, & Packages 🔴
-- solution:   Imports, Modules, & Packages 🔴
 
 
 ## Course Files
