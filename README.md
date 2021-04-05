@@ -2,7 +2,6 @@
 
 
 **Table of Contents**
-- [Topics Covered](#topics-covered)
 - [Course Files](#course-files)
   - [0 General](#0-general)
   - [1 Python](#1-python)
@@ -17,15 +16,6 @@ Schedule Overview:
 - Weeks 7-9: JavaScript
 - Weeks 10-12: Django
 - Weeks 13-15: Capstone
-
-
-## Topics Covered
-
-- Languages: Python, HTML, CSS, JavaScript, JSON, Markdown
-- Libraries: Django, Requests, Vue, Axios, Bootstrap, Materialize
-- Software: Terminal, IDE, Git, Browser (Developer Panel)
-- Technologies: HTTP Requests, AJAX, DNS
-
 
 ## Course Files
 
