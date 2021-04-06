@@ -1,17 +1,15 @@
 
 
+import turtle
 
-from turtle import *
 
-forward(100)
-left(90)
-forward(100)
-left(90)
-forward(100)
-left(90)
-forward(100)
-left(90)
+turtle.speed('fastest')
 
-done()
+i = 0
+n_sides = 1000
+while i < n_sides:
+    turtle.forward(1)
+    turtle.left(360/n_sides)
 
+turtle.done()
 
