@@ -27,7 +27,8 @@ elif modifier <= 3:
     mod = "-"
 
     
-print(f"You got an {grade}{mod}")
+print(f"You got a {grade}{mod}")
+
 
 
 
