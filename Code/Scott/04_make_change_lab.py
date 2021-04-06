@@ -15,13 +15,12 @@ coin_dict = { # Dictionary of all US bills and coins (in cents)
 user_in = input('enter a dollar amount: ') #prompt user input
 user_in = float(user_in) * 100 # convert to cents and convert user_input into float from string
 user_in = int(user_in) #convert the float to an int now that we're in cents (no need for the .0 at the end)
-output_str = '' #declare output as string type
 
+print('=================') 
 for key in coin_dict: #iterate through every type of bill & coin
     sum_left = user_in // coin_dict[key] #take the value and floor divide to the largest bill
-
+    
     if  sum_left != 0: #don't print anything if there's none of that coin / bill...
-        output_str += str(sum_left) + ' ' + key + '\n' #otherwise output the last largest bills amount (+=), the amount of this bill (sum_left), and the name of this bill (key)
-    user_in -= sum_left * coin_dict[key] #subtract out the amount we just calculated (value of bill * # of bills)-> move to the next smallest bill on next iteration
+        print(str(sum_left) + ' | ' + key + '\n-----------------') #otherwise, print this bill onto the next line, the amount of these bills (sum_left), and the name of this bill (key)
 
-print(output_str)
+    user_in -= sum_left * coin_dict[key] #subtract out the amount we just calculated (value of bill * # of bills)-> move to the next smallest bill on next iteration
