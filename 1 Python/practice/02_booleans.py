@@ -5,6 +5,20 @@
 # Run the tests by typing "pytest 02_booleans.py"
 
 
+# Go Hiking
+# Write a function that takes a string indicating energy level and weather
+
+
+def go_hiking(weather):
+    ...
+
+def test_go_hiking():
+    assert go_hiking('tired', 'rainy') == False
+    assert go_hiking('tired', 'sunny') == False
+    assert go_hiking('spry', 'rainy') == False
+    assert go_hiking('spry', 'sunny') == True
+
+
 # Double Digit
 # Write a function that returns True if the number is a double digit
 
@@ -21,10 +35,8 @@ def test_double_digit():
 # Opposite
 # Write a function that takes two integers, `a` and `b`, and returns `True` if one is positive and the other is negative, and return `False` otherwise.
 
-
 def opposite(a, b):
     ...
-
 
 def test_opposite():
     assert opposite(10, -1) == True
@@ -43,6 +55,7 @@ def test_near_100():
     assert near_100(50) == False
     assert near_100(99) == True
     assert near_100(105) == True
+    assert near_100(115) == False
 
 
 # Maximum of Three
