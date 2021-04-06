@@ -1,5 +1,5 @@
 
-# Lab 5: Random Emoticon Generator
+# Lab 7: Random Emoticon Generator
 
 Let's generate emoticons by randomly choosing a set of eyes, a nose, and a mouth. Examples of emoticons are `:-D` `=^P` and `:\`. You can view a long list on [wikipedia](https://en.wikipedia.org/wiki/List_of_emoticons).
 

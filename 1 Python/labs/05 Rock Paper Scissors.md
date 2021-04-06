@@ -1,4 +1,4 @@
-# Lab 7: Rock Paper Scissors
+# Lab 5: Rock Paper Scissors
 
 Let's play rock-paper-scissors with the computer. You may want to try using these emojis 🗿📃✂️✊✋✌
 
