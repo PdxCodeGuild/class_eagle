@@ -14,11 +14,9 @@
     - [Sep](#sep)
   - [Input](#input)
   - [Accepting Command Line Arguments](#accepting-command-line-arguments)
-- [Exceptions](#exceptions)
-- [Testing](#testing)
 - [Terminal Fun](#terminal-fun)
   - [ASCII Art](#ascii-art)
-  - [Pausing Execution](#pausing-execution)
+  - [Delayed Print](#delayed-print)
   - [Color](#color)
 
 
@@ -178,49 +176,28 @@ print('Hello', name, '!')
 
 ### Accepting Command Line Arguments
 
+
+
 ```python
 import sys
 print(sys.argv)
-```
-
-## Exceptions
-
-`SyntaxError`
-
-`NameError`
-
-`TypeError`
-
-`IndentationError`
-
-
-
-## Testing
-
-`pytest add.py`
-
-
-```python
-# add.py
-import pytest
-
-def add(a, b):
-    return a + b
-
-def test_add():
-    assert add(5, 2) == 7
 ```
 
 
 
 ## Terminal Fun
 
-
-
 ### ASCII Art
 
-https://www.asciiart.eu/
-https://www.patorjk.com/software/taag/
+
+You can make your terminal interface a bit more fun with ASCII art. The easiest way to add a multi-line string in Python is using a [docstring](Docstrings.md). Another good idea is to put all your ASCII art in a separate module so it doesn't clutter up your main file.
+
+- [Library of ASCII art](https://www.asciiart.eu/)
+- [Python module to generate ASCII art](https://pypi.org/project/art/)
+  - Install with `pip install art`
+  - Import it into your module `from art import *`
+  - Call methods like `aprint("butterfly")`
+- [Convert text to ASCII art](https://www.patorjk.com/software/taag/)
 
 
 **art.py**
@@ -245,17 +222,44 @@ print(art.border)
 print(art.owl)
 ```
 
-### Pausing Execution
 
-using time.sleep() to add suspense
+
+### Delayed Print
+
+You can use `time.sleep()` to add suspense to your messages.
+
+```python
+import random
+print('Rolling dice...')
+time.sleep(3)
+print('You rolled a', random.randint(1,6))
+```
+
+You can also print things slowly.
+
+```python
+message = 'hello world!'
+for char in message:
+  print(char, end='', flush=True)
+  time.sleep(.1)
+    
+```
 
 
 ### Color
 
+[Colorama](https://pypi.org/project/colorama/) allows you to add color to your terminal output by printing special characters. Remember to reset colors if you want to don't want subsequent prints to also be in that color.
 
-use colorama to color text
+- Install colorama with `pip install colorama`
+- Import the functions `from colorama import Fore, Back, Style`
+- Fore: BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE, RESET
+- Back: BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE, RESET
+- Style: DIM, NORMAL, BRIGHT, RESET_ALL
 
-
-
-
-
+```python
+from colorama import Fore, Back, Style
+print(Fore.RED + 'this is red text')
+print(Back.BLUE + 'this is red text on a blue background')
+print(Style.RESET_ALL)
+print('back to normal')
+```
