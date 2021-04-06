@@ -4,7 +4,8 @@
 from turtle import *
 # import turtle
 
-# Draw a stick figure
+# Draw a stick person (Vitruvian man)
+
 
 # Preferences
 pensize(5)
