@@ -27,19 +27,30 @@ def number_grade_to_letter_grade(number_grade):
     return letter_grade
 
 
+
+
 # only run this code if the user runs the module directly
 # and not if they import it
 if __name__ == '__main__':
-    while True:
-        number_grade = input('What is the number? ') # get the number from the user
-        if number_grade.isdigit(): # isdigit() returns true if the string only contains numbers
-            break
-        else:
-            print('enter a number!')
 
-    number_grade = int(number_grade) # convert the number to an integer
-    letter_grade = number_grade_to_letter_grade(number_grade)
-    print(letter_grade)
+    # REPL - read evaluate print loop
+    while True:
+
+        while True:
+            number_grade = input('What is the number? ') # get the number from the user
+            if number_grade.isdigit(): # isdigit() returns true if the string only contains numbers
+                break
+            else:
+                print('enter a number!')
+
+        number_grade = int(number_grade) # convert the number to an integer
+        letter_grade = number_grade_to_letter_grade(number_grade)
+        print(letter_grade)
+
+        run_again = input('would you like to enter another grade? ').lower()
+        if run_again != 'yes':
+            print('Goodbye!')
+            break
 
 
 
