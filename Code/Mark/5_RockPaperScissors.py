@@ -1,13 +1,18 @@
 import random
 
-rpc = ['rock','paper','scissors']
+rpc = ['rock','paper','scissors','lizard','spock']
 
-print("""    ____             __      ____                           _____      _                          
+print("""                             
+    ____             __      ____                           _____      _                          
    / __ \____  _____/ /__   / __ \____ _____  ___  _____   / ___/_____(_______________  __________
   / /_/ / __ \/ ___/ //_/  / /_/ / __ `/ __ \/ _ \/ ___/   \__ \/ ___/ / ___/ ___/ __ \/ ___/ ___/
  / _, _/ /_/ / /__/ ,<    / ____/ /_/ / /_/ /  __/ /      ___/ / /__/ (__  (__  / /_/ / /  (__  ) 
-/_/ |_|\____/\___/_/|_|  /_/    \__,_/ .___/\___/_/      /____/\___/_/____/____/\____/_/  /____/  
-                                    /_/ 
+/_/ |_|\____/\___/_/|__  /__    \__,_/ .___/\___/__   ________/\___/_/____/____/\____/_/  /____/  
+                    / /   (_____ _______________/ /  / ___/____  ____  _____/ /__                 
+                   / /   / /_  // __ `/ ___/ __  /   \__ \/ __ \/ __ \/ ___/ //_/                 
+                  / /___/ / / // /_/ / /  / /_/ /   ___/ / /_/ / /_/ / /__/ ,<                    
+                 /_____/_/ /___\__,_/_/   \__,_/   /____/ .___/\____/\___/_/|_|                   
+                                                       /_/            
 """)
 
 
@@ -19,16 +24,46 @@ def rock_paper_scissors(user,computer): # a function to decide the winner
             return 'lose'
         elif computer == "scissors":
             return 'win'
+        elif computer =="spock":
+            return 'lose'
+        elif computer == "lizard":
+            return 'win'
     elif user == "scissors":
         if computer == "rock":
             return 'lose'
         elif computer == "paper":
+            return 'win'
+        elif computer =="spock":
+            return 'lose'
+        elif computer == "lizard":
             return 'win'
     elif user == "paper":
         if computer == "rock":
             return 'win'
         elif computer == "scissors":
             return 'lose'
+        elif computer =="spock":
+            return 'win'
+        elif computer == "lizard":
+            return 'lose'
+    elif user == "spock":
+        if computer == "rock":
+            return 'win'
+        elif computer == "scissors":
+            return 'win'
+        elif computer == "paper":
+            return 'lose'
+        elif computer == "lizard":
+            return 'lose'
+    elif user == 'lizard':
+        if computer == "rock":
+            return 'lose'
+        elif computer == "scissors":
+            return 'lose'
+        elif computer == "paper":
+            return 'win'
+        elif computer == "spock":
+            return 'win'
 
 comp_score = 0
 user_score = 0
