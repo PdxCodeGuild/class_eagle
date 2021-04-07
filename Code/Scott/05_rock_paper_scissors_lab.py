@@ -7,7 +7,7 @@ actions = ['rock', 'paper', 'scissors']
 bot_choice = rand.randint(0, 2)
 scores = [0, 0]
 round_count = 0
-
+scoreboard = ''' '''
 def ShootAnim(a, b, c):
         actions_anim = ['👊', '✋', '✌']
         actions_obj = ['🗿', '📃', '✂️']
@@ -149,6 +149,18 @@ def RoundLogic(a, b):
             scores[1] += 1
             return 0
 
+def FinalScreen():
+    print('''     F I N A L   S C O R E       ''')
+    print(scoreboard)
+    message_3 = 'Well played human!'
+    for char in message_3:
+        print(char, end='', flush=True)
+        time.sleep(.1)
+    time.sleep(.5)
+    message_4 = '\nGoodbye!'
+    for char in message_4:
+        print(char, end='', flush=True)
+        time.sleep(.1)
 
 while True: #REPL for repeating rounds
     while True: #REPL for input of rock, paper, scissors
@@ -157,20 +169,20 @@ while True: #REPL for repeating rounds
             break
         else:
             print('invalid choice')
+    #End input repl
+    user_choice = actions.index(user_choice) # calculate what the player chose (0 = rock, 1 = paper, 2 = scissors)
+    round_win = RoundLogic(user_choice, bot_choice) # calculate who won (1 = human, -1 = bot, 0 = tie)
+    ShootAnim(user_choice, bot_choice, round_win) # run the animation for the round based on the parameters
 
-    user_choice = actions.index(user_choice)
-    round_win = RoundLogic(user_choice, bot_choice)
-    ShootAnim(user_choice, bot_choice, round_win)
-
-
-    round_count += 1
-    print(f'''
+    round_count += 1 # increment one more round
+    scoreboard = f'''     
     ===============================
         S C O R E B O A R D
             You: {scores[0]} | Bot: {scores[1]}
         Rounds Played: {round_count}
     ===============================
-    ''')
+    ''' # update the scoreboard screen with the new information
+    print(scoreboard) #print out the score at the end of the round
 
     while True: #REPL for play again input
         go_again = input('play again? (y/n) ').lower()
@@ -178,26 +190,10 @@ while True: #REPL for repeating rounds
             break
         else:
             print('invalid choice')
+    # end play again repl
     os.system('cls||clear')
     if go_again == 'n':
-        print(f'''
-            F I N A L   S C O R E
-        ===============================
-            S C O R E B O A R D
-             You: {scores[0]} | Bot: {scores[1]}
-            Rounds Played: {round_count}
-        ===============================
-        ''')
-        message_3 = 'Well played human!'
-        for char in message_3:
-            print(char, end='', flush=True)
-            time.sleep(.1)
-        time.sleep(.5)
-        message_4 = '\nGoodbye!'
-        for char in message_4:
-            print(char, end='', flush=True)
-            time.sleep(.1)
+        FinalScreen()
         break
     else:
-
         print('next round!')
