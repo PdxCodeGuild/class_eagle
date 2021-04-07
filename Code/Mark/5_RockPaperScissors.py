@@ -71,10 +71,10 @@ user_score = 0
 
 
 while True:
-    comp = random.choice(rpc) # Using random for the computers answer
+    comp = random.choice(rpc) 
 
     u_rpc = input('Make your choice: ')
-    if u_rpc not in rpc: # ensuring the user picks a valid choice
+    if u_rpc not in rpc: 
         print('Please enter a valid choice!')
         continue
     print(f"""
