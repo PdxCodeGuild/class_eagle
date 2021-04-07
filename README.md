@@ -58,10 +58,10 @@ Schedule Overview:
 - [document:   Strings](1%20Python/docs/08%20Strings.md)
 - [practice:   Strings](1%20Python/practice/strings.py)
 - solution:   Strings
+- [assignment: Guess The Number](1%20Python/labs/Guess%20The%20Number.md)
+- solution:   Guess The Number
 - [assignment: Random Password Generator](1%20Python/labs/06%20Random%20Password%20Generator.md)
 - solution:   Random Password Generator
-- [assignment: Guess The Number](1%20Python/labs/07%20Guess%20The%20Number.md)
-- solution:   Guess The Number
 
 <!--
 demo - while and for loops
