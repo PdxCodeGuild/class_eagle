@@ -30,7 +30,8 @@ def rock_paper_scissors(user,computer): # a function to decide the winner
         elif computer == "scissors":
             return 'lose'
 
-
+comp_score = 0
+user_score = 0
 
 
 
@@ -47,13 +48,19 @@ while True:
     """)
     result = rock_paper_scissors(u_rpc, comp) 
     if result == "win":
+        user_score += 1
         print('Congratulations! You won!')
     elif result == "lose":
+        comp_score += 1
         print('Unfortunatly, you lost. Better luck next time!')
     else:
         print("It's a tie!")
     
-
+    print(f"""
+    Current score:
+    User  {user_score}
+    Computer {comp_score}
+    """)
 
     answer = input('Would you like to play again?[yes/no] ')
     if answer != 'yes':
