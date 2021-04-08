@@ -57,13 +57,13 @@ while True:
     # asks the user if they would like to generate another
 
     answer = input("""
-    Would you like to generate another?
-    [yes/no] 
-    """)
+Would you like to generate another?
+[yes/no] 
+""")
     if answer != 'yes':
         print('''
-        Thank you for using the Password Generator 9000!
-        Goodbye!
+Thank you for using the Password Generator 9000!
+Goodbye!
         ''')
         break
         
