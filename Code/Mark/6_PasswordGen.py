@@ -46,8 +46,8 @@ while True:
     num = int(input('How many numbers would you like? '))
     special = int(input('How many special characters? '))
 
-    if (upper+lower+num+special) > length: # Used to ensure the selected character values to exceed the requested length
-        print('The amount of characters you chose exceeds the requested length! Please reenter your information!')
+    if (upper+lower+num+special) != length: # Used to ensure the selected character values matches the requested length
+        print('The amount of characters you chose does not match the requested length! Please reenter your information!')
         continue
     
     print(f'You shiny new password is: {pass_gen(length,upper,lower,num,special)}')
