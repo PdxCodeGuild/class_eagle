@@ -46,7 +46,9 @@ while True:
     num = int(input('How many numbers would you like? '))
     special = int(input('How many special characters? '))
 
-    if (upper+lower+num+special) != length: # Used to ensure the selected character values matches the requested length
+    # Used to ensure the selected character values matches the requested length
+
+    if (upper+lower+num+special) != length:
         print('The amount of characters you chose does not match the requested length! Please reenter your information!')
         continue
     
@@ -55,13 +57,13 @@ while True:
     # asks the user if they would like to generate another
 
     answer = input("""
-    Would you like to generate another?
-    [yes/no] 
-    """)
+Would you like to generate another?
+[yes/no] 
+""")
     if answer != 'yes':
         print('''
-        Thank you for using the Password Generator 9000!
-        Goodbye!
+Thank you for using the Password Generator 9000!
+Goodbye!
         ''')
         break
         
