@@ -11,7 +11,7 @@ def convert_to_coins(a):
     pennies = int(remain_3 / 1)
     return quarters, dimes, nickles, pennies
 
-quarters, dimes, nickles, pennies = convert_to_coins(1.36)
+quarters, dimes, nickles, pennies = convert_to_coins(money)
     
 print(f"Ya got {quarters} quarters, {dimes} dimes, {nickles} nickles, {pennies} pennies")
 
