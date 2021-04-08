@@ -43,6 +43,28 @@ from utilities import get_int
 
 
 
+#       012345678910
+text = 'hello world'
+
+i = 0
+while i < len(text):
+    print(i, text[i])
+    i += 1
+
+for i in range(len(text)):
+    print(i, text[i])
+
+
+for char in text:
+    print(char)
+
+
+
+
+
+
+
+
 
 
 
