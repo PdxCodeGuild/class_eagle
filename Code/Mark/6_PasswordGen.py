@@ -20,7 +20,7 @@ print("""
 
 """)
 
-
+# Used a function to do the password generation once values are provided
 
 def pass_gen(length,upper,lower,num,special):
     password = []
@@ -37,7 +37,7 @@ def pass_gen(length,upper,lower,num,special):
     password = "".join(password)
     return password
     
-
+# using a while loop for REPL
 while True:
 
     length = int(input("How long would you like your password? "))
@@ -46,19 +46,21 @@ while True:
     num = int(input('How many numbers would you like? '))
     special = int(input('How many special characters? '))
 
-    if (upper+lower+num+special) > length:
+    if (upper+lower+num+special) > length: # Used to ensure the selected character values to exceed the requested length
         print('The amount of characters you chose exceeds the requested length! Please reenter your information!')
         continue
-    password = pass_gen(length,upper,lower,num,special)
+    
+    print(f'You shiny new password is: {pass_gen(length,upper,lower,num,special)}')
 
-    print(f'You shiny new password is: {password}')
+    # asks the user if they would like to generate another
 
     answer = input("""
-Would you like to generate another?
-[yes/no] """)
+    Would you like to generate another?
+    [yes/no] 
+    """)
     if answer != 'yes':
         print('''
-    Thank you for using the Password Generator 9000!
+        Thank you for using the Password Generator 9000!
         Goodbye!
         ''')
         break
