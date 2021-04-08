@@ -45,15 +45,37 @@ Schedule Overview:
 - [solution:   Booleans, Comparisons, & Conditionals](Code/Matthew/02_booleans.py)
 - [assignment: Grading](1%20Python/labs/03%20Grading.md)
 - [solution:   Grading](Code/Matthew/lab03_grading.py)
+- [document:   Random](1%20Python/docs/06%20Random.md)
+- [assignment: Magic 8 Ball](1%20Python/labs/Magic%208%20Ball.md)
+- solution:   Magic 8 Ball
+- [assignment: Random Emoticon Generator](1%20Python/labs/Random%20Emoticon%20Generator.md)
+- solution:   Random Emoticon Generator
+- [document:   While & For Loops](1%20Python/docs/07%20While%20&%20For%20Loops.md)
+- [practice:   While & For Loops](1%20Python/practice/loops.py)
+- solution:   While & For Loops
 - [assignment: Rock Paper Scissors](1%20Python/labs/05%20Rock%20Paper%20Scissors.md)
 - [solution:   Rock Paper Scissors](Code/Matthew/lab05_rock_paper_scissors.py)
+- [document:   Strings](1%20Python/docs/08%20Strings.md)
+- [practice:   Strings](1%20Python/practice/strings.py)
+- solution:   Strings
+- [assignment: Guess The Number](1%20Python/labs/Guess%20The%20Number.md)
+- solution:   Guess The Number
+- [assignment: Random Password Generator](1%20Python/labs/06%20Random%20Password%20Generator.md)
+- solution:   Random Password Generator
 
 <!--
-- document:   Imports, Modules, & Packages 🟠
-- document:   Random 🟠
-- assignment: Magic 8 Ball 🟡
-- solution:   Magic 8 Ball 🟡
+demo - while and for loops
+demo - random
+mob program
+  magic 8 ball
+  random emoticon generator
+demo - strings
+practice - strings
+afternoon
+  random password generator
+  guess the number
 -->
+
 
 
 ## Course Files
