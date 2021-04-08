@@ -1,3 +1,4 @@
+
 # get words from the user
 adjective = input('enter an adjective: ')
 noun = input('enter a noun: ')
