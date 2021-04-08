@@ -75,8 +75,6 @@ Schedule Overview:
   individual - random password generator
   lists and tuples
   mob - credit card validation
-
-
 -->
 
 
