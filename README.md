@@ -46,10 +46,8 @@ Schedule Overview:
 - [assignment: Grading](1%20Python/labs/03%20Grading.md)
 - [solution:   Grading](Code/Matthew/lab03_grading.py)
 - [document:   Random](1%20Python/docs/06%20Random.md)
-- [assignment: Magic 8 Ball](1%20Python/labs/Magic%208%20Ball.md)
-- solution:   Magic 8 Ball
 - [assignment: Random Emoticon Generator](1%20Python/labs/Random%20Emoticon%20Generator.md)
-- solution:   Random Emoticon Generator
+- [solution:   Random Emoticon Generator](Code/Matthew/mob_random_emoticon_generator.py)
 - [document:   While & For Loops](1%20Python/docs/07%20While%20&%20For%20Loops.md)
 - [practice:   While & For Loops](1%20Python/practice/loops.py)
 - solution:   While & For Loops
@@ -57,23 +55,28 @@ Schedule Overview:
 - [solution:   Rock Paper Scissors](Code/Matthew/lab05_rock_paper_scissors.py)
 - [document:   Strings](1%20Python/docs/08%20Strings.md)
 - [practice:   Strings](1%20Python/practice/strings.py)
-- solution:   Strings
+- [solution:   Strings](Code/Matthew/practice_strings.py)
 - [assignment: Guess The Number](1%20Python/labs/Guess%20The%20Number.md)
-- solution:   Guess The Number
+- [solution:   Guess The Number](Code/Matthew/mob_guess_the_number.py)
 - [assignment: Random Password Generator](1%20Python/labs/06%20Random%20Password%20Generator.md)
 - solution:   Random Password Generator
+- [document:   Lists & Tuples](1%20Python/docs/09%20Lists%20&%20Tuples.md)
+- [practice:   Lists & Tuples](1%20Python/practice/lists.py)
+- solution:   Lists & Tuples
+- [assignment: Credit Card Validation](1%20Python/labs/Credit%20Card%20Validation.md)
+- solution:   Credit Card Validation
+- [assignment: Peaks & Valleys](1%20Python/labs/Peaks%20and%20Valleys.md)
+- solution:   Peaks & Valleys
+
 
 <!--
-demo - while and for loops
-demo - random
-mob program
-  magic 8 ball
-  random emoticon generator
-demo - strings
-practice - strings
-afternoon
-  random password generator
-  guess the number
+  loop demo with strings and lists
+  loop practice
+  individual - random password generator
+  lists and tuples
+  mob - credit card validation
+
+
 -->
 
 
