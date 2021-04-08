@@ -46,7 +46,9 @@ while True:
     num = int(input('How many numbers would you like? '))
     special = int(input('How many special characters? '))
 
-    if (upper+lower+num+special) != length: # Used to ensure the selected character values matches the requested length
+    # Used to ensure the selected character values matches the requested length
+
+    if (upper+lower+num+special) != length:
         print('The amount of characters you chose does not match the requested length! Please reenter your information!')
         continue
     
