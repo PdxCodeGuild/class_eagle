@@ -69,11 +69,15 @@ def reverse3(nums):
 
 
 
-import string
-letters = list(string.ascii_lowercase)
-print(letters)
-print(reverse3(letters))
+# import string
+# letters = list(string.ascii_lowercase)
+# print(letters)
+# print(reverse3(letters))
 # print(nums)
+
+
+
+
 
 
 
@@ -83,13 +87,6 @@ def test_reverse():
 
 
 
-# Common Elements
-# Write a function to find all common elements between two lists.
-
-
-def common_elements(nums1, nums2):
-  ...
-print(common_elements([1, 2, 3], [2, 3, 4])) # [2, 3]
 
 
 # Combine
@@ -112,23 +109,6 @@ print(find_pair([5, 6, 2, 3], 7)) # [5, 2]
 
 
 
-
-# Average
-# Write a function to find the average of a list of numbers
-
-
-def average(nums):
-    ...
-print(average([1, 2, 3, 4, 5])) # 3
-
-
-# Remove Empty
-# Write a function to remove all empty strings from a list.
-
-
-def remove_empty(mylist):
-    ...
-print(remove_empty(['a', 'b', '', 'c', '', 'd'])) # ['a', 'b', 'c', 'd']
 
 
 
