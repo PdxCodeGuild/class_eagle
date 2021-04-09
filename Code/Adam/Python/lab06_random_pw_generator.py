@@ -33,29 +33,69 @@ print(f'\n{password}\n')
 
 
 
-# Part 2 - Ask user for the number of each character type
+# # Part 2 - Ask user for the number of each character type
+
+
+
+
+# password = []
+
+# def random_uppercase_chars(n_uppercase):
+#     uppercase_chars = ''
+#     i = 0
+#     while i < n_uppercase:
+#         uppercase_chars += random.choice(string.ascii_uppercase)
+#         i += 1
+#     return uppercase_chars
+
+# def random_lowercase_chars(n_lowercase):
+#     lowercase_chars = ''
+#     i = 0
+#     while i < n_lowercase:
+#         lowercase_chars += random.choice(string.ascii_lowercase)
+#         i += 1
+#     return lowercase_chars
+
+# def random_digits(n_digits):
+#     digits = ''
+#     i = 0
+#     while i < n_digits:
+#         digits += random.choice(string.digits)
+#         i += 1
+#     return digits
+
+# def random_punctuation(n_punctuation):
+#     punctuation = ''
+#     i = 0
+#     while i < n_punctuation:
+#         punctuation += random.choice(string.punctuation)
+#         i += 1
+#     return punctuation
+
 # n_uppercase = int(input('How many upppercase letters would you like? '))
 # n_lowercase = int(input('How many lowercase letters would you like? '))
 # n_digits = int(input('How many digits would you like? '))
 # n_punctuation = int(input('How much punctuation would you like? '))
-# pw_length = n_uppercase + n_lowercase + n_digits + n_punctuation
+# # pw_length = n_uppercase + n_lowercase + n_digits + n_punctuation
 
-# using a while loop to generate a password of the chosen length
+# uppercase_chars = random_uppercase_chars(n_uppercase)
+# lowercase_chars = random_lowercase_chars(n_lowercase)
+# digits = random_digits(n_digits)
+# punctuation = random_punctuation(n_punctuation)
 
-# i = 0
 
-# while i < pw_length:
-#     ...
+# password.append(uppercase_chars)
+# password.append(lowercase_chars)
+# password.append(digits)
+# password.append(punctuation)
+
+# print(password)
 
 
 # for testing
-# print(n_uppercase)
-# print(n_lowercase)
-# print(n_digits)
-# print(n_punctuation)
-# print(pw_length)
-# print(type(n_uppercase))
-# print(type(pw_length))
-
+# print(uppercase_chars)
+# print(lowercase_chars)
+# print(digits)
+# print(punctuation)
 
 
