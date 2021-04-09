@@ -65,7 +65,7 @@ Schedule Overview:
 - solution:   Lists & Tuples
 - [assignment: Credit Card Validation](1%20Python/labs/Credit%20Card%20Validation.md)
 - solution:   Credit Card Validation
-- [assignment: Peaks & Valleys](1%20Python/labs/Peaks%20and%20Valleys.md)
+- [assignment: Peaks & Valleys](1%20Python/labs/07%20Peaks%20and%20Valleys.md)
 - solution:   Peaks & Valleys
 
 
@@ -75,8 +75,6 @@ Schedule Overview:
   individual - random password generator
   lists and tuples
   mob - credit card validation
-
-
 -->
 
 
