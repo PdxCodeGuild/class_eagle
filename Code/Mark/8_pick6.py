@@ -26,12 +26,16 @@ win_nums = []
 
 # Loop to determine to amount won
 for i in range(100000):
-
+    # each loop user balance will go down 2 and expense up 2
     user_balance -=2
     expense += 2
+
+    # calling and sending data to the function
     ticket = pick6(ticket)
     win_nums = pick6(win_nums)
     matches = num_matches(win_nums,ticket)
+
+    # if's and elif's to determine the amount of money per match
     if matches == 0:
         continue
     elif matches == 1:
