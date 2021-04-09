@@ -1,6 +1,7 @@
 # Optional Additions:
 # - try randomly generating an input (TODO)
-# - drawing the range with ASCII (DONE)
+# - drawing the range with ASCII (DONE)#
+# - water collects in the valleys, draw the water collected, and calculate the 'volume' (TODO
 
 data = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 8, 9, 8, 7, 6, 7, 8, 9]
 
@@ -49,13 +50,12 @@ def DataDraw(x):
     # this function operats similar to a old-school dot-matrix printer, or CRT television
     # we go layer by layer, resetting when we get to the next layer
 
-    layer = max(x) # finds the tallest peak
     calc_list = x.copy() #copy over list into function (without pointers to prevent changing the original list)
 
-    while layer >= 0: # use a while loop here instead of a for loop so we can iterate down with the layer variable
+    for layer in range(max(x), 0, -1): # iterate through layers
         output = '' # define / redefine output string as blank
 
-        for val in calc_list: # iterate through every value in the list
+        for val in calc_list: # iterate through every value in the list in this given layer
             if val > layer - 1: # if the 'height' at that point (val) is > the current layer we're on (max_height - iterations of height)
                 output += ' * ' # to represent ground
             else:
@@ -63,8 +63,7 @@ def DataDraw(x):
 
             val -= 1 # subtract 1 from the height of this value because we have iterated through this layer
         print(output) # print the layer
-        layer -= 1 # move to the next layer down
-        
+
 DataDraw(data) #draw the data
 
 data_str = '' 
