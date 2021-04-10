@@ -1,7 +1,6 @@
 import random
 
-rpc = ['rock','paper','scissors','lizard','spock']
-
+# Some amazing ascii art to add some flavor!
 print("""                             
     ____             __      ____                           _____      _                          
    / __ \____  _____/ /__   / __ \____ _____  ___  _____   / ___/_____(_______________  __________
@@ -15,8 +14,10 @@ print("""
                                                        /_/            
 """)
 
+# a function with lots of if's and elif's to determine the winner
 
-def rock_paper_scissors(user,computer): # a function to decide the winner
+
+def rock_paper_scissors(user, computer):
     if user == computer:
         return 'tie'
     elif user == "rock":
@@ -24,7 +25,7 @@ def rock_paper_scissors(user,computer): # a function to decide the winner
             return 'lose'
         elif computer == "scissors":
             return 'win'
-        elif computer =="spock":
+        elif computer == "spock":
             return 'lose'
         elif computer == "lizard":
             return 'win'
@@ -33,7 +34,7 @@ def rock_paper_scissors(user,computer): # a function to decide the winner
             return 'lose'
         elif computer == "paper":
             return 'win'
-        elif computer =="spock":
+        elif computer == "spock":
             return 'lose'
         elif computer == "lizard":
             return 'win'
@@ -42,7 +43,7 @@ def rock_paper_scissors(user,computer): # a function to decide the winner
             return 'win'
         elif computer == "scissors":
             return 'lose'
-        elif computer =="spock":
+        elif computer == "spock":
             return 'win'
         elif computer == "lizard":
             return 'lose'
@@ -65,23 +66,37 @@ def rock_paper_scissors(user,computer): # a function to decide the winner
         elif computer == "spock":
             return 'win'
 
+
+# The list the will be randomly chosen from by the comp
+rpc = ['rock', 'paper', 'scissors', 'lizard', 'spock']
+
+# setting the variables to increment the score
 comp_score = 0
 user_score = 0
 
-
-
 while True:
-    comp = random.choice(rpc) 
 
+    # comp choses its fighter
+    comp = random.choice(rpc)
+
+    # user choses its fighter
     u_rpc = input('Make your choice: ')
-    if u_rpc not in rpc: 
+
+    # ensuring that the user chose a valid option
+    if u_rpc not in rpc:
         print('Please enter a valid choice!')
         continue
+
+    # displaying what the user and the computer chose
     print(f"""
     You chose {u_rpc}
     The computer chose {comp}
     """)
-    result = rock_paper_scissors(u_rpc, comp) 
+
+    # determining the winner with the function
+    result = rock_paper_scissors(u_rpc, comp)
+
+    # ifs and elifs to display the results and incriment the score
     if result == "win":
         user_score += 1
         print('Congratulations! You won!')
@@ -90,16 +105,16 @@ while True:
         print('Unfortunatly, you lost. Better luck next time!')
     else:
         print("It's a tie!")
-    
+
+    # displaying the current score
     print(f"""
     Current score:
     User  {user_score}
     Computer {comp_score}
     """)
 
+    # asking the user if they would like to play again
     answer = input('Would you like to play again?[yes/no] ')
     if answer != 'yes':
         print('Thank you, goodbye!')
         break
-        
-    
