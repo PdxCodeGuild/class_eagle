@@ -9,7 +9,7 @@ def PickSix():
 
 def Gamble():
     output = [0, 0, 0, 0, 0, 0, 0, 0]
-    for i in range(1000000):
+    for i in range(500000):
         matches = 0
 
         user_tick = PickSix()
@@ -42,7 +42,7 @@ def Gamble():
         output[7] -= 2
         if matches >=0 :
             print(f'Your Ticket: {user_tick} | Winning Ticket: {win_tick} | Your profits: {output} | Rounds played: {i+1}')
-        
+    print(f'Your ROI is:{output[7]/(i+1*(2))}')
 
     return output
 
