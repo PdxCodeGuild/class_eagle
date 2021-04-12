@@ -2,7 +2,6 @@
 
 
 # from utilities import get_int
-
 # age = get_int('What is your age?')
 # print(f'You are {age} years old')
 
