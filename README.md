@@ -66,7 +66,11 @@ Schedule Overview:
 - [assignment: Credit Card Validation](1%20Python/labs/Credit%20Card%20Validation.md)
 - [solution:   Credit Card Validation](Code/Matthew/mob_credit_card_validation.py)
 - [assignment: Peaks & Valleys](1%20Python/labs/07%20Peaks%20and%20Valleys.md)
-- solution:   Peaks & Valleys
+- [solution:   Peaks & Valleys](Code/Matthew/lab07_peaks_and_valleys.py)
+- [assignment: Rot Cipher](1%20Python/labs/09%20Rot%20Cipher.md)
+- solution: Rot Cipher
+- [assignment: Snowman](1%20Python/labs/Snowman.md)
+- solution: Snowman
 
 
 <!--

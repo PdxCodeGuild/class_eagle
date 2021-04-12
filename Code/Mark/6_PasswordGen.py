@@ -1,6 +1,7 @@
 from random import *
 import string
 
+ # Somme more awesome ascii art!
 print("""
          _ (`-.   ('-.     .-')    .-')    (`\ .-') /`           _  .-') _ .-') _                      ('-.      .-') _  ('-. _  .-')    ('-.    .-') _              _  .-')   
   ( (OO  ) ( OO ).-.( OO ). ( OO ).   `.( OO ),'          ( \( -O ( (  OO) )                   _(  OO)    ( OO ) _(  OO( \( -O )  ( OO ).-(  OO) )            ( \( -O )  
