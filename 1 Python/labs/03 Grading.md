@@ -1,8 +1,5 @@
 
-# Lab 3: Grading
-
-- [Part 1](#part-1)
-- [Part 2](#part-2)
+# Grading
 
 ## Part 1
 

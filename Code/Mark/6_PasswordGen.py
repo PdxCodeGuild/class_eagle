@@ -1,6 +1,7 @@
 from random import *
 import string
 
+ # Somme more awesome ascii art!
 print("""
          _ (`-.   ('-.     .-')    .-')    (`\ .-') /`           _  .-') _ .-') _                      ('-.      .-') _  ('-. _  .-')    ('-.    .-') _              _  .-')   
   ( (OO  ) ( OO ).-.( OO ). ( OO ).   `.( OO ),'          ( \( -O ( (  OO) )                   _(  OO)    ( OO ) _(  OO( \( -O )  ( OO ).-(  OO) )            ( \( -O )  
@@ -46,8 +47,10 @@ while True:
     num = int(input('How many numbers would you like? '))
     special = int(input('How many special characters? '))
 
-    if (upper+lower+num+special) > length: # Used to ensure the selected character values to exceed the requested length
-        print('The amount of characters you chose exceeds the requested length! Please reenter your information!')
+    # Used to ensure the selected character values matches the requested length
+
+    if (upper+lower+num+special) != length:
+        print('The amount of characters you chose does not match the requested length! Please reenter your information!')
         continue
     
     print(f'You shiny new password is: {pass_gen(length,upper,lower,num,special)}')
@@ -55,13 +58,13 @@ while True:
     # asks the user if they would like to generate another
 
     answer = input("""
-    Would you like to generate another?
-    [yes/no] 
-    """)
+Would you like to generate another?
+[yes/no] 
+""")
     if answer != 'yes':
         print('''
-        Thank you for using the Password Generator 9000!
-        Goodbye!
+Thank you for using the Password Generator 9000!
+Goodbye!
         ''')
         break
         

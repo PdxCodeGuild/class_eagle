@@ -1,13 +1,6 @@
 
 
-# two dimensional list (list of lists)
 
-#              0          1          2
-#           0  1  2    0  1  2    0  1  2
-# numbers = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-# print(numbers[1])
-# print(numbers[1][2])
-# exit()
 
 import random
 
