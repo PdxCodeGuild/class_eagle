@@ -49,4 +49,19 @@ for i in range(100000):     # 3) loop 100,000 times
     matches = num_of_matches(ticket_nums, winning_nums)     # 5) calculate how many matches there are between the ticket and the winning numbers
     payout += matches_payout(matches)    # 6) figure out the payout from the number of matches
 
-print(balance + payout)     # 7) add the payout to your balance
+# print(balance + payout)     # 7) add the payout to your balance
+
+
+roi = round((payout + balance)/abs(balance)*100, 2)
+expenses = "{:,}".format(abs(balance))
+earnings = "{:,}".format(payout)
+
+print('\nAfter playing Pick 6 100,000 times:')
+print(f'\nTotal expenses: ${expenses}')
+print(f'\nTotal earning: ${earnings}')
+print(f'\nCalculated Return on Investment: {roi}%\n')
+
+if roi > 0:
+    print('You got real lucky!')
+else:
+    print("It's really not worth it.\n")
