@@ -32,6 +32,6 @@ random.shuffle(password)
 
 x = ''.join(password)
 
-print(x)
+print(f"Your password is: {x}")
 
 
