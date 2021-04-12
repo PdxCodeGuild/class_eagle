@@ -64,4 +64,4 @@ print(f'\nCalculated Return on Investment: {roi}%\n')
 if roi > 0:
     print('You got real lucky!')
 else:
-    print("It's really not worth it.\n")
+    print("Moral: It's really not worth it.\n")
