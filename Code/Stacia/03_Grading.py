@@ -36,4 +36,4 @@ else:
     x = "" #other wise x is asigned a blank string
 
 #the results are printed in an fstring
-print (f"you scored {grade}{x}.")
+print (f"you scored {grade}{x}.") 

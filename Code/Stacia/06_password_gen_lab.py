@@ -52,3 +52,4 @@ password = (random.sample(listomania,len(listomania)))
 
 password = "".join(password)
 print (password)
+

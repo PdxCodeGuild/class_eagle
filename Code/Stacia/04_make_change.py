@@ -19,3 +19,4 @@ penies = int(dchange % 5)
 #prints out an f string that tells how much of each coin they have. 
 print (f"You recive {dollars}  dollars {quarters} quarters {dimes} dimes {nickles} nickles and {penies} pennys. Sorry but half dollars are collector peices.")
 
+ 
