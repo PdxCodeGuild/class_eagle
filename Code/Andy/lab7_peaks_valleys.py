@@ -23,3 +23,4 @@ def peaks_and_valleys(data):
         if data[i+1] == data[i-1] and data[i] != data[i+1]:
             pv_list.append(i)
     return print(pv_list)
+
