@@ -21,15 +21,16 @@ def poor_life_choices():
     total = 0
     #2. Loop 100,000 times, for each loop:
     lucky = picksix() #here we pick the lucky ticket by calling the pick six function.
-    
-    for i in range (100,000): #this loop will allow us to expereince loss 100,000 times as it runs over and over.  
-
+    print (lucky)
+    for i in range (5): #this loop will allow us to expereince loss 100,000 times as it runs over and over.  
+        i+=1
+        match = 0
          #3. Generate a list of 6 random numbers representing the ticket
         ticket=picksix() #heres a ticket each ticket will run the picksix indipendent of others. 
-
+        print (ticket)
         #4. Subtract 2 from your balance (you bought a ticket)
         cost += -2 # here the user is charged two dollars to a running cost value. 
-        
+        print (cost)
         #5. Find how many numbers match
 
         for g in range (6): #here we run over the numbers. 
@@ -37,19 +38,19 @@ def poor_life_choices():
             if ticket[g] == lucky[g]: # check if the indices match on lucky and ticket. 
                 match +=1 # if its a match you get one point for this ticket. 
         #6. Add to your balance the winnings from your matches
-        
+    
 
         # We start with six matches and use elif statements of only one condition will trigger at the highest victory level. THis way three matches adds $100 and not 113
         if match == 6:
             winnings += 25,000,000
-            sixers +1
+           
         elif match == 5:
             winnings += 1,000,000
-            fivers +=1
+            
         elif match == 4:
             winnings += 50,000
         elif match == 3:
-        winnings += 100
+            winnings += 100
         elif match == 2:
             winnings += 7
         elif match == 1:
@@ -64,9 +65,8 @@ print ("New Jersey pick six has an odd of one in 13,983,816.")
 play= input("Are you fealing lucky?")
 print ("It dosen't matter at two bucks a ticket your paying for the fantasy")
 print ("but with 100,000 tickets how could you lose?")
-print ("Sure you could by that 7 bedroom almost 4000 square foot house in Pilesgrove, but with 25,000,000 million calling your name you could build a realestate empire.
+print ("Sure you could by that 7 bedroom almost 4000 square foot house in Pilesgrove, but with 25,000,000 million calling your name you could build a realestate empire.")
 print ("What could go wrong?")
 cost, winnings, total = poor_life_choices()
 
-print (f"Well what could you expect? {winnings} only cost you {cost}")
-print (f" Thats a net of {total}")
+print (f"Well what could you expect? {winnings} winnings only cost you {cost} for a net total of {total}")
