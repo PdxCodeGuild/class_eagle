@@ -46,7 +46,7 @@ Schedule Overview:
 - [assignment: Grading](1%20Python/labs/03%20Grading.md)
 - [solution:   Grading](Code/Matthew/lab03_grading.py)
 - [document:   Random](1%20Python/docs/06%20Random.md)
-- [assignment: Random Emoticon Generator](1%20Python/labs/Random%20Emoticon%20Generator.md)
+- [Mob:        Random Emoticon Generator](1%20Python/labs/Random%20Emoticon%20Generator.md)
 - [solution:   Random Emoticon Generator](Code/Matthew/mob_random_emoticon_generator.py)
 - [document:   While & For Loops](1%20Python/docs/07%20While%20&%20For%20Loops.md)
 - [practice:   While & For Loops](1%20Python/practice/loops.py)
@@ -63,22 +63,20 @@ Schedule Overview:
 - [document:   Lists & Tuples](1%20Python/docs/09%20Lists%20&%20Tuples.md)
 - [practice:   Lists & Tuples](1%20Python/practice/lists.py)
 - [solution:   Lists & Tuples](Code/Matthew/practice_lists.py)
-- [assignment: Credit Card Validation](1%20Python/labs/Credit%20Card%20Validation.md)
+- [Mob:        Credit Card Validation](1%20Python/labs/Credit%20Card%20Validation.md)
 - [solution:   Credit Card Validation](Code/Matthew/mob_credit_card_validation.py)
 - [assignment: Peaks & Valleys](1%20Python/labs/07%20Peaks%20and%20Valleys.md)
 - [solution:   Peaks & Valleys](Code/Matthew/lab07_peaks_and_valleys.py)
+- [Mob:        Snowman](1%20Python/labs/Snowman.md)
+- [solution: Snowman](Code/Matthew/mob_snowman.py)
 - [assignment: Rot Cipher](1%20Python/labs/09%20Rot%20Cipher.md)
 - solution: Rot Cipher
-- [assignment: Snowman](1%20Python/labs/Snowman.md)
-- solution: Snowman
 
 
 <!--
-list practice problems
-finish peaks and valleys
-individual - rot 13
-mob programming - bogo sort
-individual - pick 6
+go over blackjack advice and dad joke api
+more list practice problems
+rot cipher
 -->
 
 
@@ -107,6 +105,22 @@ individual - pick 6
 - [03 Numbers & Arithmetic](1%20Python/docs/03%20Numbers%20&%20Arithmetic.md)
 - [04 Booleans, Comparisons, & Conditionals](1%20Python/docs/04%20Booleans,%20Comparisons,%20&%20Conditionals.md)
 - [05 Imports, Modules, & Packages](1%20Python/docs/05%20Imports,%20Modules,%20&%20Packages.md)
+- [06 Random](1%20Python/docs/06%20Random.md)
+- [07 Strings](1%20Python/docs/07%20Strings.md)
+- [08 While & For Loops](1%20Python/docs/08%20While%20&%20For%20Loops.md)
+- [09 Lists & Tuples](1%20Python/docs/09%20Lists%20&%20Tuples.md)
+- [10 Functions](1%20Python/docs/10%20Functions.md)
+- [11 Dictionaries](1%20Python/docs/11%20Dictionaries.md)
+- [12 Regular Expressions in Python](1%20Python/docs/12%20Regular%20Expressions%20in%20Python.md)
+- [13 Searching & Sorting Algorithms](1%20Python/docs/13%20Searching%20&%20Sorting%20Algorithms.md)
+- [14 Classes](1%20Python/docs/14%20Classes.md)
+- [15 Linked Lists & Trees](1%20Python/docs/15%20Linked%20Lists%20&%20Trees.md)
+- [16 Requests](1%20Python/docs/16%20Requests.md)
+- [File IO](1%20Python/docs/File%20IO.md)
+- [Docstrings](1%20Python/docs/Docstrings.md)
+- [Virtual Environments](1%20Python/docs/Virtual%20Environments.md)
+- [Datetime](1%20Python/docs/Datetime.md)
+- [Sets](1%20Python/docs/Sets.md)
 
 
 #### Assignments
@@ -115,7 +129,14 @@ individual - pick 6
 - [02 Mad Lib](1%20Python/labs/02%20Mad%20Lib.md)
 - [03 Grading](1%20Python/labs/03%20Grading.md)
 - [04 Make Change](1%20Python/labs/04%20Make%20Change.md)
-- [05 Rock Paper Scissors](Code/Matthew/lab05_rock_paper_scissors.py)
+- [05 Rock Paper Scissors](1%20Python/labs/05%20Rock%20Paper%20Scissors.md)
+- [06 Random PAssword Generator](1%20Python/labs/06%20Random%20Password%20Generator.md)
+- [07 Peaks and Valleys](1%20Python/labs/07%20Peaks%20and%20Valleys.md)
+- [08 Pick6](1%20Python/labs/08%20Pick6.md)
+- [09 Blackjack Advice](1%20Python/labs/09%20Blackjack%20Advice.md)
+- [10 Dad Joke API](1%20Python/labs/10%20Dad%20Joke%20API.md)
+- [11 Rot Cipher](1%20Python/labs/11%20Rot%20Cipher.md)
+
 
 #### Practice
 
@@ -123,3 +144,5 @@ individual - pick 6
 - [02 Booleans](1%20Python/practice/02_booleans.py)
 - [03 Loops](1%20Python/practice/03_loops.py)
 - [04 Strings](1%20Python/practice/04_strings.py)
+- [05 Lists](1%20Python/practice/05_lists.py)
+- [06 Dictionaries](1%20Python/practice/06_dictionaries.py)
