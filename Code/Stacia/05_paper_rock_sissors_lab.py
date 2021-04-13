@@ -89,3 +89,4 @@ else:
     if  player == "scissors" and comp == "rock":
         loose()
 
+ 

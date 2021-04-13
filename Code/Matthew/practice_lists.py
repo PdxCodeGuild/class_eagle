@@ -77,16 +77,50 @@ def reverse3(nums):
 
 
 
-
-
-
-
-
 def test_reverse():
     assert reverse([1, 2, 3]) == [3, 2, 1]
 
 
 
+# Factorial
+# Write a function that takes `n` as a parameter and returns `n` factorial.
+
+def factorial(n):
+  ...
+print(factorial(5)) # 120
+
+
+# Find Unique
+# Write a function which takes a list as a parameter and returns a new list with any duplicates removed.
+
+
+def find_unique(nums):
+    ...
+nums = [12, 24, 35, 24, 88, 120, 155, 88, 120, 155]
+unique_nums = find_unique(nums) # [12, 24, 35, 88, 120, 155]
+
+
+
+# Find Pair
+# Given a list of numbers, and a target number, find a pair of numbers from the list that sum to a target number. Optional: return a list of all pairs of numbers that sum to a target value.
+
+
+def find_pair(nums, target):
+  ...
+print(find_pair([5, 6, 2, 3], 7)) # [5, 2]
+
+
+
+
+
+
+
+# Fibonacci
+# Write a function that takes `n` as a parameter, and returns a list containing the first `n` [Fibonacci Numbers](https://en.wikipedia.org/wiki/Fibonacci_number).
+
+def fibonacci(n):
+    ...
+print(fibonacci(8)) # [1, 1, 2, 3, 5, 8, 13, 21]
 
 
 # Combine
@@ -98,14 +132,6 @@ def combine(nums1, nums2):
 print(combine(['a','b','c'],[1,2,3])) # ['a', 1, 'b', 2, 'c', 3]
 
 
-
-# Find Pair
-# Given a list of numbers, and a target number, find a pair of numbers from the list that sum to a target number. Optional: return a list of all pairs of numbers that sum to a target value.
-
-
-def find_pair(nums, target):
-  ...
-print(find_pair([5, 6, 2, 3], 7)) # [5, 2]
 
 
 
@@ -129,30 +155,8 @@ def combine_all(nums):
 print(combine_all([[5,2,3],[4,5,1],[7,6,3]])) # [5,2,3,4,5,1,7,6,3]
 
 
-# Fibonacci
-# Write a function that takes `n` as a parameter, and returns a list containing the first `n` [Fibonacci Numbers](https://en.wikipedia.org/wiki/Fibonacci_number).
-
-def fibonacci(n):
-    ...
-print(fibonacci(8)) # [1, 1, 2, 3, 5, 8, 13, 21]
-
-# Factorial
-# Write a function that takes `n` as a parameter and returns `n` factorial.
 
 
-def factorial(n):
-  ...
-print(factorial(5)) # 120
-
-
-# Find Unique
-# Write a function which takes a list as a parameter and returns a new list with any duplicates removed.
-
-
-def find_unique(nums):
-    ...
-nums = [12, 24, 35, 24, 88, 120, 155, 88, 120, 155]
-unique_nums = find_unique(nums) # [12, 24, 35, 88, 120, 155]
 
 
 

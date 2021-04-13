@@ -89,21 +89,88 @@ def test_count_hi():
     assert count_hi('hello hi llama hill') == 2
 
 
+
+
+
+
 # Snake Case
 # Write a function that converts text to snake case (all lowercase, underscores for spaces, no special characters).
 
+import string
+
+def remove_punctuation(text):
+    # remove all punctuation
+    for llama in text:
+        if llama in string.punctuation:
+            text = text.replace(llama, '')
+
+    # for punc_char in string.punctuation:
+    #     text = text.replace(punc_char, '')
+
+    # output = ''
+    # for char in text:
+    #     if char not in string.punctuation:
+    #         output += char
+    # text = output
+
+    return text
+
+
 def snake_case(text):
-    ...
+    text = text.lower()
+
+    text = remove_punctuation(text)
+    
+
+
+    text = text.replace(' ', '_')
+
+    return text
+
+# print(snake_case('Hello World!'))
+
+# import string
+# print(string.ascii_lowercase) # 'abcdefghijklmnopqrstuvwxyz'
+# print(string.punctuation) # '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+
 
 def test_snake_case(text):
     assert snake_case('Hello World!') ==  'hello_world'
     assert snake_case('This is another example.') == 'this_is_another_example'
 
+
+
+
+
+
 # Camel Case
 # Write a function that converts text to camel case (no spaces, no special characters, leading capitals except the first).
 
 def camel_case(text):
-    ...
+
+    text = remove_punctuation(text)
+
+    text = text.split(' ')
+    # text = text.replace(' ', '')
+    text[0] = text[0].lower()
+    for i in range(1, len(text)):
+        text[i] = text[i].title()
+    # for word in text:
+    #     word = word.lower()
+    text = ''.join(text)
+    print(text)
+
+
+print(camel_case('Hello beauTiful WORld!')) # helloBeautifulWorld
+
+
+
+# this_is_snake_case
+# thisIsCamelCase
+# ThisIsTitleCaseOrPascalCase
+# THIS_IS_SCREAM_CASE
+
+
 
 def test_camel_case():
     assert camel_case('Hello World!') == 'helloWorld'
