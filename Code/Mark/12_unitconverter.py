@@ -1,5 +1,7 @@
 import os
 import time
+
+# sweet ascii art!
 print('''
 
             _____ _   _______ ___________              
@@ -72,7 +74,7 @@ while True:
     if answer != 'yes':
         break
 
-
+# Saying goodbye with some awesome ascii art!
 print('''
                 Thank you for using the:
             _____ _   _______ ___________              
