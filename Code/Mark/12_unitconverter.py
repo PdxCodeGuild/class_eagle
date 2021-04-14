@@ -30,7 +30,7 @@ print('''
 ''')
 
 
-
+# get_distance takes the information provided by the user and converts to the requested unit
 def get_distance(unit1, distance, unit2):
     # dictionary with the unit conversions 
     unit_values = {
@@ -61,7 +61,7 @@ while True:
     # adding time and statment for a little suspense
     print('Beep boop beep...converting units')
     time.sleep(6)
-    # clearing the screen of the "loading" statement
+    # clearing the screen for proper presentation
     os.system('cls')
 
     # present the results to the user
