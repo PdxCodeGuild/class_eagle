@@ -74,7 +74,6 @@ Schedule Overview:
 
 
 <!--
-go over blackjack advice and dad joke api
 more list practice problems
 rot cipher
 -->
