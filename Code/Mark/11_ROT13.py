@@ -72,7 +72,7 @@ def encryptv2(num,text):
     char_list = list(text)
     letters = ascii_letters
     message = ""
-    for i in range(0,len(char_list)):
+    for i in range(len(char_list)):
         if char_list[i] == ' ':
             message += ' '
             continue
