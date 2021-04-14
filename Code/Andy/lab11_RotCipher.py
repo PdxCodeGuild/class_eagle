@@ -4,8 +4,8 @@
 
 def rot(text, rot_num):
     new_word = []
-    for i in text:
-        new_let = int(ord(i))
+    for letter in text:
+        new_let = int(ord(letter))
         rot_num = int(rot_num)
         new_let += rot_num
         if new_let <= 122:
