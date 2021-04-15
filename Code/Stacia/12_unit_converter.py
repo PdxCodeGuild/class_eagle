@@ -25,7 +25,10 @@ if conversion =="meters" :
     answer = conversions[base] * units
 
 else:
-    stepone = conversions["meters"] / units
-    answer  =  conversion 
+    
+    stepone = conversions["meters"] /conversions [base]
+    print (stepone)
+    answer = stepone / conversions [base]
+    
 
 print (answer)
