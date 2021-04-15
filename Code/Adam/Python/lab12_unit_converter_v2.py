@@ -19,7 +19,7 @@ def convert_to_meters(unit, distance):
 user_unit = input('What is the starting unit; feet, miles, meters, kilometers? ').lower()
 user_distance = float(input('What is the distance? '))
 conversion = convert_to_meters(user_unit, user_distance)
-
+# show the user the converted distance
 print(f'{user_distance} {user_unit} is {conversion} meters')
 
 
