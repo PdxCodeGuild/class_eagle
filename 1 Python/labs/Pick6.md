@@ -1,4 +1,4 @@
-# Lab: Pick6
+# Pick6
 
 Have the computer play pick6 many times and determine net balance.
 

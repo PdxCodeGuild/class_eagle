@@ -1,4 +1,4 @@
-# Lab: Bogo Sort
+# Bogo Sort
 
 Bogo sort is one of the least efficient sorting algorithms imaginable! It works by generating random arrangements of a list, checking if the list is sorted, and if it is, return it. For a list of 200 numbers, there are 200! = 7.88*10^374 possible combinations, only one of them is the sorted list.
 
