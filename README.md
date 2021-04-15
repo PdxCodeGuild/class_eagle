@@ -70,7 +70,10 @@ Schedule Overview:
 - [Mob:        Snowman](1%20Python/labs/Snowman.md)
 - [solution: Snowman](Code/Matthew/mob_snowman.py)
 - [assignment: Rot Cipher](1%20Python/labs/Rot%20Cipher.md)
-- solution: Rot Cipher
+- [solution: Rot Cipher](Code/Matthew/lab11_rot_cipher.py)
+- [assignment: Unit Converter](1%20Python/labs/Unit%20Converter.md)
+- [solution: Unit Converter](Code/Matthew/lab12_unit_converter.py)
+- [assignment: Count Words](1%20Python/labs/Count%20Words.md)
 
 
 <!--
