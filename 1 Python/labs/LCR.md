@@ -1,5 +1,5 @@
 
-# Lab: LCR Simulator
+# LCR Simulator
 
 [LCR](https://en.wikipedia.org/wiki/LCR_(dice_game)) is a dice game, one of pure chance. Therefore, we can write a simulator to avoid wasting the time playing it ourselves.
 
