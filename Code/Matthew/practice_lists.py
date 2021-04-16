@@ -161,13 +161,6 @@ unique_nums = find_unique(nums)
 print(unique_nums) # [12, 24, 35, 88, 120, 155]
 
 
-# Find Pair
-# Given a list of numbers, and a target number, find a pair of numbers from the list that sum to a target number. Optional: return a list of all pairs of numbers that sum to a target value.
-
-
-def find_pair(nums, target):
-  ...
-# print(find_pair([5, 6, 2, 3], 7)) # [5, 2]
 
 
 
@@ -175,12 +168,7 @@ def find_pair(nums, target):
 
 
 
-# Fibonacci
-# Write a function that takes `n` as a parameter, and returns a list containing the first `n` [Fibonacci Numbers](https://en.wikipedia.org/wiki/Fibonacci_number).
 
-def fibonacci(n):
-    ...
-# print(fibonacci(8)) # [1, 1, 2, 3, 5, 8, 13, 21]
 
 
 # Combine
