@@ -74,14 +74,8 @@ Schedule Overview:
 - [assignment: Unit Converter](1%20Python/labs/Unit%20Converter.md)
 - [solution: Unit Converter](Code/Matthew/lab12_unit_converter.py)
 - [assignment: Count Words](1%20Python/labs/Count%20Words.md)
-
-
-<!--
-review rot 13
-more list practice problems
-mob program number to phrase
-individual unit converter
--->
+- [solution: Count Works](Code/Matthew/lab13_count_words.py)
+- [assignment: ARI](1%20Python/labs/ARI.md)
 
 
 
