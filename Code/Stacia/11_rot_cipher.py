@@ -19,8 +19,7 @@ def rot13(text):
         for j in range(len(alpha_list)):
             if alpha_list[j] == user_string[i]:
                 output += rotlist[j]
-            else:
-                j+=1
+           
     return output
     
         # find the index of the character in the alphabet
