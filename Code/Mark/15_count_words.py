@@ -12,7 +12,8 @@ user_word = input('Select a keyword to search for: ')
 
 
 # raw string to find all uses of the user word and the word that follows it
-book = re.findall(fr'({user_word} [A-Za-z]+)',book, re.IGNORECASE)
+book = re.findall(fr"({user_word} [\w']+)",book, re.I)
+
 
 
 # a for loop to iterate through each string and take count of each time it appears
