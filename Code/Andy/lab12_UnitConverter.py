@@ -2,6 +2,9 @@
 
 '''****************************************** Unit Converter ********************************************''' 
 
+# improvements - put inside REPL
+
+
 def unit_converter():
     conversions = {
 
@@ -34,9 +37,6 @@ def unit_converter():
 
 
 unit_converter()
-
-
-
 
 
 

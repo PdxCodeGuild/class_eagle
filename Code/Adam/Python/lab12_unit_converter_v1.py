@@ -8,9 +8,10 @@ distance in meters. Hint: 1 ft is 0.3048 m. So we can get the output in meters
 by multiplying the input distance by 0.3048. Below is some sample input/output.
 '''
 
+# function that takes distance in feet and converts it to meters
 def ft_to_m(ft):
-    m = .3048
-    output = ft*m
+    m = .3048   # 1 ft is equal to .3408 meters
+    output = ft*m  
     return round(output, 4)
 
 

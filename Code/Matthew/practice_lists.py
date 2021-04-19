@@ -84,30 +84,84 @@ def test_reverse():
 
 # Factorial
 # Write a function that takes `n` as a parameter and returns `n` factorial.
+# 5! = 5*4*3*2*1 = 120
+# 8! = 8*7*6*5*4*3*2*1 = 40320
 
 def factorial(n):
-  ...
-print(factorial(5)) # 120
+
+    # start an output value at 0
+    # loop n times
+        # adding output value to previous output value
+    
+    # output = 1
+    # while n > 1:
+    #     output *= n
+    #     n -= 1
+    # return output
+
+    output = n
+    while n > 2:
+        n -= 1
+        output *= n
+    return output
+
+    # output = 1
+    # for i in range(2, n+1):
+    #     output *= i
+    # return output
+
+# print(factorial(5)) # 120
+# print(factorial(8)) # 40320
+
+
 
 
 # Find Unique
 # Write a function which takes a list as a parameter and returns a new list with any duplicates removed.
 
 
+# i = 0
+#   i  i+1
+# [12, 24, 24, 24, 35, 88, 88, 120, 120, 155, 155]
+
+# i = 1
+#       i  i+1
+# [12, 24, 24, 24, 35, 88, 88, 120, 120, 155, 155]
+
+# i = 2
+#           i  i+1
+# [12, 24, 24, 35, 88, 88, 120, 120, 155, 155]
+
+
 def find_unique(nums):
-    ...
-nums = [12, 24, 35, 24, 88, 120, 155, 88, 120, 155]
-unique_nums = find_unique(nums) # [12, 24, 35, 88, 120, 155]
+    output = []
+    for i in range(len(nums)):
+        if nums[i] not in output:
+            output.append(nums[i])
+    return output
+
+    # nums = nums.copy()
+    # nums.sort()
+    # i = 0
+    # while i < len(nums)-1:
+    #     if nums[i] == nums[i+1]:
+    #         nums.pop(i+1)
+    #     else:
+    #         i += 1
+    # return nums
+
+    # unique_nums = nums.copy()
+    # for i in range(len(nums)):
+    #     if nums[i] in unique_nums:
+    #         nums.remove(nums[i])
+
+
+nums = [12, 24, 35, 24, 88, 120, 155, 88, 120, 155, 24]
+unique_nums = find_unique(nums)
+print(unique_nums) # [12, 24, 35, 88, 120, 155]
 
 
 
-# Find Pair
-# Given a list of numbers, and a target number, find a pair of numbers from the list that sum to a target number. Optional: return a list of all pairs of numbers that sum to a target value.
-
-
-def find_pair(nums, target):
-  ...
-print(find_pair([5, 6, 2, 3], 7)) # [5, 2]
 
 
 
@@ -115,12 +169,6 @@ print(find_pair([5, 6, 2, 3], 7)) # [5, 2]
 
 
 
-# Fibonacci
-# Write a function that takes `n` as a parameter, and returns a list containing the first `n` [Fibonacci Numbers](https://en.wikipedia.org/wiki/Fibonacci_number).
-
-def fibonacci(n):
-    ...
-print(fibonacci(8)) # [1, 1, 2, 3, 5, 8, 13, 21]
 
 
 # Combine
@@ -129,7 +177,7 @@ print(fibonacci(8)) # [1, 1, 2, 3, 5, 8, 13, 21]
 
 def combine(nums1, nums2):
     ...
-print(combine(['a','b','c'],[1,2,3])) # ['a', 1, 'b', 2, 'c', 3]
+# print(combine(['a','b','c'],[1,2,3])) # ['a', 1, 'b', 2, 'c', 3]
 
 
 
@@ -143,7 +191,7 @@ print(combine(['a','b','c'],[1,2,3])) # ['a', 1, 'b', 2, 'c', 3]
 
 def merge(nums1, nums2):
     ...
-print(merge([5,2,1], [6,8,2])) # [[5,6],[2,8],[1,2]]
+# print(merge([5,2,1], [6,8,2])) # [[5,6],[2,8],[1,2]]
 
 
 # Combine All
@@ -152,7 +200,7 @@ print(merge([5,2,1], [6,8,2])) # [[5,6],[2,8],[1,2]]
 
 def combine_all(nums):
     ...
-print(combine_all([[5,2,3],[4,5,1],[7,6,3]])) # [5,2,3,4,5,1,7,6,3]
+# print(combine_all([[5,2,3],[4,5,1],[7,6,3]])) # [5,2,3,4,5,1,7,6,3]
 
 
 
