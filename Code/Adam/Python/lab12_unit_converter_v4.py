@@ -13,9 +13,7 @@ Ask the user for the starting unit, the distance, and the unit to convert to.
 '''
 
 # write a function that takes a given unit and distance and converts it to meters
-
-
-def convert_to_meters(start_unit, end_unit, distance):
+def convert_unit(start_unit, end_unit, distance):
     #   dictionary of units and their conversion factor for meters
     units = {
         'in': .0254,
@@ -28,7 +26,7 @@ def convert_to_meters(start_unit, end_unit, distance):
     unit_to_meters = distance*units[start_unit]
     meters_to_unit = unit_to_meters/units[end_unit]
     output = meters_to_unit
-    return round(output, 4)
+    return round(output, 4)     # return output and limit to four decimals
 
 
 # write a funtion for input validation
@@ -78,7 +76,7 @@ while True:     # need a condition that breaks this loop
         print(f'\n{end_unit} is not a vailid unit')     # the user is notified
         continue     # the loops starts over
 
-    converted_distance = convert_to_meters(interpret_input(start_unit), interpret_input(end_unit), distance)
+    converted_distance = convert_unit(interpret_input(start_unit), interpret_input(end_unit), distance)
     output = f'\n{distance} {interpret_input(start_unit)} is {converted_distance} {interpret_input(end_unit)}'
 
     print(output)

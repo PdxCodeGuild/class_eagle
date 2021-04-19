@@ -17,23 +17,63 @@ import math
 response = requests.get('http://www.gutenberg.org/files/84/84-0.txt')
 response.encoding = 'utf-8' # set encoding to utf-8
 text = response.text    # assign response to text
-# list_text = text.lower().split()    # make text lowercase and split into list
 
+
+def clean_ebook(text):
+    # https://regex101.com/r/mOQE0o/1
+    regex_ebook_start = r'(\*{3})\s(\w{5})\s(\w+)\s(\w+)\s(\w+)\s(\w+)\s(\w+)\s(...+)(\*{3})'
+    # https://regex101.com/r/szSOo2/1
+    regex_ebook_end = r'(\*{3})\s(\w{3})\s(\w+)\s(\w+)\s(\w+)\s(\w+)\s(\w+)\s(...+)(\*{3})'
+    start_of_ebook = re.search(regex_ebook_start, text).end()
+    end_of_ebook = re.search(regex_ebook_end, text).start()
+    text = text[start_of_ebook:end_of_ebook]
+    return text
+
+
+ebook = clean_ebook(text)
+
+
+# # write a function that finds the ebook title.
+# def get_ebook_title(text):
+#     title = ''
+#     # https://regex101.com/r/ukBjvJ/1
+#     result = re.match(r'(\*{3}\s\w{5}\s\w{2}\s\w{3}\s\w{7}\s\w{9}\s\w{5}\s)(...+)(\*{3})', text)
+#     title = result.group(2)
+#     print(title)
+#     return title
+
+# print(get_ebook_title(text))
 
 # write a function that returns num_characters. Total letters and numbers.
 def count_characters(text):
     count = 0
+    char_list = re.split(r'[A-Za-z0-9]', text)
+    count = len(char_list)
     return count
+
+display_char_count = "{:,}".format(count_characters(ebook))
+print(f'Total characters: {display_char_count}')
 
 # write a function that returns num_of_words. Number of spaces.
 def count_words(text):
     count = 0
+    word_list = re.split(r'[\s]', text)
+    count = len(word_list)
     return count
+
+display_word_count = "{:,}".format(count_words(ebook))
+print(f'Total words: {display_word_count}')
 
 # write a function that returns num_senctences. Number of '.', '!', '?'.
 def count_sentences(text):
     count = 0
+    sentences_list = re.split(r'[.?!]', text)
+    count = len(sentences_list)
     return count
+
+display_sent_count = "{:,}".format(count_sentences(ebook))
+print(f'Total sentences: {display_sent_count}')
+
 
 # Once you’ve computed the ARI score, you can use the following dictionary to 
 # look up the age range and grade level:
@@ -55,9 +95,9 @@ ari_scale = {
 }
 
 # store the number of characters, words, and sentences
-num_of_characters = count_characters(text)   # number of letters and numbers
-num_of_words = count_words(text)   # number of spaces
-num_of_sentences = count_sentences(text)    # number of '.', '!', and '?'
+num_of_characters = count_characters(ebook)   # number of letters and numbers
+num_of_words = count_words(ebook)   # number of spaces
+num_of_sentences = count_sentences(ebook)    # number of '.', '!', and '?'
 
 ari = math.ceil(4.71*(num_of_characters/num_of_words) + .5*(num_of_words/num_of_sentences)-21.43)
 
