@@ -12,8 +12,6 @@ import requests
 response = requests.get('http://www.gutenberg.org/files/84/84-0.txt')
 response.encoding = 'utf-8' # set encoding to utf-8
 text = response.text    # assign response to text
-list_text = text.lower().split()    # make text lowercase and split into list
-# print(list_text)
 
 
 # # running it with the green arrow or "python .\Code\Matthew\lab13_count_words.py"
@@ -23,19 +21,23 @@ list_text = text.lower().split()    # make text lowercase and split into list
 # print(text)
 
 
-# Write a function that clears the text of documentation and punctuation. 
+# Write a function that clears the text of documentation. 
 def clean_ebook(text):
     # https://regex101.com/r/mOQE0o/1
     regex_ebook_start = r'(\*{3})\s(\w{5})\s(\w+)\s(\w+)\s(\w+)\s(\w+)\s(\w+)\s(...+)(\*{3})'
     # https://regex101.com/r/szSOo2/1
     regex_ebook_end = r'(\*{3})\s(\w{3})\s(\w+)\s(\w+)\s(\w+)\s(\w+)\s(\w+)\s(...+)(\*{3})'
-    start_of_ebook = re.search(regex_ebook_start, text)
-    end_of_ebook = re.search(regex_ebook_end, text)
+    start_of_ebook = re.search(regex_ebook_start, text).end()
+    end_of_ebook = re.search(regex_ebook_end, text).start()
     text = text[start_of_ebook:end_of_ebook]
-    ...
     return text
 
-print(clean_ebook(text))
+# print(clean_ebook(text))
+
+    
+list_text = clean_ebook(text).lower().split()    # make text lowercase and split into list
+# print(list_text)
+
 
 word_count_dic = {}
 for i in range(len(list_text)):
