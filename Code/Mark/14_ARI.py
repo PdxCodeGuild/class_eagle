@@ -40,20 +40,24 @@ chars = 0
 for char in book_chars:
     chars += 1
 # finds all the sentances in the requested url
-book_sentance = book.split('.')
+book_sentance = re.findall(r'\b[^.!?]+[.!?]+', book, re.I)
 sentances = 0
 for sent in book_sentance:
     sentances +=1
 
+
 # ari math
 ari_score = math.ceil(4.71*(chars/words)+0.5*(words/sentances)-21.43)
+if ari_score >= 14:
+    ari_score = 14
+
 
 print(f"""
 
 --------------------------------------------------------
-The requested text contains {words} words')
-The requested text contains {chars} characters')
-The requested text contains {sentances} sentances')
+The requested text contains {words} words
+The requested text contains {chars} characters
+The requested text contains {sentances} sentances
 --------------------------------------------------------
 The ARI for {url} is {ari_score}
 This corresponds to a {ari_scale[ari_score]['grade_level']} level of difficulty
