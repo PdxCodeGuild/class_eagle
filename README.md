@@ -171,10 +171,10 @@ review ari
 practice - truncate text, wrap text
 lecture on datetimes
 practice problems for datetimes
-student sorter
 rain data
 
 wednesday
+student sorter
 more rain data
 searching and sorting algorithms
 

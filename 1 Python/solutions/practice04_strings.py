@@ -161,7 +161,7 @@ def camel_case(text):
     print(text)
 
 
-print(camel_case('Hello beauTiful WORld!')) # helloBeautifulWorld
+# print(camel_case('Hello beauTiful WORld!')) # helloBeautifulWorld
 
 
 
@@ -219,31 +219,48 @@ def scramble_letters(text):
     # put the text back together
     return ' '.join(output)
     
-print(scramble_letters('hello world kerfuffle embiggened')) # hlelo wlrod
-print(scramble_letters('this is hard to read')) # tihs is hrad to raed
-print(scramble_letters('droop here most learnedly delivered adr ‘widow dido’ said as midnight fated mated dryden’s version 470 makest a blemish but that no use of milan antonio i myself you speak the king stephano 225 for i 2 scene iii 3 17 prospero master and expenses including obsolete old cock a refund if it can he be relieved by the construction seems to your ways open eyed with the dropsy drown their noses as in the project gutenberg tm license and rotten carcass of noises 130 my child hanmer 96 sir mark me and that would i have bloody thoughts pros'))
+# print(scramble_letters('hello world kerfuffle embiggened')) # hlelo wlrod
+# print(scramble_letters('this is hard to read')) # tihs is hrad to raed
+# print(scramble_letters('droop here most learnedly delivered adr ‘widow dido’ said as midnight fated mated dryden’s version 470 makest a blemish but that no use of milan antonio i myself you speak the king stephano 225 for i 2 scene iii 3 17 prospero master and expenses including obsolete old cock a refund if it can he be relieved by the construction seems to your ways open eyed with the dropsy drown their noses as in the project gutenberg tm license and rotten carcass of noises 130 my child hanmer 96 sir mark me and that would i have bloody thoughts pros'))
 
 
 
 
 # Truncate Text
-# Write a function that takes a string and an integer representing a character limit. If the input string is less than the character limit, return a 
+# Write a function that takes a string and an integer representing a character limit. If the input string is less than the character limit, return the original string. If the string exeeds the character limit, truncate it and add '...'
 
 def truncate_text(text, character_limit):
-    ...
+    if len(text) > character_limit:
+        text = text[:character_limit] + '...'
+    return text
 
-print(truncate_text('hello!', 10)) # hello!
-print(truncate_text('hello world! the sun is bright', 10)) # hello wor...
-
+# print(truncate_text('hello!', 10)) # hello!
+# print(truncate_text('hello world! the sun is bright', 10)) # hello wor...
+# print(truncate_text('hello world! the sun is bright', 12)) # hello world!...
 
 
 # Wrap Text
 # insert newlines at the correct points within a string
 
 def wrap_text(text, character_limit):
-    ...
+    line_count = len(text) // character_limit + 1
+    print(line_count)
+    output = ''
+    for i in range(0, len(text)):
+        if i%character_limit == 0:
+            # i is 10, 20, 30
+            # when i is 10, we want the substring of text from 0 to 10
+            # when i is 20, we want the substring of text from 10 to 20
+            # when i is 30, we want the substring of text from 20 to 30
+            # print(f'insert new line at index {i}')
+            output += text[i:i+character_limit] + '\n'
+            # output += text[:i] + '\\n' + text[i:]
+    output = output[:len(output)-1] # remove the last character
+    # print(output)
+    return output
 
-print(wrap_text('hello world! the sun is bright'), 10) # hello worl\nd! the sun\n is bright\n
+# hello worl\nd! the sun\n is very b\nright
+print(wrap_text('hello world! the sun is very bright', 10)) 
 
 
 
@@ -338,10 +355,10 @@ def check_palindrome(word):
     else:
         return False
     
-print(check_palindrome('racecar')) # True
-print(check_palindrome('palindrome')) # False
-print(check_palindrome('tacocat')) # True
-print(check_palindrome('noon')) # True
+# print(check_palindrome('racecar')) # True
+# print(check_palindrome('palindrome')) # False
+# print(check_palindrome('tacocat')) # True
+# print(check_palindrome('noon')) # True
 
 # Anagram
 # Two words are anagrams of eachother if the letters of one can be rearranged to fit the other. e.g. `anagram` and `nag a ram`. Write another function `check_anagram(word1, word2)` that takes two strings as parameters and returns True if they're anagrams of eachother, False if they're not. The procedure for comparing the two strings is as follow:

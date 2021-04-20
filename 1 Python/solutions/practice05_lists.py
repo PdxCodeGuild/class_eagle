@@ -126,9 +126,9 @@ def find_unique(nums):
     #         nums.remove(nums[i])
 
 
-nums = [12, 24, 35, 24, 88, 120, 155, 88, 120, 155, 24]
-unique_nums = find_unique(nums)
-print(unique_nums) # [12, 24, 35, 88, 120, 155]
+# nums = [12, 24, 35, 24, 88, 120, 155, 88, 120, 155, 24]
+# unique_nums = find_unique(nums)
+# print(unique_nums) # [12, 24, 35, 88, 120, 155]
 
 
 
@@ -193,7 +193,23 @@ def combine_all(nums):
 
 
 
+import random
 
+def student_sorter(students, number_of_groups):
+    # random.shuffle(students)
+    # print(students)
+    # students_per_group = len(students) // number_of_groups
+    # print(students_per_group)
+    # students[::students_per_group]
+    # print(students[::students_per_group])
+    # for student in students:
+    #     print(student)
+    ...
+
+students = ['Adam', 'Andy', 'Mark', 'Scott', 'Stacia', 'Russell']
+print(student_sorter(students, 2)) # [['Scott', 'Russell', 'Mark'], ['Andy', 'Stacia', 'Adam']]
+# print(student_sorter(students, 3)) # [['Scott', 'Russell'], ['Mark', 'Andy'], ['Stacia', 'Adam']]
+# print(student_sorter(students, 4)) # [['Scott', 'Russell'], ['Mark', 'Andy'], ['Stacia'], ['Adam']]]
 
 ## Progressive Tax
 
