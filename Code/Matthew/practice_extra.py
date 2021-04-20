@@ -111,10 +111,3 @@ def check_anagram(word1, word2):
 # print(check_anagram('sheep', 'goat')) # False
 
 
-# Scramble Letters
-# Write a function `scramble_letters` to scramble the internals letters of words, but keep first and last letter the same.
-
-def scramble_letters(text):
-    ...
-# print(scramble_letters('hello world!')) # hlelo wlrod!
-

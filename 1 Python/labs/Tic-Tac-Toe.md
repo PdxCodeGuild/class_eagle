@@ -1,8 +1,39 @@
-# Lab 26: Tic-Tac-Toe 
+# Tic-Tac-Toe 
 
 [Tic Tac Toe](https://en.wikipedia.org/wiki/Tic-tac-toe) is a game.
 Players take turns placing tokens (a 'O' or 'X') into a 3x3 grid.
 Whoever gets three in a row first wins.
+
+Write a REPL (Read, Evaluate, Print, Loop) to play a game of Tic Tac Toe with the players represented by two dictionaries, and the game board represented by a 2-Dimensional Array (lists within another list).
+
+**Player Dictionary Example**:
+```python
+{
+  'name': 'Bob',
+  'token': 'X'
+}
+```
+
+**Board 2D Array Example**:
+```python
+[
+  ['X', ' ', ' '],
+  [' ', 'X', 'O'],
+  ['X', ' ', 'O'],
+]
+```
+
+Your program should ask the players for their names before the game starts.
+
+The REPL should:
+1. Display game state (show board and say whose turn it is).
+2. Ask player where to place their token.
+3. Check that the move is valid and...
+    * If invalid (the spot is taken, etc.), ask player again
+    * If valid, check win conditions
+4. If the game is over, end the loop.  Otherwise, repeat.
+
+## Optional: Tic-Tac-Toe with OOP
 
 You will write a **Player** class and **Game** class to model Tic Tac Toe, and a function **main** that models gameplay taking in user inputs through REPL.
 
