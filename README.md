@@ -159,7 +159,9 @@ Schedule Overview:
 
 ### Week 3 / Python / Data Structures & Algorithms
 
-
+- [doc: Datetimes](1%20Python/docs/13%20Datetimes.md)
+- [practice: Datetimes](1%20Python/practice/08_datetimes.py) [(solution)](1%20Python/solutions/practice08_datetimes.py)
+- [lab: Rain Data](1%20Python/labs/15%20Rain%20Data.md)
 
 <!-- 
 tuesday
