@@ -82,36 +82,6 @@ def test_reverse():
 
 
 
-# Factorial
-# Write a function that takes `n` as a parameter and returns `n` factorial.
-# 5! = 5*4*3*2*1 = 120
-# 8! = 8*7*6*5*4*3*2*1 = 40320
-
-def factorial(n):
-
-    # start an output value at 0
-    # loop n times
-        # adding output value to previous output value
-    
-    # output = 1
-    # while n > 1:
-    #     output *= n
-    #     n -= 1
-    # return output
-
-    output = n
-    while n > 2:
-        n -= 1
-        output *= n
-    return output
-
-    # output = 1
-    # for i in range(2, n+1):
-    #     output *= i
-    # return output
-
-# print(factorial(5)) # 120
-# print(factorial(8)) # 40320
 
 
 
@@ -165,6 +135,23 @@ print(unique_nums) # [12, 24, 35, 88, 120, 155]
 
 
 
+
+# Find Pair
+# Given a list of numbers, and a target number, find a pair of numbers from the list that sum to a target number. Optional: return a list of all pairs of numbers that sum to a target value.
+
+def find_pair(nums, target):
+    output = []
+    for i in range(len(nums)):
+        for j in range(len(nums)):
+            # print(nums[i], nums[j])
+            # if i == j:
+            #     continue
+            if i != j and nums[i] + nums[j] == target:
+                output.append((nums[i], nums[j]))
+    return output
+            
+# print(find_pair([5, 6, 2, 3, 4], 7)) # [5, 2]
+# print(find_pair([5, 6, 2, 3], 10)) # None
 
 
 
