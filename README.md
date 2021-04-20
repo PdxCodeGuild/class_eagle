@@ -82,6 +82,7 @@ Schedule Overview:
 - [12 Unit Converter](1%20Python/labs/Unit%20Converter.md) [(solution)](1%20Python/solutions/lab12_unit_converter.py)
 - [13 Count Words](1%20Python/labs/Count%20Words.md) [(solution)](1%20Python/solutions/lab13_count_words.py)
 - [14 ARI](1%20Python/labs/ARI.md) [(solution)](1%20Python/solutions/lab14_ari.py)
+- [15 Rain Data](1%20Python/labs/15%20Rain%20Data.md)
 
 
 
@@ -108,6 +109,7 @@ Schedule Overview:
 - [05 Lists](1%20Python/practice/05_lists.py) [(solution)](1%20Python/solutions/practice05_lists.py)
 - [06 Dictionaries](1%20Python/practice/06_dictionaries.py) [(solution)](1%20Python/practice/06_dictionaries.py)
 - [07 Regular Expressions](1%20Python/practice/07_regex.py) [(solution)](1%20Python/solutions/practice07_regex.py)
+- [08 Datetimes](1%20Python/practice/08_datetimes.py) [(solution)](1%20Python/solutions/practice08_datetimes.py)
 
 
 
