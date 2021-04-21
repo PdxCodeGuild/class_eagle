@@ -17,11 +17,12 @@ import math
 response = requests.get('http://www.gutenberg.org/files/84/84-0.txt')
 response.encoding = 'utf-8' # set encoding to utf-8
 text = response.text    # assign response to text
-# print(text)
 
 
+# this function returns just the ebook portion of the text
 def clean_ebook(text):
-    # https://regex101.com/r/mOQE0o/1
+    # these regular exprassion should match the start and end of any gutenberg project plain text ebook
+    # https://regex101.com/r/RLAFWi/1
     regex_ebook_start = r'(\*{3}\s\w{5}\s\w{2}\s\w{3}\s\w{7}\s\w{9}\s\w{5}\s)(...+)(\*{3})'
     # https://regex101.com/r/szSOo2/1
     regex_ebook_end = r'(\*{3})\s(\w{3})\s(\w+)\s(\w+)\s(\w+)\s(\w+)\s(\w+)\s(...+)(\*{3})'
@@ -31,16 +32,16 @@ def clean_ebook(text):
     return text
 
 
-# write a function that finds the ebook title.
+# this function returns the ebook title.
 def get_ebook_title(text):
     title = ''
     regex_ebook_start = r'(\*{3}\s\w{5}\s\w{2}\s\w{3}\s\w{7}\s\w{9}\s\w{5}\s)(...+)(\*{3})'
     result = re.search(regex_ebook_start, text)
-    title = result.group(2)
+    title = result.group(2) # capture group 2 of this regular expression is the title of the ebook
     return title
 
 
-# write a function that returns num_characters. Total letters and numbers.
+# this function returns num_characters. Total letters and numbers.
 def count_characters(text):
     count = 0
     char_list = re.split(r'[A-Za-z0-9]', text)
@@ -48,7 +49,7 @@ def count_characters(text):
     return count
 
 
-# write a function that returns num_of_words. Number of spaces.
+# this function returns num_of_words. Number of spaces.
 def count_words(text):
     count = 0
     word_list = re.split(r'[\s]', text)
@@ -56,7 +57,7 @@ def count_words(text):
     return count
 
 
-# write a function that returns num_senctences. Number of '.', '!', '?'.
+# this function returns num_senctences. Number of '.', '!', '?'.
 def count_sentences(text):
     count = 0
     sentences_list = re.split(r'[.?!]', text)
@@ -69,7 +70,7 @@ def calculate_ari(characters, words, sentences):
     ari = 0
     ari = math.ceil(4.71*(characters/words) + .5*(words/sentences)-21.43)
     if ari > 14: 
-        ari = 14
+        ari = 14    # ari_scale has no keys beyond 14
     return ari
 
 
@@ -92,16 +93,17 @@ ari_scale = {
     14: {'ages': '18-22', 'grade_level':      'College'}
 }
 
-
-ebook = clean_ebook(text)
+# calling the functions
+ebook = clean_ebook(text)   
 ebook_title = get_ebook_title(text)
 num_of_characters = count_characters(ebook)   # number of letters and numbers
 num_of_words = count_words(ebook)   # number of spaces
 num_of_sentences = count_sentences(ebook)    # number of '.', '!', and '?'
 ari = calculate_ari(num_of_characters, num_of_words, num_of_sentences)
-
+ari_grade_lvl = ari_scale[ari]['grade_level']
+ari_ages = ari_scale[ari]['ages']
 
 print(f'\nThe ARI for {ebook_title} is {ari}')
-print(f'This corresponds to a {ari_scale[ari]} level of difficulty')
-print(f'that is suitable for an average person {ari_scale[ari]} year old.\n')
+print(f'This corresponds to a {ari_grade_lvl} level of difficulty')
+print(f'that is suitable for an average person {ari_ages} years old.\n')
 
