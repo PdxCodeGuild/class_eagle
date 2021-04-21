@@ -13,7 +13,6 @@ x = random.randint(1,10)
 print(x)
 ```
 
-
 Below is an example run of the game:
 
 ```

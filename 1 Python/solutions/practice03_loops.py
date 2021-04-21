@@ -95,4 +95,57 @@ def test_extract_less_than_ten():
     assert extract_less_than_ten([2, 8, 12, 18]) == [2, 8]
 
 
+# Factorial
+# Write a function that takes `n` as a parameter and returns `n` factorial.
+# 5! = 5*4*3*2*1 = 120
+# 8! = 8*7*6*5*4*3*2*1 = 40320
+
+def factorial(n):
+
+    # start an output value at 0
+    # loop n times
+        # adding output value to previous output value
+    
+    # output = 1
+    # while n > 1:
+    #     output *= n
+    #     n -= 1
+    # return output
+
+    output = n
+    while n > 2:
+        n -= 1
+        output *= n
+    return output
+
+    # output = 1
+    # for i in range(2, n+1):
+    #     output *= i
+    # return output
+
+# print(factorial(5)) # 120
+# print(factorial(8)) # 40320
+
+
+# Fibonacci
+# Write a function that takes `n` as a parameter, and returns a list containing the first `n` [Fibonacci Numbers](https://en.wikipedia.org/wiki/Fibonacci_number).
+
+def fibonacci(n):
+    num1 = 0
+    num2 = 1
+    output = [num1, num2]
+    for count in range(n-2):
+        total = num1 + num2
+        output.append(total)
+        num1 = num2
+        num2 = total
+    return output
+
+    # output = [0, 1]
+    # for count in range(n-2):
+    #     output.append(output[-1] + output[-2])
+    # return output
+
+#                      num1 num2  total
+# print(fibonacci(10)) # [0,   1,    1,   2,    3,    5,    8,    13,    21,    34]
 
