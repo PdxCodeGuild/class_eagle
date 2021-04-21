@@ -65,10 +65,13 @@ def calculate_variance(mean, data):
 
 # write a function that returns the date with the most total rain
 def most_daily_rain(data):
-    date = ''   # set date to an empty string
+    tip = .01 # are the number of tips of the rain gage bucket; each tip is 0.01 inches of rainfall.
+    date_n_total = ''   # set date and total to an empty string
     sorted_data = sorted(data, key=lambda k: k['total'])    # sorted data by it's 'total's
     date = sorted_data[-1]['date']      # set date to the last date in sorted_data
-    return date
+    rain = sorted_data[-1]['total']*tip
+    date_n_total = f'{date} with {rain} inches of rainfall'
+    return date_n_total
 
 # assign function calls to variables
 rain_data = get_dates_and_totals(text)
