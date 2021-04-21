@@ -56,10 +56,19 @@ Now that you've successfully extracted the data, let's calculate some statistics
 
 ### 1. Calculate the Mean
 
-The mean is the sum of all the daily totals divided by the number of daily totals.
+The mean is the sum of all the daily totals divided by the number of daily totals. The sigma in this fomula represents a sum of all the values in the list.
 
 ![mean](images/average.png)
 
+
+```python
+def average(x):
+    total = 0
+    for i in range(len(x)):
+        total += x[i]
+    return total / len(x)
+print(average([34, 56, 73, 21])) # 46.0
+```
 
 ### 2. Calculate the Variance
 
@@ -67,9 +76,30 @@ Use the mean to calculate the variance, which is a measure of how "spread out" t
 
 ![standard_deviation](images/variance.png)
 
+```python
+def variance(x):
+    mu = average(x)
+    total = 0
+    for i in range(len(x)):
+        total += (x[i] - mu)**2
+    return total / len(x)
+print(variance([34, 56, 73, 21])) # 399.5
+```
+
 The standard deviation is the square root of the variance. 68.2% of the data falls within 1 standard deviation of the mean.
 
 ![bell_curve](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Standard_deviation_diagram.svg/500px-Standard_deviation_diagram.svg.png)
+
+
+```python
+import math
+def standard_deviation(x):
+    v = variance(x)
+    return math.sqrt(v)
+print(standard_deviation([34, 56, 73, 21])) # 19.987
+```
+
+
 
 ### 3. Find the day which had the most rain.
 
