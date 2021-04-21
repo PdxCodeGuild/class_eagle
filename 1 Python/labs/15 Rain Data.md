@@ -15,7 +15,7 @@ Daily  Hourly data -->
 MORE...
 ```
 
-## Version 1
+## Part 1
 
 Download or use `requests` to get one of these files. The two columns that are most important are the date and the daily total. The simplest representation of this data is a list of tuples, but you may also use a list of dictionaries, or a list of instances of a custom class.
 
@@ -50,7 +50,7 @@ print(date)  # 2016-03-25 00:00:00
 print(date.strftime('%d-%b-%Y'))  # 25-Mar-2016
 ```
 
-## Version 2
+## Part 2
 
 Now that you've successfully extracted the data, let's calculate some statistics.
 
@@ -106,7 +106,7 @@ print(standard_deviation([34, 56, 73, 21])) # 19.987
 Loop over all the records to find the one which had the most rain, print out the date and daily total to the user.
 
 
-## Version 3 (optional)
+## Part 3 (optional)
 
 Using `matplotlib` create a chart of the dates and the daily totals for a given year. The `x_values` will be a list of dates, The `y_values` are a list of the daily totals. If you don't have matplotlib installed, run `pip install matplotlib` (or `python -m pip install matplotlib`). You can learn more about matplotlib [here](https://matplotlib.org/2.1.0/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py).
 
@@ -126,6 +126,6 @@ Some charts you can make are:
 - A [histogram](https://en.wikipedia.org/wiki/Histogram) of the rainfall.
 
 
-## Version 4 (optional)
+## Part 4 (optional)
 
 Use the CSV in the data folder to do some statistics on multiple locations: [link](./data/rain_output.csv).
