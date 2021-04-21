@@ -2,9 +2,12 @@ import requests
 import re
 from datetime import datetime
 import math
+import matplotlib.pyplot as plt
+from os import *
+
 
 regex = r'(\d{2}-\w{3}-\d{4})(\s+)(\d+)'
-response = requests.get('https://or.water.usgs.gov/non-usgs/bes/hayden_island.rain')
+response = requests.get('https://or.water.usgs.gov/non-usgs/bes/gresham.rain')
 response = response.text
 results = re.finditer(regex, response)
 
@@ -46,19 +49,28 @@ def get_max_rainfall(data):
         if data[i]['Total'] > highest_rain:
             highest_rain = (data[i]['Total'])
             date_hr = data[i]['Date']
-    return f'The date of highest rainfall was on {date_hr} with {(highest_rain)*.01} inches.'
+    return f'The date of highest rainfall for the selected region was on {date_hr} with {(highest_rain)*.01} inches.'
+
+# This function takes the data and plots it in a simple graphic
+def plot_data(data):
+    x_values = []
+    y_values = []
+    for i in range(len(data)):
+        x_values.append(data[i]['Date'])
+        y_values.append(data[i]['Total'])
+    plt.plot(x_values,y_values)
+    plt.show()
 
 rain_data = get_data(results)
 mean = get_average(rain_data)
 var = get_variance(rain_data, mean)
 std = math.sqrt(var)
 max_rain = get_max_rainfall(rain_data)
-print(mean)
-print(var)
-print(std)
+
+system('cls') # clearing the screen of previous data
+
+print(f'The average rainfall for the region is {mean*.01} inches.')
+print(f'The variance is {var}.')
+print(f'The standard deviation is {std}.')
 print(max_rain)
-
-
-
-
-
+plot_data(rain_data)
