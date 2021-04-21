@@ -83,6 +83,7 @@ Schedule Overview:
 - [13 Count Words](1%20Python/labs/Count%20Words.md) [(solution)](1%20Python/solutions/lab13_count_words.py)
 - [14 ARI](1%20Python/labs/ARI.md) [(solution)](1%20Python/solutions/lab14_ari.py)
 - [15 Rain Data](1%20Python/labs/15%20Rain%20Data.md)
+- [16 Searching and Sorting](1%20Python/labs/16%20Searching%20and%20Sorting.md)
 
 
 
@@ -164,6 +165,7 @@ Schedule Overview:
 - [doc: Datetimes](1%20Python/docs/13%20Datetimes.md)
 - [practice: Datetimes](1%20Python/practice/08_datetimes.py) [(solution)](1%20Python/solutions/practice08_datetimes.py)
 - [lab: Rain Data](1%20Python/labs/15%20Rain%20Data.md)
+- [lab: Searching and Sorting](1%20Python/labs/16%20Searching%20and%20Sorting.md)
 
 <!-- 
 tuesday
