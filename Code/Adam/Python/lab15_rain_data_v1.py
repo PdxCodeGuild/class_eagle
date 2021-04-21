@@ -14,6 +14,7 @@ dictionaries, or a list of instances of a custom class.
 import requests
 from datetime import datetime
 import re
+import statistics
 
 
 response = requests.get('https://or.water.usgs.gov/non-usgs/bes/hayden_island.rain')
@@ -53,26 +54,33 @@ def calculate_mean(data):
 
 # write a function that calculates and returns the variance. Find the squared difference from the mean for each data value.
 def calculate_variance(mean, data):
+    sum_square_deviation = 0
     variance = 0
-    # Subtract the mean from each data value and square the result.
-    # Find the sum of all the squared differences. ..
+    for i in range(len(data)):
+        # Subtract the mean from each data value and square the result.
+        sum_square_deviation += (data[i]['total']-mean)**2      # Find the sum of all the squared differences.
+    variance = sum_square_deviation/len(data)       # divide this result by the number of data values
     return variance
 
 
 # write a function that returns the date with the most total rain
 def most_daily_rain(data):
-    date = ''
-    for i in range(len(data)):
-        # if total is bigger than all the totals
-        # return the date for that total
-        # figure out how to sort a list of dictionaries
-        ...
+    date = ''   # set date to an empty string
+    sorted_data = sorted(data, key=lambda k: k['total'])    # sorted data by it's 'total's
+    date = sorted_data[-1]['date']      # set date to the last date in sorted_data
     return date
 
-
+# assign function calls to variables
 rain_data = get_dates_and_totals(text)
 mean = calculate_mean(rain_data)
+variance = calculate_variance(mean, rain_data)
 rainiest_day = most_daily_rain(rain_data)
-variance = calculate_variance(rain_data)
 
+# print(rain_data)
+# print(mean)
+# print(variance)
+# print(rainiest_day)
 
+print(f'\nThe mean of rain data is: {round(mean, 4)}')
+print(f'\nThe variance of rain data is: {round(variance, 4)}')
+print(f'\nThe rainiest day was: {rainiest_day}\n')
