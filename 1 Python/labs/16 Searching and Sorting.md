@@ -102,7 +102,7 @@ procedure bubbleSort(A : list of sortable items)
 end procedure
 ```
 
-## Part 4 - Insertion Sort
+## Part 4 - Insertion Sort (optional)
 
 Implement [insertion sort](https://en.wikipedia.org/wiki/Insertion_sort), which like bubble sort is also `O(n^2)`, but is efficient at placing new values into an already-sorted list.
 
