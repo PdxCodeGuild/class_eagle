@@ -1,31 +1,3 @@
-
-
-# Contact List
-
-Let's write class for managing a contact list. Copy the code below into a file and fill in the functions. Save the following files below to your personal code folder. To open the file, look at the [File IO doc](../docs/File%20IO.md), to parse the JSON into a Python dictionary, look at [json module](../../0%20General/07%20JSON,%20CSV,%20&%20XML.md#json).
-
-
-**contacts.json**
-```json
-{
-    "contacts": [{
-        "name": "Dora M. Smith",
-        "phone_number": "919-781-7129",
-        "email": "doramsmith@hotmail.com"
-    },{
-        "name": "Annette D. Berube",
-        "phone_number": "662-319-6954",
-        "email": "annette@gmail.com"
-    },{
-        "name": "Austin M. Pigott",
-        "phone_number": "478-777-8878",
-        "email": "austin@aol.com"
-    }]
-}
-```
-
-**lab17_contact_list.py**
-```python
 class ContactList:
     
     def __init__(self):
@@ -102,5 +74,3 @@ while True:
         break
     else:
         print('Command not recognized')
-```
-
