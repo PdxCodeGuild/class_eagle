@@ -151,7 +151,7 @@ contacts = [{
     'name': 'Joanne',
     'age': 8
 }]
-print(average_age(contacts)) # 40
+# print(average_age(contacts)) # 40
 
 
 # Average ======================================================================
@@ -175,16 +175,49 @@ def merge_dictionaries(d1, d2):
 # Write a function that takes a list of strings and counts of the number of occurances.
 
 def count_votes(votes):
-    ...
+    # initialize a blank dictionary
+    votes_d = {}
+    # iterate over the list of votes
+
+    # for candidate in votes:
+    #     if candidate not in votes_d:
+    #         votes_d[candidate] = 1
+    #     else:
+    #         votes_d[candidate] += 1
+
+    for i in range(len(votes)):
+        # add the name to the dictionary or update the value
+
+        # votes_d[votes[i]] = votes_d.get(votes[i], 0) + 1
+
+        if votes[i] not in votes_d:
+            votes_d[votes[i]] = 1
+        else:
+            votes_d[votes[i]] += 1
+    return votes_d
+        
+
+    # return the dictionary
 # votes = ['john', 'johnny', 'john', 'jackie', 'jamie', 'jackie', 'jamie', 'jamie', 'john', 'johnny', 'jamie', 'johnny', 'john']
 # print(count_votes(votes)) # {'john': 4, 'johnny': 3, 'jackie': 2, 'jamie': 4}
+
+
 
 # Problem 6 ====================================================================
 # Write a function `cart_total` to calculate the total of a shopping cart given a list of dictionaries representing a cart and a dictionary representing prices.
 
 def cart_total(prices, cart):
-    ...
+    total = 0
+    for item in cart:
+        name = item['name']
+        quantity = item['quantity']
+        total += quantity*prices[name]
+
+        # total += item['quantity']*prices[item['name']]
+
+    return total
+
 # prices = {'apples': 1.0, 'bananas': 0.5, 'kiwis': 2.0}
-# cart = [{'item': 'apples', 'quantity': 3}, {'item': 'kiwis', 'quantity': 4}]
+# cart = [{'name': 'apples', 'quantity': 3}, {'name': 'kiwis', 'quantity': 4}]
 # print(cart_total(prices, cart)) # 11.0
 
