@@ -51,7 +51,6 @@ def bubble_sort(nums):
     for i in range(n-1):
   
 
-
 #                      0  1  2  3  4  5  6  7
 nums = [1, 2, 3, 4, 5, 6, 7, 8]
 random.shuffle(nums)
