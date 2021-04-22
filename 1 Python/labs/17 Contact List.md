@@ -2,7 +2,7 @@
 
 # Contact List
 
-Let's write class for managing a contact list.
+Let's write class for managing a contact list. Copy the code below into a file and fill in the functions. To open the file, look at the [File IO doc](../docs/File%20IO.md), to parse the JSON into a Python dictionary, look at [json module](../../0%20General/07%20JSON,%20CSV,%20&%20XML.md#json).
 
 
 ```json
