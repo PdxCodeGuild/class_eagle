@@ -48,11 +48,19 @@ def binary_search(nums, value):
 
 def bubble_sort(nums):
     n = len(nums)
-    for i in range(n-1):
-  
+    swapped = True
+    while swapped:
+        swapped = False
+        for i in range(1, n):
+            if nums[i-1] > nums[i]:
+                nums[i-1], nums[i] = nums[i], nums[i - 1]
+                swapped = True
+    return nums
 
 #                      0  1  2  3  4  5  6  7
 nums = [1, 2, 3, 4, 5, 6, 7, 8]
 random.shuffle(nums)
 print(nums)
 print(bubble_sort(nums)) # [1, 2, 3, 4, 5, 6, 7, 8]  
+
+
