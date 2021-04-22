@@ -14,24 +14,24 @@ while run_again == 'yes' :
 
     user_choice = input("You choose " )
     choices = ["Rock", "Paper", "Scissors"]
-    CPU_choice = random.choice(choices)
+    cpu_choice = random.choice(choices)
 
-    print(f"You chose {user_choice}, I chose {CPU_choice}")
+    print(f"You chose {user_choice}, I chose {cpu_choice}")
 
-    if user_choice == CPU_choice:
+    if user_choice == cpu_choice:
         print("It's a Tie!")
     elif user_choice == "Rock":
-        if CPU_choice == "Scissors":
+        if cpu_choice == "Scissors":
             print("You win!")
         else:
                 print("You lose!")
     elif user_choice == "Paper":
-        if CPU_choice == "Rock":
+        if cpu_choice == "Rock":
             print("You win!")
         else:
                 print("You lose!")
     elif user_choice == "Scissors":
-        if CPU_choice == "Paper":
+        if cpu_choice == "Paper":
             print("You win!")
         else:
                 print("You lose!")
@@ -39,4 +39,4 @@ while run_again == 'yes' :
     run_again = input('Would you like to play again? ')
     if run_again != 'yes':
         print('Goodbye!')
-        break
+        

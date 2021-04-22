@@ -7,7 +7,7 @@ with open('Arabian_Nights.txt', 'r', encoding='utf-8') as file:
 
 
 text = text.lower() 
-punc = """!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~""" # remember Matthews tip here 
+punc = """!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~""" # fix this  
 for char in text:
     if char in punc:
         text = text.replace(char, '')
