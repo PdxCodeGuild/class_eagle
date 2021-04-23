@@ -84,7 +84,7 @@ Schedule Overview:
 - [14 ARI](1%20Python/labs/ARI.md) [(solution)](1%20Python/solutions/lab14_ari.py)
 - [15 Rain Data](1%20Python/labs/15%20Rain%20Data.md)
 - [16 Searching and Sorting](1%20Python/labs/16%20Searching%20and%20Sorting.md)
-
+- [17 Contact List](1%20Python/labs/17%20Contact%20List.md)
 
 
 
@@ -99,6 +99,9 @@ Schedule Overview:
 - [06 LCR](1%20Python/mob/06%20LCR.md) [(solution)](1%20Python/solutions/mob06_lcr.py)
 - [07 Snowman](1%20Python/mob/07%20Snowman.md) [(solution)](1%20Python/solutions/mob07_snowman.py)
 - [08 Tic-Tac-Toe](1%20Python/mob/08%20Tic-Tac-Toe.md) [(solution)](1%20Python/solutions/mob08_tic_tac_toe.py)
+- [09 ATM](1%20Python/mob/09%20ATM.md) [(solution)](1%20Python/solutions/mob09_atm.py)
+- [10 Rot Cipher Classes](1%20Python/mob/10%20Rot%20Cipher%20Classes.md) [(solution)](1%20Python/solutions/rotcipher.py)
+- [11 Stack and LinkedList](1%20Python/mob/11%20Stack%20and%20LinkedList.md)
 
 #### Practice
 
@@ -159,6 +162,7 @@ Schedule Overview:
 - [lab: Unit Converter](1%20Python/labs/12%20Unit%20Converter.md) [(solution)](1%20Python/solutions/lab12_unit_converter.py)
 - [lab: Count Words](1%20Python/labs/13%20Count%20Words.md) [(solution)](1%20Python/solutions/lab13_count_words.py)
 - [lab: ARI](1%20Python/labs/14%20ARI.md) [(solution)](1%20Python/solutions/lab14_ari.py)
+- [mob: Tic Tac Toe](1%20Python/mob/08%20Tic-Tac-Toe.md) [(solution)](1%20Python/solutions/mob08_tic_tac_toe.py)
 
 ### Week 3 / Python / Data Structures & Algorithms
 
@@ -166,6 +170,10 @@ Schedule Overview:
 - [practice: Datetimes](1%20Python/practice/08_datetimes.py) [(solution)](1%20Python/solutions/practice08_datetimes.py)
 - [lab: Rain Data](1%20Python/labs/15%20Rain%20Data.md)
 - [lab: Searching and Sorting](1%20Python/labs/16%20Searching%20and%20Sorting.md)
+- [doc: Classes](1%20Python/docs/14%20Classes.md)
+- [mob: ATM](1%20Python/mob/09%20ATM.md) [(solution)](1%20Python/solutions/mob09_atm.py)
+- [lab: Contact List](1%20Python/labs/17%20Contact%20List.md)
+- [mob: Stack and LinkedList](1%20Python/mob/11%20Stack%20and%20LinkedList.md)
 
 <!-- 
 tuesday

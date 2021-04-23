@@ -47,9 +47,36 @@ class ATM:
     def print_transactions(self):
         for i in range(len(self.transactions)):
             print(self.transactions[i])
+    
+
+    def __str__(self):
+        return f'ATM (balance {self.balance}, interest rate {self.interest_rate})'
 
 
 atm = ATM(0, 0.1) # create an instance of our class
+
+
+
+# calling the __str__ of the list class
+# nums = [1, 2, 3]
+# print(nums)
+# nums_str = str(nums)
+# print(nums_str)
+# print(nums_str[0])
+
+
+# calling the __str__ of the atm class
+# atm_str = str(atm)
+# print(atm_str)
+
+# atm_str = atm.__str__()
+# print(atm_str)
+
+# print(atm)
+
+# exit()
+
+
 # print(atm.balance) # 0
 # print(atm.interest_rate) # 0.1
 print('Welcome to the ATM')
