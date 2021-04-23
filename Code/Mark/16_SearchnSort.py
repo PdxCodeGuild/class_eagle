@@ -67,6 +67,7 @@ def insertion_sort(nums):
             nums[j],nums[j-1] = nums[j-1],nums[j]
             j -= 1
         i += 1
+    nums.reverse()
     return nums
 
 
