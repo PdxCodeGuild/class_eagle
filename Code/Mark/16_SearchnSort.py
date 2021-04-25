@@ -81,34 +81,34 @@ print(f'Insertion sort: {insertion_sort(nums_2)}')
 
 # --------------------------------quicksort--------------------------------
 
-def quicksort(num_list):
-    quicksort_recusive(num_list,0,len(num_list)-1)
+# def quicksort(num_list):
+#     quicksort_recusive(num_list,0,len(num_list)-1)
 
-def quicksort_recusive(num_list,lo,hi):
-    if lo < hi:
-        p = partition(num_list, lo, hi)
-        quicksort_recusive(num_list,lo,hi)
-        quicksort_recusive(num_list,p+1,hi)
+# def quicksort_recusive(num_list,lo,hi):
+#     if lo < hi:
+#         p = partition(num_list, lo, hi)
+#         quicksort_recusive(num_list,lo,hi)
+#         quicksort_recusive(num_list,p+1,hi)
 
-def partition(num_list,lo,hi):
-    pivot = num_list[int(lo+(hi-lo)/2)]
-    i = lo-1
-    j = hi+1
-    while True:
-        i += 1
-        while num_list[i] < pivot:
-            j -= 1
-        while num_list[j] > pivot:
-            if i >= j:
-                return j
-            num_list[i],num_list[j] = num_list[j],num_list[i]
+# def partition(num_list,lo,hi):
+#     pivot = num_list[int(lo+(hi-lo)/2)]
+#     i = lo-1
+#     j = hi+1
+#     while True:
+#         i += 1
+#         while num_list[i] < pivot:
+#             j -= 1
+#         while num_list[j] > pivot:
+#             if i >= j:
+#                 return j
+#             num_list[i],num_list[j] = num_list[j],num_list[i]
 
-nums_3 = [39, 27, 61, 79, 68, 61, 27, 76, 61]
-# for i in range(1,10):
-#     nums_3.append(randint(1,99))
-print('------------------------------------------------------------------')
-print(nums_3)
-print(quicksort(nums_3))
+# nums_3 = [39, 27, 61, 79, 68, 61, 27, 76, 61]
+# # for i in range(1,10):
+# #     nums_3.append(randint(1,99))
+# print('------------------------------------------------------------------')
+# print(nums_3)
+# print(quicksort(nums_3))
 
 
 

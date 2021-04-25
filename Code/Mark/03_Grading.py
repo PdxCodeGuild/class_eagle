@@ -6,10 +6,7 @@ while True:
 
 
     if user_score > 100:
-        print(f'That is an incorrect input, please try again!')
-        continue
-    elif user_score == 100:
-        print("A+")
+        print(f'That is an incorrect input, please try again!')   
     elif user_score >= 90:
         if plusminus > 7:
             print('A+')
