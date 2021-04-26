@@ -26,23 +26,23 @@ For example `https://api.adviceslip.com/advice/search/joy` will resond with the 
 
 ```json
 {
-    total_results: "3",
-    query: "joy",
-    slips: [
+    "total_results": "3",
+    "query": "joy",
+    "slips": [
         {
-            id: 61,
-            advice: "Once in a while, eat some sweets you used to enjoy when you were younger.",
-            date: "2015-01-13"
+            "id": 61,
+            "advice": "Once in a while, eat some sweets you used to enjoy when you were younger.",
+            "date": "2015-01-13"
         },
         {
-            id: 128,
-            advice: "When you're at a concert or event, enjoy the moment, enjoy being there. Try leaving your camera in your pocket.",
-            date: "2015-12-11"
+            "id": 128,
+            "advice": "When you're at a concert or event, enjoy the moment, enjoy being there. Try leaving your camera in your pocket.",
+            "date": "2015-12-11"
         },
         {
-            id: 160,
-            advice: "Enjoy a little nonsense now and then.",
-            date: "2017-03-20"
+            "id": 160,
+            "advice": "Enjoy a little nonsense now and then.",
+            "date": "2017-03-20"
         }
     ]
 }
