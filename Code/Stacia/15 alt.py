@@ -3,61 +3,87 @@ import re
 from datetime import datetime
 import string
 import math
-step2=0
-rainy = {}
-keyring = []
-sums_of_mean_minus = []
-response = requests.get('https://or.water.usgs.gov/non-usgs/bes/hayden_island.rain')
 
-realtext = response.text
-sum_sq_dif = 0
-
+import matplotlib.pyplot as plt
 from datetime import datetime
 
+
+def plot(z):
+    dic_maker(tups)
+    y_line = []
+    x_line = []   
+    for i in range(len(z)):
+        
+        y_line.append(z[i]['keyring'])
+        x_line.append(z[i]['puddle'])
+    plt.plot(x_line, y_line)
+    plt.show()
+
+
 # turn a string into a datetime object
-date = datetime.strptime('25-MAR-2016', '%d-%b-%Y')
+# date = datetime.strptime('25-MAR-2016', '%d-%b-%Y')
 
 
-def tups_split(realtext):
+def get_data():
+    response = requests.get('https://or.water.usgs.gov/non-usgs/bes/hayden_island.rain')
+
+    realtext = response.text
     regex_date = r'(\d{2}-\w+-\d{4}) \s+(\d+)'
+    date = datetime.strptime()
 
-    tups = re.findall(regex_date,realtext)
+    tups = re.findall(regex_date, realtext)
+    # we have a list of tuples, and each tuple has two strings
+    # we could convert that into a list of tuples where each tuple has a datetime and a int
+
     return tups
-def days(tups):
-    date = datetime.strptime(tups,'%d-%b-%Y')
 
 
 
-tups=tups_split(realtext)
+def dic_maker(x):
+    rainy = {}
+    keyring = []
+    puddle =[]
+    for i in range (len(tups)):
+        date, rain = tups[i]
+        rainy[date]=int(rain)
+        keyring.append(date)
+        puddle.append(rain)
+    return rainy , keyring , puddle
 
 
-total=0
-for i in range (len(tups)):
+def average (z):
+    total=0
+    for i in range (len(z)):
+        x , y = z[i]
+        total += int(y)
+
+        # total += int(z[i][1])
+
+    total=(total / len(z))
+    return total
+
+def variance(z):
+    mu = average(z)
+    total_2 = 0
+    for i in range (len(z)):
+        x , y = z[i]
+        total_2 += (int(y) - mu)**2
+    total_2 = total_2 / len(z)
+    return total_2
+
+def standard_deviation(z):
     
-    date , rain = tups[i]
-    
-    rainy[date]=int(rain)
-    keyring.append(date)
+    v= variance(z)
+    return math.sqrt(v)
 
-for i in range (len(keyring)):
-    
-   total += rainy.get(keyring[i])
-   mean= total/((len(keyring)))
-# The sum of squares is all the squared differences added together and put in a list
-for i in range (len(keyring)):
-    step_1 =float(rainy.get(keyring[i]) - mean)
-    step_2 = step_1**2
-    sum_sq_dif += step_2
+tups = get_data()
+rainy=dic_maker(tups)
+av = average(tups)
+vartotal = variance(tups)
+sd = standard_deviation(tups)
+plot(rainy)
+print (vartotal)
+print (av)
 
 
 
-variance = sum_sq_dif/(len(keyring))
-
-print(total)
-print(mean)
-print(variance)
-
-
-
-#rain=rain_split(realtext)
-#print(rain)
