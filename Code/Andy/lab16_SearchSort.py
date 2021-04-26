@@ -14,22 +14,22 @@ def linear_search(nums, value):
 # [2]
 
 
-def binary_search(nums, val):
-    low = nums[0]
-    high = nums[-1]
+def binary_search(nums, n, val):
+    low = 0
+    high = n - 1
     while low <= high:
         mid = (low + high) // 2
-        if mid < val:
+        if nums[mid] < val:
             low = mid + 1
-        elif mid > val:
+        elif nums[mid] > val:
             high = mid - 1
         else:
             return mid
             
 
 
-#print(binary_search(numbers, 3))
-# 3
+print(binary_search(numbers,len(numbers), 3))
+# 2
 
 
 def bubble_sort(nums):

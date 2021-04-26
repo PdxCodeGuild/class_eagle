@@ -23,8 +23,8 @@ ari_scale = {
 
 run_again = 'y'
 while run_again == 'y':
-    HTML = input('Enter gutenburg.com book in .txt url format to find out its ARI. ')
-    response = requests.get(HTML)
+    url = input('Enter gutenburg.com book in .txt url format to find out its ARI. ')
+    response = requests.get(url)
     response.encoding = 'utf-8' # set encoding to utf-8
     text = response.text 
     text = str(text)
@@ -42,13 +42,13 @@ while run_again == 'y':
     sentences = len(sentences)
 
 
-    ARI = 4.71*(characters/words) + .5*(words/sentences) - 21.43
-    ARI = math.ceil(ARI)
+    ari = 4.71*(characters/words) + .5*(words/sentences) - 21.43
+    ari = math.ceil(ari)
 
-    grade = ari_scale[ARI]['grade_level']
-    age = ari_scale[ARI]['ages']
+    grade = ari_scale[ari]['grade_level']
+    age = ari_scale[ari]['ages']
 
-    print(f'The text in the URL entered has an ARI of {ARI}, this corresponds to {grade} level of difficulty that is suitable for the ages of {age}')
+    print(f'The text in the URL entered has an ARI of {ari}, this corresponds to {grade} level of difficulty that is suitable for the ages of {age}')
 
     run_again = input('Find the ARI of another text? y/n ')
 

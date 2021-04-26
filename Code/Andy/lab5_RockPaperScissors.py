@@ -36,7 +36,7 @@ while run_again == 'yes' :
         else:
                 print("You lose!")
 
-    run_again = input('Would you like to play again? ')
+    run_again = input('Would you like to play again? yes/no ')
     if run_again != 'yes':
         print('Goodbye!')
         

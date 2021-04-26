@@ -15,7 +15,7 @@ while run_again == 'y':
     while i < a:
         password.append(random.choice(chars))
         i += 1
-        while i == a:
+        if i == a:
             print(''.join(password))
             break
 
