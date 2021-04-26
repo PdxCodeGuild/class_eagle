@@ -23,8 +23,8 @@ ari_scale = {
 
 run_again = 'y'
 while run_again == 'y':
-    HTML = input('Enter gutenburg.com book in .txt url format to find out its ARI. ')
-    response = requests.get(HTML)
+    url = input('Enter gutenburg.com book in .txt url format to find out its ARI. ')
+    response = requests.get(url)
     response.encoding = 'utf-8' # set encoding to utf-8
     text = response.text 
     text = str(text)
