@@ -23,8 +23,9 @@ for words_2 in book:
     words_2 = words_2.lower()
     if words_2 in word_count:
         continue
-    count_word = book.count(words_2) 
-    word_count[words_2] = count_word # adds the selected string and its count as key:values pairs in a dictionary
+    count_word = book.count(words_2)
+    # adds the selected string and its count as key:values pairs in a dictionary
+    word_count[words_2] = count_word 
 
 
 

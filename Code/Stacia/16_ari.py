@@ -1,62 +1,80 @@
+# the purpose of this program is to count the number of words in a setence to calculate its readability. 
 
+#imports
 import requests
 import string
 import re
+list_alpha=string.ascii_lowercase
 
-#Created by Alison Bechdel in 1985, The Bechdel Test is a measure of female representation in film and television that uses three criteria for evaluating the presence and visibility of strong female characterizations.
+# deffinitions
 
-# three criteria.
-# At least two named female characters?
-# do they speak to eachother?
-# do they speak to each other about something other than a male love intrest?
-# the goal of this is to create a system of indexing by gender and non gender markers in works of liturature to help facilitate liturary analasis.
-# 
-#
-remove
-
-#author "Stacia Aguilar"
-
-
-#steps 1 take in put 2 format text
-
-
-# break at new line
-#
-
-punc = [",", "." ,"*", "!", "?"]
+ari_scale = {
+     1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
+     2: {'ages':   '6-7', 'grade_level':    '1st Grade'},
+     3: {'ages':   '7-8', 'grade_level':    '2nd Grade'},
+     4: {'ages':   '8-9', 'grade_level':    '3rd Grade'},
+     5: {'ages':  '9-10', 'grade_level':    '4th Grade'},
+     6: {'ages': '10-11', 'grade_level':    '5th Grade'},
+     7: {'ages': '11-12', 'grade_level':    '6th Grade'},
+     8: {'ages': '12-13', 'grade_level':    '7th Grade'},
+     9: {'ages': '13-14', 'grade_level':    '8th Grade'},
+    10: {'ages': '14-15', 'grade_level':    '9th Grade'},
+    11: {'ages': '15-16', 'grade_level':   '10th Grade'},
+    12: {'ages': '16-17', 'grade_level':   '11th Grade'},
+    13: {'ages': '17-18', 'grade_level':   '12th Grade'},
+    14: {'ages': '18-22', 'grade_level':      'College'}
+}
+list_alpha=string.ascii_lowercase
+punc = ["." ,"*", "!", "?"]
 word_dict = {}
 okay_punc =['\'' ,'\"', '-','_']
 
 
-[i]
-
-
-
 f = open(r'C:\Users\16616\Desktop\pdx_code\code\class_eagle\Code\Stacia\arabian_nights.txt')  # open the file
-contents = f.read()  # read the contents
+contents = f.read().lower()  # read the contents
 #print(contents)
+contents = contents.replace('\n'," ")
 setences = (re.split('[.?!]', contents))
+char_count = 0
+setence_count= len(setences)
 
 
-print(setences)
+def county(contents, setences):
+    setence_count = 0
+    char_count = 0
+    for i in range(len(setences)): #each item is a string
+        setence_count += 1 #each string is 1 setence
+        char_count += 1
+        current = setences[i].split
+    return (char_count)
 
-#for i in range(len(contents)):
- #   if contents[i] in word_dict:
-  #      word_dict[contents[i]] += 1
-   # if contents[i] not in word_dict:
-    #   word_dict[contents[i]] = 1
+def make_word (contents):
+    regex = r'\w+'
+    words = re.findall(regex, contents)
+    return words
+   
+def word_length(contents):    
+    regex = r'\w' 
+    char_count = re.findall(regex, contents)
+    char_count =(len(char_count))
+
+def ari(words, setence_count):
+    x = char_count / words
+    y = words / sentence_count
+    a = 4.71 * x
+    b = 0.5 * y - 21.43
+    ari_float = a + b
+    return ari_float
+
+
+county(contents, setences)
+make_word (contents)
+word_length(contents)
+ari(words, setence_count)
+
+print(ari_float)
+
+    
+    
     
 
-#for indicator in gender_markers: #take the markers from our list of gender markers.
-    
- #   found_markers[indicator]=word_dict.get(indicator)
-
-#print(found_markers)
-    #list , key value tupple,
-#word_dict_keys=list(word_dict.keys())
-
-
-#words = list(word_dict.items()) # .items() returns a list of tuples
-#words.sort(key=lambda tup: tup[1], reverse=True)  # sort largest to smallest, based on count
-#for i in range(min(10, len(words))):  # print the top 10 words, or all of them, whichever is smaller
-    #print(words[i])

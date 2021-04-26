@@ -1,7 +1,13 @@
-grade = input ("Enter your score as an integer ")
 
+print('\nGrade Calculator\n')
+
+
+# Getting user input for numeric grade
+grade = input ("Enter your score as an integer ")
 grade = int(grade)
 
+
+# Outputs depending on the inputted grade 
 if grade < 0 :
     print("How did you get negative points? ")
 

@@ -1,7 +1,7 @@
 # make the rotation random?
 
 
-
+# Given text and requested rotation number, this function uses ord and chr to encode the message.
 def rot(text, rot_num):
     new_word = []
     for letter in text:
@@ -19,6 +19,7 @@ def rot(text, rot_num):
     return new_new
 
 
+# REPL with inputs requested to use 'rot' function
 def run():
     run_again = 'y'
     while run_again == 'y':

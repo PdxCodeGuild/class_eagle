@@ -1,6 +1,6 @@
 from string import *
 
-
+# used this function to attempt the encryption with a dictionary
 def encrypt(text):
     cypher = {
         'a':'n',
@@ -67,33 +67,35 @@ def encrypt(text):
     return message
 
 
-
-def encryptv2(num,text):
+# using string methods to generate the alphabet 
+def encryptv2(rotation,text):
     char_list = list(text)
-    letters = ascii_letters
+    letters = ascii_lowercase
     message = ""
+    # utilizing a for loop to iterate through each character
     for i in range(len(char_list)):
+        # condition to check for spaces and add them to the message
         if char_list[i] == ' ':
             message += ' '
-            continue
-        x = letters.index(char_list[i])
-        if x > 26:
-            x -= num
-            message += letters[x]
-        elif x <= 25:
-            x += num
+        else:
+            # finding the index for the character and adding the rotation to it
+            x = letters.index(char_list[i])
+            x += rotation
+            x %= len(letters)
+            # adding the new character onto the message using the rotated index
             message += letters[x]
     return message
 
 
 
 text = input('Enter your message: ')
-num = int(input('Amount of rotation: '))
+text = text.lower()
+rotation = int(input('Amount of rotation: '))
 
 
 print(f'''
 Your newly encrypted message is:
-{encryptv2(num,text)}
+{encryptv2(rotation,text)}
 {encrypt(text)}
 ''')
 
