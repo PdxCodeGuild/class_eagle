@@ -193,23 +193,79 @@ def combine_all(nums):
 
 
 
+# def add(a, b):
+#     a += 1
+#     return a + b
+
+
+# x = 2
+# y = 5
+# z = add(x, y)
+# print(x)
+
+
+# def myfunc(nums):
+#     random.shuffle(nums)
+#     nums.append(89)
+
+# nums = [1, 2, 3]
+# myfunc(nums)
+# print(nums)
+
+
+
+
 import random
 
 def student_sorter(students, number_of_groups):
-    # random.shuffle(students)
-    # print(students)
+
+    if number_of_groups < 1 or number_of_groups > len(students):
+        return None
+
+    students = students.copy()
+    random.shuffle(students)
+
     # students_per_group = len(students) // number_of_groups
-    # print(students_per_group)
-    # students[::students_per_group]
-    # print(students[::students_per_group])
     # for student in students:
     #     print(student)
-    ...
+    
+    # [[],[],[],[]]
+    # [['Adam'],[],[],[]]
+    # [['Adam'],['Andy'],[],[]]
+    # [['Adam'],['Andy'],['Mark'],[]]
+    # [['Adam'],['Andy'],['Mark'],['Scott']]
+    # [['Adam','Stacia'],['Andy'],['Mark'],['Scott']]
+    # [['Adam','Stacia'],['Andy', 'Russell'],['Mark'],['Scott']]
+
+    # [students[0:2],students[2:4],students[4:5],students[5:6]]
+
+    groups = []
+    count = 0
+    while count < number_of_groups:
+        groups.append([])
+        count += 1
+    
+    # groups = []
+    # for count in range(number_of_groups):
+    #     groups.append([])
+
+    # for i in range(len(students)):
+    #     groups[i%number_of_groups].append(students[i])
+    
+    while len(students) > 0:
+        for i in range(len(groups)):
+            if len(students) > 0:
+                groups[i].append(students[0])
+                students.pop(0)
+    
+    return groups
+    
 
 students = ['Adam', 'Andy', 'Mark', 'Scott', 'Stacia', 'Russell']
-print(student_sorter(students, 2)) # [['Scott', 'Russell', 'Mark'], ['Andy', 'Stacia', 'Adam']]
-# print(student_sorter(students, 3)) # [['Scott', 'Russell'], ['Mark', 'Andy'], ['Stacia', 'Adam']]
-# print(student_sorter(students, 4)) # [['Scott', 'Russell'], ['Mark', 'Andy'], ['Stacia'], ['Adam']]]
+print(student_sorter(students, 2))
+# for num_groups in range(1, len(students)+1):
+#     print(num_groups, 'groups', student_sorter(students, num_groups)) # [['Scott', 'Russell', 'Mark'], ['Andy', 'Stacia', 'Adam']]
+# print(students)
 
 ## Progressive Tax
 

@@ -8,16 +8,20 @@ import random
 run_again = 'yes'
 while run_again == 'yes' :
 
+    # Displaying to user the possible choices
     choices = ["Rock", "Paper", "Scissors"]
     for choices in choices :
         print(f"{choices}")
 
+    # Asking user to choose 
     user_choice = input("You choose " )
     choices = ["Rock", "Paper", "Scissors"]
     cpu_choice = random.choice(choices)
 
+    # Displaying user and computer choices
     print(f"You chose {user_choice}, I chose {cpu_choice}")
 
+    # Win conditions depending on input from user and random cpu choice
     if user_choice == cpu_choice:
         print("It's a Tie!")
     elif user_choice == "Rock":
@@ -36,7 +40,8 @@ while run_again == 'yes' :
         else:
                 print("You lose!")
 
-    run_again = input('Would you like to play again? ')
+    # REPL
+    run_again = input('Would you like to play again? yes/no ')
     if run_again != 'yes':
         print('Goodbye!')
         

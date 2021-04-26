@@ -4,7 +4,8 @@
 
 # improvements - put inside REPL
 
-
+# conversions multiplied by 10 to avoid floating point errors
+# meters is the "universal" unit and everything is converted to meters first before being converted to the wanted unit
 def unit_converter():
     conversions = {
 
@@ -33,6 +34,7 @@ def unit_converter():
     output_unit = conversions.get(output_unit)
     final = meters / output_unit
 
+    #output
     print(f' {distance} {input_name} = {final} {output_name}')
 
 
