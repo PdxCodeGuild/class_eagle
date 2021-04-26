@@ -1,43 +1,46 @@
 import json
-
-def __init__(self):
-    self.json = r'C:\Users\16616\Desktop\pdx_code\code\class_eagle\Code\Stacia\contacts.json'
-    
-    def load_it(self):
+class ContactList:
+    def __init__(self):
+        self.contacts = []
+        def load(self):
         # load contacts from a file
-        self.load_it = json.loads(self.contacts)
+            with open (self.file, "r") as self.load:
+                text = self.load.read()
+            print (f'self . load is {self.load}')
 
-    def count(self):
-        # return the number of contacts
-        self.count = 0
-        for i in range (len(self.contacts)):
-            self.count +=1
-        return self.count
-    def save(self):
-        # save contacts to a file
-        jason.dumps(self.load)
+        def count(self):
+            # return the number of contacts
+            self.count = 0
+            for i in range (len(self.contacts)):
+                self.count +=1
+            return self.count
+        def save(self):
+            # save contacts to a file
+            json.dumps(self.load)
 
-    def print(self):
+        def print(self):
+            for [name] in self.file["contacts"]:
         # print out all the contacts
-        self.print = self.contacts
+                print (self.file['name'+'phone_number'+"email"])
 
-    def add(self, name, phone_number, email):
+        def add(self, name, phone_number, email):
         # add a new todo item
-        #1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
-        self.contacts[name]:{"name": name, "phone_number": phone_number ,"email": email}
+     
+            for contact in self.file:
+                data['contacts'].append({
+                'name': name,
+                'phone_number': phone_number,
+                "email" : email })
         
-    def remove(self, name):
-        # remove the contact from our contact list
-        self.remover = del self.contacts[name]
+        def remove(self, name):
+            # remove the contact from our contact list
+            print ("ok")
+        
+      
+        
        
-    def update(self, old_name, new_name, new_phone_number, new_email):
-        # update the contact with new info
-        #{ari_scale[ari_score]['grade_level']}
-        self.add = {self.contacts}.update({ 'old_name' : new_name new_phone_number , new email})
-       
-       
-contact_list = ContactList() # create an instance of our class
-contact_list.load()
+contact_list = ContactList(r'C:\Users\16616\Desktop\pdx_code\code\class_eagle\Code\Stacia\contacts.json') # create an instance of our class
+contact_list.load(self)
 print('Welcome to the Contact List App (CLA)')
 while True:
     command = input('Enter a command: ')
