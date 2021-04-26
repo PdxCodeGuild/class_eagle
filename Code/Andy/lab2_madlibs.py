@@ -2,6 +2,7 @@
 
 print("Let's play MadLibs!\n")
 
+# Gathering inputs for madlib
 silly_word = input('Enter a silly word ')
 last_name = input('Enter a last name ')
 illness = input('Enter an illness ')
@@ -13,6 +14,7 @@ place = input('Enter a place ')
 num = input('Enter a number ')
 adj_3 = input('Enter another adjective ')
 
+# Entering given inputs to our madlib
 print(f"Dear School Nurse: {silly_word} {last_name} will not be attending school today.")
 print(f"He has come down with a case of {illness} and has horrible {noun} and {adj_1} fever.") 
 print(f"We have made an appointment with the {adj_2} Dr. {silly_word2} ,")
