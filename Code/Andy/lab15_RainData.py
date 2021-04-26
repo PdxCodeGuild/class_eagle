@@ -67,13 +67,6 @@ def analzye_data():
     print(f'the variance is {variance_rain} tips^2, \nthe standard deviation is {deviation_rain} tips')
     print(f'and the day with the most rain is {highest_rain} with {highest_value} tips of rain falling.')
 
-    # Graph
-    '''
-    x_values = dates
-    y_values = rain_int
-    plt.plot(x_values, y_values)
-    plt.show()
-    '''
 
 
 # REPL
