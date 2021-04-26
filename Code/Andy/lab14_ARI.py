@@ -3,6 +3,7 @@ import requests
 import math
 import re
 
+# Dictionary given in assignment
 ari_scale = {
      1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
      2: {'ages':   '6-7', 'grade_level':    '1st Grade'},
@@ -20,35 +21,41 @@ ari_scale = {
     14: {'ages': '18-22', 'grade_level':      'College'}
 }
 
-
+# REPL
 run_again = 'y'
 while run_again == 'y':
+
+    # getting text from url and converting to string
     url = input('Enter gutenburg.com book in .txt url format to find out its ARI. ')
     response = requests.get(url)
     response.encoding = 'utf-8' # set encoding to utf-8
     text = response.text 
     text = str(text)
 
+    # Finding all words
     reg = r'\w+'
     words = re.findall(reg,text)
     words = len(words)
 
+    # Finding all characters
     reg = r'\w|d'
     characters = re.findall(reg,text)
     characters = len(characters)
 
+    # Finding all sentences
     reg = r'([A-Z][^\.!?]*[\.!?])'
     sentences = re.findall(reg, text)
     sentences = len(sentences)
 
-
+    # Arithmetic to find the ARI value
     ari = 4.71*(characters/words) + .5*(words/sentences) - 21.43
     ari = math.ceil(ari)
 
+    # grade and age variables are for ease of use in outpout
     grade = ari_scale[ari]['grade_level']
     age = ari_scale[ari]['ages']
 
+    # output
     print(f'The text in the URL entered has an ARI of {ari}, this corresponds to {grade} level of difficulty that is suitable for the ages of {age}')
-
     run_again = input('Find the ARI of another text? y/n ')
 
