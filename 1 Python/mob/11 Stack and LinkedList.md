@@ -25,8 +25,8 @@ print(n1) # ('apples',('bananas',('pears',None)))
 # iterate over the nodes
 n = n1 # temporary node we advance each iteration
 while n is not None: # stop when we run out of nodes
-  print(n.item) # prints apples, bananas, pears
-  n = n.next # advance the node to the next node
+    print(n.item) # prints apples, bananas, pears
+    n = n.next # advance the node to the next node
 ```
 
 ## Part 1: Stack
@@ -37,22 +37,38 @@ A [stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)) is a FILO (f
 - `pop` removes the item from the top of the stack and returns it, the one below it becomes the new top item.
 - `peek` returns the item at the top of the stack without modifying anything.
 
-
-Stub:
 ```python
+
+class Node:
+    def __init__(self, item, next=None):
+        self.item = item
+        self.next = next
+
+    def __str__(self):
+        return f'({self.item}, {self.next})'
+
+
 class Stack:
-  def __init__(self):
-    self.top = None
-  def push(self, element): # insert an element at the start (new root)
-    ...
-  def pop(self): # remove an element from the start (the root becomes the next node)
-    ...
-  def peek(self): # returns the element on the root node or None if there is no root
-    ...
-  def length(self): # return the number of elements
-    ...
-  def __str__(self):
-    ...
+    def __init__(self):
+        self.head = None
+    
+    def push(self, element): # insert an element at the start (new head)
+        ...
+    
+    def pop(self): # remove an element from the start (the head becomes the next node)
+        ...
+    
+    def peek(self): # returns the element on the head node or None if there is no head
+        ...
+    
+    def __len__(self): # return the number of elements
+        ...
+
+    def to_list(self):
+        ...
+    
+    def __str__(self):
+        ...
 
 s = Stack()
 s.push(5)
@@ -79,20 +95,20 @@ A [linked list](https://en.wikipedia.org/wiki/Linked_list) is similar to the bui
 Stub:
 ```python
 class LinkedList:
-  def __init__(self):
-    self.root = None
-  def append(element): # add the element to the end
-    ...
-  def insert(element, index): # insert the element at the given index
-    ...
-  def remove(element): # remove the first occurrence of the element
-    ...
-  def get(index): # get the element at the given index (starting with 0)
-    ...
-  def find(element): # find the first occurrence of the element and return it
-    ...
-  def length(self): # return the length of the list
-    ...
+    def __init__(self):
+        self.head = None
+    def append(element): # add the element to the end
+        ...
+    def insert(element, index): # insert the element at the given index
+        ...
+    def remove(element): # remove the first occurrence of the element
+        ...
+    def get(index): # get the element at the given index (starting with 0)
+        ...
+    def find(element): # find the first occurrence of the element and return it
+        ...
+    def length(self): # return the length of the list
+        ...
 
 nums = LinkedList()
 nums.append(5)
