@@ -39,30 +39,19 @@ def pass_gen(upper,lower,num,special):
     
 # using a while loop for REPL
 while True:
-
+    # asking the user for a value for each type of character
     upper = int(input('How many upper case letters? '))
     lower = int(input('How many lower case letters? '))
     num = int(input('How many numbers would you like? '))
     special = int(input('How many special characters? '))
-
-    # Used to ensure the selected character values matches the requested length
-
     
     print(f'You shiny new password is: {pass_gen(upper,lower,num,special)}')
 
     # asks the user if they would like to generate another
-
-    answer = input("""
-Would you like to generate another?
-[yes/no] 
-""")
+    answer = input("Would you like to generate another?")
     if answer != 'yes':
-        print('''
-Thank you for using the Password Generator 9000!
-Goodbye!
-        ''')
+        print('Thank you for using the Password Generator 9000!')
         break
-        
 
 
 
