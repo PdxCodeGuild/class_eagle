@@ -28,8 +28,8 @@ def analzye_data():
 
 
     # Getting Data table
-    HTML = input('Enter PDX rain data url: ')
-    response = requests.get(HTML)
+    url = input('Enter PDX rain data url: ')
+    response = requests.get(url)
     response.encoding = 'utf-8'
     text = response.text 
     text = str(text)
@@ -68,10 +68,12 @@ def analzye_data():
     print(f'and the day with the most rain is {highest_rain} with {highest_value} tips of rain falling.')
 
     # Graph
+    '''
     x_values = dates
     y_values = rain_int
     plt.plot(x_values, y_values)
     plt.show()
+    '''
 
 
 # REPL
