@@ -19,7 +19,7 @@
 
 
 
-# import requests
+import requests
 
 # url = 'https://api.ipify.org/?format=json'
 # response = requests.get(url)
@@ -30,6 +30,7 @@
 
 # print(response.text) # string containing JSON
 # data = response.json()
+# print(data)
 # print('Your IP address is ' + data['ip'])
 
 

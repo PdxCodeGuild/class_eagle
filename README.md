@@ -37,7 +37,7 @@ Schedule Overview:
 - [05 Regular Expressions](0%20General/05%20Regular%20Expressions.md)
 - [06 Programming Languages](0%20General/06%20Programming%20Languages.md)
 - [07 JSON, CSV, & XML](0%20General/07%20JSON,%20CSV,%20&%20XML.md)
-- [08 Networking](0%20General/08%20Networking.md)
+- [08 HTTP Requests & APIs](0%20General/08%20HTTP%20Requests%20&%20APIs.md)
 - [09 Professional Programming](0%20General/09%20Professional%20Programming.md)
 
 ### 1 Python
