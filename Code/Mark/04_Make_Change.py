@@ -2,9 +2,9 @@ import math
 
 
 # function to determine the amount of change
-def make_change(coin_amount):
+def make_change(money):
     
-    coin_amount = math.ceil(user_m/.01)
+    coin_amount = math.ceil(money/.01)
 
     quart = coin_amount//25 # The amount of quarters
     coin_amount = coin_amount - (quart*25)

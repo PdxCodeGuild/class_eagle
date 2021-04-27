@@ -15,33 +15,38 @@ def linear_search(nums, value):
             print('Value not found')
 
 
-# # index 0  1  2  3  4  5  6  7
-# nums = [1, 2, 3, 4, 5, 6, 7, 8]
-# index = linear_search(nums, 3)
-# print(index) # 2
+# index 0  1  2  3  4  5  6  7
+nums = [1, 2, 3, 4, 5, 6, 7, 8]
+value = random.choice(nums)
+print(value)
+index = linear_search(nums, value)
+print(f'{index}\n')
 
 
 # Part 2 - Binary Search
 
 def binary_search(nums, value):
-    low_i = nums[0]
-    high_i = nums[-1]
-    while low_i < high_i:
-        mid_i = nums.index(high_i)//2
-        if mid_i == value:
-            return nums.index(mid_i)
-        elif value < mid_i:
-            high_i = mid_i
+    low = 0
+    high = len(nums) -1
+    while low <= high:
+        mid = (low + high)//2
+        if value < mid:
+            high = mid - 1
+            print('Value not found')
+        elif value > mid:
+            low = mid + 1
             print('Value not found')
         else:
-            low_i = mid_i
-            print('Value not found')
+            return mid
 
 
-# #       0  1  2  3  4  5  6  7
-# nums = [1, 2, 3, 4, 5, 6, 7, 8]
-# index = binary_search(nums, 3)
-# print(index) # 2
+#       0  1  2  3  4  5  6  7
+nums = [1, 2, 3, 4, 5, 6, 7, 8]
+value = random.choice(nums)
+print(value)
+num = binary_search(nums, value)
+print(f'{num}\n')
+
 
 
 # Part 3 - Bubble Sort
@@ -57,10 +62,12 @@ def bubble_sort(nums):
                 swapped = True
     return nums
 
-#                      0  1  2  3  4  5  6  7
+#       0  1  2  3  4  5  6  7
 nums = [1, 2, 3, 4, 5, 6, 7, 8]
 random.shuffle(nums)
 print(nums)
-print(bubble_sort(nums)) # [1, 2, 3, 4, 5, 6, 7, 8]  
+print(f'{bubble_sort(nums)}\n') # [1, 2, 3, 4, 5, 6, 7, 8]
 
+
+# Part 4 - Insertion Sort
 

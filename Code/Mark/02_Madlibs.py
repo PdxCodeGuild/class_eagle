@@ -1,7 +1,8 @@
-while True: # while loop in case someone would like to go again
+# while loop in case someone would like to go again
+while True:
 
     
- # asks the user for the words to fill in
+   # asks the user for the words to fill in
     noun1 = input('Noun: ')
     noun2 = input('Noun: ') 
     noun3 = input('Noun: ')
@@ -16,7 +17,7 @@ while True: # while loop in case someone would like to go again
     emotion = input('Emotion: ')
 
 
- # Putting selected words into the mab lib and displaying it to the user
+   # Putting selected words into the mab lib and displaying it to the user
     print(f'''
     It was during the battle of {noun1} when I was running through a {noun2} when a {noun3} went off right next to my platoon.
     Our {occupation} yelled for us to {verb} to the nearest {location} we could find.
@@ -26,7 +27,7 @@ while True: # while loop in case someone would like to go again
     We quickly eliminated the enemy and were {emotion} that we had won the battle.
     ''')
 
- # asking if they would like to go again
+   # asking if they would like to go again
     answer = input('''
     Would you like to go again?
     [yes/no]
