@@ -17,15 +17,15 @@ data = response.json()
 results = data['results']
 
 score = 0   # keep track of the score
-counter = 0
+counter = 0  # to track the number of questions asked
 num_of_questions = len(results)
 
 print('\nReady for a quiz?')
 
 for key in results:
-    print('-'*79)
-    counter += 1
-    question = textwrap.fill(key['question'], 79)  # questions will wrap if too long
+    print('-'*79)   # print a dividing line between questions
+    counter += 1    # increment the counter
+    question = textwrap.fill(html.unescape(key['question']), 79)  # wrap text and decode text
     correct_answer = key['correct_answer']  # will compare correct answer to user_anser
     user_answer = input(f'\n{counter}) {question} True/False: ')    # Ask the user each question and save their answer
     if correct_answer == user_answer:   # if the answers match increment the score
