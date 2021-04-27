@@ -29,8 +29,11 @@ def quotester():
         for body in data["quotes"]:
             print ()
             print (body["body"])
-           
+            print (body["author"])
+            
+            
             go = input ("would you like another quote?")
+            
             if go == "yes":
                 print ()
             else:
@@ -38,4 +41,6 @@ def quotester():
 
 quotester()
         
+
+
 #print (data)
