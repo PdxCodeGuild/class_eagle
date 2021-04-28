@@ -23,7 +23,7 @@ print(get_latest_post_user()) # situation5839
 def count_user_post_upvotes():
     ...
 
-print(count_user_post_upvotes()) # {'partner5084': 806, 'space9330': 430, 'green1898': 560, 'whom5856': 89, ...}
+# print(count_user_post_upvotes()) # {'partner5084': 806, 'space9330': 430, 'green1898': 560, 'whom5856': 89, ...}
 
 
 
@@ -32,7 +32,7 @@ print(count_user_post_upvotes()) # {'partner5084': 806, 'space9330': 430, 'green
 def find_most_upvoted_post():
     ...
 
-print(find_most_upvoted_post()) # {'id': 44, 'text': '...', 'upvotes': 199, 'user': 'whom5856'}
+# print(find_most_upvoted_post()) # {'id': 44, 'text': '...', 'upvotes': 199, 'user': 'whom5856'}
 
 
 
@@ -61,11 +61,12 @@ print_comments(0)
 def count_comment_upvotes(post_id):
     ...
 
-#print(count_comment_upvotes(0))
+#print(count_comment_upvotes(0)) # {'partner5084': 806, 'space9330': 430, 'green1898': 560, 'whom5856': 89, ...}
+
 
 # Find Most Upvoted Comment
 # returns a dictionary representing the comment which has received the most upvotes
 def find_most_upvoted_comment(post_id):
     ...
 
-# print(find_most_upvoted_comment(0))
+# print(find_most_upvoted_comment(0)) # {'text': '...', 'upvotes': 199, 'user': 'whom5856'}
