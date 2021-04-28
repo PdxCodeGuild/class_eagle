@@ -1,4 +1,6 @@
 
+# LAB 14 : ARI. This code outputs a reading level and age for a given text
+
 import requests
 import math
 import re

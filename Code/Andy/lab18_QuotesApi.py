@@ -17,6 +17,7 @@ print(quotes)
 '''
 
 ################ Version 2 ##################
+# This code outputs 25 quotes at a time given a subject
 
 def run():
     page = 1
@@ -26,12 +27,12 @@ def run():
     data = response.json()
     print('\n')
     for num in range(0,25):
-        print(data['quotes'][num]['body'])
-        print('-' + data['quotes'][num]['author'])
+        print(data['quotes'][num]['body']) # print quote 
+        print('-' + data['quotes'][num]['author']) # print author
         print('\n')
     while data['last_page'] == False:
         ask = input('"next page" or "done"? ')
-        if ask != 'next page' and ask != 'done':
+        if ask != 'next page' and ask != 'done': # 'error' message in case a typo or invalid option is entered
             ask = input('please enter "next page" or "done" ')
         while ask == 'next page':
             page += 1
@@ -48,8 +49,9 @@ def run():
             break
     if data['last_page'] == True:
         print('This is the last page of quotes!')
+# lines 25-32 and 39-46 are the same and can be made into a function to call, these lines request, and print the pertinent data.
 
-
+# REPL
 run_again ='y'
 while run_again == 'y':
     run()
