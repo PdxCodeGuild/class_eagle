@@ -1,8 +1,9 @@
 
 '''************************LAB 15 RAIN DATA***********************'''
+# This code reads data from a given document, and returns calculated data.
 # Possible improvements: better graph range, maybe let user pick date range?
 # redo without using built in stats functions
-# fix x-axis on graph
+
 
 import requests
 import re

@@ -46,9 +46,9 @@ def get_distance(unit1, distance, unit2):
     "mm": 0.001
     }
     # converting original unit to meters
-    meters = distance*unit_values[unit1]
+    meters = distance * unit_values[unit1]
     # using the previous result to convert to our new unit
-    output = meters/unit_values[unit2]
+    output = meters / unit_values[unit2]
     return output
 
 
