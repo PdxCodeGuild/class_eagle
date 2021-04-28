@@ -1,4 +1,4 @@
-# Improvements - let user pick website, use expressions
+# Possibel improvements - let user pick website, use expressions
 
 
 import requests
@@ -40,7 +40,7 @@ def sort_words(dictionary):
     return sorted_dict
 
 
-# Returns the top ten used words in the text
+# Returns the top ten used words in the text, this function was given in the assignment
 def top_10(dict):
     words = list(dict.items()) 
     words.sort(key=lambda tup: tup[1], reverse=True)  
