@@ -43,17 +43,16 @@ for char in book_chars:
 book_sentance = re.findall(r'\b[^.!?]+[.!?]+', book, re.I)
 sentances = 0
 for sent in book_sentance:
-    sentances +=1
+    sentances += 1
 
 
 # ari math
-ari_score = math.ceil(4.71*(chars/words)+0.5*(words/sentances)-21.43)
+ari_score = math.ceil(4.71 * (chars/words) + 0.5 * (words/sentances) - 21.43)
 if ari_score >= 14:
     ari_score = 14
 
 
 print(f"""
-
 --------------------------------------------------------
 The requested text contains {words} words
 The requested text contains {chars} characters
@@ -63,7 +62,6 @@ The ARI for {url} is {ari_score}
 This corresponds to a {ari_scale[ari_score]['grade_level']} level of difficulty
 that is suitable for an average person {ari_scale[ari_score]['ages']} years old.
 --------------------------------------------------------
-
 """)
 
 
