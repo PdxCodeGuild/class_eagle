@@ -13,8 +13,10 @@ card_values ={# a dictonary of values. A is currently 1 point but will be redfin
     'J' : 10,
     'Q' : 10,
     'K' : 10
-
 }
+
+points = 0
+ac = 0
 
 
 def draw():# this function is designed to draw a card and evaluate its value. 
@@ -27,31 +29,32 @@ def draw():# this function is designed to draw a card and evaluate its value.
     if int(card) <= 10 and int(card) >= 1: #evaluates if user input is a 
         card = int(card)
     if (card) == "A":
-        
-    return (card, ac)
-
-def check():
-    if points  == 21:
-        print ("21!!!")
-    elif points > 21:
-        print ("bust")
-    elif points > 17:
-        print ( "I recomend you hold there partner." )
-    elif points < 17:
-        print ("Saddle up partner hit!")
-    if  ac =>1  and points <= 10:
-        points +1 
+        ace = True
+    
+    print(card)
         
 
-points = 0
-ac = 0
+# def check():
+#     if points  == 21:
+#         print ("21!!!")
+#     elif points > 21:
+#         print ("bust")
+#     elif points > 17:
+#         print ( "I recomend you hold there partner." )
+#     elif points < 17:
+#         print ("Saddle up partner hit!")
+#     if  ac =>1  and points <= 10:
+#         points +1 
+        
 
-for i in range(3):
-     ac = draw()
-    if card = 1
-        Ac+=1
-    points = points + card
-    print (points)
 
-check ()
+# for i in range(3):
+#      ac = draw()
+#     if card = 1
+#         Ac+=1
+#     points = points + card
+#     print (points)
 
+# check ()
+
+draw()

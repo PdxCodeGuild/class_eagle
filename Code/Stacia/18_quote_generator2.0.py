@@ -4,8 +4,8 @@ import string
 
 url = f'https://favqs.com/api/qotd'
 
-response = requests.get(url)
-data = response.json()
+# response = requests.get(url)
+# data = response.json()
 
 # quote = data['quote']
 # text= quote['body']
@@ -27,8 +27,7 @@ quote = data['quotes']
 vibes = {}
 def vibe_check():
     vibe= input("did you enjoy this qoute and would you like to save it?")
-    if vibe.lower()[0] == "y":
-        wisdom.append()
+   
 def quotester():
        
         for body in data["quotes"]:
@@ -48,10 +47,19 @@ def quotester():
                 break
 
 
+#display pages of 25
+
 quotester()
+    while lap = ## figure out how to loop
+redo = input ("would you like to pick a new topic?")
+if redo.lower()[0] == "y":
+    quotester()
 vibe_dump = input ("would you like to see your vibes?")
 if vibe_dump.lower()[0] == "y":
     print (vibes)
+
+
+
 
 
 #print (data)
