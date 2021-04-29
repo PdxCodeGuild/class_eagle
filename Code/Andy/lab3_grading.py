@@ -1,4 +1,6 @@
 
+# LAB 3: This code gives a letter grade from a number grade
+
 print('\nGrade Calculator\n')
 
 
