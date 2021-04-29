@@ -1,0 +1,11 @@
+What constitutes good code:
+- no bugs, accepts a variety of different user inputs without crashing
+- descriptive and concise variable and function names in snake case
+- descriptive and concise comments, not necessarily for every line but every major section at least
+- segment complex sections of code into separate functions
+- imports should be at the top of the file
+- indentation should be 4 spaces
+- no unnecessary or convoluted code, no 'junk code' that's been commented out
+- spaces around operators ("x = 10" not "x=10")
+- avoid unnecessary parentheses ("if x == 10" not "if (x == 10)")
+- labs are named consistently "lab01_turtle.py", "lab02_madlib.py" etc
