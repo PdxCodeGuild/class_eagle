@@ -29,32 +29,28 @@ def draw():# this function is designed to draw a card and evaluate its value.
     if int(card) <= 10 and int(card) >= 1: #evaluates if user input is a 
         card = int(card)
     if (card) == "A":
-        ace = True
-    
+        ace = True 
+    return card
     print(card)
         
 
-# def check():
-#     if points  == 21:
-#         print ("21!!!")
-#     elif points > 21:
-#         print ("bust")
-#     elif points > 17:
-#         print ( "I recomend you hold there partner." )
-#     elif points < 17:
-#         print ("Saddle up partner hit!")
-#     if  ac =>1  and points <= 10:
-#         points +1 
+def check(points):
+    if points  == 21:
+            print ("21!!!")
+    elif points > 21:
+        print ("bust")
+    elif points > 17:
+        print ( "I recomend you hold there partner." )
+
+    else:
+        print ("Saddle up partner hit!")
         
 
 
-# for i in range(3):
-#      ac = draw()
-#     if card = 1
-#         Ac+=1
-#     points = points + card
-#     print (points)
 
-# check ()
-
-draw()
+for i in range (3):
+    card=draw()
+    points += card
+    print (f'points {points}')
+    
+    check(points)
