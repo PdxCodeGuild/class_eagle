@@ -7,39 +7,40 @@ import json
 import html
 
 ############################## Version 1 ############################
-'''
-# Requesting data from api
-url = 'https://opentdb.com/api.php?amount=10&category=18&type=boolean'
-response = requests.get(url)
-data = response.json()
 
-# Game opener
-print('\nWelcome to Computer Science trivia! to play, answer the following questions with True or False \n')
-print('Answers other than "True" or "False" will be counted as wrong!\n')
+def version1():
+    # Requesting data from api
+    url = 'https://opentdb.com/api.php?amount=10&category=18&type=boolean'
+    response = requests.get(url)
+    data = response.json()
+
+    # Game opener
+    print('\nWelcome to Computer Science trivia! to play, answer the following questions with True or False \n')
+    print('Answers other than "True" or "False" will be counted as wrong!\n')
 
 
-# Game running
-# this body of code prints the question, asks for and compares user input to the correct answer
-# score is changed accordingly
-score = 0
-for i in range(10):
-    print(f'Question:{i+1}') 
-    print(html.unescape(data['results'][i]['question']))
-    answer = input('True or False? ')
-    answer = answer.title()
-    if answer == data['results'][i]['correct_answer']:
-        print('You got it!')
-        score += 1
-        print(f'Score: {score}')
-        print('\n')
-    elif answer != data['results'][i]['correct_answer']: #since the only options are true or false != is used here
-        print('Wrong!')
-        print('\n')
-    while i == 9:
-        print(f'You got {score} questions correct!')    
-        print('\n')
-        break
-'''
+    # Game running
+    # this body of code prints the question, asks for and compares user input to the correct answer
+    # score is changed accordingly
+    score = 0
+    for i in range(10):
+        print(f'Question:{i+1}') 
+        print(html.unescape(data['results'][i]['question']))
+        answer = input('True or False? ')
+        answer = answer.title()
+        if answer == data['results'][i]['correct_answer']:
+            print('You got it!')
+            score += 1
+            print(f'Score: {score}')
+            print('\n')
+        elif answer != data['results'][i]['correct_answer']: #since the only options are true or false != is used here
+            print('Wrong!')
+            print('\n')
+        while i == 9:
+            print(f'You got {score} questions correct!')    
+            print('\n')
+        
+
 
 ############################# VERSION 2 (UNFINISHED) ##############################
 
@@ -115,13 +116,14 @@ def run():
         print(num['parameter'],' : ', num['name'])
     cat = input('\nChoose a category by entering the corresponding number, or enter "any". ')
     diff = input('Do you want the questions to be easy, medium, hard, or any difficulty? ')
-    ques = input('Do you wan boolean (true or false) or multiple (multiple choice) questions? ')
+    ques = input('Do you want boolean (true or false) or multiple (multiple choice) questions? ')
     run_game(num_questions, cat, diff, ques)
 
 
-# REPL
-run_again = 'y'
-while run_again == 'y':
-    run()
-    run_again = input('Would you like to play again? y/n ')
+def repl():
+    run_again = 'y'
+    while run_again == 'y':
+        run()
+        run_again = input('Would you like to play again? y/n ')
 
+version1()
