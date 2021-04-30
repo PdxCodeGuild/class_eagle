@@ -7,10 +7,10 @@
 *dddddmgg***gggggffff*
 *ddddmggfff*ggfffffff*
 *ggggggggggg*ggffffff*
-*ggggggggggtrrrgggggg*
+*ggggggggggtggggggggg*
 *gggddddgggggg*ggbggg*
-*gddddtgggggggg***r***
-*dddgggggggggggf*rffg*
+*gddddtgggggggg***g***
+*dddgggggggggggf*gffg*
 *gggggggggggggfg*ftfm*
 *ggggggCggggffffmmmmm*
 *gggggggggggggffmmmmm*
