@@ -1,7 +1,7 @@
 import string # imports string functions
 
 card_values ={# a dictonary of values. A is currently 1 point but will be redfined if 
-    'A' :  1,
+    'A' :  11,
     '2'  : 2,
     '3'  : 3,
     '4'  : 4,
@@ -16,11 +16,11 @@ card_values ={# a dictonary of values. A is currently 1 point but will be redfin
 }
 
 points = 0
-ac = 0
+ace_count = 0
 
 
-def draw():# this function is designed to draw a card and evaluate its value. 
-
+def draw(ace_count):# this function is designed to draw a card and evaluate its value. 
+    
     card = input ("What is your card? ") #user requests card
     if not card.isdigit(): # if the card is  not a didgit
         card = card.upper()[0] # cards is convereted to uper case and stripped to first digit.
@@ -29,14 +29,16 @@ def draw():# this function is designed to draw a card and evaluate its value.
     if int(card) <= 10 and int(card) >= 1: #evaluates if user input is a 
         card = int(card)
     if (card) == "A":
-        ace = True 
-    return card
-    print(card)
+        ace_count  += 1
+    return card,ace_count
+    
         
 
-def check(points):
+def check(points,):
     if points  == 21:
             print ("21!!!")
+    if ace_count >= 0:
+        print("sitten pretty with that thar ace")
     elif points > 21:
         print ("bust")
     elif points > 17:
@@ -49,8 +51,11 @@ def check(points):
 
 
 for i in range (3):
-    card=draw()
-    points += card
+    card=draw(ace_count)
+    points += card[0]
+    if ace_count > and points >21
+        points -= 10
+        if points >
     print (f'points {points}')
     
     check(points)
