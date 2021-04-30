@@ -70,9 +70,6 @@ def quiz(selected_amount,selected_category,selected_difficulty,selected_type):
             score += 1
     return score
 
-
-
-
 difficulties = [
     { 'parameter': 'Hit [Enter]', 'name': 'Any'},
     { 'parameter': 'easy', 'name': 'Easy' },
