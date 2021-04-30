@@ -8,7 +8,7 @@
   - [Headers](#headers)
   - [Response Codes](#response-codes)
 - [Web Application Frameworks](#web-application-frameworks)
-- [APIs](#apis)
+- [Web APIs](#web-apis)
 - [Terms](#terms)
 
 
@@ -107,9 +107,9 @@ The **back-end** consists of code, files, and a database. Unlike the front-end, 
 | [Laravel](https://laravel.com/) | PHP |
 
 
-## APIs
+## Web APIs
 
-You can view long lists of public APIs [here](https://github.com/toddmotto/public-apis), [here](https://github.com/abhishekbanthia/Public-APIs), and [here](https://apilist.fun/). [Here's](http://www.pythonforbeginners.com/api/list-of-python-apis) a few more!
+API stands for "[application programming interface](https://en.wikipedia.org/wiki/API)", and represents an software interface. Examples include the [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API) which allows JavaScript to interact with a browser and produce sound. You can view long lists of public APIs [here](https://github.com/toddmotto/public-apis), [here](https://github.com/abhishekbanthia/Public-APIs), and [here](https://apilist.fun/). [Here's](http://www.pythonforbeginners.com/api/list-of-python-apis) a few more!
 
 - Users
     - [randomuser.me](https://randomuser.me/documentation)

@@ -77,7 +77,7 @@ print(response.text) # 76.105.187.182
 
 ## Receiving JSON
 
-If the response is in [JSON](../0%20General/09%20-%20JSON,%20CSV,%20&%20XML.md), you can turn it into a python dictionary using the `json.loads(text)` function or the `json()` method on the response object. You can then extract the relevant data.
+If the response is in [JSON](../0%20General/09%20-%20JSON,%20CSV,%20&%20XML.md), you can turn it into a python dictionary using the `json.loads()` function or the `json()` method on the response object. You can then extract the relevant data.
 
 
 ```python
@@ -89,8 +89,9 @@ print(data) # {'ip': '76.105.187.182'} - python dictionary
 print(data['ip']) # 76.105.187.182
 
 import json
-data = json.loads(response.text)
+data = json.loads(response.text) # use the json library to parse the raw response
 print(data) # {'ip': '76.105.187.182'} - python dictionary
+print(data['ip']) # 76.105.187.182
 ```
 
 
