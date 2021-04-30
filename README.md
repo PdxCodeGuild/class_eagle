@@ -149,6 +149,8 @@ Schedule Overview:
 
 #### Mob
 
+- [01 Spirit Animal](2%20Flask%20+%20HTML%20+%20CSS/mob/01%20Spirit%20Animal.md)
+
 ## Schedule
 
 ### Week 1 / Python / Basics
@@ -223,6 +225,8 @@ Schedule Overview:
 - [doc: HTML Elements](2%20Flask%20+%20HTML%20+%20CSS/docs/02%20HTML%20Elements.md)
 - [doc: CSS Overview](2%20Flask%20+%20HTML%20+%20CSS/docs/03%20CSS%20Overview.md)
 - [doc: CSS Properties](2%20Flask%20+%20HTML%20+%20CSS/docs/05%20CSS%20Properties.md)
+- [mob: Spirit Animal](2%20Flask%20+%20HTML%20+%20CSS/mob/01%20Spirit%20Animal.md)
+- [lab: Bio](2%20Flask%20+%20HTML%20+%20CSS/labs/01%20Bio.md)
 
 
 #### Week 6 / Flask & HTML & CSS / Intermediate
