@@ -5,15 +5,21 @@
 - [Course Files](#course-files)
   - [0 General](#0-general)
   - [1 Python](#1-python)
-    - [Documents](#documents)
+    - [Docs](#docs)
     - [Labs](#labs)
-    - [Mob Programming](#mob-programming)
+    - [Mob](#mob)
     - [Practice](#practice)
+  - [Flask, HTML, & CSS](#flask-html--css)
+    - [Docs](#docs-1)
+    - [Labs](#labs-1)
+    - [Mob](#mob-1)
 - [Schedule](#schedule)
   - [Week 1 / Python / Basics](#week-1--python--basics)
   - [Week 2 / Python / Intermediate](#week-2--python--intermediate)
   - [Week 3 / Python / Data Structures & Algorithms](#week-3--python--data-structures--algorithms)
   - [Week 4 / Python  / Requests & APIs](#week-4--python---requests--apis)
+    - [Week 5 / Flask & HTML & CSS / Basics](#week-5--flask--html--css--basics)
+    - [Week 6 / Flask & HTML & CSS / Intermediate](#week-6--flask--html--css--intermediate)
 
 
 
@@ -42,7 +48,7 @@ Schedule Overview:
 
 ### 1 Python
 
-#### Documents
+#### Docs
 
 - [00 Overview](1%20Python/docs/00%20Python%20Overview.md)
 - [01 Fundamentals](1%20Python/docs/01%20Fundamentals.md)
@@ -51,8 +57,8 @@ Schedule Overview:
 - [04 Booleans, Comparisons, & Conditionals](1%20Python/docs/04%20Booleans,%20Comparisons,%20&%20Conditionals.md)
 - [05 Imports, Modules, & Packages](1%20Python/docs/05%20Imports,%20Modules,%20&%20Packages.md)
 - [06 Random](1%20Python/docs/06%20Random.md)
-- [07 Strings](1%20Python/docs/07%20Strings.md)
-- [08 While & For Loops](1%20Python/docs/08%20While%20&%20For%20Loops.md)
+- [07 While & For Loops](1%20Python/docs/07%20While%20&%20For%20Loops.md)
+- [08 Strings](1%20Python/docs/08%20Strings.md)
 - [09 Lists & Tuples](1%20Python/docs/09%20Lists%20&%20Tuples.md)
 - [10 Functions](1%20Python/docs/10%20Functions.md)
 - [11 Dictionaries](1%20Python/docs/11%20Dictionaries.md)
@@ -85,10 +91,12 @@ Schedule Overview:
 - [15 Rain Data](1%20Python/labs/15%20Rain%20Data.md)
 - [16 Searching and Sorting](1%20Python/labs/16%20Searching%20and%20Sorting.md)
 - [17 Contact List](1%20Python/labs/17%20Contact%20List.md)
+- [18 Quotes API](1%20Python/labs/18%20Quotes%20API.md)
+- [19 Trivia API](1%20Python/labs/19%20Trivia%20API.md)
+- [20 Adventure](1%20Python/labs/20%20Adventure.md)
 
 
-
-#### Mob Programming
+#### Mob
 
 
 - [01 Random Emoticon Generator](1%20Python/mob/01%20Random%20Emoticon%20Generator.md) [(solution)](1%20Python/solutions/mob01_random_emoticon_generator.py)
@@ -102,6 +110,8 @@ Schedule Overview:
 - [09 ATM](1%20Python/mob/09%20ATM.md) [(solution)](1%20Python/solutions/mob09_atm.py)
 - [10 Rot Cipher Classes](1%20Python/mob/10%20Rot%20Cipher%20Classes.md) [(solution)](1%20Python/solutions/rotcipher.py)
 - [11 Stack and LinkedList](1%20Python/mob/11%20Stack%20and%20LinkedList.md)
+- [12 Advice Slip API](1%20Python/mob/12%20Advice%20Slip%20API.md)
+- [13 Social Statistics](1%20Python/mob/13%20Social%20Statistics.md)
 
 #### Practice
 
@@ -116,6 +126,28 @@ Schedule Overview:
 - [08 Datetimes](1%20Python/practice/08_datetimes.py) [(solution)](1%20Python/solutions/practice08_datetimes.py)
 
 
+### Flask, HTML, & CSS
+
+#### Docs
+
+- [01 HTML Overview](2%20Flask%20+%20HTML%20+%20CSS/docs/01%20HTML%20Overview.md)
+- [02 HTML Elements](2%20Flask%20+%20HTML%20+%20CSS/docs/02%20HTML%20Elements.md)
+- [03 CSS Overview](2%20Flask%20+%20HTML%20+%20CSS/docs/03%20CSS%20Overview.md)
+- [04 CSS Properties](2%20Flask%20+%20HTML%20+%20CSS/docs/05%20CSS%20Properties.md)
+- [06 Flask](2%20Flask%20+%20HTML%20+%20CSS/docs/06%20Flask.md)
+- [07 HTML Forms](2%20Flask%20+%20HTML%20+%20CSS/docs/07%20HTML%20Forms.md)
+- [08 Flask Forms](2%20Flask%20+%20HTML%20+%20CSS/docs/08%20Flask%20Forms.md)
+- [09 CSS Box Model](2%20Flask%20+%20HTML%20+%20CSS/docs/09%20CSS%20Box%20Model.md)
+- [10 CSS Flexbox + Grid](2%20Flask%20+%20HTML%20+%20CSS/docs/10%20CSS%20Flexbox%20+%20Grid.md)
+- [11 CSS Responsive Design](2%20Flask%20+%20HTML%20+%20CSS/docs/11%20CSS%20Responsive%20Design.md)
+- [12 CSS Animations](2%20Flask%20+%20HTML%20+%20CSS/docs/12%20CSS%20Animations.md)
+- [13 CSS Bootstrap & Materialize](2%20Flask%20+%20HTML%20+%20CSS/docs/13%20CSS%20Bootstrap%20&%20Materialize.md)
+
+#### Labs
+
+- [01 Bio](2%20Flask%20+%20HTML%20+%20CSS/labs/1%20Bio.md)
+
+#### Mob
 
 ## Schedule
 
@@ -175,50 +207,24 @@ Schedule Overview:
 - [lab: Contact List](1%20Python/labs/17%20Contact%20List.md)
 - [mob: Stack and LinkedList](1%20Python/mob/11%20Stack%20and%20LinkedList.md)
 
-<!-- 
-tuesday
-review ari
-practice - truncate text, wrap text
-lecture on datetimes
-practice problems for datetimes
-rain data
-
-wednesday
-student sorter
-more rain data
-searching and sorting algorithms
-
-thursday
-lecture: classes
-mob: atm
-lab: todo list
-
-friday
-lists and trees
- -->
-
 
 ### Week 4 / Python  / Requests & APIs
 
+- [mob: Advice Slip API](1%20Python/mob/12%20Advice%20Slip%20API.md)
+- [lab: Quotes API](1%20Python/labs/18%20Quotes%20API.md)
+- [lab: Trivia API](1%20Python/labs/19%20Trivia%20API.md) [(solution)](1%20Python/solutions/lab19_trivia_api.py)
+- [mob: Social Statistics](1%20Python/mob/13%20Social%20Statistics.md)
+- [lab: Adventure](1%20Python/labs/20%20Adventure.md)
 
 
-<!-- 
-monday
-  requests
-  quotes api
+#### Week 5 / Flask & HTML & CSS / Basics
 
-tuesday
-  open trivia db
-  https://opentdb.com/api.php?amount=10
+- [doc: HTML Overview](2%20Flask%20+%20HTML%20+%20CSS/docs/01%20HTML%20Overview.md)
+- [doc: HTML Elements](2%20Flask%20+%20HTML%20+%20CSS/docs/02%20HTML%20Elements.md)
+- [doc: CSS Overview](2%20Flask%20+%20HTML%20+%20CSS/docs/03%20CSS%20Overview.md)
+- [doc: CSS Properties](2%20Flask%20+%20HTML%20+%20CSS/docs/05%20CSS%20Properties.md)
 
-wednesday
-  quotes api
 
-thursday
-  any api
-
-friday
-  flask
- -->
+#### Week 6 / Flask & HTML & CSS / Intermediate
 
 
