@@ -21,6 +21,7 @@ comp_choice = random.choice(options)
 
 print(f'\nPlayer: {users_choice} | Computer: {comp_choice} \n')
 
+# compare users choice to computers choice; check for win conditions
 if users_choice == comp_choice:
     print('It\'s a Draw! \n')
 elif users_choice == 'rock' and comp_choice != 'paper':
@@ -31,3 +32,8 @@ elif users_choice == 'scissor' and comp_choice != 'rock':
     print('You Win! \n')
 else:
     print('You Lose! \n')
+
+# alternative method
+# concatenate f'{users_choice} > {comp_choice}'
+# check if the string is in the list of win conditions: 
+#   ['rock > scissors', 'paper > rock', 'scissors > paper']

@@ -27,14 +27,12 @@ from datetime import datetime
 # print(d) # 2021-04-20 00:00:00
 
 
-
 # Create Date ==================================================================
 # Write a function that creates and returns a new datetime given the components
 
 def create_date(month, day, year):
-    d = datetime(year, month, day)
-    return d
-# print(create_date(4, 20, 2021)) # 2021-04-20 00:00:00
+    return datetime(year, month, day)
+print(create_date(4, 20, 2021)) # 2021-04-20 00:00:00
 
 
 # Get Year =====================================================================
@@ -42,30 +40,26 @@ def create_date(month, day, year):
 
 def get_year(dt):
     return dt.year
-# print(get_year(datetime.now())) # 2021
-# print(get_year(datetime(1986, 4, 20))) # 1986
+print(get_year(datetime(2021, 4, 20))) # 2021
 
 
 # Parse Date ===================================================================
 # Write a function that converts the given string into a datetime
 
 def parse_date(date_string):
-    format_string = '%B %d, %Y'
-    date = datetime.strptime(date_string, format_string)
-    return date
-# print(parse_date('April 20, 2021')) # 2021-04-20 00:00:00
-# print(parse_date('July 04, 1776')) # 2021-04-20 00:00:00
+    return datetime.strptime(date_string, '%B %d, %Y')
+print(parse_date('April 20, 2021')) # 2021-04-20 00:00:00
+
 
 # Parse Datetime ===============================================================
 # Write a function that converts a given string into a datetime
 def parse_datetime(date_string):
-    format_string = '%B %d, %Y %I:%M %p'
-    date = datetime.strptime(date_string, format_string)
-    return date
-# print(parse_datetime('April 20, 2021 02:30 PM')) # 2021-04-20 09:30:00
+    return datetime.strptime(date_string, '%B %d, %Y %I:%M %p')
+print(parse_datetime('April 20, 2021 09:30 AM')) # 2021-04-20 09:30:00
 
 # Format Datetime ==============================================================
 # Write a function that converts the given datetime into a string
 def format_datetime(dt):
-    return dt.strftime('%B %d, %Y %I:%M %p')
-print(format_datetime(datetime(2021, 5, 20, 9, 30))) # May 20, 2021 09:30 AM
+    return dt.strftime('%B %d, %Y %I:%M %p') # April 20, 2021 09:30 AM
+print(format_datetime(datetime(2021, 4, 20, 9, 30)))
+

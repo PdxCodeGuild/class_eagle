@@ -1,4 +1,4 @@
-
+# Lab 3: Grading
 
 # Part 1 - Convert a number grade to a letter grade, using if and elif 
 # statements and comparisons. First have the user enter a number representing 

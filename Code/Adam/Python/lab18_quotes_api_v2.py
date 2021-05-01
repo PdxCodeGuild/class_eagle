@@ -32,8 +32,8 @@ def print_quotes(page, keyword):
                 display_quote = quote['body'] + ' -' + quote['author']
                 print('\n')
                 print(textwrap.fill(display_quote, 79))
-        else:
-            print(f'\nNo more {keyword} quotes')
+    else:
+        print(f'\nNo more {keyword} quotes')
     return last_page
 
 
