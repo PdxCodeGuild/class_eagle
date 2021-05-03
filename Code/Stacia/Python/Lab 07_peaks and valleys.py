@@ -26,12 +26,12 @@ print("valleys")
 print (valleys(data))
 
 #def highest_value(value)
-def draw (data):
-    row= biggest number
-    stacks- len (data)
-    for i in range(row, 0,-1:
-        for j in range (stack)
-        print x, end
+# def draw (data):
+#     row = biggest_number
+#     stacks- len (data)
+#     for i in range(row, 0,-1:
+#         for j in range (stack):
+#         print x, end
         #line of list of string
 #  A loop that takes highest_value
     #for i in range():
@@ -39,4 +39,5 @@ def draw (data):
 # if positions value == or < current number
     #add to string a x or  space
      #print with every run
-     def draw)peaks_valleys (data):
+
+# def draw)peaks_valleys (data):
