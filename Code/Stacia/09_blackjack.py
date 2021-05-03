@@ -19,43 +19,52 @@ points = 0
 ace_count = 0
 
 
-def draw(ace_count):# this function is designed to draw a card and evaluate its value. 
+def draw(points,ace_count):# this function is designed to draw a card and evaluate its value. 
     
     card = input ("What is your card? ") #user requests card
+    if card.upper()[0] == "A":
+            ace_count += 1
+            
     if not card.isdigit(): # if the card is  not a didgit
         card = card.upper()[0] # cards is convereted to uper case and stripped to first digit.
         card = card_values.get(card) # we will have a value even if user types queeeeeeen
         
-    if int(card) <= 10 and int(card) >= 1: #evaluates if user input is a 
-        card = int(card)
-    if (card) == "A":
-        ace_count  += 1
-    return card,ace_count
+            
+    
+    points += int(card)  
+    return points, ace_count
     
         
 
-def check(points,):
+def check(points,ace_count):
+    print(points)
+    if points > 21:
+        if ace_count > 0:
+            points -= 10
+            print("aces wild")
+        else:
+            print ("bust")
+         
     if points  == 21:
             print ("21!!!")
-    if ace_count >= 0:
-        print("sitten pretty with that thar ace")
-    elif points > 21:
-        print ("bust")
-    elif points > 17:
+    
+    
+    if points > 17 and  points < 21:
         print ( "I recomend you hold there partner." )
 
-    else:
+    if points <= 16:
         print ("Saddle up partner hit!")
-        
+    return points
 
 
 
 for i in range (3):
-    card=draw(ace_count)
-    points += card[0]
-    if ace_count > and points >21
-        points -= 10
-        if points >
-    print (f'points {points}')
+    points,ace_count = draw(points, ace_count)   
+    check(points, ace_count)
     
-    check(points)
+    if points == 21 :
+        break
+        
+    
+    
+    
