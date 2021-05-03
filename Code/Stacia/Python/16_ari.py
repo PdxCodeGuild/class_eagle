@@ -34,18 +34,19 @@ f = open(r'C:\Users\16616\Desktop\pdx_code\code\class_eagle\Code\Stacia\arabian_
 contents = f.read().lower()  # read the contents
 #print(contents)
 contents = contents.replace('\n'," ")
-setences = (re.split('[.?!]', contents))
+setences = (re.split('[.?!]', contents)) # clean up the data
 char_count = 0
 setence_count= len(setences)
 
 
-def county(contents, setences):
-    setence_count = 0
-    char_count = 0
-    for i in range(len(setences)): #each item is a string
-        setence_count += 1 #each string is 1 setence
-        char_count += 1
-        current = setences[i].split
+def county(setences):
+    
+    for i in setences: #itterate over each setence
+        regex = r'\w+'
+        words = re.findall(regex, contents) # now we have every word in every setence.
+        print (words)
+        
+        
     return (char_count)
 
 def make_word (contents):
@@ -66,13 +67,16 @@ def ari(words, setence_count):
     ari_float = a + b
     return ari_float
 
+char_count = county(setences)
+# contents = make_word (contents)
 
-county(contents, setences)
-make_word (contents)
-word_length(contents)
-ari(words, setence_count)
+# char_count = county(setences)
+# print (char_count)
+# make_word (contents)
+# word_length(contents)
+# ari(words, setence_count)
 
-print(ari_float)
+# print(ari_float)
 
     
     
