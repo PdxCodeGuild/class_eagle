@@ -1,12 +1,13 @@
+# Mob 14: Any API
+
+
 import requests
 import pprint
 
 search_word = input('What drink would you like? ').lower()
 
 url = f'https://www.thecocktaildb.com/api/json/v1/1/search.php?'
-params = {
-    's':search_word
-}
+params = {'s':search_word}
 response = requests.get(url, params = params)
 data = response.json()
 
@@ -19,7 +20,7 @@ drinks = data['drinks']
 drink_options = {}
 for drink in drinks:
     print(drink['strDrink'])
-    drink_names.append(drink['strDrink'])
+    drink_names.append(drink['strDrink'])          
     ingredient_list = []
     key_ring = list(drink.keys())
     for key in key_ring:
@@ -51,15 +52,3 @@ for drink in drinks:
 #pprint.pprint(drink_options)
 #print(ingredient_list)
 #print(measure_list)           
-   
-
-
-
-
-
-
-
-
-
-
-

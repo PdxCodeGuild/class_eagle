@@ -101,7 +101,9 @@ print(controls)
 # loop until the user says 'done' or dies
 while True:
     timer += 1
-    # if timer%2
+
+    # if timer%2 == 1:
+
 
     # check if the player is on the same space as an fire
     if board[player_i][player_j] == fire:
