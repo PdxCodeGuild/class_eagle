@@ -10,24 +10,49 @@
 # ones-digit to set another string to '+', '-', or ' '. Then you can 
 # concatenate that string with your grade string.
 
-num = input('Enter the number grade: ')
-num = int(num)
+def num_to_letter_grade(num):
+    grades = {
+        'A': list(range(90, 100)), 
+        'B': list(range(80, 90)), 
+        'C': list(range(70, 80)),
+        'D': list(range(60, 70)),
+        'F': list(range(0, 60))
+    }
+    for grade in grades:
+        if num in grades[grade]:
+            letter = grade
+    if num % 10 >= 5 or num >= 100:
+        moddifier = '+'
+    else:
+        moddifier = '-'
+    letter_grade = letter + moddifier
+    return letter_grade
 
-if num < 60:
-    print('F')
-elif num >= 60 and num < 65:
-    print('D-')
-elif num >= 65 and num < 70:
-    print('D+')
-elif num >= 70 and num < 75:
-    print('C-')
-elif num >= 75 and num < 80:
-    print('C+')
-elif num >= 80 and num < 85:
-    print('B-')
-elif num >= 85 and num < 90:
-    print('B+')
-else:
-    print('A')
+# def num_to_letter_grade(num):
+#     letter_grade = ''
+#     if num < 60:
+#         letter_grade ='F'
+#     elif num >= 60 and num < 65:
+#         letter_grade = 'D-'
+#     elif num >= 65 and num < 70:
+#         letter_grade = 'D+'
+#     elif num >= 70 and num < 75:
+#         letter_grade = 'C-'
+#     elif num >= 75 and num < 80:
+#         letter_grade = 'C+'
+#     elif num >= 80 and num < 85:
+#         letter_grade = 'B-'
+#     elif num >= 85 and num < 90:
+#         letter_grade = 'B+'
+#     elif num >= 90 and num < 95:
+#         letter_grade = 'A-'
+#     else:
+#         letter_grade = 'A+'
+#     return letter_grade
 
-# print(num % 10)
+while True:
+    num = input('Enter the number grade: ')
+    num = int(num)
+
+    print(num_to_letter_grade(num))
+
