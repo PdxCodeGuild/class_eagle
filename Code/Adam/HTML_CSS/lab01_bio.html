@@ -7,27 +7,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Martel:wght@700&display=swap" rel="stylesheet">
     <title>Bio</title>
     <style>
+        body {
+            background-image: url("https://wallpapercave.com/wp/wp2014455.jpg");
+            background-color: black;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        a {
+            color: aliceblue;
+        }
+
         div {
             max-width: fit-content;
             margin: auto;
+            color: aliceblue;
+            text-shadow: 2px 2px black;
         }
 
         h1 {
             font-family: 'Lobster', cursive;
-            color: green;
+            text-shadow: 3px 3px black;
+            color: #00c91e;
+        }
+
+        blockquote {
+            font-size: large;
+        }
+
+        .image_1 {
+            box-shadow: 3px 3px 4px black;
+            border-radius: 50%;
+        }
+        h2 {
+            font-family: 'Martel', serif;
         }
 
         .fitted {
-            max-width: 90%;
+            font-family: 'Martel', serif;
+            font-size: 20px;
+            max-width: 80%;
             margin: auto;
+            padding: auto;
         }
 
         .list {
+            font-family: 'Martel', serif;
+            font-size: 20px;
+            list-style-type: "🌲";
             max-width: 60%;
-            margin-left: 5%;
+            margin-left: 8%;
+            color: aliceblue;
+            text-shadow: 2px 2px black;
         }
+        /* .image_2 {
+            width: 300px;
+        } */
     </style>
 </head>
 
@@ -41,11 +81,15 @@
     </div>
 
     <div>
-        <blockquote>"We don't make mistakes, just happy little accidents"</blockquote>
+        <blockquote>"We don't make mistakes, just happy little accidents."</blockquote>
     </div>
 
     <div>
-        <img src="./Images/stylized_bob_ross.jpg.webp">
+        <img class="image_1" src="./Images/stylized_bob_ross.jpg.webp">
+    </div>
+
+    <div>
+        <h2>Let's get Rossed in the woods</h2>
     </div>
 
     <div class="fitted">
@@ -67,14 +111,17 @@
             two-inch brush.
         </p>
     </div>
-
-    <ul class="list">
-        <li>Born in Daytona Beach, Florida</li>
-        <li>Raised in Orlando</li>
-        <li>Station at Eilson Air Force Base, Alsaka</li>
-        <li>Filmed The Joy of Painting in Muncie, Indiana</li>
-    </ul>
-
+    <span>
+        <ul class="list">
+            <li>Born in Daytona Beach, Florida</li>
+            <li>Raised in Orlando, Florida</li>
+            <li>Stationed at Eilson Air Force Base, Alaska</li>
+            <li>Filmed The Joy of Painting in Muncie, Indiana</li>
+        </ul>
+    </span>
+    <!-- <span>
+        <img class="image_2" src="https://wallpapercave.com/wp/wp2014461.jpg">
+    </span> -->
 </body>
 
 </html>
