@@ -1,5 +1,7 @@
 import random
 
+dataset = [2,11,3,6,5,13,90,23,9,10]
+dataset_2 = [1, 2, 3, 4, 5, 6, 7, 8,9]
 
 def linear(dataset, target):
     
@@ -12,6 +14,9 @@ def linear(dataset, target):
     else: 
         return position
 
+linear_sort = (dataset, 4)
+print (f'linear sort target is in position {linear_sort}')
+print()
 
 def binary(dataset,target):
 
@@ -27,16 +32,12 @@ def binary(dataset,target):
         else:
             return mid
     
-   
 
-#dataset
-# length of list
+binary_sort = binary(dataset_2, 8)
+print (f'binary sort 8 is in index position {binary_sort}')
+print()          
 
-#plant = binary(dataset_2, 8)
-
-#dog = linear(dataset, 6)
-           
-        
+print("bubble sort")        
 def bubble_sort2 (dataset):
     n =len(dataset)
     
@@ -53,14 +54,10 @@ def bubble_sort2 (dataset):
                 swap= True
                 print(dataset)
         return dataset
-dataset = [2,11,3,6,5,13,90,23,9,10]
-dataset_2 = [1, 2, 3, 4, 5, 6, 7, 8,9]
-#print(dataset) 
-#bubble_sort2(dataset)
-#print(dataset)
-# k = nums[i]
-        # nums[i] = nums[j]
-        # nums[j] = k
+
+bubble = bubble_sort2(dataset)
+
+print()
 
 
 def insert_method (dataset):
@@ -80,16 +77,6 @@ def insert_method (dataset):
     swap=True 
     return dataset
     
-#insert_method (dataset)
-
-
-
-dog = linear(dataset, 6)
-go = insert_method(dataset_2)
-print (dataset_2)
-
-print (dataset)
-print (dog)
-print (go)
-print (dataset)
-print (go)
+insert = insert_method(dataset)
+print (f'{dataset} becomes {insert} after insert.')
+print ("fuck")

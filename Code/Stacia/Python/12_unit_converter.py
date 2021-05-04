@@ -7,6 +7,7 @@ conversions={
     "yards": 0.9224,
     "inches": 0.0254
     } 
+   
 #def Input block
 base = input ("what unit would you like to start with?")
 while base not in conversions:
@@ -26,9 +27,8 @@ if conversion =="meters" :
 
 else:
     
-    stepone = conversions["meters"] /conversions [base]
-    print (stepone)
-    answer = stepone / conversions [base]
+    stepone = conversions["meters"] * conversions [base]
+    answer = (stepone / conversions[conversion]) * units
     
 
-print (answer)
+print (f' {units} {base} converts to {answer} {conversion}.')

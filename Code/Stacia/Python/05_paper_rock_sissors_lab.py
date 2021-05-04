@@ -71,20 +71,20 @@ roshambo = ["paper", "rock", "scissors"]
 player=input("paper rock sissors? 1 2 3 throw!")
 comp = (random.choice(roshambo))
 
-if player== comp:
+if player == comp:
     draw()
 else:
-    if player == "paper" and  "rock" in comp:
+    if player == "paper" and  "rock" == comp:
         win()
-    if player == "paper" and "scissors" in comp: 
+    if player == "paper" and "scissors" == comp: 
         loose()
 
-    if player == "rock" and "scissors" in  comp:
+    if player == "rock" and "scissors" == comp:
         win()
-    if player == "rock" and "paper" in comp:
+    if player == "rock" and "paper" == comp:
         loose()
 
-    if player == "scissors" and "paper" in comp:
+    if player == "scissors" and "paper" == comp:
         win()
     if  player == "scissors" and comp == "rock":
         loose()
