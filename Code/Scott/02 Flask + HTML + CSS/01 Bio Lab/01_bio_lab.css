@@ -1,0 +1,40 @@
+* {
+    line-height: 35px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+a {
+    background-color: steelblue;
+    border: 10px solid steelblue;
+}
+
+body{
+    padding: 50px;
+    background-image: url("capitolBackground.jpg");
+}
+p, q {
+    font-size: large;
+    background-color: steelblue;
+    border: 10px solid steelblue;
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+table {
+    padding-left: 10vw;
+    padding-right: 10vw;
+    background-color: steelblue;
+    border: 10px solid steelblue;
+}
+h1 {
+    background-color: steelblue;
+    border: 10px solid steelblue;
+}
+tr {
+    padding-left: 1vw;
+    padding-right: 1vw;   
+}
+img {
+    border-radius: 50%;
+}
+.columns{
+    column-count: 2;
+}
