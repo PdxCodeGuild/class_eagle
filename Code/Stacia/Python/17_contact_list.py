@@ -1,5 +1,5 @@
 import json
-contact_file = r'C:\Users\16616\pdx_code\class_eagle\code\Stacia\contacts.json'
+contact_file = r'C:\Users\16616\pdx_code\class_eagle\Code\Stacia\Python\contacts.json'
 class ContactList:
     def __init__(self):
         self.contacts = []
@@ -11,8 +11,9 @@ class ContactList:
             text = file.read()
         
         data = json.loads(text) #convert to dictonary
-        self.contacts = data #this is a list of dictonarys I can call
+        self.contacts = data["contacts"] #this is a list of dictonarys I can call
         print (data)
+        
 
     def count(self):
         # return the number of contacts
@@ -34,7 +35,7 @@ class ContactList:
     def print(self):
         #loop over all contacts
         print ()
-        for contact in self.contacts["contacts"]: #self.load ["contacts"]:self. load and self. contacts are different fuctions of this class and contacts is not of .load 
+        for contact in self.contacts: #self.load ["contacts"]:self. load and self. contacts are different fuctions of this class and contacts is not of .load 
     # print out all the contacts
            # print (self.file['name'+'phone_number'+"email"])
             
@@ -44,21 +45,25 @@ class ContactList:
             print ({contact['email']})
             print ( )
     def add(self, name, phone_number, email):
-    
-    
-            #make a new dictonary 
-            new_contact = {   
-            'name': name,
-            'phone_number': phone_number,
-            "email" : email }
-            self.contacts.append(new_contact) #add to list of dictonarys. #_______This is not working!!!!
+
+        print (self.contacts)
+        #make a new dictonary 
+        new_contact = {   
+        'name': name,
+        'phone_number': phone_number,
+        "email" : email }
+        self.contacts.append(new_contact) #add to list of dictonarys. #_______This is not working!!!!
 
     def remove(self, name):
         # remove the contact from our contact list
-        print ("ok")
-        for i in range(len(self.contacts["contacts"])):
-            if name in self.contacts["contacts'"][i]["name"]:
-                del self.contacts['contacts'][i]
+        
+        for i in range(len(self.contacts)):
+            if name == self.contacts[i]["name"]:
+                
+                self.contacts.remove(self.contacts[i])
+            if name not in  self.contacts[i]["name"]:
+                print ("name not found")  
+                
 
 
 def update(self, old_name, new_name, new_phone_number, new_email):

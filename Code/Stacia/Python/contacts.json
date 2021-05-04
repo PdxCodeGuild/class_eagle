@@ -1,0 +1,24 @@
+{
+    "contacts": [
+        {
+            "email": "doramsmith@hotmail.com",
+            "name": "Dora M. Smith",
+            "phone_number": "919-781-7129"
+        },
+        {
+            "email": "annette@gmail.com",
+            "name": "Annette D. Berube",
+            "phone_number": "662-319-6954"
+        },
+        {
+            "email": "austin@aol.com",
+            "name": "Austin M. Pigott",
+            "phone_number": "478-777-8878"
+        },
+        {
+            "email": "wer",
+            "name": "er",
+            "phone_number": "324"
+        }
+    ]
+}
