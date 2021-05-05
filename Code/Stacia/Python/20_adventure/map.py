@@ -1,6 +1,7 @@
 
-player_location =(y,x);
-
+player_x =3
+player_y = 3
+direction = "start"
 def map_initializer(width, height):
 
 
@@ -13,7 +14,7 @@ def map_initializer(width, height):
 
 
 def show_map (board, player_y, player_x):
-    print(board)
+    
     for y in range (len(board)):
         for x in range (len(board[y])):
             if y == player_y and x == player_x:
@@ -21,14 +22,31 @@ def show_map (board, player_y, player_x):
             else:
                 print (board[y][x], end = " ")
         print ()
-    return board
+    
 
 
-
+def player_movement (player_y, player_x):
+    direction = input("where would you like to go?")
+    
+    if direction.lower == "north":
+        player_y += 1
+    if direction.lower == "south":
+        player_y -= 1
+    if direction.lower == "east":
+        player_x += 1
+    if direction.lower == "west":
+        player_x -= 1
+    return player_y, player_x,
 
 map_i = map_initializer(10,10)
-map = show_map(map_i, 3,5)
-print (map)
+
+while direction != "done":
+    map = show_map(map_i, player_y, player_x,)
+    player_y, player_x = player_movement(player_y, player_x,)
+
+    print (player_y , player_x)
+    show_map(map_i, player_y, player_x,)
+
 
 
 
