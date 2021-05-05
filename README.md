@@ -18,8 +18,8 @@
   - [Week 2 / Python / Intermediate](#week-2--python--intermediate)
   - [Week 3 / Python / Data Structures & Algorithms](#week-3--python--data-structures--algorithms)
   - [Week 4 / Python  / Requests & APIs](#week-4--python---requests--apis)
-    - [Week 5 / Flask & HTML & CSS / Basics](#week-5--flask--html--css--basics)
-    - [Week 6 / Flask & HTML & CSS / Intermediate](#week-6--flask--html--css--intermediate)
+  - [Week 5 / Flask & HTML & CSS / Basics](#week-5--flask--html--css--basics)
+  - [Week 6 / Flask & HTML & CSS / Intermediate](#week-6--flask--html--css--intermediate)
 
 
 
@@ -219,7 +219,7 @@ Schedule Overview:
 - [lab: Adventure](1%20Python/labs/20%20Adventure.md)
 
 
-#### Week 5 / Flask & HTML & CSS / Basics
+### Week 5 / Flask & HTML & CSS / Basics
 
 - [doc: HTML Overview](2%20Flask%20+%20HTML%20+%20CSS/docs/01%20HTML%20Overview.md)
 - [doc: HTML Elements](2%20Flask%20+%20HTML%20+%20CSS/docs/02%20HTML%20Elements.md)
@@ -229,6 +229,6 @@ Schedule Overview:
 - [lab: Bio](2%20Flask%20+%20HTML%20+%20CSS/labs/01%20Bio.md)
 
 
-#### Week 6 / Flask & HTML & CSS / Intermediate
+### Week 6 / Flask & HTML & CSS / Intermediate
 
 

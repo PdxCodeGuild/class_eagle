@@ -1,0 +1,30 @@
+* {
+    line-height: 35px;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: white;
+}
+
+body{
+    padding: 50px;
+    background-image: url("capitolBackground.jpg");
+}
+p, q {
+    font-size: large;
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+table {
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+tr {
+    padding-left: 1vw;
+    padding-right: 1vw;   
+}
+img {
+    border-radius: 50%;
+}
+.columns{
+    column-count: 2;
+}
