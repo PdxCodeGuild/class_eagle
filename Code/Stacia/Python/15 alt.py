@@ -29,7 +29,7 @@ def get_data():
 
     realtext = response.text
     regex_date = r'(\d{2}-\w+-\d{4}) \s+(\d+)'
-    date = datetime.strptime()
+    
 
     tups = re.findall(regex_date, realtext)
     # we have a list of tuples, and each tuple has two strings
@@ -47,28 +47,24 @@ def dic_maker(x):
         date, rain = tups[i]
         rainy[date]=int(rain)
         keyring.append(date)
-        puddle.append(rain)
+        puddle.append(int(rain))
     return rainy , keyring , puddle
 
 
 def average (z):
-    total=0
+    total = 0
     for i in range (len(z)):
-        x , y = z[i]
-        total += int(y)
-
-        # total += int(z[i][1])
+        total += z[i]
 
     total=(total / len(z))
     return total
 
-def variance(z):
-    mu = average(z)
+def variance(x):
+    mu = average(x)
     total_2 = 0
-    for i in range (len(z)):
-        x , y = z[i]
-        total_2 += (int(y) - mu)**2
-    total_2 = total_2 / len(z)
+    for i in range (len(x)):
+        total_2 += (int(i) - mu)**2
+        total_2 = total_2 / len(x)
     return total_2
 
 def standard_deviation(z):
@@ -77,13 +73,22 @@ def standard_deviation(z):
     return math.sqrt(v)
 
 tups = get_data()
-rainy=dic_maker(tups)
-av = average(tups)
-vartotal = variance(tups)
-sd = standard_deviation(tups)
-plot(rainy)
-print (vartotal)
-print (av)
+rainy,keyring,puddle=dic_maker(tups)
+av = average(puddle)
+vartotal = variance(puddle)
+sd = standard_deviation(puddle)
+
+
+
+for i in range (len (puddle)):
+    if puddle[i] == max(puddle):
+        mostest = keyring[i]
+        mostest_wet = puddle[i]/100
+            
+print (f'{vartotal} variance')
+print (f'{av} average')
+print(f'{sd} standard deviation')
+print (f' the wettest day was {mostest} with {mostest_wet} inches of rain!')
 
 
 
