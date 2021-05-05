@@ -26,15 +26,15 @@ def show_map (board, player_y, player_x):
 
 
 def player_movement (player_y, player_x):
-    direction = input("where would you like to go?").lower
+    direction = input("where would you like to go?")
     
-    if direction is "north":
+    if direction.lower == "north":
         player_y += 1
-    if direction is "south":
+    if direction.lower == "south":
         player_y -= 1
-    if direction is "east":
+    if direction.lower == "east":
         player_x += 1
-    if direction is "west":
+    if direction.lower == "west":
         player_x -= 1
     return player_y, player_x,
 
