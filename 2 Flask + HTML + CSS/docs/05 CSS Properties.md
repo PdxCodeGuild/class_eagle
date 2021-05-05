@@ -3,6 +3,11 @@
 
 CSS properties allow you to control visual aspects of an HTML element. For more info, look [here](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference) and [here](https://www.w3schools.com/cssref/).
 
+- [CSS Lengths](#css-lengths)
+- [CSS Colors](#css-colors)
+
+
+
 | Property           | Values                                                    | Description                                                                               | Links                                                                                                                                           |
 |--------------------|-----------------------------------------------------------|-------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | `color`            | `red`, `#DC143C`, `rgb(220,20,60)`                        | Set the color of text                                                                     | [mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/color), [w3schools](https://www.w3schools.com/cssref/pr_text_color.asp)                  |
