@@ -151,6 +151,10 @@ The two most popular CSS preprocessors are [Sass/SCSS](http://sass-lang.com/) an
   - [List of Color Names](https://htmlcolorcodes.com/color-names/)
   - [Coolers](https://coolors.co/)
   - [Canva Colors](https://www.canva.com/colors/color-palette-generator/)
+- Lorem Ipsum Generators
+  - [Meet the Ipsums](https://meettheipsums.com/)
+  - [Ultimate List of Lorem Ipsum Generators](https://loremipsum.io/ultimate-list-of-lorem-ipsum-generators/)
+  - [List on Mashable](https://mashable.com/2013/07/11/lorem-ipsum/)
 
 
 ## Libraries
