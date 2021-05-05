@@ -292,7 +292,7 @@ A `select` tag defines a dropdown list. Each `option` defines an option of that 
 
 ## Text Formatting Elements
 
-You can read more about text formatting elements [here](https://www.w3schools.com/html/html_formatting.asp).
+You can read more about text formatting elements [here](https://www.w3schools.com/html/html_formatting.asp). The elements `b`/`strong` and `i`/`em` will produce the same visual results, but there is a [semantic difference](https://stackoverflow.com/questions/271743/whats-the-difference-between-b-and-strong-i-and-em) between them.
 
 | element | description |
 |---  |---    |
