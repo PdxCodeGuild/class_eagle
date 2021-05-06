@@ -8,8 +8,8 @@
     <title>Document</title>
     <style>
         :root {
-            --post-color: rgb(70,136,205,0.75);
-            --title-color: #ff1747;
+            --post-color: rgb(70, 136, 205, 0.75);
+            --title-color: #8b0505;
         }
 
         body {
@@ -23,11 +23,22 @@
         header {
             color: var(--title-color);
             display: flex;
-            justify-content: center;
+            justify-content: space-evenly;
             font-size: 50px;
             font-style: italic;
             font-family: 'Times New Roman'
         }
+        header span {
+            background-color: rgb(5,13,64,0.5);
+            border-style:double;
+            padding: 5px;
+            border-radius: 20px;
+            box-shadow: 5px 5px rgb(139, 10, 10);
+        }
+        header img:hover {
+            transform: rotate(90deg);
+        }
+
         nav {
             display: flex;
             justify-content: space-evenly;
@@ -36,39 +47,54 @@
             margin-left: 1in;
             margin-right: 1in;
         }
+
         a:link {
             text-decoration: none;
             color: purple
         }
+
         a:hover {
-            color:red
+            color: red
         }
+
         article img {
             order: -1;
-            height: 200px
+            height: 200px;
+            border-radius: 30px;
         }
+
         article {
             display: flex;
             flex-direction: row;
-            align-items:flex-start;
-            border-style: solid;
+            align-items: flex-start;
+            border-style:groove;
             border-color: var(--title-color);
             background-color: var(--post-color);
             margin-right: 1in;
             margin-left: 1in;
+            border-radius: 30px;
         }
+
         article p {
             padding: 5px
         }
-        h1 {
-            display:flex;
-            justify-content: flex-start;
+
+        h1 span {
+            display: flex;
+            justify-content: center;
             color: var(--title-color);
-            margin-left: 1in
+            margin-left: 1in;
+            margin-right: 1in;
+            background-color: rgb(5,13,64,0.5);
+            border-style:double;
+            padding: 5px;
+            border-radius: 20px;
+            box-shadow: 5px 5px rgb(139, 10, 10);
         }
+
         footer {
-            display:flex;
-            align-items:flex-end;
+            display: flex;
+            align-items: flex-end;
             justify-content: left;
             color: white
         }
@@ -76,7 +102,11 @@
 </head>
 
 <body>
-    <header>Norse Mythology</header>
+    <header>
+        <img src="noun_Mjolnir_2517089.png" , height='70px'>
+        <span>Norse Mythology</span>
+        <img src="noun_Mjolnir_2517089.png" , height='70px'>
+    </header>
     <hr>
     <nav>
         <a href="archive.html">Archive</a>
@@ -86,7 +116,7 @@
         <a href="Blog.html">Blog</a>
         <a href="Contact.html">Contact Us</a>
     </nav>
-    <h1>Jormangandr</h1>
+    <h1><span>Jormangandr</span></h1>
     <article>
         <img src="https://i.pinimg.com/originals/96/50/14/9650144e1a51fd097becd3357538d2c9.jpg">
         <p>Scandinavia longship sea Leif Erikson longship axes ocean. Skald sailing ocean, bork bork bork viking sea
@@ -96,9 +126,10 @@
             Erikson lack the table Leif Erikson.
         </p>
     </article>
-    <h1>Ratatoskr</h1>
+    <h1><span>Ratatoskr</span></h1>
     <article>
-        <img src="https://steamuserimages-a.akamaihd.net/ugc/1291919733045064134/8E4E6D7B4FB313782C9666C9A278250166FEB2F6/">
+        <img
+            src="https://steamuserimages-a.akamaihd.net/ugc/1291919733045064134/8E4E6D7B4FB313782C9666C9A278250166FEB2F6/">
         <p>Skald viking ikea tall blond women terror sea horns sea boats. Skald Beowulf scandinavia bork bork bork
             Beowulf axes sailing lack the table boats, raiding longship Leif Erikson sea sea. Berserker loot terror ikea
             ocean bjorn the chair Beowulf sea viking. The kracken the kracken skald, terror sea bork bork bork lack the
