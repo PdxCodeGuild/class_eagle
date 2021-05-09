@@ -37,48 +37,48 @@ contents = contents.replace('\n'," ")
 setences = (re.split('[.?!]', contents)) # clean up the data
 char_count = 0
 setence_count= len(setences)
+#print(contents)
 
 
-def county(setences):
-    
-    for i in setences: #itterate over each setence
-        regex = r'\w+'
-        words = re.findall(regex, contents) # now we have every word in every setence.
-        print (words)
-        
-        
-    return (char_count)
+def setence_maker(contents):
+    contents = contents.replace('\n'," ")
+    setences = (re.split('[.?!]', contents)) # clean up the data into setences
+    return setences
 
-def make_word (contents):
+def make_word (setences):
     regex = r'\w+'
     words = re.findall(regex, contents)
+    
     return words
    
-def word_length(contents):    
+def word_length(setences):    
     regex = r'\w' 
     char_count = re.findall(regex, contents)
     char_count =(len(char_count))
+    return char_count
 
-def ari(words, setence_count):
-    x = char_count / words
-    y = words / sentence_count
+def ari(char_count, words, setence_countsetences):
+    x = char_count / len(words)
+    y = len(words) / len(setences)
     a = 4.71 * x
     b = 0.5 * y - 21.43
     ari_float = a + b
     return ari_float
 
-char_count = county(setences)
-# contents = make_word (contents)
 
-# char_count = county(setences)
-# print (char_count)
-# make_word (contents)
-# word_length(contents)
-# ari(words, setence_count)
+setences = setence_maker(contents)
+words = make_word(setences)
+char_count = word_length(words)
 
+ari=  ari(char_count, words, setence_count)
+
+# split = name.split("\\")
+# split = split[len(split)-1].split(".")
+
+# title = (split[0].replace("_"," "))
 # print(ari_float)
-
-    
+# print(f'{title} has an ARI of {ari_float}')
+print(f'Arabian Nights has an ARI of {ari}')
     
     
 
