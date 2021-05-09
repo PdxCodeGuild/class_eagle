@@ -70,7 +70,10 @@ setences = setence_maker(contents)
 words = make_word(setences)
 char_count = word_length(words)
 
-ari=  ari(char_count, words, setence_count)
+ari =  ari(char_count, words, setence_count)
+ari = round(ari)
+age = ari_scale[ari]['ages']
+grade_level = ari_scale[ari]['grade_level']
 
 # split = name.split("\\")
 # split = split[len(split)-1].split(".")
@@ -78,7 +81,7 @@ ari=  ari(char_count, words, setence_count)
 # title = (split[0].replace("_"," "))
 # print(ari_float)
 # print(f'{title} has an ARI of {ari_float}')
-print(f'Arabian Nights has an ARI of {ari}')
+print(f'Arabian Nights has an ARI score of  of {ari} making it a grade level of {grade_level}, or appropriate for students aproimitly ages {age}.')
     
     
 

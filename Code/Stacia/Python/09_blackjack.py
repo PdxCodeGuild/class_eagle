@@ -15,33 +15,36 @@ card_values ={# a dictonary of values. A is currently 1 point but will be redfin
     'K' : 10
 }
 
-points = 0
-ace_count = 0
 
 
-def draw(points,ace_count):# this function is designed to draw a card and evaluate its value. 
-    
-    card = input ("What is your card? ") #user requests card
-    if card.upper()[0] == "A":
+
+
+def draw():# this function is designed to draw a card and evaluate its value. 
+    points = 0
+    ace_count = 0
+    for x in range (3):
+        card = input ("What is your card? ") #user requests card
+        if card.upper()[0] == "A":
             ace_count += 1
+                
+        if not card.isdigit(): # if the card is  not a didgit
+            card = card.upper()[0] # cards is convereted to uper case and stripped to first digit.
+            card = card_values.get(card) # we will have a value even if user types queeeeeeen
             
-    if not card.isdigit(): # if the card is  not a didgit
-        card = card.upper()[0] # cards is convereted to uper case and stripped to first digit.
-        card = card_values.get(card) # we will have a value even if user types queeeeeeen
-        
             
     
-    points += int(card)  
+        points += int(card)  
     return points, ace_count
     
         
 
 def check(points,ace_count):
-    print(points)
+    
     if points > 21:
         if ace_count > 0:
             points -= 10
             print("aces wild")
+            
         else:
             print ("bust")
          
@@ -54,17 +57,15 @@ def check(points,ace_count):
 
     if points <= 16:
         print ("Saddle up partner hit!")
-    return points
+    
 
 
 
-for i in range (3):
-    points,ace_count = draw(points, ace_count)   
-    check(points, ace_count)
-    
-    if points == 21 :
-        break
-        
+points,ace_count = draw()
+check(points,ace_count)
     
     
+    #take three cards
+    #sum scores
+    # give advice
     

@@ -69,7 +69,7 @@ def title():
 title()
 roshambo = ["paper", "rock", "scissors"]
 player=input("paper rock sissors? 1 2 3 throw!")
-comp = (random.choice(roshambo))
+comp = random.choice(roshambo)
 
 if player == comp:
     draw()
