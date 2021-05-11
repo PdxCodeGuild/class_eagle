@@ -135,14 +135,28 @@ Schedule Overview:
 - [03 CSS Overview](2%20Flask%20+%20HTML%20+%20CSS/docs/03%20CSS%20Overview.md)
 - [04 CSS Selectors](2%20Flask%20+%20HTML%20+%20CSS/docs/04%20CSS%20Selectors.md)
 - [05 CSS Properties](2%20Flask%20+%20HTML%20+%20CSS/docs/05%20CSS%20Properties.md)
+- [06 CSS Box Model](2%20Flask%20+%20HTML%20+%20CSS/docs/06%20CSS%20Box%20Model.md)
+- [07 CSS Flexbox + Grid](2%20Flask%20+%20HTML%20+%20CSS/docs/07%20CSS%20Flexbox%20+%20Grid.md)
+- [08 CSS Responsive Design](2%20Flask%20+%20HTML%20+%20CSS/docs/08%20CSS%20Responsive%20Design.md)]
+- [09 CSS Bootstrap & Materialize](2%20Flask%20+%20HTML%20+%20CSS/docs/09%20CSS%20Bootstrap%20&%20Materialize.md)
+- [10 CSS Animations](2%20Flask%20+%20HTML%20+%20CSS/docs/10%20CSS%20Animations.md)
+- [11 HTML Forms](2%20Flask%20+%20HTML%20+%20CSS/docs/11%20HTML%20Forms.md)
+- [12 Flask](2%20Flask%20+%20HTML%20+%20CSS/docs/12%20Flask.md)
+- [13 Flask Forms](2%20Flask%20+%20HTML%20+%20CSS/docs/13%20Flask%20Forms.md)
 
 #### Labs
 
 - [01 Bio](2%20Flask%20+%20HTML%20+%20CSS/labs/1%20Bio.md)
+- [02 Blog](2%20Flask%20+%20HTML%20+%20CSS/labs/02%20Blog.md)
+- [03 Company](2%20Flask%20+%20HTML%20+%20CSS/labs/03%20Company.md)
+- [04 Personal Portfolio](2%20Flask%20+%20HTML%20+%20CSS/labs/04%20Personal%20Portfolio.md)
+- [05 Burrito Order Form](2%20Flask%20+%20HTML%20+%20CSS/labs/05%20Burrito%20Order%20Form.md)
 
 #### Mob
 
 - [01 Spirit Animal](2%20Flask%20+%20HTML%20+%20CSS/mob/01%20Spirit%20Animal.md)
+- [02 Storefront](2%20Flask%20+%20HTML%20+%20CSS/mob/02%20Storefront.md)
+- [03 Button Animations](2%20Flask%20+%20HTML%20+%20CSS/mob/03%20Button%20Animations.md)
 
 ## Schedule
 
@@ -220,9 +234,18 @@ Schedule Overview:
 - [doc: CSS Properties](2%20Flask%20+%20HTML%20+%20CSS/docs/05%20CSS%20Properties.md)
 - [mob: Spirit Animal](2%20Flask%20+%20HTML%20+%20CSS/mob/01%20Spirit%20Animal.md)
 - [lab: Bio](2%20Flask%20+%20HTML%20+%20CSS/labs/01%20Bio.md)
+- [doc: CSS Box Model](2%20Flask%20+%20HTML%20+%20CSS/docs/06%20CSS%20Box%20Model.md)
+- [doc: CSS Flexbox + Grid](2%20Flask%20+%20HTML%20+%20CSS/docs/07%20CSS%20Flexbox%20+%20Grid.md)
+- [doc: CSS Responsive Design](2%20Flask%20+%20HTML%20+%20CSS/docs/08%20CSS%20Responsive%20Design.md)
+- [lab: Blog](2%20Flask%20+%20HTML%20+%20CSS/labs/02%20Blog.md)
 
 
 ### Week 6 / Flask & HTML & CSS / Intermediate
 
-
-"# Nathematical.github.io" 
+- [doc: CSS Bootstrap & Materialize](2%20Flask%20+%20HTML%20+%20CSS/docs/09%20CSS%20Bootstrap%20&%20Materialize.md)
+- [mob: Storefront](2%20Flask%20+%20HTML%20+%20CSS/mob/02%20Storefront.md)
+- [lab: Company](2%20Flask%20+%20HTML%20+%20CSS/labs/03%20Company.md)
+- [doc: CSS Animations](2%20Flask%20+%20HTML%20+%20CSS/docs/10%20CSS%20Animations.md)
+- [lab: Personal Portfolio](2%20Flask%20+%20HTML%20+%20CSS/labs/04%20Personal%20Portfolio.md)
+- [doc: HTML Forms](2%20Flask%20+%20HTML%20+%20CSS/docs/11%20HTML%20Forms.md)
+- [lab: Burrito Order Form](2%20Flask%20+%20HTML%20+%20CSS/labs/05%20Burrito%20Order%20Form.md)
