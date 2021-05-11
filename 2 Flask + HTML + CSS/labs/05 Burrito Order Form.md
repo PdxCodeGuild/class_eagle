@@ -2,7 +2,12 @@
 
 # Lab 5: Burrito Order Form
 
-Create a burrito order form with the following input controls. Try to incorporate some images and semantic elements. Below are some recommended fields, feel free to use your own. You may draw some inspiration from [this image](burrito-order-form.png). Once you have your page together, use the `Create Bin` link at http://postb.in/ to create a temporary endpoint. Add the attributes `action="your-postbin-url-goes-here"` and `method="post"` to your form. Then fill out your form and submit the data. You should see an "ok" response. You can then check your bin and look at the request's body. Make sure all the relevant data is present to ensure your form is working.
+
+## Part 1
+
+Create a burrito order form with the following input controls. Try to incorporate some images and semantic elements. Below are some recommended fields, feel free to use your own. You may draw some inspiration from [this image](burrito-order-form.png). 
+
+Once you have your page together, use the `Create Bin` link at http://postb.in/ to create a temporary endpoint. Add the attributes `action="your-postbin-url-goes-here"` and `method="post"` to your form. Then fill out your form and submit the data. You should see an "ok" response. You can then check your bin and look at the request's body. Make sure all the relevant data is present to ensure your form is working.
 
 Tortilla (radio buttons)
 - White Flour
@@ -28,7 +33,9 @@ Additional Ingredients (check boxes)
 - Cheese
 - Sour Cream
 
-For personal info, use the `required`, `pattern` and `title` attributes of the input fields to verify that the information the user entered is legitimate.
+## Part 2 (optional)
+
+Allow the user to enter their personal information to get their order. Use the `required`, `pattern` and `title` attributes of the input fields to verify that the information the user entered is legitimate.
 
 Personal Info
 - Username (at least 6 characters)
