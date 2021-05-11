@@ -155,6 +155,9 @@ The two most popular CSS preprocessors are [Sass/SCSS](http://sass-lang.com/) an
   - [Meet the Ipsums](https://meettheipsums.com/)
   - [Ultimate List of Lorem Ipsum Generators](https://loremipsum.io/ultimate-list-of-lorem-ipsum-generators/)
   - [List on Mashable](https://mashable.com/2013/07/11/lorem-ipsum/)
+- Photo Editing Programs
+  - [Glimpse](https://glimpse-editor.org/)
+  - [Paint.NET](https://www.getpaint.net/) (Windows only)
 
 
 ## Libraries

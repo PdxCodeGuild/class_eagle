@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meherin</title>
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
+<body class="light-blue lighten-5">
+    <nav class="teal darken-4 z-depth-3">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Mark Meherin</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="sass.html">Sass</a></li>
+                <li><a href="badges.html">Components</a></li>
+                <li><a href="collapsible.html">JavaScript</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="row center-align">
+
+        <div class="col s4">
+            <div class="card blue-grey">
+                <div class="card-image">
+                    <img src="coding.jfif">
+                    <span class="card-title">My Experience</span>
+                </div>
+                <div class="card-content">
+                    <p>I am a very simple card. I am good at containing small bits of information.
+                        I am convenient because I require little markup to use effectively.</p>
+                </div>
+                <div class="card-action">
+                    <a class="waves-effect waves-light btn-small" href="#">This is a link</a>
+                </div>
+            </div>
+        </div>
+        <div class="col s4">
+            <div class="carousel">
+                <a class="carousel-item" href="#one!"><img src="https://picsum.photos/200"></a>
+                <a class="carousel-item" href="#two!"><img src="https://picsum.photos/200"></a>
+                <a class="carousel-item" href="#three!"><img src="https://picsum.photos/200"></a>
+                <a class="carousel-item" href="#four!"><img src="https://picsum.photos/200"></a>
+                <a class="carousel-item" href="#five!"><img src="https://picsum.photos/200"></a>
+            </div>
+        </div>
+        <div class="col s4">
+            <div class="card blue-grey">
+                <div class="card-image">
+                    <img src="experience.jfif">
+                    <span class="card-title">My Journey</span>
+                </div>
+                <div class="card-content">
+                    <p>I am a very simple card. I am good at containing small bits of information.
+                        I am convenient because I require little markup to use effectively.</p>
+                </div>
+                <div class="card-action">
+                    <a class="waves-effect waves-light btn-small" href="#">This is a link</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <ul class="collapsible">
+        <li>
+            <div class="collapsible-header  teal darken-4 white-text"><i class="material-icons">filter_drama</i>First
+            </div>
+            <div class="collapsible-body cyan darken-3"><span>Lorem ipsum dolor sit amet, has nisl bonorum pertinax in,
+                    diam bonorum lobortis mei cu. Feugiat inciderint ne eos, vix eu enim causae. Est mutat minim
+                    adversarium ea, nulla detraxit instructior ut mei, ei ius munere possim docendi. Vel id errem libris
+                    concludaturque, reque vidisse vivendo nec ut. Ex vis wisi corpora, ne vix mazim causae salutatus.
+                    Nec nulla commodo ea, ex eos tibique blandit.</span></div>
+        </li>
+        <li>
+            <div class="collapsible-header  teal darken-4 white-text"><i class="material-icons">place</i>Second
+            </div>
+            <div class="collapsible-body cyan darken-3"><span>Lorem ipsum dolor sit amet, has nisl bonorum pertinax in,
+                    diam bonorum lobortis mei cu. Feugiat inciderint ne eos, vix eu enim causae. Est mutat minim
+                    adversarium ea, nulla detraxit instructior ut mei, ei ius munere possim docendi. Vel id errem libris
+                    concludaturque, reque vidisse vivendo nec ut. Ex vis wisi corpora, ne vix mazim causae salutatus.
+                    Nec nulla commodo ea, ex eos tibique blandit</span></div>
+        </li>
+        <li>
+            <div class="collapsible-header  teal darken-4 white-text"><i class="material-icons">☎</i>Contact Me
+            </div>
+            <div class="collapsible-body cyan darken-3"><span>Lorem ipsum dolor sit amet, has nisl bonorum pertinax in,
+                    diam bonorum lobortis mei cu. Feugiat inciderint ne eos, vix eu enim causae. Est mutat minim
+                    adversarium ea, nulla detraxit instructior ut mei, ei ius munere possim docendi. Vel id errem libris
+                    concludaturque, reque vidisse vivendo nec ut. Ex vis wisi corpora, ne vix mazim causae salutatus.
+                    Nec nulla commodo ea, ex eos tibique blandit.</span></div>
+        </li>
+    </ul>
+
+
+
+
+    <h1></h1>
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems, options);
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.collapsible');
+            var instances = M.Collapsible.init(elems, {});
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.carousel');
+            var instances = M.Carousel.init(elems, {});
+        });
+    </script>
+</body>
+
+</html>
