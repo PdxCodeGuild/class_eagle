@@ -133,15 +133,8 @@ Schedule Overview:
 - [01 HTML Overview](2%20Flask%20+%20HTML%20+%20CSS/docs/01%20HTML%20Overview.md)
 - [02 HTML Elements](2%20Flask%20+%20HTML%20+%20CSS/docs/02%20HTML%20Elements.md)
 - [03 CSS Overview](2%20Flask%20+%20HTML%20+%20CSS/docs/03%20CSS%20Overview.md)
-- [04 CSS Properties](2%20Flask%20+%20HTML%20+%20CSS/docs/05%20CSS%20Properties.md)
-- [06 Flask](2%20Flask%20+%20HTML%20+%20CSS/docs/06%20Flask.md)
-- [07 HTML Forms](2%20Flask%20+%20HTML%20+%20CSS/docs/07%20HTML%20Forms.md)
-- [08 Flask Forms](2%20Flask%20+%20HTML%20+%20CSS/docs/08%20Flask%20Forms.md)
-- [09 CSS Box Model](2%20Flask%20+%20HTML%20+%20CSS/docs/09%20CSS%20Box%20Model.md)
-- [10 CSS Flexbox + Grid](2%20Flask%20+%20HTML%20+%20CSS/docs/10%20CSS%20Flexbox%20+%20Grid.md)
-- [11 CSS Responsive Design](2%20Flask%20+%20HTML%20+%20CSS/docs/11%20CSS%20Responsive%20Design.md)
-- [12 CSS Animations](2%20Flask%20+%20HTML%20+%20CSS/docs/12%20CSS%20Animations.md)
-- [13 CSS Bootstrap & Materialize](2%20Flask%20+%20HTML%20+%20CSS/docs/13%20CSS%20Bootstrap%20&%20Materialize.md)
+- [04 CSS Selectors](2%20Flask%20+%20HTML%20+%20CSS/docs/04%20CSS%20Selectors.md)
+- [05 CSS Properties](2%20Flask%20+%20HTML%20+%20CSS/docs/05%20CSS%20Properties.md)
 
 #### Labs
 
