@@ -1,0 +1,15 @@
+header {
+    background-color: red;
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+}
+.order_form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 2in;
+    margin-right: 2in;
+    margin-top: 50px;
+}
