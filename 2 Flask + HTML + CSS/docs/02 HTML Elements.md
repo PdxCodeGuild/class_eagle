@@ -21,10 +21,6 @@ HTML elements make up the structure of a page. Many of these come with default s
   - [Span Tags: `span`](#span-tags-span)
   - [Tables: `table`, `tr`, `th`, `td`](#tables-table-tr-th-td)
   - [Ordered and Unordered Lists: `ol`, `ul`](#ordered-and-unordered-lists-ol-ul)
-- [Interactive Elements](#interactive-elements-1)
-  - [Buttons: `button`](#buttons-button)
-  - [Input: `input`](#input-input)
-  - [Dropdown Lists: `select`](#dropdown-lists-select)
 - [Text Formatting Elements](#text-formatting-elements)
 
 
@@ -244,50 +240,6 @@ Unordered lists are shown with bullet points, ordered lists are shown with numbe
     <li>Pear</li>
 </ol>
 ```
-
-
-## Interactive Elements
-
-### Buttons: `button`
-
-```html
-<button>this is a button</button>
-```
-
-### Input: `input`
-
-`input` tags allow for user-input.
-
-```html
-<input type="text"/>
-<input type="date"/>
-<input type="color"/>
-<input type="password"/>
-<input type="radio"/>
-<input type="checkbox"/>
-```
-
-If radio buttons are given the same `name` attribute, only allow one among them can be selected at any time.
-
-```html
-<input type="radio" name="gender" value="male"> Male<br>
-<input type="radio" name="gender" value="female"> Female<br>
-<input type="radio" name="gender" value="other"> Other
-```
-
-### Dropdown Lists: `select`
-
-A `select` tag defines a dropdown list. Each `option` defines an option of that dropdown list. Note that the `value` attribute differs from the inner text. The inner text servers human interests, the `value` serves the code's interests.
-
-```html
-<select>
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="mercedes">Mercedes</option>
-  <option value="audi">Audi</option>
-</select>
-```
-
 
 
 ## Text Formatting Elements
