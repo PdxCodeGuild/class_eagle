@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bob's Burritos</title>
+    <link rel="stylesheet" href="Lab05_burrito_form.css">
+</head>
+
+<body>
+    <header>
+        Bob's Burritos
+    </header>
+    <form class="order_form" action="https://webhook.site/b247f06e-87e4-48b3-951d-7250a3dda47e" method="post">
+        <label for="name_input">Name</label>
+        <input id="name_input" type="text" name="name" placeholder="Enter your full name" required />
+        <br/>
+
+        <label for="tort-select">Choose your tortilla:</label>
+        <select name="tortilla" id="tort-select">
+            <option value="white_flour">White Flour</option>
+            <option value="wheat_flour">Wheat Flour</option>
+            <option value="spinach">Spinach</option>
+            <option value="Corn">Corn</option>
+        </select>
+        <br/>
+
+        <div>Select your rice type:</div>
+        <div>White Rice<input type="radio" name="rice" value="white_rice"></div>
+        <div>Brown Rice<input type="radio" name="rice" value="brown_rice"></div>
+        <br/>
+
+        <label for="prot_select">Choose your protein</label>
+        <select name="protein" id="prot_select">
+            <option value="carnitas">Carnitas</option>
+            <option value="chicken">Chicken</option>
+            <option value="steak">Steak</option>
+            <option value="sofritas">Sofritas</option>
+            <option value="none">none</option>
+        </select>
+
+        <button type="submit">submit</button>
+    </form>
+
+</body>
+
+</html>
