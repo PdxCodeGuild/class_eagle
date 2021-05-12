@@ -17,7 +17,35 @@
     <title>Company</title>
     <style>
         body {
+            min-width: 100vw;
             background-color: black;
+        }
+
+        .navbar {
+            background-color: yellowgreen;
+        }
+
+        .card-body {
+            background-color: black;
+            color: aliceblue;
+        }
+        .card:hover {
+            box-shadow: 0 0 15px 0 yellowgreen;
+        }
+
+        .card {
+            border-color: yellowgreen;
+            border-width: 2px;
+            border-radius: 10px;
+        }
+
+        .row h5 {
+            font-family: 'Philosopher', sans-serif;
+            color: yellowgreen;
+        }
+
+        .row p {
+            font-family: Georgia, 'Times New Roman', Times, serif;
         }
 
         footer {
@@ -27,7 +55,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: yellowgreen;">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"
                 style="color:aliceblue; font-size:xx-large; font-family: 'Philosopher', sans-serif;">
@@ -54,7 +82,40 @@
             </div>
         </div>
     </nav>
-    <div class="container-fluid"><img src="./Images/cricket_powder.jpg" class="img-fluid" alt="cricket_powder" width="auto">
+    <div class="container-fluid">
+        <img src="./Images/cricket_powder.jpg" class="img-fluid" alt="cricket_powder" width="auto">
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card">
+                <img src="./Images/mealworms1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Nutritious</h5>
+                    <p class="card-text">Hell of everyday carry marfa PBR&B williamsburg. Gentrify jianbing actually,
+                        keytar vegan aesthetic kombucha small batch try-hard. </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <img src="./Images/photo-1586850679886-2922f0a03344.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Delicious</h5>
+                    <p class="card-text">I'm baby gastropub listicle distillery fanny pack sustainable. Salvia hammock
+                        PBR&B chartreuse food truck. Shaman master cleanse selvage post-ironic neutra fashion axe.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <img src="./Images/photo-1495584816685-4bdbf1b5057e.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Sustainable</h5>
+                    <p class="card-text">Pitchfork pok pok irony plaid cliche hexagon cray selfies four dollar toast
+                        tacos gluten-free tofu. Asymmetrical deep v lyft everyday carry pinterest.</p>
+                </div>
+            </div>
+        </div>
     </div>
     <footer style="text-align: center;">&copy; Class Eagle 2021</footer>
 

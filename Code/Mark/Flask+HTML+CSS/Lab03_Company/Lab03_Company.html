@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+        crossorigin="anonymous"></script>
+
+
+    <title>On the Grind</title>
+</head>
+<style>
+    body {
+        background-image: url("coffee_background.jpg");
+    }
+</style>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-light bg-success">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src=noun_Coffee_836672.png width=50px>On The Grind!</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topnav_toggle"
+                aria-controls="topnav_toggle" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="topnav_toggle">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Discover</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">News</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="d-flex justify-content-center bg-warning border border-5">
+        <h1 class="fst-italic">Best Coffee in The Realm</h1>
+    </div>
+    <!-- carousel with images -->
+    <div class="container w-50 mt-4 mb-4 rounded-pill ">
+        <div id="carouselindicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselindicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselindicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselindicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner rounded-pill border border-success border-5">
+                <div class="carousel-item active">
+                    <img src="Coffee1.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="Coffee2.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="Making Coffee.jpg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselindicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselindicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-evenly">
+        <div class="card border border-5 border-dark" style="width: 18rem;">
+            <img src="speciality.jpg" class="card-img-top" alt="...">
+            <div class="card-body bg-warning">
+                <h5 class="card-title bg-success text-center fst-italic">Our Menu</h5>
+                <p class="card-text">Crema extraction caffeine, cup caffeine filter grounds sugar. A mug, cappuccino
+                    steamed, robust skinny affogato aromatic steamed. Caffeine medium percolator trifecta caramelization
+                    single shot affogato.</p>
+                <a href="#" class="btn btn-outline-success">Go somewhere</a>
+            </div>
+        </div>
+        <div class="card border border-5 border-dark" style="width: 18rem;">
+            <img src="menu.jpg" class="card-img-top" alt="...">
+            <div class="card-body bg-warning">
+                <h5 class="card-title bg-success text-center fst-italic">Speciality Products</h5>
+                <p class="card-text"> Aged grounds carajillo cultivar aroma mug seasonal as eu plunger pot.
+                    Decaffeinated caffeine aftertaste plunger pot robusta carajillo, viennese brewed aroma blue mountain
+                    mug mazagran.</p>
+                <a href="#" class="btn btn-outline-success">Go somewhere</a>
+            </div>
+        </div>
+        <div class="card border border-5 border-dark" style="width: 18rem;">
+            <img src="product1.jpg" class="card-img-top" alt="...">
+            <div class="card-body bg-warning">
+                <h5 class="card-title bg-success text-center fst-italic">Coffee Accessories</h5>
+                <p class="card-text">Crema extraction caffeine, cup caffeine filter grounds sugar. A mug, cappuccino
+                    steamed, robust skinny affogato aromatic steamed. Caffeine medium percolator trifecta caramelization
+                    single shot affogato.</p>
+                <a href="#" class="btn btn-outline-success">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card m-5 border border-5 border-dark rounded">
+        <div class="card-title bg-success text-center fst-italic fs-5">
+            Our Mission
+        </div>
+        <div class="card-body bg-warning">
+            <p> Black single shot aromatic cortado aged cultivar organic viennese affogato. To go crema ristretto
+                milk grounds blue mountain steamed, barista strong fair trade cappuccino turkish. French press
+                acerbic cortado cream, so cup espresso cream latte viennese. Barista french press, cream, in, beans
+                et cream caffeine shop. Robust aftertaste breve, mug aftertaste brewed redeye roast dripper siphon.</p>
+
+            <p> Java blue mountain crema brewed con panna siphon aromatic strong roast as wings. Espresso,
+                decaffeinated, fair trade roast kopi-luwak white sugar medium. Blue mountain and single shot aged
+                carajillo brewed that aromatic java aroma. Filter skinny redeye wings, et plunger pot aromatic
+                plunger pot qui cappuccino. Frappuccino extraction arabica kopi-luwak americano medium bar single
+                origin.</p>
+
+            <p> Filter, skinny, cappuccino siphon id, redeye caffeine viennese breve foam variety. Froth sugar
+                espresso fair trade rich cinnamon aftertaste aromatic crema café au lait. Variety, skinny french
+                press instant dripper cinnamon trifecta. Pumpkin spice steamed, sweet as, lungo sugar flavour iced
+                redeye eu ristretto shop. Roast a acerbic macchiato, body, wings milk galão grounds filter.</p>
+        </div>
+    </div>
+
+    <footer class="text-warning">
+        © Class Eagle 2021
+    </footer>
+
+
+
+</body>
+
+</html>
