@@ -26,21 +26,9 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return 'Hello World!'
+
+app.run(debug=True)
 ```
-
-First, use `cd` to move into the directory that contains the `app.py` file. Then run one of the following commands to set Flask to use that file.
-
-- Linux / MacOS / Bash: `export FLASK_APP=app.py`
-- Windows - Command Prompt: `set FLASK_APP=app.py`
-- Windows - PowerShell: `$env:FLASK_APP="app.py"`
-
-Next, set Flask to use a development environment, which will restart the server whenever `app.py` changes.
-
-- Linux / MacOS / Bash: `export FLASK_ENV=development`
-- Windows - Command Prompt: `set FLASK_ENV=development`
-- Windows - PowerShell: `$env:FLASK_ENV="development"`
-
-Finally, you can run the Flask server with `flask run` or `python -m flask run`
 
 
 ## Routing
