@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PasswordGenerator</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--Materialize CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Password Generator 9000</h1>
+
+        <form action="" method="post">
+            please input password length:
+            <div class="input-field inline">
+                <input id="password_length" type="number" class="validate" name="password_length">
+                <label for="password_length">password length</label>
+
+            </div>
+
+            <input class="btn" type="submit" value="submit">
+
+
+
+        </form>
+        <div>
+            Your password is: {{password}}
+        </div>
+        <!--Materialize JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    </div>
+
+</body>
+
+</html>
