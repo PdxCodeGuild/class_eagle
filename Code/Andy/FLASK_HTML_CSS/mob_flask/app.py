@@ -33,7 +33,7 @@ def index():
         return render_template('flask_mob.html', message=new)
 
     else:
-        return render_template('flask_mob.html', message='hello')
+        return render_template('flask_mob.html', message='')
 
 
 
