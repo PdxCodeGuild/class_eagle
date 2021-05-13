@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burrito</title>
+
+    <style>
+
+        .image_box{
+            background-color: silver;
+            height: 350px;
+            width: 350px;
+            background-image: url(burrito.jpeg);
+            background-size: cover;
+    
+        }
+        .tortilla_select h3{
+            padding-top: 0px;
+            margin-top: 0px;
+            padding-right: 15px;
+           
+        }
+
+        .tortilla_select{
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            background-color: darksalmon;
+            padding: 5px
+              
+        }
+
+        .divider_block{
+            background-color: darkseagreen;
+            height: 8px;
+        }
+
+        .meat_select{
+            background-color: darksalmon;
+            padding: 5px
+        }
+
+        .basics_select{
+            background-color: darksalmon;
+            padding: 5px
+        }
+        .sub_bar{
+            background-color: firebrick;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="image_box">
+
+    </div>
+
+    <form action="https://webhook.site/cfc645b8-c45b-4a0e-a1bb-40251aec745a">
+
+
+        <div class='tortilla_select'>
+
+            <h3>Tortilla :</h3>
+
+            <label for="tortilla_checkbox">white flour</label>
+            <input id="tortilla_checkbox" type="checkbox" name="white flour tortilla"/>
+            <br />
+
+            <label for="tortilla_checkbox">corn (gluten free)</label>
+            <input id="tortilla_checkbox" type="checkbox" name="corn tortilla"/>
+            <br />
+
+
+        </div>
+
+        <div class="divider_block">
+            
+        </div>
+
+        <div class="meat_select">
+            <input type="radio" name="meat" value="Carne"> Carne Asada<br>
+            <input type="radio" name="meat" value="Carnitas"> Carnitas<br>
+            <input type="radio" name="meat" value="Chorizo"> Chorizo<br>
+        </div>
+
+        <div class="divider_block">
+        </div>
+
+        <!-- get the ids right on this section. can't have the same.  -->
+        <div class="basics_select">
+            <label for="basics_checkbox">beans</label>
+            <input id="basics_checkbox" type="checkbox" name="beans" required checked=True/><br>
+
+
+            <label for="basics_checkbox">cheese</label>
+            <input id="basics_checkbox" type="checkbox" name="cheese" required checked=True/><br>
+
+
+            <label for="basics_checkbox">rice</label>
+            <input id="basics_checkbox" type="checkbox" name="rice" required checked=True/><br>
+
+
+            <label for="basics_checkbox">grilled veggies</label>
+            <input id="basics_checkbox" type="checkbox" name="grilled_veggies" required checked=True/><br>
+
+        </div>
+
+
+        <div class="sub_bar">
+        <button type="submit">submit</button>
+        </div>
+
+    </form>
+
+
+
+</body>
+
+</html>
