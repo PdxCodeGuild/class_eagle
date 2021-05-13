@@ -14,111 +14,117 @@
         🌯|Bob's Burritos|🌯
     </header>
     <h1>Custimize your order here:</h1>
-    <form class="order_form" action="https://webhook.site/b247f06e-87e4-48b3-951d-7250a3dda47e" method="post">
+   <div class="flex_form">
+       <div></div>
+       <div>
+        <form class="order_form" action="https://webhook.site/b247f06e-87e4-48b3-951d-7250a3dda47e" method="post">
 
-        <!-- Name -->
-        <label for="name_input">Name</label>
-        <input id="name_input" type="text" name="name" placeholder="Enter your full name" required />
-        <br />
-
-        <!-- Tortilla -->
-        <label for="tort-select">Choose your tortilla:</label>
-        <select name="tortilla" id="tort-select">
-            <option value="white_flour">White Flour</option>
-            <option value="wheat_flour">Wheat Flour</option>
-            <option value="spinach">Spinach</option>
-            <option value="Corn">Corn</option>
-        </select>
-        <br />
-
-        <!-- Rice -->
-        <div>Select your rice type:</div>
-        <div><input type="radio" name="rice" value="white_rice">White Rice</div>
-        <div><input type="radio" name="rice" value="brown_rice">Brown Rice</div>
-        <br />
-
-        <!-- Protein -->
-        <label for="prot_select">Choose your protein</label>
-        <select name="protein" id="prot_select">
-            <option value="carnitas">Carnitas</option>
-            <option value="chicken">Chicken</option>
-            <option value="steak">Steak</option>
-            <option value="sofritas">Sofritas</option>
-            <option value="none">none</option>
-        </select>
-        <br />
-
-        <!-- Additional Ingrediants -->
-        <div>Choose any additional ingrediants:</div>
-        <div class="additional">
-            <div>
+            <!-- Name -->
+            <label for="name_input">Name</label>
+            <input id="name_input" type="text" name="name" placeholder="Enter your full name" required />
+            <br />
+    
+            <!-- Tortilla -->
+            <label for="tort-select">Choose your tortilla:</label>
+            <select name="tortilla" id="tort-select">
+                <option value="white_flour">White Flour</option>
+                <option value="wheat_flour">Wheat Flour</option>
+                <option value="spinach">Spinach</option>
+                <option value="Corn">Corn</option>
+            </select>
+            <br />
+    
+            <!-- Rice -->
+            <div>Select your rice type:</div>
+            <div><input type="radio" name="rice" value="white_rice">White Rice</div>
+            <div><input type="radio" name="rice" value="brown_rice">Brown Rice</div>
+            <br />
+    
+            <!-- Protein -->
+            <label for="prot_select">Choose your protein</label>
+            <select name="protein" id="prot_select">
+                <option value="carnitas">Carnitas</option>
+                <option value="chicken">Chicken</option>
+                <option value="steak">Steak</option>
+                <option value="sofritas">Sofritas</option>
+                <option value="none">none</option>
+            </select>
+            <br />
+    
+            <!-- Additional Ingrediants -->
+            <div>Choose any additional ingrediants:</div>
+            <div class="additional">
                 <div>
-                    <input type="checkbox" id="add1" name="add1" value="sour_cream">
-                    <label for="add1">Sour Cream</label>
+                    <div>
+                        <input type="checkbox" id="add1" name="add1" value="sour_cream">
+                        <label for="add1">Sour Cream</label>
+                    </div>
+    
+                    <div>
+                        <input type="checkbox" id="add2" name="add2" value="lettuce">
+                        <label for="add2">Lettuce</label>
+                    </div>
+    
+                    <div>
+                        <input type="checkbox" id="add3" name="add3" value="cheese">
+                        <label for="add3">Cheese</label>
+                    </div>
+    
+                    <div>
+                        <input type="checkbox" id="add4" name="add4" value="fajita_veg">
+                        <label for="add4">Fajita Veggies</label>
+                    </div>
                 </div>
-
                 <div>
-                    <input type="checkbox" id="add2" name="add2" value="lettuce">
-                    <label for="add2">Lettuce</label>
+                    <div>
+                        <input type="checkbox" id="add5" name="add5" value="mild_salsa">
+                        <label for="add5">Mild Salsa</label>
+                    </div>
+    
+                    <div>
+                        <input type="checkbox" id="add6" name="add6" value="medium_salsa">
+                        <label for="add6">Medium Salsa</label>
+                    </div>
+    
+                    <div>
+                        <input type="checkbox" id="add7" name="add7" value="hot_salsa">
+                        <label for="add7">Hot Salsa</label>
+                    </div>
+    
+                    <div>
+                        <input type="checkbox" id="add8" name="add8" value="queso">
+                        <label for="add8">Queso +$1.50</label>
+                    </div>
                 </div>
-
-                <div>
-                    <input type="checkbox" id="add3" name="add3" value="cheese">
-                    <label for="add3">Cheese</label>
-                </div>
-
-                <div>
-                    <input type="checkbox" id="add4" name="add4" value="fajita_veg">
-                    <label for="add4">Fajita Veggies</label>
+                <div id="last">
+                    <div>
+                        <input type="checkbox" id="add9" name="add9" value="guacamole">
+                        <label for="add9">Guacamole +$2.50</label>
+                    </div>
+    
+                    <div>
+                        <input type="checkbox" id="add10" name="add10" value="double_tort">
+                        <label for="add10">Double-Wrap with Tortilla +$0.50</label>
+                    </div>
+    
+                    <!-- <div>
+                        <input type="checkbox" id="add11" name="add11" value="">
+                        <label for="add11"></label>
+                    </div>
+    
+                    <div>
+                        <input type="checkbox" id="add12" name="add12" value="">
+                        <label for="add12"></label>
+                    </div> -->
+    
                 </div>
             </div>
-            <div>
-                <div>
-                    <input type="checkbox" id="add5" name="add5" value="mild_salsa">
-                    <label for="add5">Mild Salsa</label>
-                </div>
-
-                <div>
-                    <input type="checkbox" id="add6" name="add6" value="medium_salsa">
-                    <label for="add6">Medium Salsa</label>
-                </div>
-
-                <div>
-                    <input type="checkbox" id="add7" name="add7" value="hot_salsa">
-                    <label for="add7">Hot Salsa</label>
-                </div>
-
-                <div>
-                    <input type="checkbox" id="add8" name="add8" value="queso">
-                    <label for="add8">Queso +$1.50</label>
-                </div>
-            </div>
-            <div id="last">
-                <div>
-                    <input type="checkbox" id="add9" name="add9" value="guacamole">
-                    <label for="add9">Guacamole +$2.50</label>
-                </div>
-
-                <div>
-                    <input type="checkbox" id="add10" name="add10" value="double_tort">
-                    <label for="add10">Double-Wrap with Tortilla +$0.50</label>
-                </div>
-
-                <!-- <div>
-                    <input type="checkbox" id="add11" name="add11" value="">
-                    <label for="add11"></label>
-                </div>
-
-                <div>
-                    <input type="checkbox" id="add12" name="add12" value="">
-                    <label for="add12"></label>
-                </div> -->
-
-            </div>
-        </div>
-        <br />
-        <button class="submit" type="submit">GIVE ME BURRITOS!</button>
-    </form>
+            <br />
+            <button class="submit" type="submit">GIVE ME BURRITOS!</button>
+        </form>
+       </div>
+       <div></div>
+   </div>
     <footer class="footer">
         <div class="footer">
             &copy; Class Eagle 2021
