@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Generator</title>
+    <title>Rot13 Cypher</title>
 </head>
 <body>
     <header>
-        Password Generator
+        Rot Cipher
     </header>
 
     <form action="" method="POST">
-        <input type="text" name='input_text' placeholder="Password Length">
-        <button type="submit">Submit</button>
+        <input type="text" name='input_text' placeholder="Beginning Word">
+        <input type="text" name='input_rot' placeholder="Rotation Amount">
+        <button type="submit">Get your rotated word</button>
     </form>
-    <div>Your generated password is: {{message}}</div>
+    <div>Your ciphered word is: {{message}}</div>
 
 </body>
 </html>
