@@ -63,7 +63,7 @@ def index():
         password.append(digits)
         password.append(punctuation)
         password = ''.join(password)
-        password = password.split()
+        password = list(password)
         random.shuffle(password)
         password = ''.join(password)
 
