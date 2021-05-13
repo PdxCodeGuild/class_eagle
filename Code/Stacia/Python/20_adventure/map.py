@@ -1,4 +1,4 @@
-
+import string
 player_x =3
 player_y = 3
 direction = "start"
@@ -45,7 +45,7 @@ while direction != "done":
     player_y, player_x = player_movement(player_y, player_x,)
 
     print (player_y , player_x)
-    show_map(map_i, player_y, player_x,)
+    
 
 
 
