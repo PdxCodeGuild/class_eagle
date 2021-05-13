@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+</head>
+<body>
+    <header>
+        Password Generator
+    </header>
+
+    <form action="" method="POST">
+        <!-- <input type="text" name='input_text' placeholder="Password Length">
+        <button type="submit">Submit</button> -->
+
+        <input type="text" name="upper_letters" placeholder="Number of uppercase: ">
+
+        <input type="text" name="lower_letters" placeholder="Lowercase: ">
+
+        <input type="text" name="special_chars" placeholder="Special characters: ">
+
+        <input type="text" name="numbers" placeholder="Numbers: ">
+
+        <button type="submit">Generate Password</button>
+
+    </form>
+    <div>Your generated password is: {{message}}</div>
+
+</body>
+</html>
