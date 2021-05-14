@@ -1,6 +1,6 @@
 
 
-# Lab 2 Flask Todo List
+# Flask Todo List
 
 Let's build a todo list with Flask and a simple database that uses JSON to store the data.
 
