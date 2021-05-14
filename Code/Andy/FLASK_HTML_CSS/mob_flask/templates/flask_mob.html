@@ -1,22 +1,59 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rot13 Cypher</title>
-</head>
-<body>
-    <header>
-        Rot Cipher
-    </header>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <form action="" method="POST">
-        <input type="text" name='input_text' placeholder="Beginning Word">
-        <input type="text" name='input_rot' placeholder="Rotation Amount">
-        <button type="submit">Get your rotated word</button>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Rot Cipher</title>
+    <style>
+        h1 {
+            display: flex;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        #form {
+            padding-left: 100px;
+            padding-right: 100px;
+        }
+
+        .out {
+            display: flex;
+            justify-content: center;
+            font-size: 35px;
+            padding: 15px;
+        }
+
+    </style>
+  </head>
+  <body>
+    <h1>Rot Cipher</h1>
+
+    <form id='form' action="" method="POST">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Word</label>
+          <input name='input_text' type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Rotation Amount</label>
+          <input name='input_rot'type="text" class="form-control" id="exampleInputPassword1">
+        </div>
+        <button type="submit" class="btn btn-primary">Get New Word</button>
     </form>
-    <div>Your ciphered word is: {{message}}</div>
+    <div class='out'>
+        <br>
+        Your New Word is: {{message}}
+    </div>
 
-</body>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
 </html>
