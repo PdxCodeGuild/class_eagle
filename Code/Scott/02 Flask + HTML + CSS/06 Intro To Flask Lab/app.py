@@ -1,9 +1,4 @@
-import random as rand
-
-upper_count = int(input('How many uppercase letters would you like? '))
-lower_count = int(input('How many lowercase letters would you like? '))
-num_count = int(input('How many numbers would you like? '))
-special_count = int(input('How many special characters would you like? '))
+from flask import Flask, render_template, request
 
 def genPass(uppers, lowers, nums, specials):
     output = ''
@@ -49,4 +44,14 @@ def genPass(uppers, lowers, nums, specials):
     pass_word = ''.join(pass_word) # rejoin into one string
     return pass_word
 
-print(f'You\'re password is {genPass(upper_count, lower_count, num_count, special_count)}')
+app = Flask(__name__)
+
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    if request.method == 'POST':
+        response = dict(request.form)
+        print(dict(request.form))
+        print(response['uppers'])
+    return render_template('index.html')
+    
+app.run(debug=True)

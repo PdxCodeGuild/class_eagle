@@ -1,0 +1,62 @@
+{
+    "blood_types": [
+        "A+",
+        "A-",
+        "B+",
+        "B-",
+        "O+",
+        "O-",
+        "AB+",
+        "AB-"
+    ],
+    "contacts": [
+        {
+            "blood_type": "A-",
+            "email": "ManuelEWillis@dayrep.com",
+            "favorite_color": "purple",
+            "first_name": "Manuel",
+            "last_name": "Willis",
+            "phone": "540-279-7277"
+        },
+        {
+            "blood_type": "O+",
+            "email": "JamesNOsborne@teleworm.us",
+            "favorite_color": "purple",
+            "first_name": "James",
+            "last_name": "Osborne",
+            "phone": "360-222-7644"
+        },
+        {
+            "blood_type": "B-",
+            "email": "RebeccaLWilkinson@armyspy.com",
+            "favorite_color": "blue",
+            "first_name": "Rebecca",
+            "last_name": "Wilkinson",
+            "phone": "570-367-1914"
+        },
+        {
+            "blood_type": "AB+",
+            "email": "EleanorSJohnston@rhyta.com",
+            "favorite_color": "orange",
+            "first_name": "Eleanor",
+            "last_name": "Johnston",
+            "phone": "814-398-4326"
+        },
+        {
+            "blood_type": "A-",
+            "email": "butterworth@gmail.com",
+            "favorite_color": "magenta",
+            "first_name": "Richard",
+            "last_name": "Butterworth",
+            "phone": "555-555-5555"
+        },
+        {
+            "blood_type": "AB-",
+            "email": "miguelina@gmail.com",
+            "favorite_color": "doom",
+            "first_name": "Miguelina",
+            "last_name": "Wright",
+            "phone": "666-666-6666"
+        }
+    ]
+}
