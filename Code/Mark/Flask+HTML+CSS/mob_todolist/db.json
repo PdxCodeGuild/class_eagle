@@ -15,6 +15,10 @@
         {
             "priority": "medium",
             "text": "Message"
+        },
+        {
+            "priority": "high",
+            "text": "Practice code"
         }
     ]
 }

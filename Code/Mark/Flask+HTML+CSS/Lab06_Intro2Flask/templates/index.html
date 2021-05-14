@@ -14,7 +14,7 @@
 </head>
 <style>
     body {
-        background-image: url("mearsuring.jfif");
+        background-image: url("{{ url_for('static', filename='mearsuring.jfif')}}");
         background-color: rgb(254,195,50);
         background-position: cover;
         background-repeat: no-repeat;
@@ -32,9 +32,9 @@
     <nav class="navbar navbar-light bg-success bg-gradient border border-5 rounded">
         <div class="container-fluid d-flex justify-content-center">
             <span class="navbar-brand mb-0 h1 fw-bold fst-italic">
-                <img src="templates/nerd_icon.png" height="50px">
+                <img src="{{ url_for('static', filename='nerd_icon.png') }}" height="50px">
                 Mr. Unit Converter
-                <img src="templates/nerd_icon.png" height="50px">
+                <img src="{{ url_for('static', filename='nerd_icon.png') }}" height="50px">
             </span>
         </div>
     </nav>
