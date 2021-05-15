@@ -17,6 +17,7 @@
         h1 {
             font-family: 'Bungee Inline', cursive;
         }
+
         h2 {
             font-family: 'Open Sans', sans-serif;
         }
@@ -35,16 +36,36 @@
                     <!-- text input -->
                     <div class="row">
                         <div class="input-field col s12 m4">
-                            <input id="distance" name="distance" type="text" class="validate">
+                            <input id="distance" name="distance" type="number" class="validate">
                             <label for="distance">Distance: </label>
                         </div>
                         <div class="input-field col s12 m4">
-                            <input id="start_unit" name="start_unit" type="text" class="validate">
-                            <label for="start_unit">Starting unit: </label>
+                            <select name="start_unit">
+                                <option value="" disabled selected>Select a unit: </option>
+                                <option value="in">inches</option>
+                                <option value="ft">feet</option>
+                                <option value="yd">yard</option>
+                                <option value="m">meters</option>
+                                <option value="mi">miles</option>
+                                <option value="km">kilometers</option>
+                            </select>
+                            <label for="start_unit">Starting Unit</label>
+                            <!-- <input id="start_unit" name="start_unit" type="text" class="validate">
+                            <label for="start_unit">Starting unit: </label> -->
                         </div>
                         <div class="input-field col s12 m4">
-                            <input id="end_unit" name="end_unit" type="text" class="validate">
-                            <label for="end_unit">Unit converting to: </label>
+                            <select name="end_unit">
+                                <option value="" disabled selected>Select a unit: </option>
+                                <option value="in">inches</option>
+                                <option value="ft">feet</option>
+                                <option value="yd">yard</option>
+                                <option value="m">meters</option>
+                                <option value="mi">miles</option>
+                                <option value="km">kilometers</option>
+                            </select>
+                            <label for="end_unit">End Unit</label>
+                            <!-- <input id="end_unit" name="end_unit" type="text" class="validate">
+                            <label for="end_unit">Unit converting to: </label> -->
                         </div>
                     </div>
                     <div class="row">
@@ -63,6 +84,12 @@
     </div>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems, {});
+        });
+    </script>
 </body>
 
 </html>
