@@ -39,6 +39,7 @@ def version1():
         while i == 9:
             print(f'You got {score} questions correct!')    
             print('\n')
+            break
         
 
 
@@ -88,10 +89,10 @@ def true_false(info,num):
         elif answer != info['results'][i]['correct_answer']:
             print('Wrong!')
             print('\n')
-        while i == num - 1:
-            print(f'\nYour score is {score} out of {num}!')    
-            print('\n')
-            break
+    while i == num - 1:
+        print(f'\nYour score is {score} out of {num}!')    
+        print('\n')
+        break
 
 # multiple choice game unfinished
 def multiple_choice(info):
