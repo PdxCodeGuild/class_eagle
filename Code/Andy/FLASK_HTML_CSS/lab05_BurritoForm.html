@@ -49,16 +49,13 @@
             padding-right: 40px;
         }
 
-        .parts {
-            display: flex;
-            justify-content: space-evenly;
-            padding-left: 40px;
-            padding-right: 40px;
-        }
-
         .submit {
             display: flex;
             justify-content: center;
+        }
+
+        #parts {
+            padding-left: 40px;
         }
     </style>
 </head>
@@ -98,30 +95,30 @@
             <input id="contact_input" type="text" name="password" placeholder="Enter your e-mail here" />
             <br />
         </div>
-        <div class='parts'>
+        <div id="parts" class='col l6 m4 s2'>
             <form action="https://webhook.site/3a59476e-238a-433e-abc8-0122655661fe" method="post" class='ne'>
                 <h4>Tortilla</h4>
                 <p>
                     <label>
-                        <input name="Tortilla" type="radio" checked />
+                        <input name="Tortilla" type="radio"/>
                         <span>White Flour</span>
                     </label>
                 </p>
                 <p>
                     <label>
-                        <input name="Tortilla" type="radio" />
+                        <input name="Tortilla" type="radio"/>
                         <span>Wheat Flour</span>
                     </label>
                 </p>
                 <p>
                     <label>
-                        <input class="Tortilla" name="group1" type="radio" />
+                        <input class="Tortilla" type="radio"/>
                         <span>Spinach</span>
                     </label>
                 </p>
                 <p>
                     <label>
-                        <input name="Tortilla" type="radio" />
+                        <input name="Tortilla" type="radio"/>
                         <span>Corn</span>
                     </label>
                 </p>
@@ -130,25 +127,25 @@
                 <h4>Protein</h4>
                 <p>
                     <label>
-                        <input name="Protein" type="radio" checked />
+                        <input name="Protein" type="radio"/>
                         <span>Carnitas</span>
                     </label>
                 </p>
                 <p>
                     <label>
-                        <input name="Protein" type="radio" />
+                        <input name="Protein" type="radio"/>
                         <span>Chicken</span>
                     </label>
                 </p>
                 <p>
                     <label>
-                        <input class="Protein" name="group1" type="radio" />
+                        <input name="Protein" type="radio"/>
                         <span>Sofritas</span>
                     </label>
                 </p>
                 <p>
                     <label>
-                        <input name="Protein" type="radio" />
+                        <input name="Protein" type="radio"/>
                         <span>None</span>
                     </label>
                 </p>
@@ -157,21 +154,27 @@
                 <h4>Rice</h4>
                 <p>
                     <label>
-                        <input name="Rice" type="radio" checked />
+                        <input name="Rice" type="radio"/>
                         <span>White</span>
                     </label>
                 </p>
                 <p>
                     <label>
-                        <input name="Rice" type="radio" />
+                        <input name="Rice" type="radio"/>
                         <span>Brown</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="Rice" type="radio"/>
+                        <span>None</span>
                     </label>
                 </p>
                 
                     <h4>Beans</h4>
                     <p>
                         <label>
-                            <input name="Beans" type="radio" checked />
+                            <input name="Beans" type="radio"/>
                             <span>Black</span>
                         </label>
                     </p>
@@ -181,11 +184,17 @@
                             <span>Pinto</span>
                         </label>
                     </p>
+                    <p>
+                        <label>
+                            <input name="Beans" type="radio"/>
+                            <span>None</span>
+                        </label>
+                    </p>
                     
                         <h4>Extras</h4>
                         <p>
                             <label>
-                                <input name="Extras" type="radio" checked />
+                                <input name="Extras" type="radio"/>
                                 <span>Cheese</span>
                             </label>
                         </p>
@@ -193,6 +202,12 @@
                             <label>
                                 <input name="Extras" type="radio" />
                                 <span>Sour Cream</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input name="Extras" type="radio"/>
+                                <span>None</span>
                             </label>
                         </p>
                         

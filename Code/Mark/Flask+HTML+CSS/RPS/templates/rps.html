@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello, world!</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='rps_background.jpg') }}");
+            background-repeat: no-repeat;
+            background-color: black;
+        }
+
+        form {
+            background-color: rgb(82, 13, 194);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-danger">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">Rock Paper Scissors</span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <form class="m-5" action="" method="POST">
+            <select name="user_choice" class="form-select">
+                <option value="rock">Rock</option>
+                <option value="paper">Paper</option>
+                <option value="scissors">Scissors</option>
+                <option value="spock">Spock</option>
+                <option value="lizard">Lizard</option>
+            </select>
+
+            <button type="submit" class="btn btn-lg btn-outline-danger">submit</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col text-white">
+                {{ user_choice }}
+            </div>
+            <div class="col text-white">
+                {{ result }}
+            </div>
+            <div class="col text-white">
+                {{ computer_choice }}
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
