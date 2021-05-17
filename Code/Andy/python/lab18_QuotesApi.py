@@ -34,7 +34,7 @@ def run():
         ask = input('"next page" or "done"? ')
         if ask != 'next page' and ask != 'done': # 'error' message in case a typo or invalid option is entered
             ask = input('please enter "next page" or "done" ')
-        while ask == 'next page':
+        if ask == 'next page':
             page += 1
             url = f'https://favqs.com/api/quotes?page={page}&filter={keyword}'
             response = requests.get(url ,headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'} )

@@ -16,6 +16,12 @@
             background-size: cover;
     
         }
+
+        .order_form{
+            display: flex;
+            flex-direction: column;
+            width: 350px;
+        }
         .tortilla_select h3{
             padding-top: 0px;
             margin-top: 0px;
@@ -59,62 +65,67 @@
 
     </div>
 
-    <form action="https://webhook.site/cfc645b8-c45b-4a0e-a1bb-40251aec745a">
+    <div class= "order_form"> 
+
+        <form action="https://webhook.site/cfc645b8-c45b-4a0e-a1bb-40251aec745a">
 
 
-        <div class='tortilla_select'>
 
-            <h3>Tortilla :</h3>
+            <div class='tortilla_select'>
 
-            <label for="tortilla_checkbox">white flour</label>
-            <input id="tortilla_checkbox" type="checkbox" name="white flour tortilla"/>
-            <br />
+                <h3>Tortilla :</h3>
 
-            <label for="tortilla_checkbox">corn (gluten free)</label>
-            <input id="tortilla_checkbox" type="checkbox" name="corn tortilla"/>
-            <br />
+                <label for="tortilla_checkbox">white flour</label>
+                <input id="tortilla_checkbox" type="checkbox" name="white flour tortilla"/>
+                <br />
 
-
-        </div>
-
-        <div class="divider_block">
-            
-        </div>
-
-        <div class="meat_select">
-            <input type="radio" name="meat" value="Carne"> Carne Asada<br>
-            <input type="radio" name="meat" value="Carnitas"> Carnitas<br>
-            <input type="radio" name="meat" value="Chorizo"> Chorizo<br>
-        </div>
-
-        <div class="divider_block">
-        </div>
-
-        <!-- get the ids right on this section. can't have the same.  -->
-        <div class="basics_select">
-            <label for="basics_checkbox">beans</label>
-            <input id="basics_checkbox" type="checkbox" name="beans" required checked=True/><br>
+                <label for="tortilla_checkbox">corn (gluten free)</label>
+                <input id="tortilla_checkbox" type="checkbox" name="corn tortilla"/>
+                <br />
 
 
-            <label for="basics_checkbox">cheese</label>
-            <input id="basics_checkbox" type="checkbox" name="cheese" required checked=True/><br>
+            </div>
+
+            <div class="divider_block">
+                
+            </div>
+
+            <div class="meat_select">
+                <input type="radio" name="meat" value="Carne"> Carne Asada<br>
+                <input type="radio" name="meat" value="Carnitas"> Carnitas<br>
+                <input type="radio" name="meat" value="Chorizo"> Chorizo<br>
+            </div>
+
+            <div class="divider_block">
+            </div>
+
+            <!-- get the ids right on this section. can't have the same.  -->
+            <div class="basics_select">
+                <label for="basics_checkbox">beans</label>
+                <input id="basics_checkbox" type="checkbox" name="beans" required checked=True/><br>
 
 
-            <label for="basics_checkbox">rice</label>
-            <input id="basics_checkbox" type="checkbox" name="rice" required checked=True/><br>
+                <label for="basics_checkbox">cheese</label>
+                <input id="basics_checkbox" type="checkbox" name="cheese" required checked=True/><br>
 
 
-            <label for="basics_checkbox">grilled veggies</label>
-            <input id="basics_checkbox" type="checkbox" name="grilled_veggies" required checked=True/><br>
-
-        </div>
+                <label for="basics_checkbox">rice</label>
+                <input id="basics_checkbox" type="checkbox" name="rice" required checked=True/><br>
 
 
-        <div class="sub_bar">
-        <button type="submit">submit</button>
-        </div>
+                <label for="basics_checkbox">grilled veggies</label>
+                <input id="basics_checkbox" type="checkbox" name="grilled_veggies" required checked=True/><br>
 
-    </form>
+            </div>
+
+
+            <div class="sub_bar">
+            <button type="submit">submit</button>
+            </div>
+
+        </form>
+
+    </div>
 
 
 
