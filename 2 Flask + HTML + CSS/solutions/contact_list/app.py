@@ -49,7 +49,13 @@ def create():
         return redirect('/')
     return render_template('create.html', blood_types=db['blood_types'])
 
-
+@app.route('/delete/<int:index>/')
+def delete(index):
+    db = JsonDB()
+    db.load()
+    db['contacts'].pop(index)
+    db.save()
+    return redirect('/')
 
 app.run(debug=True)
 
