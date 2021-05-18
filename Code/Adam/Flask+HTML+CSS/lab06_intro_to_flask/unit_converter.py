@@ -48,8 +48,8 @@ def index():
         output = ''
 
         converted_distance = round(convert_unit(start_unit, end_unit, distance), 2)
-        output = f'\n{distance} {start_unit} converts to {converted_distance} {end_unit}'
-        # output = f'{compose_unit(start_unit, distance)} = {compose_unit(end_unit, converted_distance)}'
+        # output = f'\n{distance} {start_unit} converts to {converted_distance} {end_unit}'
+        output = f'{compose_unit(start_unit, distance)} = {compose_unit(end_unit, converted_distance)}'
 
         return render_template('unit_converter.html', message=output)
     

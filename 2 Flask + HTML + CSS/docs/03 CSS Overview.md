@@ -145,6 +145,8 @@ The two most popular CSS preprocessors are [Sass/SCSS](http://sass-lang.com/) an
 - Images
   - [Unsplash](https://unsplash.com/)
   - [Pixabay](https://pixabay.com/)
+- Icons
+  - [Simple Icons](https://simpleicons.org/)
   - [Noun Project](https://thenounproject.com/)
 - Color
   - [Adobe Color](https://color.adobe.com/create/color-wheel)
@@ -158,6 +160,7 @@ The two most popular CSS preprocessors are [Sass/SCSS](http://sass-lang.com/) an
 - Photo Editing Programs
   - [Glimpse](https://glimpse-editor.org/)
   - [Paint.NET](https://www.getpaint.net/) (Windows only)
+- Mockups
 
 
 ## Libraries
