@@ -26,9 +26,9 @@
 Schedule Overview:
 - Weeks 1-4: Python
 - Weeks 5-6: Flask, HTML, CSS
-- Weeks 7-9: JavaScript
-- Weeks 10-12: Django
-- Weeks 13-15: Capstone
+- Weeks 7-8: Django
+- Weeks 9-11: JavaScript
+- Weeks 12-14: Capstone
 
 
 
