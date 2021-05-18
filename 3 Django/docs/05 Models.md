@@ -29,7 +29,7 @@
 
 ## Overview
 
-Models are Python classes that parallel tables in the database. The ORM (object-relational mapping) manages this dual representation, translating statements in Python to queries on the database. You can read more about models [here](https://docs.djangoproject.com/en/3.1/topics/db/models/), and more about the ORM [here](https://docs.djangoproject.com/en/3.1/ref/models/querysets/). For ORM practice, check out the [Polls Tutorial - Part 2](https://docs.djangoproject.com/en/3.1/intro/tutorial02/).
+Models are Python classes that parallel tables in the database. The ORM (object-relational mapping) manages this dual representation, translating statements in Python to queries on the database. You can read more about models [here](https://docs.djangoproject.com/en/3.2/topics/db/models/), and more about the ORM [here](https://docs.djangoproject.com/en/3.2/ref/models/querysets/). For ORM practice, check out the [Polls Tutorial - Part 2](https://docs.djangoproject.com/en/3.2/intro/tutorial02/).
 
 Database tables are like spreadsheets: they have headers and rows. Tables can also be thought of as Python classes, where the headers are class attributes, and the rows are class instances. All models are automatically given an `id` field as a primary key, which is used to uniquely identifies a row.
 
@@ -60,17 +60,17 @@ contact_new.save() # save it to the database
 
 ## Field Types
 
-The fields of a model create represent both the attribute of a class and the column of a table. You can read more about the field types [here](https://docs.djangoproject.com/en/3.1/ref/models/fields/). Below are some of the common fields used with a model.
+The fields of a model create represent both the attribute of a class and the column of a table. You can read more about the field types [here](https://docs.djangoproject.com/en/3.2/ref/models/fields/). Below are some of the common fields used with a model.
 
 - `BooleanField` represents a boolean (true/false) value
 - `IntegerField` represents an integer
 - `FloatField` represents a floating-point number
 - `CharField` represents a string, requires `max_length` parameter indicating the number of characters
 - `TextField` like `CharField` but has unlimited length
-- `DateTimeField` represents a datetime (more [here](https://docs.djangoproject.com/en/3.1/topics/i18n/timezones/))
-- `OneToOneField` represents a [one-to-one relationship](https://docs.djangoproject.com/en/3.1/topics/db/examples/one_to_one/)
-- `ForeignKey` represents a [many-to-one relationship](https://docs.djangoproject.com/en/3.1/topics/db/examples/many_to_one/)
-- `ManyToManyField` represents a [many-to-many relationship](https://docs.djangoproject.com/en/3.1/topics/db/examples/many_to_many/)
+- `DateTimeField` represents a datetime (more [here](https://docs.djangoproject.com/en/3.2/topics/i18n/timezones/))
+- `OneToOneField` represents a [one-to-one relationship](https://docs.djangoproject.com/en/3.2/topics/db/examples/one_to_one/)
+- `ForeignKey` represents a [many-to-one relationship](https://docs.djangoproject.com/en/3.2/topics/db/examples/many_to_one/)
+- `ManyToManyField` represents a [many-to-many relationship](https://docs.djangoproject.com/en/3.2/topics/db/examples/many_to_many/)
 
 
 ### Blankable Fields
@@ -177,7 +177,7 @@ print(contacts) # Wendy, Alyssa
 
 ### One-to-One
 
-A one-to-one relationship means that for every row in table A, there will be a single corresponding row in table B. An example might be between [counties and capital cities](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/CPT-Databases-OnetoOne.svg/460px-CPT-Databases-OnetoOne.svg.png). A country only has one capital. A capital only pretains to one country. You can read more about one-to-one relationships [here](https://docs.djangoproject.com/en/3.1/topics/db/examples/one_to_one/). Normally a one-to-one relationship is unnecessary, because one could just take the fields from both models and put them onto one model. But you may have to associate new fields with an old model without changing the old model, or need to restrict access to certain data [more info](https://stackoverflow.com/questions/25206447/when-to-use-one-to-one-relationships-in-django-models).
+A one-to-one relationship means that for every row in table A, there will be a single corresponding row in table B. An example might be between [counties and capital cities](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/CPT-Databases-OnetoOne.svg/460px-CPT-Databases-OnetoOne.svg.png). A country only has one capital. A capital only pretains to one country. You can read more about one-to-one relationships [here](https://docs.djangoproject.com/en/3.2/topics/db/examples/one_to_one/). Normally a one-to-one relationship is unnecessary, because one could just take the fields from both models and put them onto one model. But you may have to associate new fields with an old model without changing the old model, or need to restrict access to certain data [more info](https://stackoverflow.com/questions/25206447/when-to-use-one-to-one-relationships-in-django-models).
 
 
 
@@ -233,7 +233,7 @@ country.save()
 
 ### Many-to-Many
 
-An example of many-to-many relationships might be between [authors and books](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/CPT-Databases-ManytoMany.svg/460px-CPT-Databases-ManytoMany.svg.png). One book may have multiple authors. One author may have multiple books. A many-to-many relationship can be created in Django using a [ManyToManyField](https://docs.djangoproject.com/en/3.1/topics/db/examples/many_to_many/). To maintain such a relationship in SQL, Django creates a [junction table](https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Databases-ManyToManyWJunction.jpg/800px-Databases-ManyToManyWJunction.jpg) with two many-to-one relationships.
+An example of many-to-many relationships might be between [authors and books](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/CPT-Databases-ManytoMany.svg/460px-CPT-Databases-ManytoMany.svg.png). One book may have multiple authors. One author may have multiple books. A many-to-many relationship can be created in Django using a [ManyToManyField](https://docs.djangoproject.com/en/3.2/topics/db/examples/many_to_many/). To maintain such a relationship in SQL, Django creates a [junction table](https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Databases-ManyToManyWJunction.jpg/800px-Databases-ManyToManyWJunction.jpg) with two many-to-one relationships.
 
 
 
@@ -295,7 +295,7 @@ print(books) # The Odyssey, The Illiad
 
 ### The On-Delete Parameter: `on_delete`
 
-The `on_delete` parameter lets you control what to do with other rows when a connected row is deleted. You can read more about `on_delete` [here](https://docs.djangoproject.com/en/3.1/ref/models/fields/#arguments). The important options are:
+The `on_delete` parameter lets you control what to do with other rows when a connected row is deleted. You can read more about `on_delete` [here](https://docs.djangoproject.com/en/3.2/ref/models/fields/#arguments). The important options are:
 
 - `CASCADE` deleted this row when the other is deleted
 - `PROTECT` throws an exception when the other is deleted, this forces the developer re-assign the relationship when they want to delete a row
@@ -397,7 +397,7 @@ print(contacts) # Wendy, Alyssa
 
 ## ORM Operations
 
-The ORM 'object relational mapping' provides functions in Python that perform operations on the database. To read more about ORM operations, look [here](https://docs.djangoproject.com/en/3.1/topics/db/queries/). Note that `__init__`, `get`,  and `filter` take `**kwargs` (which turns named parameters into a dictionary), whereas `order_by` takes `*args` (which turns arguments into a list).
+The ORM 'object relational mapping' provides functions in Python that perform operations on the database. To read more about ORM operations, look [here](https://docs.djangoproject.com/en/3.2/topics/db/queries/). Note that `__init__`, `get`,  and `filter` take `**kwargs` (which turns named parameters into a dictionary), whereas `order_by` takes `*args` (which turns arguments into a list).
 
 ### Example Models and Data
 

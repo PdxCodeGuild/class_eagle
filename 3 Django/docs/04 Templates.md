@@ -13,7 +13,7 @@
 
 ## Overview
 
-Templates are like blueprints for your HTML pages. They contain plain HTML/CSS/JavaScript, but also additional syntax for generating HTML/CSS/JavaScript using variables from your Python view. You can read more about Templates [here](https://docs.djangoproject.com/en/3.1/topics/templates/) and [here](https://docs.djangoproject.com/en/3.1/ref/templates/builtins/)
+Templates are like blueprints for your HTML pages. They contain plain HTML/CSS/JavaScript, but also additional syntax for generating HTML/CSS/JavaScript using variables from your Python view. You can read more about Templates [here](https://docs.djangoproject.com/en/3.2/topics/templates/) and [here](https://docs.djangoproject.com/en/3.2/ref/templates/builtins/)
 
 
 ## Passing a Value to the Template
@@ -112,8 +112,8 @@ urlpatterns = [
 
 To load static files into a page, create a folder in your app called `static`. Inside that folder, create a folder with the same name as your app (just as you did with templates). In your template, you then must add `{% load static %}` before you load your static file.
 
-- [Managing Static Files](https://docs.djangoproject.com/en/3.1/howto/static-files/)
-- [Polls Tutorial: Part 6](https://docs.djangoproject.com/en/3.1/intro/tutorial06/)
+- [Managing Static Files](https://docs.djangoproject.com/en/3.2/howto/static-files/)
+- [Polls Tutorial: Part 6](https://docs.djangoproject.com/en/3.2/intro/tutorial06/)
 
 ```html
 {% load static %}

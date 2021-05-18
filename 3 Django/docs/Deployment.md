@@ -76,7 +76,7 @@ from django.core.management.utils import get_random_secret_key
 print(get_random_secret_key())
 ```
 
-https://docs.djangoproject.com/en/3.1/howto/static-files/deployment/
+https://docs.djangoproject.com/en/3.2/howto/static-files/deployment/
 
 ### Deploying with PythonAnywhere
 

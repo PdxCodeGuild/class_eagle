@@ -116,7 +116,7 @@ def save_contact(request):
 
 ## Django Forms
 
-Django has a special Form class to make the creation of forms easier. These also do input validation on the front-end and the back-end for you. You can read in the official docs: [Working with Forms](https://docs.djangoproject.com/en/3.1/topics/forms/), [Forms API](https://docs.djangoproject.com/en/3.1/ref/forms/api/#django.forms.Form). You can put your forms in a `forms.py` inside your app.
+Django has a special Form class to make the creation of forms easier. These also do input validation on the front-end and the back-end for you. You can read in the official docs: [Working with Forms](https://docs.djangoproject.com/en/3.2/topics/forms/), [Forms API](https://docs.djangoproject.com/en/3.2/ref/forms/api/#django.forms.Form). You can put your forms in a `forms.py` inside your app.
 
 
 **forms.py**
@@ -164,7 +164,7 @@ def index(request):
 
 ### The ModelForm Class
 
-ModelForms allow us to generate a form directly from a model. You can read more about ModelForms in the [official docs](https://docs.djangoproject.com/en/3.1/topics/forms/modelforms/).
+ModelForms allow us to generate a form directly from a model. You can read more about ModelForms in the [official docs](https://docs.djangoproject.com/en/3.2/topics/forms/modelforms/).
 
 **models.py**
 ```python

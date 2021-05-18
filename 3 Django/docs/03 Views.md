@@ -19,7 +19,7 @@
 
 ## Overview
 
-**Views** are python functions that do the bulk of the work, they receive the incoming request and return a response. The view can then respond with HTML, JSON, text, etc. An app's views are contained in its `views.py` file. You can read more about views [here](https://docs.djangoproject.com/en/3.1/topics/http/views/) and [here](https://docs.djangoproject.com/en/3.1/ref/request-response/).
+**Views** are python functions that do the bulk of the work, they receive the incoming request and return a response. The view can then respond with HTML, JSON, text, etc. An app's views are contained in its `views.py` file. You can read more about views [here](https://docs.djangoproject.com/en/3.2/topics/http/views/) and [here](https://docs.djangoproject.com/en/3.2/ref/request-response/).
 
 ```python
 from django.http import HttpResponse
@@ -206,7 +206,7 @@ def myview(request):
     return HttpResponseRedirect('http://mysite.com/')
 ```
 
-It's also best to use the [reverse](https://docs.djangoproject.com/en/3.1/ref/urlresolvers/#reverse) function to look up the url using the name rather than hard-coding it. This does the same reverse url redirect as the template: [04 Template - Reverse URL Lookup](04%20-%20Templates.md#reverse-url-lookup)
+It's also best to use the [reverse](https://docs.djangoproject.com/en/3.2/ref/urlresolvers/#reverse) function to look up the url using the name rather than hard-coding it. This does the same reverse url redirect as the template: [04 Template - Reverse URL Lookup](04%20-%20Templates.md#reverse-url-lookup)
 
 ```python
 from django.http import HttpResponseRedirect
@@ -215,7 +215,7 @@ def add(request):
     return HttpResponseRedirect(reverse('myapp:myview'))
 ```
 
-You can also use the [redirect](https://docs.djangoproject.com/en/3.1/topics/http/shortcuts/#redirect) function. The difference is explained [here](https://stackoverflow.com/questions/13304149/what-the-difference-between-using-django-redirect-and-httpresponseredirect).
+You can also use the [redirect](https://docs.djangoproject.com/en/3.2/topics/http/shortcuts/#redirect) function. The difference is explained [here](https://stackoverflow.com/questions/13304149/what-the-difference-between-using-django-redirect-and-httpresponseredirect).
 
 ```python
 from django.shortcuts import redirect

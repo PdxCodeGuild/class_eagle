@@ -33,7 +33,7 @@ Django applications are contained in a **project** which can have multiple **app
 
 ## Management Commands
 
-Management commands are executed in a terminal to perform operations on a django project. You can view a full list of the management commands [here](https://docs.djangoproject.com/en/3.1/ref/django-admin/)
+Management commands are executed in a terminal to perform operations on a django project. You can view a full list of the management commands [here](https://docs.djangoproject.com/en/3.2/ref/django-admin/)
 
 | Command | Description |
 | ---     | ---         |
@@ -80,12 +80,12 @@ Now you can execute this function using `python manage.py <command name>`. Any p
 
 - [MDN](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django)
 - [Wikipedia](https://en.wikipedia.org/wiki/Django_(web_framework))
-- [Official Docs](https://docs.djangoproject.com/en/3.1/)
-  - [Table of Contents](https://docs.djangoproject.com/en/3.1/contents/)
+- [Official Docs](https://docs.djangoproject.com/en/3.2/)
+  - [Table of Contents](https://docs.djangoproject.com/en/3.2/contents/)
 
 ### Tutorials
 
-- [Official Tutorial](https://docs.djangoproject.com/en/3.1/intro/tutorial01/)
+- [Official Tutorial](https://docs.djangoproject.com/en/3.2/intro/tutorial01/)
 - [Django Girls Tutorial](https://tutorial.djangogirls.org/en/)
 - [Real Python](https://realpython.com/tutorials/django/)
 - [Simple is Better Than Complex](https://simpleisbetterthancomplex.com/archive/)
