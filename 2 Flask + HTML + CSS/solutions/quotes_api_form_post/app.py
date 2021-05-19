@@ -18,12 +18,13 @@ def qotd():
 @app.route('/search/', methods=['GET', 'POST'])
 def search():
     if request.method == 'GET':
-        return render_template('search.html')
+        return render_template('search.html', search_term='', search_page=1)
     else:
         search_term = request.form['search_term']
         search_page = request.form['search_page']
-        print(request.method)
-        print(request.form)
+        search_page = int(search_page)
+        # print(request.method)
+        # print(request.form)
         params = {
             'filter': search_term,
             'page': search_page
@@ -31,8 +32,16 @@ def search():
         headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
         response = requests.get('https://favqs.com/api/quotes', params=params, headers=headers)
         data = response.json()
-        print(json.dumps(data, indent=4))
-        return render_template('search.html', data=data)
+        # print(json.dumps(data, indent=4))
+
+        quotes = []
+        for quote_data in data['quotes']:
+            quotes.append({
+                'author': quote_data['author'],
+                'body': quote_data['body']
+            })
+
+        return render_template('search.html', search_term=search_term, search_page=search_page, quotes=quotes)
 
 
 app.run(debug=True)

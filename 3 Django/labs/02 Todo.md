@@ -1,4 +1,4 @@
-# Lab 2: Todo
+# Todo
 
 ## Part 1
 
