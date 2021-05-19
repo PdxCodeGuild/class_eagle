@@ -15,5 +15,7 @@ Implement one of the following Python labs in a Flask app:
 - [Random Password Generator](../../1%20Python/labs/06%20Random%20Password%20Generator.md)
   - Simple version: the user just enters in the number of characters in the password
   - Complex version: the user enters the number of uppercase letters, lowercase letters, numbers, and special characters
+- [Number to Phrase](../../1%20Python/mob/05%20Number%20to%20Phrase.md)
+  - Have the user enter the number (5) and get back the corresponding word in english (five)
 - [ARI](../../1%20Python/labs/14%20ARI.md)
   - Have the user enter in the URL for a Project Gutenberg book, load the book and show the ARI, grade level, etc.
