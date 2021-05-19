@@ -4,6 +4,8 @@
 
 Implement one of the following Python labs in a Flask app:
 
+- [Rock, Paper, Scissors](../../1%20Python/labs/05%20Rock%20Paper%20Scissors.md)
+  - Have the user choose rock, paper, or scissors, and show the user who won.
 - [Rot Cipher](../../1%20Python/labs/11%20Rot%20Cipher.md)
   - Simple version: the user could just input the word to encode.
   - Complex version: the user could also input the amount to rotate by.
@@ -14,4 +16,4 @@ Implement one of the following Python labs in a Flask app:
   - Simple version: the user just enters in the number of characters in the password
   - Complex version: the user enters the number of uppercase letters, lowercase letters, numbers, and special characters
 - [ARI](../../1%20Python/labs/14%20ARI.md)
-  - Have the user enter in the URL for a Project Gutenberg book, load the book and show
+  - Have the user enter in the URL for a Project Gutenberg book, load the book and show the ARI, grade level, etc.
