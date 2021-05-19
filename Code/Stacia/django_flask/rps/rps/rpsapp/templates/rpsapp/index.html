@@ -19,9 +19,9 @@
             <div class="input-field col s12">
                 <select id="choice" name="choice">
                     
-                    <option value="rock">Rock</option>
-                    <option value="paper">Paper</option>
-                    <option value="scissors">Scissors</option>
+                    <option value="Rock">Rock</option>
+                    <option value="Paper">Paper</option>
+                    <option value="Scissors">Scissors</option>
                 </select>
                 <label for="choice">show me your moves</label>
             </div>
@@ -29,8 +29,13 @@
                 <i class="material-icons right">send</i>
             </button>
         </form>
+<div >
 
-
+{% if winner %}
+<h1> You played {{users_choice}} The computer picked {{comp_choice}}</h1>
+<h1>{{winner}}</h1>
+{% endif %}
+</div>
         <!-- Materialize JS -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script> document.addEventListener('DOMContentLoaded', function () {
