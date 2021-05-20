@@ -1,10 +1,50 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
-  </head>
-  <body>
-    <h1>{{ title }}</h1>
-  </body>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>{{ title }}</h1>
+        </header>
+        <form class="col s12" action="" method="POST">
+            <div class="row">
+                <div class="input-field col s9">
+                    <textarea id="input_text" class="materialize-textarea" name="input_text" required></textarea>
+                    <label for="input_text">Enter text:</label>
+                </div>
+                <div class="input-field col s3">
+                    <input id="rot_num" name="rot_num" type="number" class="validate" required>
+                    <label for="rot_num">Rotation amount: </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s4">
+                    <button class="btn waves-effect waves-light z-depth-2" type="submit">Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems, {});
+        });
+    </script>
+</body>
+
 </html>
