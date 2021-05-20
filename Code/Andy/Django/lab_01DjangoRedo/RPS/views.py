@@ -4,4 +4,4 @@ def index(request):
     context = {
         'message': 'Hello World!'
     }
-    return render(request, 'UnitConverter/index.html', context)
+    return render(request, 'RPS/index.html', context)
