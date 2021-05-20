@@ -4,6 +4,8 @@ from random import *
 
 
 def rock_paper_scissors(user, computer):
+    user = user.lower()
+    computer = computer.lower()
     if user == computer:
         return 'tie'
     elif user == "rock":
@@ -57,7 +59,7 @@ def rock_paper_scissors(user, computer):
 
 def index(request):
     if request.method == 'POST':
-        rps = ['rock','paper','scissors','lizard','spock']
+        rps = ['Rock','Paper','Scissors','Lizard','Spock']
         computer = choice(rps)
         user_choice = request.POST['user_choice']
         result = rock_paper_scissors(user_choice, computer)
