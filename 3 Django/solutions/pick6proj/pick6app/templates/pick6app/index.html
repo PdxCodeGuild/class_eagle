@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Girassol&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background-color: #2E4057;
+            --nav-color: #66A182;
+            --highlight-color: #AEF78E;
+            --text-color: #CAFFB9;
+        }
+        body {
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            font-family: 'Girassol', cursive;
+            letter-spacing: 2.5px;
+        }
+        nav {
+            color: var(--nav-color);
+            border-bottom: 1px solid var(--highlight-color);
+        }
+        nav h1 {
+            text-align:center;
+        }
+        .gamble-form {
+            display:flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-end;
+            margin-top: 10px;
+        }
+        .gamble-form input {
+            background-color: var(--background-color);
+            border: 0.5px solid var(--highlight-color);
+            padding: 4px;
+            color:white;
+        }
+        .input-field {
+            display:flex;
+            flex-direction: column;
+            margin: 20px;
+        }
+        .btn {
+            background-color: var(--background-color);
+            border: 0.5px solid var(--highlight-color);
+            color: var(--text-color);
+            padding: 6px;
+            transition: all 200ms;
+        }
+        .btn:hover {
+            color: white;
+            transform:scale(1.2);
+        }
+        .btn:active {
+            color: lightgreen;
+            transform: translateY(2px);
+        }
+        .output {
+            text-align: center;
+            font-size: 32px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>
+            {{ title }}
+        </h1>
+    </nav>
+    <form action="" method="post" class="gamble-form">
+        {% csrf_token %}
+        <div class="input-field">
+            <label>Starting Balance</label>
+            <input name="balance" type="text" pattern="[\d\.,]+" title="Please enter a number"/>
+        </div>
+        <div class="input-field">
+            <label>Number of Tickets</label>
+            <input name="tickets" type="text" pattern="\d+" title="Please enter a number"/>
+        </div>
+        <div class="input-field">
+            <button class="btn" type="submit">Play</button>
+        </div>
+    </form>
+    {% if ending_balance %}
+    <div class="output">Your final balance is ${{ ending_balance }}<br/>You lost ${{ money_lost }}</div>
+    {% endif %}
+</body>
+</html>
