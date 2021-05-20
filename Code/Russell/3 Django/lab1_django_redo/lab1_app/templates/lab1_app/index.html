@@ -20,18 +20,21 @@
             {% csrf_token %}
             <div class="row">
                 <div class="input-field col s6">
-                    <input placeholder="Enter length" id="first_name" type="number">
+                    <input placeholder="Enter length" id="first_name" type="number" name = "length">
                     <label for="first_name">Password Length</label>
                 </div>
 
             <div class= 'btn'>
-                <input type="submit" name = "length">
-                <p>enter</p>
-
+                <input type="submit" value=submit>
+            
             </div>
 
-
         </form>
+
+        <div>
+            <h3> Password: {{ password }} </h3>
+        </div>
+
     </div>
 
     <!-- Compiled and minified JavaScript -->
