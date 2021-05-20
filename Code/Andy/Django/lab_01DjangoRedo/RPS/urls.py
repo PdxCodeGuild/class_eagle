@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 
-app_name = 'UnitConverter'
+app_name = 'RPS'
 urlpatterns = [
     path('', views.index, name='index')
 ]
