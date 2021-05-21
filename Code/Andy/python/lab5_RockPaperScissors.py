@@ -28,7 +28,7 @@ while run_again == 'yes' :
         if cpu_choice == "Scissors":
             print("You win!")
         else:
-                print("You lose!")
+            print("You lose!")
     elif user_choice == "Paper":
         if cpu_choice == "Rock":
             print("You win!")
@@ -38,7 +38,7 @@ while run_again == 'yes' :
         if cpu_choice == "Paper":
             print("You win!")
         else:
-                print("You lose!")
+            print("You lose!")
 
     # REPL
     run_again = input('Would you like to play again? yes/no ')

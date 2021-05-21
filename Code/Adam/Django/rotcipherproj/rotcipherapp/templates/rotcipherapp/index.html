@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Oswald&display=swap" rel="stylesheet">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        body {
+            background-color: darkgrey;
+        }
+        .card-panel {
+            border-radius: 8px;
+            border-style: solid;
+            border-width: 3px;
+            border-color: teal;
+        }
+        .title {
+            font-family: 'Audiowide', cursive;
+            font-size: 40px;
+            color:teal;
+            text-shadow: 2px 2px black;
+        }
+
+        .rot_text {
+            font-family: 'Oswald', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card-panel z-depth-3">
+            <header>
+                <div class="col s12">
+                    <h1 class="title center-align flow-text">{{title}}</h1>
+                </div>
+            </header>
+            <form class="col s12" action="" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="input-field col s9">
+                        <textarea id="input_text" class="materialize-textarea" name="input_text" required></textarea>
+                        <label for="input_text">Enter text:</label>
+                    </div>
+                    <div class="input-field col s3">
+                        <input id="rot_num" name="rot_num" type="number" class="validate" required>
+                        <label for="rot_num">Rotation amount: </label>
+                    </div>
+                </div>
+
+                <div class="col s12 center-align">
+                    <button class="btn waves-effect waves-light z-depth-2" type="submit">Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+
+            </form>
+            <div class="col s12">
+                <p class="rot_text center-align flow-text"><b>{{rot_text}}</b></p>
+            </div>
+        </div>
+    </div>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems, {});
+        });
+    </script>
+</body>
+
+</html>
