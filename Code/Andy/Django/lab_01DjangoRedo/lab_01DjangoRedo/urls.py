@@ -18,5 +18,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('RPS/', include('RPS.urls'))
+    path('UnitConverter/', include('UnitConverter.urls'))
 ]
