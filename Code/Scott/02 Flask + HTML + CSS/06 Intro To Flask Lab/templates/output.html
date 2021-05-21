@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Password Generator</title>
+        <!-- Icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Materialize CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <style>
+            .container{
+                margin-top: 50px;
+                margin-bottom: 50px;
+                border: 10px solid black;
+                padding: 20px;
+            }
+            .row{
+                margin: 0px;
+            }
+            #pass_title{
+                font-weight: bold;
+                border-bottom: 2px solid gray;
+                margin-bottom: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row" id="pass_title">
+                <div class="col s3"></div>
+                <div class="col s6 center-align">Your Password is</div>
+                <div class="col s3"></div>
+            </div>
+            <div class="row" id="pass">
+                <div class="col s3"></div>
+                <div class="col s6 center-align">{{generated_pass}}</div>
+                <div class="col s3"></div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,8 +1,13 @@
 from flask import Flask, render_template, request
+import random as rand
 
 def genPass(uppers, lowers, nums, specials):
     output = ''
     pass_word = ''
+    uppers = int(uppers)
+    lowers = int(lowers)
+    nums = int(nums)
+    specials = int(specials)
 
     while uppers > 0 or lowers > 0 or nums > 0 or specials > 0: #Keep going until the 'quota' for each type of character is filled
         rand_chr_val = rand.randint(ord('!'), ord('~')) # generate a random integer in range of [33, 126] on ASCII table
@@ -45,13 +50,22 @@ def genPass(uppers, lowers, nums, specials):
     return pass_word
 
 app = Flask(__name__)
+generated_pass=''
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET'])
 def index():
-    if request.method == 'POST':
-        response = dict(request.form)
-        print(dict(request.form))
-        print(response['uppers'])
     return render_template('index.html')
-    
+
+@app.route('/output/', methods=['POST'])
+def passwordOutput():
+    response = dict(request.form)
+    uppers = response['uppers']
+    lowers = response['lowers']
+    nums = response['nums']
+    chars = response['chars']
+    print(f'{uppers} {lowers} {nums} {chars}')
+    generated_pass = genPass(uppers, lowers, nums, chars)
+
+    return render_template('output.html', generated_pass=generated_pass)
+
 app.run(debug=True)
