@@ -42,6 +42,7 @@ def index(request):
         rot_text = rot13(input_text, rot_num)
         context = {
             'title': 'ROT Cipher',
+            'input_text': input_text,
             'rot_text': rot_text,
         }
         return render(request, 'rotcipherapp/index.html', context)

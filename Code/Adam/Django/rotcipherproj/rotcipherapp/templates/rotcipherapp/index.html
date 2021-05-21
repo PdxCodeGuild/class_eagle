@@ -30,8 +30,14 @@
             text-shadow: 2px 2px black;
         }
 
+        .input_text {
+            font-family: 'Oswald', sans-serif;
+            color: blue
+        }
+
         .rot_text {
             font-family: 'Oswald', sans-serif;
+            color: red
         }
     </style>
 </head>
@@ -47,11 +53,11 @@
             <form class="col s12" action="" method="POST">
                 {% csrf_token %}
                 <div class="row">
-                    <div class="input-field col s9">
+                    <div class="input-field col s12 m9">
                         <textarea id="input_text" class="materialize-textarea" name="input_text" required></textarea>
                         <label for="input_text">Enter text:</label>
                     </div>
-                    <div class="input-field col s3">
+                    <div class="input-field col s12 m3">
                         <input id="rot_num" name="rot_num" type="number" class="validate" required>
                         <label for="rot_num">Rotation amount: </label>
                     </div>
@@ -65,7 +71,8 @@
 
             </form>
             <div class="col s12">
-                <p class="rot_text center-align flow-text"><b>{{rot_text}}</b></p>
+                <p class="input_text center-align flow-text"><b>You entered: {{input_text}}</b></p>
+                <p class="rot_text center-align flow-text"><b>Cipher Returned: {{rot_text}}</b></p>
             </div>
         </div>
     </div>
