@@ -3,30 +3,15 @@
 # Forms
 
 - [Overview](#overview)
-- [Five Parts](#five-parts)
-- [Attributes](#attributes)
-  - [The Placeholder Attribute](#the-placeholder-attribute)
-  - [The Disabled Attribute](#the-disabled-attribute)
-  - [The Required Attribute](#the-required-attribute)
-  - [The Pattern Attribute](#the-pattern-attribute)
-- [Using Forms Without the Form Class](#using-forms-without-the-form-class)
 - [Django Forms](#django-forms)
   - [The ModelForm Class](#the-modelform-class)
   - [Using Forms with CSS Frameworks](#using-forms-with-css-frameworks)
 
 
 
-
 ## Overview
 
-A `form` is an HTML element that can transmit data to a server. You can read more about forms [here](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Your_first_HTML_form).
-
-
-
-
-## Five Parts
-
-There are 5 important parts to a form:
+A `form` is an HTML element that can transmit data from the front-end (client) to the back-end (server). Read more about forms [here](../../2%20Flask%20+%20HTML%20+%20CSS/docs/11%20HTML%20Forms.md). There are 5 important parts to a form:
 
 1. The `action` is the path or url to which the form's data will be submitted.
 2. The `method` is the HTTP method to send the request in (POST, GET).
@@ -35,83 +20,25 @@ There are 5 important parts to a form:
 5. The `{% csrf_token %}` will insert a token that protects against [Cross-site request forgeries](https://en.wikipedia.org/wiki/Cross-site_request_forgery).
 
 ```html
-<form action="/mypath/" method="post">
+<form action="{% url 'contacts:save_contact' %}" method="post">
     {% csrf_token %}
-    <input type="text" name="myname"/>
+    <input type="text" name="first_name"/>
+    <input type="text" name="last_name"/>
     <button type="submit">save</button>
 </form>
 ```
 
-Let's take a look back at [HTML forms](../../2%20HTML+CSS/docs/03%20-%20HTML%20Forms.md). You don't have to do anything special to use forms in Django. The `input` elements need `name` attributes, the `action` attribute of the form needs to point to a view. When you submit the data, the form will gather all the `name` attributes from the `input` fields and associate them with each `input`'s `value`.
-
-```html
-<form action="{% url 'contacts:save_contact' %}" method="post">
-    {% csrf_token %}
-    <input type="text" name="contact_name"/>
-    <input type="number" name="contact_age"/>
-    <button type="submit">save contact</button>
-</form>
-```
-
-Django will take the name-value pairs from the request and put them into a dictionary-like object `request.POST`. You can then access those values from the view using the value of the `name` attribute as a key.
-
-
-## Attributes
-
-### The Placeholder Attribute
-
-You can also add a `placeholder` attribute to show some text in the 'background' of the input field. This text disappears when a value is entered.
-
-```html
-<input type="text" name="name" value="jane" placeholder="enter your name"/>
-```
-
-### The Disabled Attribute
-
-To disabled an input field, you can add the `disabled` attribute without any parameters. This will prevent the user from entering any value into the input field. It doesn't matter what the value of the attribute is, as long as it's present, the input will be disabled.
-
-```html
-<input type="text" name="name" value="jane" disabled/>
-```
-
-### The Required Attribute
-
-You can place the attribute `required` with no value to prevent the form from being submitted without that field being filled. Like `disabled`, the attribute doesn't need a value.
-
-```html
-<input type="text" name="name" required/>
-```
-
-
-### The Pattern Attribute
-
-HTML5 brought the `pattern` attribute, which enables you to do validation entirely within HTML. You only have to enter a regular expression into the `pattern` attribute. If the user tries to submit the form and the given input doesn't match the pattern, a message will pop up containing the text in the `title` attribute.
-
-```html
-<form action="..." method="...">
-    <input type="text" pattern="[a-z]{1,15}" title="username must be between 1 and 15 characters, all lowercase" required/>
-    <button type="submit">submit</button>
-</form>
-```
-
-## Using Forms Without the Form Class
-
+Django will take the key-value pairs from the form data in the request and put them into a dictionary-like object `request.POST`. You can then access those values from the view using the value of the `name` attribute as a key.
 
 
 ```python
-# a view for receiving a form submission
-def save_contact(request):
-    # verify we received the form data
-    print(request.POST)
-    # get the form data out of request.POST
-    contact_name = request.POST['contact_name']
-    contact_age = request.POST['contact_age']
-    # create an instance of our model
-    contact = Contact(name=contact_name, age=contact_age)
-    # save a new record to the database
-    contact.save()
-    # redirect the the index page
-    return HttpResponseRedirect(reverse('contacts:index'))
+def save_contact(request): # a view for receiving a form submission
+    print(request.POST) # verify we received the form data
+    first_name = request.POST['first_name'] # get the value the user entered into the 'first name' field
+    last_name = request.POST['last_name'] # get the value the user entered into the 'last name' field
+    contact = Contact(first_name=first_name, last_name=last_name) # create an instance of our model
+    contact.save() # save a new row to the database
+    ...
 ```
 
 ## Django Forms
