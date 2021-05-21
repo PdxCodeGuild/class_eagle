@@ -9,12 +9,15 @@
 </head>
 
 <body>
-    <h1>{{ question.question_text }}</h1>
+    {% if latest_question_list %}
     <ul>
-        {% for choice in question.choice_set.all %}
-        <li>{{ choice.choice_text }}</li>
+        {% for question in latest_question_list %}
+        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
         {% endfor %}
     </ul>
+    {% else %}
+    <p>No polls are available.</p>
+    {% endif %}
 </body>
 
-</html>                               
+</html>

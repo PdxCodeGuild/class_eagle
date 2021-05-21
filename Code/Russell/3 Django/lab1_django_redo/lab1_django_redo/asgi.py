@@ -1,5 +1,5 @@
 """
-ASGI config for mysite project.
+ASGI config for lab1_django_redo project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'lab1_django_redo.settings')
 
 application = get_asgi_application()
