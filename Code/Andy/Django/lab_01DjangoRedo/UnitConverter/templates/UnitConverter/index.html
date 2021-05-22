@@ -9,28 +9,80 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+        
         <style>
+            body {
+                background-color: lightskyblue;
+            }
+
             h1 {
                 display: flex;
                 justify-content: center;
                 padding-top: 20px;
             }
+
+            .unit_form {
+                display: flex;
+                justify-content: center;
+                padding: 35px;
+            }
+
+            #but {
+                display: flex;
+                justify-content: center;
+            }
+
+            .out {
+                font-size: 40px;
+                display: flex;
+                justify-content: center;
+            }
+
+            #sup {
+                display: flex;
+                justify-content: center;
+                padding: 15px;
+            }
+
         </style>
+
     </head>
-  <body>
-    <h1>
-        Unit Converter
-    </h1>
+    <body>
+        <h1>
+            Unit Converter
+        </h1>
+        <div id="sup">Units supported are ft, mi, m, km, yard, inch</div>
+        <form class="unit_form" method="POST">
+            {% csrf_token %}
 
+            <div class="input-group mb-3">
+                <span class="input-group-text"></span>
+                <input required name="from"type="text" class="form-control" placeholder="Units converting from">
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text"></span>
+                <input required name="to" type="text" class="form-control" placeholder="Units converting to">
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text"></span>
+                <input required name="distance" type="text" class="form-control" placeholder="Distance">
+            </div>
+            
+            <button id="but" type="submit" class="btn btn-primary">Convert!</button>
+            
     
-    
+        </form>
+        
+        <div class="out">
+            <br>
+            Your converted distance is: {{converted}} {{a}}
+        </div>
 
-
-
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-  </body>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    </body>
 </html>

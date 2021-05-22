@@ -13,6 +13,8 @@
     - [Docs](#docs-1)
     - [Labs](#labs-1)
     - [Mob](#mob-1)
+  - [Django](#django)
+    - [Docs](#docs-2)
 - [Schedule](#schedule)
   - [Week 1 / Python / Basics](#week-1--python--basics)
   - [Week 2 / Python / Intermediate](#week-2--python--intermediate)
@@ -157,6 +159,23 @@ Schedule Overview:
 - [01 Spirit Animal](2%20Flask%20+%20HTML%20+%20CSS/mob/01%20Spirit%20Animal.md)
 - [02 Storefront](2%20Flask%20+%20HTML%20+%20CSS/mob/02%20Storefront.md)
 - [03 Button Animations](2%20Flask%20+%20HTML%20+%20CSS/mob/03%20Button%20Animations.md)
+
+
+### Django
+
+#### Docs
+
+- [01 Django Overview](3%20Django/docs/01%20Django%20Overview.md)
+- [02 Routes](3%20Django/docs/02%20Routes.md)
+- [03 Views](3%20Django/docs/03%20Views.md)
+- [04 Templates](3%20Django/docs/04%20Templates.md)
+- [05 Models](3%20Django/docs/05%20Models.md)
+- [06 Forms](3%20Django/docs/06%20Forms.md)
+- [07 User Management](3%20Django/docs/07%20User%20Management.md)
+- [0]
+
+
+
 
 ## Schedule
 

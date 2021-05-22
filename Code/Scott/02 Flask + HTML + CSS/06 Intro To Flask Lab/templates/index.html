@@ -3,21 +3,39 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Hello world!</title>
+        <title>Password Generator</title>
         <!-- Icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!-- Materialize CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     </head>
     <body>
-        <form action="" method="post">
+        <form action="/output/" method="post">
             <div>
                 <label for="uppers">How many uppercase letters?</label><br>
                 <p class="range-field">
-                    <input type="range" name="uppers" id="uppers" min="0" max="10" />
+                    <input type="range" name="uppers" id="uppers" min="0" max="10" value="0"/>
                 </p>
             </div>
-            <button type="submit">submit</button>
+            <div>
+                <label for="lowers">How many lowercase letters?</label><br>
+                <p class="range-field">
+                    <input type="range" name="lowers" id="lowers" min="0" max="10" value="0"/>
+                </p>
+            </div>
+            <div>
+                <label for="nums">How many numbers?</label><br>
+                <p class="range-field">
+                    <input type="range" name="nums" id="nums" min="0" max="10" value="0"/>
+                </p>
+            </div>
+            <div>
+                <label for="chars">How many special characters?</label><br>
+                <p class="range-field">
+                    <input type="range" name="chars" id="chars" min="0" max="10" value="0"/>
+                </p>
+            </div>
+            <button type="submit">Submit</button>
           </form>
         <!-- Materialize JS -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
