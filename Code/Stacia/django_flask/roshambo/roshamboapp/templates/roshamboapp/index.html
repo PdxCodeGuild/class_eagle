@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RO SHAM BO ULTIMATE WARRIOR</title>
+  <style>
+    :root {
+      --body-color: #87B560;
+      --nav-color: #28AD48;
+      --highlight-color: #1A7065;
+      --text-color: #4E6F8A;
+      --spash-color: #2C27B8
+    }
+
+    body {
+      background-color: var(--body-color);
+      display=flex;
+      flex-direction: column;
+      height: 1000px;
+      width: 100%;
+     
+    }
+
+    .btn {
+      background-color: var(--highlight-color);
+      width: 300px;
+      height: 200px;
+      color:var(--body-color);
+      font-size: xx-large;
+    }
+
+    form {
+      display: flex;
+      align-content: space-center;
+      justify-content: space-between;
+      height: 400 px;
+      background-color: var(--nav-color);
+
+    }
+   .outcom{
+    color: var(--spash-color);
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+  <container>
+    <header>
+
+    </header>
+    <nav>
+
+    </nav>
+
+    <body>
+
+<div>
+  <h1>Choose your weapon</h1>
+</div>
+      <form action="" method="POST" type="hidden">
+        <div>
+          {% csrf_token %}
+          <button action="" method="POST" id="attack" name="attack" value="mace" class="btn">Mace</button>
+        </div>
+      </form>
+      <form action="" method="POST" type="hidden">
+        <div>
+          {% csrf_token %}
+          <button action="" method="POST" id="attack" name="attack" value="sheild" class="btn">Sheild</button>
+        </div>
+      </form>
+      <form action="" method="POST" type="hidden">
+        <div>
+          {% csrf_token %}
+          <button action="" method="POST" id="attack" name="attack" value="arrow" class="btn">Arrow</button>
+        </div>
+      </form>
+
+    </div>
+    
+    <div class="outcome">
+      <div class="outcome_box">
+        
+        {% if match %}
+        <h1> You played {{atack}} The computer picked {{comp}}</h1>
+        <h1>{{match}}</h1>
+        {% endif %}
+        </div>
+
+      </div>
+    </body>
+    <h1>{{condition}}</h1>
+  </container>
+
+
+
+
+
+</body>
+
+</html>
