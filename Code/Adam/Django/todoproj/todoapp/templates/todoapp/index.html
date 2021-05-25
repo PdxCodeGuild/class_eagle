@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo center">{{ title }}</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <table class="striped">
+            <thead>
+                <tr>
+                    <th>Task:</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for todo_item in todo_items %}
+                <tr>
+                    <td>{{ todo_item.text }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <form class="col s12" action="" method="POST">
+            {% csrf_token %}
+            <div class="row center-align">
+                <div class="input-field col s12 m7">
+                    <textarea id="todo_item" name="todo_item" type="text" class="materialize-textarea"
+                        required></textarea>
+                    <label for="todo_item">Next Task </label>
+                </div>
+                <div class="input-field col s4 m4">
+                    <select name="priority" required>
+                        <option value="" disabled selected>Select a Priority</option>
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                    <label>Priority</label>
+                </div>
+                <a class="btn-floating btn-large waves-effect waves-light red" type="submit" name='action'><i
+                        class="material-icons">add</i></a>
+            </div>
+        </form>
+
+    </main>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript">
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems, {});
+        });
+
+    </script>
+</body>
+
+</html>
