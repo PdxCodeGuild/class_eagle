@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Dos</title>
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
+<body>
+    <h3>To Do List Manager</h3>
+
+    <form action="" method='post'>
+
+        <div class="input-field col s6">
+            <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+            <label for="first_name">To Do Item</label>
+        </div>
+
+        <div class="input-field col s12">
+            <select>
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">Low</option>
+                <option value="2">Medium</option>
+                <option value="3">High</option>
+            </select>
+            <label>Select Priority Level</label>
+        </div>
+
+        <div>
+
+            <input class="btn" type="submit" value="update">
+
+
+        </div>
+
+    </form>
+
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems, {});
+        });
+    </script>
+</body>
+
+</html>
+
+
