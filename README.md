@@ -157,6 +157,7 @@ Schedule Overview:
 - [03 Company](2%20Flask%20+%20HTML%20+%20CSS/labs/03%20Company.md)
 - [04 Personal Portfolio](2%20Flask%20+%20HTML%20+%20CSS/labs/04%20Personal%20Portfolio.md)
 - [05 Burrito Order Form](2%20Flask%20+%20HTML%20+%20CSS/labs/05%20Burrito%20Order%20Form.md)
+- [06 Flask Redo](2%20Flask%20+%20HTML%20+%20CSS/labs/06%20Flask%20Redo.md)
 
 #### Mob
 
