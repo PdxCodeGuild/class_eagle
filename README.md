@@ -15,6 +15,8 @@
     - [Mob](#mob-1)
   - [Django](#django)
     - [Docs](#docs-2)
+    - [Labs](#labs-2)
+    - [Mob](#mob-2)
 - [Schedule](#schedule)
   - [Week 1 / Python / Basics](#week-1--python--basics)
   - [Week 2 / Python / Intermediate](#week-2--python--intermediate)
@@ -22,6 +24,8 @@
   - [Week 4 / Python  / Requests & APIs](#week-4--python---requests--apis)
   - [Week 5 / Flask & HTML & CSS / Basics](#week-5--flask--html--css--basics)
   - [Week 6 / Flask & HTML & CSS / Intermediate](#week-6--flask--html--css--intermediate)
+  - [Week 7 / Django / Basics](#week-7--django--basics)
+  - [Week 8 / Django / Intermediate](#week-8--django--intermediate)
 
 
 
@@ -169,11 +173,24 @@ Schedule Overview:
 - [02 Routes](3%20Django/docs/02%20Routes.md)
 - [03 Views](3%20Django/docs/03%20Views.md)
 - [04 Templates](3%20Django/docs/04%20Templates.md)
-- [05 Models](3%20Django/docs/05%20Models.md)
-- [06 Forms](3%20Django/docs/06%20Forms.md)
+- [05 Forms](3%20Django/docs/05%20Forms.md)
+- [06 Models](3%20Django/docs/06%20Models.md)
 - [07 User Management](3%20Django/docs/07%20User%20Management.md)
-- [0]
+- [08 Uploading Files](3%20Django/docs/08%20Uploading%20Files.md)
+- [09 Advanced Topics](3%20Django/docs/09%20Advanced%20Topics.md)
+- [Class-Based Views](3%20Django/docs/Class-Based%20Views.md)
+- [Deployment](3%20Django/docs/Deployment.md)
+- [Django Quickstart](3%20Django/docs/Django%20Quickstart.md)
+- [Email](3%20Django/docs/Email.md)
 
+#### Labs
+
+- [01 Django Redo](3%20Django/labs/01%20Django%20Redo.md)
+- [02 Todo](3%20Django/labs/02%20Todo.md)
+
+#### Mob
+
+- [01 Polls](3%20Django/mob/01%20Polls.md)
 
 
 
@@ -268,3 +285,20 @@ Schedule Overview:
 - [lab: Personal Portfolio](2%20Flask%20+%20HTML%20+%20CSS/labs/04%20Personal%20Portfolio.md)
 - [doc: HTML Forms](2%20Flask%20+%20HTML%20+%20CSS/docs/11%20HTML%20Forms.md)
 - [lab: Burrito Order Form](2%20Flask%20+%20HTML%20+%20CSS/labs/05%20Burrito%20Order%20Form.md)
+- [lab: Flask Redo](2%20Flask%20+%20HTML%20+%20CSS/labs/06%20Flask%20Redo.md)
+
+
+### Week 7 / Django / Basics
+
+- [doc: Django Overview](3%20Django/docs/01%20Django%20Overview.md)
+- [doc: Routes](3%20Django/docs/02%20Routes.md)
+- [doc: Views](3%20Django/docs/03%20Views.md)
+- [doc: Templates](3%20Django/docs/04%20Templates.md)
+- [doc: Forms](3%20Django/docs/05%20Forms.md)
+- [lab: Django Redo](3%20Django/labs/01%20Django%20Redo.md)
+- [doc: Models](3%20Django/docs/06%20Models.md)
+- [mob: Polls](3%20Django/mob/01%20Polls.md)
+
+### Week 8 / Django / Intermediate
+
+- [lab: Todo](3%20Django/labs/02%20Todo.md)
