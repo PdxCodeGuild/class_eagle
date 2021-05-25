@@ -1,13 +1,15 @@
 
 
 
-# #villager gossip.
+villager_gossip{
 
-# 1 = "a band of muraders have over taken the forrest"
-# 2 = "I had the best nap in the forrest. I fell asleep by a pound and dreamed a fantastic dream with a white horse. I awoke and it was like 20 years were taken from these stiff old bones"
-# 3 = "the wolves have been hungry this winter, its like something is driving their prey"
-# 4 = "Have you seen my dog"
 
+
+1 = "a band of muraders have over taken the forrest"
+2 = "I had the best nap in the forrest. I fell asleep by a pound and dreamed a fantastic dream with a white horse. I awoke and it was like 20 years were taken from these stiff old bones"
+3 = "the wolves have been hungry this winter, its like something is driving their prey"
+4 = "Have you seen my dog"
+}
 # Lab 20: Adventure
 
 

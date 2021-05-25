@@ -8,40 +8,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ title }}</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Permanent+Marker">
     <style>
+        
+
         body {
             background-image: linear-gradient(to top, rgba(0, 0, 0, 0.767), rgb(75, 56, 143));
             background-repeat: no-repeat;
             background-size: cover;
             background-color: black;
+            font-family: "Permanent Marker";
         }
         
         .Rock {
             background-image: url("{% static 'rps_app/rock.png' %}");
             background-repeat: no-repeat;
             background-size: contain;
+            background-color: teal;
         }
         .Scissors {
             background-image: url("{% static 'rps_app/scissors.png' %}");
             background-repeat: no-repeat;
             background-size: contain;
+            background-color: teal;
         }
         .Paper {
             background-image: url("{% static 'rps_app/paper.png' %}");
             background-repeat: no-repeat;
             background-size: contain;
+            background-color: teal;
         }
         .Lizard {
             background-image: url("{% static 'rps_app/lizard.png' %}");
             background-repeat: no-repeat;
             background-size: contain;
+            background-color: teal;
         }
         .Spock {
             background-image: url("{% static 'rps_app/spock.png' %}");
             background-repeat: no-repeat;
             background-size: contain;
+            background-color: teal;
         }
         .lose {
             background-image: url("{% static 'rps_app/loser.png' %}");
@@ -53,15 +62,17 @@
             background-image: url("{% static 'rps_app/winner.png' %}");
             background-repeat: no-repeat;
             background-size: contain;
-            background-color: orange;
+            background-color: yellow;
         }
         .tie {
             background-image: url("{% static 'rps_app/tie.png' %}");
             background-repeat: no-repeat;
             background-size: contain;
+            background-color: orange;
         }
         .card, form {
             background-color: rgba(25,135,84, 0.5);
+            box-shadow: 1px 1px 2px rgb(247,126,4), 0 0 25px yellow, 0 0 5px rgb(220,53,69);
         }
         .footer {
             position: fixed;
@@ -75,15 +86,47 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-success">
+    <nav class="navbar navbar-light bg-success bg-gradient border-bottom border-5 border-warning">
         <div class="container-fluid d-flex justify-content-center">
-            <span class="navbar-brand mb-0 h1"> |{{ title }}|</span>
+            <span class="navbar-brand mb-0 fs-2"> {{ title }}</span>
         </div>
     </nav>
 
+
+    <div class="container">
+        <div class="row p-2 mt-5 d-flex justify-content-evenly">
+            <div class="col-4">
+                <div class="card border border-5 border-warning">
+                    <img src="{% static 'rps_app/blank.png' %}" class="card-img-top {{user_choice}}">
+                    <div class="card-body">
+                        <h5 class="card-title text-center text-white">User:</h5>
+                        <p class="text-center text-white">{{user_choice}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card border border-5 border-warning">
+                    <img src="{% static 'rps_app/blank.png' %}" class="card-img-top {{result}}">
+                    <div class="card-body">
+                        <h5 class="card-title text-center text-white">{{result}}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card border border-5 border-warning">
+                    <img src="{% static 'rps_app/blank.png' %}" class="card-img-top {{computer}}">
+                    <div class="card-body">
+                        <h5 class="card-title text-center text-white">Computer:</h5>
+                        <p class="text-center text-white">{{computer}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="row">
-            <form class="m-5 col px-4 py-2 rounded border border-5 border-warning" action="" method="POST">
+            <form class="m-5 col-sm px-4 py-2 rounded border border-5 border-warning" action="" method="POST">
                 {% csrf_token %}
                 <select name="user_choice" class="form-select">
                     <option value="Rock">Rock</option>
@@ -99,34 +142,7 @@
             </form>
 
 
-            <div class="container">
-                <div class="row p-2">
-                    <div class="col">
-                        <div class="card border border-5 border-warning">
-                            <img src="{% static 'rps_app/blank.png' %}" class="card-img-top {{user_choice}}">
-                            <div class="card-body">
-                                <h5 class="card-title text-center text-white">User: {{user_choice}}</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card border border-5 border-warning">
-                            <img src="{% static 'rps_app/blank.png' %}" class="card-img-top {{result}}">
-                            <div class="card-body">
-                                <h5 class="card-title text-center text-white">{{result}}</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card border border-5 border-warning">
-                            <img src="{% static 'rps_app/blank.png' %}" class="card-img-top {{computer}}">
-                            <div class="card-body">
-                                <h5 class="card-title text-center text-white">Computer: {{computer}}</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
 
         </div>
 
