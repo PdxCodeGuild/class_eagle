@@ -28,7 +28,7 @@ def index(request):
     print(request.POST)
     if request.method =="GET":
         return render(request,"roshamboapp/index.html",{})
-    # print (rpsapp/index.html)
+    
     
     if request.method == "POST":
         atack = request.POST["attack"]
