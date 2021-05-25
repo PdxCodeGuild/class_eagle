@@ -1,10 +1,60 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<!doctype html>
+<html lang="en">
   <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <title>To Do List</title>
+
+    <style>
+
+      h1 {
+        display: flex;
+        justify-content: center;
+        padding-top: 20px;
+      }
+
+      body {
+        padding: 20px;
+      }
+
+      
+    </style>
   </head>
   <body>
-    <h1>{{ message }}</h1>
+    <h1>To Do List</h1>
+
+
+
+    <form action="{% url 'ToDo:add' %}" method="POST">
+      {% csrf_token %}
+      <div class="form-floating mb-3">
+        <input name="addtask" class="form-control" id="floatingInput">
+        <label for="floatingInput">Task</label>
+      </div>
+
+      <select name="addpriority"class="form-select" aria-label="Default select example">
+        <option selected>Priority</option>
+        <option value="1">Low</option>
+        <option value="2">Medium</option>
+        <option value="3">High</option>
+      </select>
+      <br>
+      <button type="submit" class="btn btn-primary d-flex ">Add Task</button>
+    </form>
+
+    <ul>
+      {% for todo in todotasks %}
+      <li>{{ todotasks }} {{ todotasks.priority }}</li>      
+      {% endfor %}
+    </ul>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    
   </body>
 </html>
