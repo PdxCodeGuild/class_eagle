@@ -41,3 +41,7 @@ def create(request):
     # return HttpResponseRedirect('https://wwww.google.com/')
     return HttpResponseRedirect(reverse('contactsapp:index'))
 
+def delete(request, contact_id):
+    contact = Contact.objects.get(id=contact_id)
+    contact.delete()
+    return HttpResponseRedirect(reverse('contactsapp:index'))

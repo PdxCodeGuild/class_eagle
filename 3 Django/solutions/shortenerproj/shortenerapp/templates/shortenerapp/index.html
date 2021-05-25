@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortener</title>
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>URL Shortener</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Short URL</th>
+                    <th>Long URL</th>
+                    <th>Clicks</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for url in urls %}
+                <tr>
+                    <td><a href="http://localhost/{{ url.code }}">http://localhost/{{ url.code }}</a></td>
+                    <td>{{ url.get_long_url_domain }}</td>
+                    <th>{{ url.clicks }}</th>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <form action="{% url 'shortenerapp:shorten' %}" method="post" class="row">
+            {% csrf_token %}
+            <div class="input-field col s9">
+                <input id="input_url" type="url" name="long_url" class="validate">
+                <label for="input_url">Long URL</label>
+            </div>
+            <div class="input-field col s3">
+                <button class="btn red" type="submit">shorten</button>
+            </div>
+        </form>
+    </div>
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+</html>
