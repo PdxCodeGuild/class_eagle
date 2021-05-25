@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{title}}</title>
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo center">{{title}}</a>
+        </div>
+    </nav>
+
+
+    <ul>
+        {% for todo_item in todo_items %}
+        <li>{{ todo_item.title }}</li>
+        <li>{{ todo_item.priority }}</li>
+        <li>{{ todo_item.due_date }}</li>
+        {% endfor %}
+    </ul>
+
+    <form action="{% url 'todo_app:create' %}" method="POST">
+        {% csrf_token %}
+        <!-- Title -->
+        <div class="input-field col s12">
+            <input id="title" type="text" class="validate" name="title">
+            <label for="title">Title</label>
+        </div>
+
+        <!-- Priority -->
+        <div class="input-field col s12">
+            <select name="priority_id">
+                {%for priority in priorities%}
+                <option value="{{priority.id}}">{{priority}}</option>
+                {%endfor%}
+            </select>
+            <label>Priority</label>
+        </div>
+        <!-- Due date -->
+        <input type="text" id="due_date" class="datepicker" name="due_date">
+        <label for="due_date">Due Date</label>
+        <!-- Created date -->
+        <input type="text" id="created_date" class="datepicker" name="created_date">
+        <label for="created_date">Created Date</label>
+
+        <button type="submit">Submit</button>
+    </form>
+
+
+
+
+
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems, {});
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.datepicker');
+            var instances = M.Datepicker.init(elems, {});
+        });
+    </script>
+</body>
+
+</html>
