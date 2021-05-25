@@ -34,4 +34,14 @@ Let's create a simple todo app. This can be done with a two models for represent
   - Receive the form submission and create a new todo item, then redirect back to the first view
 
 
+## Part 2 (optional)
+
+Add a nullable DateTimeField `completed_date` to the `TodoItem` model. If the `completed_date` is null/None, that means it has not been completed. If it's not null, that means it has been completed.
+
+Show the completed items separately (at the bottom of the table or in another table), with grey text color and a line through them (`text-decoration:line-through`).
+
+Add a `complete` button next to each todo item, these can be `a` tags which link to another view that receives the `id` of the todo item in the path, sets the completed date, and redirects back to the first view.
+
+Add a `delete` button next to each todo item, which can also be an `a` tag that links to another view which deletes the item and redirects back to the first view.
+
 
