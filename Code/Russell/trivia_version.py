@@ -1,9 +1,8 @@
-
 import html
 import json
 import requests
 
-#Get a response from the trivia API and convert it 
+
 response = requests.get('https://opentdb.com/api.php?amount=10&category=18&type=boolean')
 text = response.json()
 
@@ -27,4 +26,9 @@ for i in range(len(text_list)):
 
 print(f"Right:{right}")
 print(f"wrong:{wrong}")
+
+
+
+
+
 
