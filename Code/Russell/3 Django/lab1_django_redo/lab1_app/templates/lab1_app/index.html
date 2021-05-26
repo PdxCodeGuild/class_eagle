@@ -9,39 +9,53 @@
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+        
+        .{
+            background-color: dimgray;
+            }
+
+        
+    </style>
 </head>
 
 <body>
 
-    <h3>How many characters?</h3>
+    
+    <div class="container">
+        <h3>Generate a password</h3>
+        <div class="row">
+            <form class="col s12" action="" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input placeholder="Enter length" id="first_name" type="number" name="length">
+                       
+                    </div>
+                    <br>
 
-    <div class="row">
-        <form class="col s12" action="" method="POST">
-            {% csrf_token %}
-            <div class="row">
-                <div class="input-field col s6">
-                    <input placeholder="Enter length" id="first_name" type="number" name = "length">
-                    <label for="first_name">Password Length</label>
-                </div>
+                    <div>
 
-            <div class= 'btn'>
-                <input type="submit" value=submit>
-            
+                        <input class="btn" type="submit" value="get">
+
+
+                    </div>
+
+            </form>
+
+            <div>
+                <h3> Password: {{ password }} </h3>
             </div>
 
-        </form>
 
-        <div>
-            <h3> Password: {{ password }} </h3>
+
         </div>
-
     </div>
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    
+
 </body>
 
 </html>
-
-

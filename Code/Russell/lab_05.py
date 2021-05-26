@@ -25,7 +25,7 @@ elif answer == 'rock' and comp_answer == 'scissors':
     print( "Rock crushes scissors. You win!")
 
 elif answer == 'paper' and comp_answer == 'rock':
-    print("Paper covers rock. You win!"):
+    print("Paper covers rock. You win!")
 
 elif answer == 'paper' and comp_answer == 'scissors':
     print( "Scissors cut paper. You lose!")  

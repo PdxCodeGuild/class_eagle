@@ -30,10 +30,10 @@ while True:
 
     again = input("Would you like to play again? y or n " )
 
-    if again == 'y':
-    elif again == 'n':
-        print("seeya!")
-        break
+if again == 'y':
+elif again == 'n':
+    print("seeya!")
+    break
 
 
 
