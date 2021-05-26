@@ -15,7 +15,7 @@
 2. Add `'myapp'` to the list of `INSTALLED_APPS`:
 
 **myproject/settings.py**
-```
+```python
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
