@@ -1,0 +1,13 @@
+{% extends 'dadjokeapp/base.html' %}
+
+{% block content %}
+
+
+<div class="flex-column">
+    <a class="btn" href="{% url 'dadjokeapp:index' %}">Random Joke</a>
+{% for joke in jokes %}
+<blockquote>{{ joke }}</blockquote>
+{% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,166 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{title}}</title>
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet"  href="https://fonts.googleapis.com/css?family=Mate+SC">
+    <style>
+        body {
+            background-image: url("{% static 'todo_app/background3.jfif' %}");
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: 'Mate SC';
+        }
+
+        .Low {
+            background-color: lightblue;
+        }
+
+        .Medium {
+            background-color: yellow;
+        }
+
+        .High {
+            background-color: rgb(223, 50, 37);
+        }
+
+        #form {
+            border-style: solid;
+            margin: 5px;
+            padding: 5px;
+            background-color: white;
+        }
+        nav {
+            background-color: rgba(21,2,89,0.75);
+        }
+        #quote {
+            background-color: rgba(21,2,89,0.75);
+            border-style: solid;
+            border-color: rgb(130,104,166);
+        }
+        #title_bar {
+            display: flex;
+            justify-content: space-between;
+        }
+        #footer {
+            background-color: rgba(2, 2, 2, 0.5);
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            margin-top: .25in;
+            padding-left: .25in;
+            height: 50px;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo center">{{title}}</a>
+        </div>
+    </nav>
+
+
+    <div id="quote" class="container center-align white-text">
+        <h6>Quote of the moment:</h6>
+        <h5>"{{ quote }}"</h5>
+        <p>-{{ author }}</p>
+    </div>
+
+
+
+    <div class="container">
+        <div class="col">
+            <ul class="collapsible">
+                {% for todo_item in todo_items %}
+                <li>
+                    <div id="title_bar" class="collapsible-header {{ todo_item.priority }}">
+                        <h6 id="todo_title">{{ todo_item.title}}</h6>
+                        <a class="btn red" href="{% url 'todo_app:delete' todo_item.id %}">Delete</a>
+                    </div>
+                    <div class="collapsible-body deep-purple lighten-2">
+                        <ul>
+                            <li>Priority: {{ todo_item.priority }}</li>
+                            <li>Due Date: {{ todo_item.due_date }}</li>
+                            <hr>
+                            <li>Detail: {{ todo_item.detail }}</li>
+                        </ul>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+
+        </div>
+
+        <div class="col">
+            <form action="{% url 'todo_app:create' %}" id="form" class=" z-depth-4" method="POST">
+                {% csrf_token %}
+                <!-- Title -->
+                <div class="input-field col s12">
+                    <input id="title" type="text" class="validate" name="title" placeholder="Title" required>
+                </div>
+
+                <!-- Priority -->
+                <div class="input-field col s12">
+                    <select name="priority_id" required>
+                        {%for priority in priorities%}
+                        <option value="{{priority.id}}">{{priority}}</option>
+                        {%endfor%}
+                    </select>
+                    <label>Priority</label>
+                </div>
+                <!-- Details -->
+                <textarea id="textarea1" class="materialize-textarea" name="detail"></textarea>
+                <label for="textarea1">Additional Information</label>
+                <!-- Due date -->
+                <input type="text" id="due_date" class="datepicker" name="due_date" required>
+                <label for="due_date">Due Date</label>
+
+
+                <button id="submit" type="submit" class="btn orange">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    
+
+    <footer id="footer" class="white-text">
+        &copy; Class Eagle 2021
+    </footer>
+
+
+
+
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems, {});
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.datepicker');
+            var instances = M.Datepicker.init(elems, {});
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.collapsible');
+            var instances = M.Collapsible.init(elems, {});
+        });
+    </script>
+</body>
+
+</html>

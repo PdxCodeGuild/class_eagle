@@ -1,0 +1,17 @@
+{% extends 'dadjokeapp/base.html' %}
+
+{% block content %}
+<div class="flex-column">
+    <blockquote>{{ joke }}</blockquote>
+    <div class="flex-row">
+        <a class="btn" href="{% url 'dadjokeapp:index' %}">Get Another Joke!</a>
+        <form action="{% url 'dadjokeapp:save' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="joke" value="{{ joke }}"/>
+            <button type="submit" class="btn">Save Joke!</button>
+        </form>
+        <a class="btn" href="{% url 'dadjokeapp:favorites' %}">View Favorites!</a>
+    </div>
+    <img src="http://apimeme.com/meme?meme=Slowpoke&top={{ top_text }}&bottom={{ bottom_text }}"/>
+</div>
+{% endblock %}
