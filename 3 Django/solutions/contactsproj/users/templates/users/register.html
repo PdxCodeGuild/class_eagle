@@ -1,0 +1,26 @@
+{% extends 'contactsapp/base.html' %}
+
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<form action="" method="post" class="row">
+    {% csrf_token %}
+    <div class="input-field col l3 m6 s12">
+        <input id="input_username" type="text" name="username" class="validate">
+        <label for="input_username">Username</label>
+    </div>
+    <div class="input-field col l3 m6 s12">
+        <input id="input_email" type="email" name="email" class="validate">
+        <label for="input_email">Email</label>
+    </div>
+    <div class="input-field col l3 m6 s12">
+        <input id="input_password" type="password" name="password" class="validate">
+        <label for="input_password">Password</label>
+    </div>
+    <div class="input-field col l3 m6 s12">
+        <button class="btn" type="submit">Register</button>
+    </div>
+</form>
+<div>Already have an account? <a href="{% url 'users:login' %}">login</a></div>
+{% endblock %}

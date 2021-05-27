@@ -1,101 +1,92 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ title }}</title>
-    <!-- Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Materialize CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-</head>
 
-<body>
-    <div class="container">
-        <h1>{{ title }}</h1>
-        <form action="{% url 'contactsapp:create' %}" method="post" class="row">
-            {% csrf_token %}
-            <div class="input-field col l3 m6 s12">
-                <input name="name" id="input_name" type="text" class="validate">
-                <label for="input_name">Name</label>
-            </div>
-            <div class="input-field col l3 m6 s12">
-                <input name="email" id="input_email" type="email" class="validate">
-                <label for="input_email">Email</label>
-            </div>
-            <div class="input-field col l2 m6 s12">
-                <input name="birthday" id="input_birthday" type="text" class="datepicker">
-                <label for="input_birthday">Birthday</label>
-            </div>
-            <!-- <div class="input-field col">
-                <input name="birthday" id="input_birthday" type="date" class="validate">
-                <label for="input_birthday">Birthday</label>
-            </div> -->
-            <div class="input-field col s12">
-                <select name="city_id" required>
-                  <option value="" disabled selected>Choose City</option>
-                  {% for city in cities %}
-                  <option value="{{ city.id }}">{{ city.name }}</option>
-                  {% endfor %}
-                </select>
-                <label>Materialize Select</label>
-              </div>
-            <div class="col l2 m6 s12">
-                <label>
-                    <input name="organ_donor" type="checkbox"/>
-                    <span>Organ Donor</span>
-                </label>
-            </div>
-            <div class="col l2 s12">
-                <button class="btn">Create Contact</button>
-            </div>
-        </form>
-        <table class="responsive-table">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Birthday</th>
-                    <th>Organ Donor</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for contact in contacts %}
-                <tr>
-                    <td>{{ contact.name }}</td>
-                    <td>{{ contact.email }}</td>
-                    <td>{{ contact.birthday }}</td>
-                    {% if contact.organ_donor %}
-                    <td><i class="material-icons">check</i></td>
-                    {% else %}
-                    <td><i class="material-icons">close</i></td>
-                    {% endif %}
-                    <td><a class="btn red" href="{% url 'contactsapp:delete' contact.id %}">Delete</a></td>
 
-                    {% comment %}
-                    <a href="{% url 'contactapp:home' %}">home</a>
-                    <!-- <td><i class="material-icons">{% if contact.organ_donor %}check{% else %}close{% endif %}</i></td> -->
-                    {% endcomment %}
+{% extends 'contactsapp/base.html' %}
 
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-    <!-- Materialize JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var elems = document.querySelectorAll('.datepicker');
-            var instances = M.Datepicker.init(elems, {});
-        });
-        document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('select');
-            var instances = M.FormSelect.init(elems, {});
-        });
-    </script>
-</body>
+{% block title %}Contact List{% endblock %}
+{% block content %}
+<div class="container">
+    
+    <form action="{% url 'contactsapp:create' %}" method="post" class="row">
+        {% csrf_token %}
+        <div class="input-field col l2 m4 s12">
+            <input name="name" id="input_name" type="text" class="validate">
+            <label for="input_name">Name</label>
+        </div>
+        <div class="input-field col l2 m4 s12">
+            <input name="email" id="input_email" type="email" class="validate">
+            <label for="input_email">Email</label>
+        </div>
+        <div class="input-field col l2 m4 s12">
+            <input name="birthday" id="input_birthday" type="text" class="datepicker">
+            <label for="input_birthday">Birthday</label>
+        </div>
+        <!-- <div class="input-field col">
+            <input name="birthday" id="input_birthday" type="date" class="validate">
+            <label for="input_birthday">Birthday</label>
+        </div> -->
+        <div class="input-field col l2 m4 s12">
+            <select name="city_id" required>
+              <option value="" disabled selected>Choose City</option>
+              {% for city in cities %}
+              <option value="{{ city.id }}">{{ city.name }}</option>
+              {% endfor %}
+            </select>
+            <label>City</label>
+          </div>
+        <div class="col l2 m4 s12">
+            <label>
+                <input name="organ_donor" type="checkbox"/>
+                <span>Organ Donor</span>
+            </label>
+        </div>
+        <div class="col l2 m4 s12">
+            <button class="btn">Create Contact</button>
+        </div>
+    </form>
+    <table class="responsive-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>City</th>
+                <th>Email</th>
+                <th>Birthday</th>
+                <th>Organ Donor</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contact in contacts %}
+            <tr>
+                <td>{{ contact.name }}</td>
+                <td>{{ contact.city.name }}</td>
+                <td>{{ contact.email }}</td>
+                <td>{{ contact.birthday }}</td>
+                {% if contact.organ_donor %}
+                <td><i class="material-icons">check</i></td>
+                {% else %}
+                <td><i class="material-icons">close</i></td>
+                {% endif %}
+                <td><a class="btn red" href="{% url 'contactsapp:delete' contact.id %}">Delete</a></td>
 
-</html>
+                {% comment %}
+                <a href="{% url 'contactapp:home' %}">home</a>
+                <!-- <td><i class="material-icons">{% if contact.organ_donor %}check{% else %}close{% endif %}</i></td> -->
+                {% endcomment %}
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.datepicker');
+        var instances = M.Datepicker.init(elems, {});
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elems, {});
+    });
+</script>
+{% endblock %}
