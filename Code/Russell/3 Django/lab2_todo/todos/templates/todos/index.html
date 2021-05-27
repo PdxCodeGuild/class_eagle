@@ -12,33 +12,50 @@
 </head>
 
 <body>
-    <h3>To Do List Manager</h3>
 
-    <form action="" method='post'>
+    <div class="container">
 
-        <div class="input-field col s6">
-            <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-            <label for="first_name">To Do Item</label>
-        </div>
+        <h3>To Do List Manager</h3>
 
-        <div class="input-field col s12">
-            <select>
-                <option value="" disabled selected>Choose your option</option>
-                <option value="1">Low</option>
-                <option value="2">Medium</option>
-                <option value="3">High</option>
-            </select>
-            <label>Select Priority Level</label>
-        </div>
+        <form action="{% url 'todos:update'%}" method="post">
 
-        <div>
-
-            <input class="btn" type="submit" value="update">
+            <div class="input-field col s6">
+                <input placeholder="Placeholder" id="first_name" type="text" name="item" class="validate">
+                <label for="first_name">To Do Item</label>
+            </div>
 
 
-        </div>
+            <div class="input-field col s12">
 
-    </form>
+                <select name="priority">
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="1">Low</option>
+                    <option value="2">Medium</option>
+                    <option value="3">High</option>
+                </select>
+                <label>Select Priority Level</label>
+            </div>
+
+            <div>
+
+                <input class="btn" type="submit" value="update">
+
+
+            </div>
+            {% csrf_token %}
+        </form>
+
+        <ul>
+            {% for todo_item in todo_items %}
+            <li>
+                {{todo_item.text}}
+            </li>
+            {% endfor %}
+        </ul>
+
+
+
+    </div>
 
     <!-- Materialize JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -51,5 +68,3 @@
 </body>
 
 </html>
-
-
