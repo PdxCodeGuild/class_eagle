@@ -2,9 +2,11 @@ from django.shortcuts import render, reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Contact, City
 from datetime import datetime
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def index(request):
-    contacts = Contact.objects.all()
+    contacts = request.user.contacts.all()
     cities = City.objects.all()
     # print(contacts)
     # for contact in contacts:
