@@ -4,13 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Google Font -->
+
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
-    <Style>
+    <style>
+        .nav-wrapper {
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+
         tr {
             border-bottom: 0;
         }
@@ -20,7 +26,34 @@
             text-decoration: line-through;
         }
 
-    </Style>
+        .tr_headers {
+            font-size: larger;
+            font-weight: bold;
+        }
+
+        .todo_table {
+            width: 100%;
+        }
+
+        .table_buttons {
+            text-align: right;
+        }
+
+        .th_actions {
+            text-align: right;
+        }
+
+        .add_task {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .row .col {
+            padding: 3px;
+        }
+    </style>
 
 </head>
 
@@ -37,17 +70,17 @@
         <div class="row">
             <table class="todo_table highlight">
                 <thead>
-                    <tr>
+                    <tr class="tr_headers">
                         <th>Tasks:</th>
-                        <th>Actions:</th>
+                        <th class="th_actions">Actions:</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for todo_item in todo_items %}
                     <tr>
                         {% if todo_item.completed_date == null %}
-                        <td>{{ todo_item.text }}</td>
-                        <td>
+                        <td class="todo_td">{{ todo_item.text }}</td>
+                        <td class="table_buttons">
                             <a class="waves-effect waves-light btn" href="{% url 'todoapp:complete' todo_item.id %}"
                                 type="submit">
                                 <i class="material-icons">check</i></a>
@@ -63,8 +96,8 @@
 
             <form class="col s12" action="{% url 'todoapp:create' %}" method="post">
                 {% csrf_token %}
-                <div class="row center-align">
-                    <div class="input-field col s12 m6">
+                <div class="add_task">
+                    <div class="input-field col s5 m7">
                         <textarea id="new_task" name="new_task" type="text" class="materialize-textarea"
                             required></textarea>
                         <label for="new_task">New Task </label>
@@ -78,16 +111,16 @@
                         </select>
                         <label>Priority</label>
                     </div>
-                    <button class="btn waves-effect waves-light" type="submit">Add Task
+                    <button class="btn waves-effect waves-light col s2 m1" type="submit">Add Task
                     </button>
                 </div>
             </form>
 
             <table class="completed_table highlight col s12">
                 <thead>
-                    <tr>
+                    <tr class="tr_headers">
                         <th>Completed Tasks:</th>
-                        <th>Actions:</th>
+                        <th class="th_actions">Actions:</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -95,7 +128,7 @@
                     <tr>
                         {% if todo_item.completed_date != null %}
                         <td class="completed_td">{{ todo_item.text }}</td>
-                        <td>
+                        <td class="table_buttons">
                             <a class="waves-effect waves-light btn" href="{% url 'todoapp:complete' todo_item.id %}"
                                 type="submit">
                                 <i class="material-icons">undo</i></a>
