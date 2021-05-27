@@ -17,6 +17,7 @@
             background-position: center;
             background-repeat: no-repeat;
             font-family: 'Mate SC';
+            background-attachment: fixed;
         }
 
         .Low {
@@ -83,7 +84,7 @@
         <h5>"{{ quote }}"</h5>
         <p>-{{ author }}</p>
     </div>
-
+    <!-- Displaying current items on the todo list -->
     <div class="container">
         <div class="col">
             <ul class="collapsible">
@@ -91,7 +92,7 @@
                 <li>
                     <div id="title_bar" class="collapsible-header {{ todo_item.priority }}">
                         <h6 id="todo_title">Task: {{ todo_item.title}}</h6>
-                        <a class="btn red" href="{% url 'todo_app:delete' todo_item.id %}">Delete</a>
+                        <a class="btn red" href="{% url 'todo_app:delete' todo_item.id %}">Completed</a>
                     </div>
                     <div class="collapsible-body deep-purple lighten-2">
                         <ul>
@@ -106,7 +107,7 @@
             </ul>
 
         </div>
-
+        <!-- Form submission to add items to the todo list -->
         <div class="col">
             <form action="{% url 'todo_app:create' %}" id="form" class=" z-depth-4" method="POST">
                 {% csrf_token %}
@@ -139,6 +140,31 @@
             </form>
         </div>
     </div>
+    <!-- An archive list of already completed items -->
+    <div id="quote" class="container white-text">
+        <table class="responsive-table">
+            <thead>
+              <tr>
+                  <th>Title</th>
+                  <th>Detail</th>
+                  <th>Due Date</th>
+                  <th>Completed Date</th>
+              </tr>
+            </thead>
+            {% for archive in archives%}
+            <tbody>
+              <tr>
+                <td>{{ archive.title }}</td>
+                <td>{{ archive.detail }}</td>
+                <td>{{ archive.due_date }}</td>
+                <td>{{ archive.completed_date }}</td>
+              </tr>
+            </tbody>
+            {%endfor%}
+          </table>        
+    </div>
+
+
 
     
 
