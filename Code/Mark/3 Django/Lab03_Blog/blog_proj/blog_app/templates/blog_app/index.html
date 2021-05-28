@@ -1,0 +1,16 @@
+{% extends 'blog_app/base.html' %}
+
+
+{% block title %}index{% endblock %}
+{% block content %}
+
+Hello world
+
+<a href="{% url 'blog_app:login' %}">login</a>
+<a href="{% url 'blog_app:register' %}">register</a>
+
+
+
+
+
+{%endblock%}
