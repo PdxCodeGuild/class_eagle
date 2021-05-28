@@ -4,7 +4,6 @@ from .models import Priority, TodoItem
 from datetime import datetime
 
 
-
 def index(request):
     todo_items = TodoItem.objects.all()
     priorities = Priority.objects.all()
@@ -26,10 +25,12 @@ def create(request):
     todo_item.save()
     return HttpResponseRedirect(reverse('todoapp:index'))
 
+
 def delete(request, todo_item_id):
     todo_item = TodoItem.objects.get(id=todo_item_id)
     todo_item.delete()
     return HttpResponseRedirect(reverse('todoapp:index'))
+
 
 def complete(request, todo_item_id):
     todo_item = TodoItem.objects.get(id=todo_item_id)
@@ -41,5 +42,3 @@ def complete(request, todo_item_id):
         todo_item.completed_date = None
         todo_item.save()
     return HttpResponseRedirect(reverse('todoapp:index'))
-
-
