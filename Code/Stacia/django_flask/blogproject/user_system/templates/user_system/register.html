@@ -1,0 +1,30 @@
+
+{% extends 'user_system/base.html' %}
+{% block content %} 
+<form>
+
+    <div class='container'>
+        
+        <div class ='column'>
+            <form action="" method="post" id="user">
+                {% csrf_token %}
+                <div>
+                    <label for ="user_name">User_Name</label>
+                    <input id="user_name" name="user_name" type="text">
+                </div>
+                <div>
+                    <label for ="password">Password</label>
+                    <input id="password" name="password" type="text">
+                </div>
+                <div>
+                    
+                </div>
+                
+                <button input type="datetime-local" id="submit" name="time" value="time" class="btn">Submit</button>
+            </div>
+        </div>
+    </form>
+        <div> Already a member? <a href ="{%url 'user_system:login'%}"> login here!</a> </div>
+        
+
+{% endblock %}

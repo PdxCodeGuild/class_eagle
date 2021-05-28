@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
+    <head>
+        <title>Document</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
-  <style>
-    body{
+        <style>
+             body{
       height: 100%;
       width:100%
     }
@@ -30,8 +24,6 @@
 
 
     }
-
-   
 
     .menu {
       visibility: hidden;
@@ -114,7 +106,7 @@
       justify-content: center;
     }
 
-    .notepad {
+    .col {
       background-color: rgb(33, 36, 211);
       
       display: flex;
@@ -123,6 +115,9 @@
       justify-content: space-around;
       /* width: 40%; */
       
+
+
+
 
     }
     .dummy{
@@ -146,87 +141,18 @@
       /* flex-grow:1; */
       
     }
-  </style>
-</head>
-
-<body>
-
-  <div class="container">
-
-
-
-   
-    <div class="notepad">
-      <div class="title">
-        <span> Get shit done</span>
-      </div>
-
-
-      <form action="{% url 'todoapp:create' %}" method="post" id="todo">
-        {% csrf_token %}
-
-
-        <div class="box">
-          <label for="task">Task</label>
-          <input id="task" name="task" type="text">
-        </div>
-
-        <div class="box">
-
-          <label for="priority">How urgent is this task?:</label>
-          <select id="priority" name="priority" size="4" multiple>
-            <option value="Urgent">Urgent</option>
-            <option value="Important">Important</option>
-            <option value="Medium">Medium</option>
-            <option value="Low">Low</option>
-          </select>
-
-        </div>
-
-
-        <!-- click to print  -->
-        <div class="box">
-          <button input type="datetime-local" id="submit" name="time" value="time" class="btn">Submit</button>
-        </div>
-
-      </form>
-
-    </div>
-
-    <div class="todos">
-      <div class="title">Things to do.</div>
-      {%for todo in todos%}
-      <div class="logbook">
-       
-        <div class="left">
-
-          <p>{{todo.task}}</p>
-          
-
-        </div>
-
-        <div class="center">
-          
-          <p>{{todo.priority}}</p>
-
-          
-        </div>
-        
-
-          <div class="right">
-            <div>
-              
-              <p>{{todo.time}}</p>
-
-            </div>
-          </div>
-        </div>
-        {%endfor%}
-
-      </div>
-    </div>
-  </div>
-
-</body>
-
-</html>
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>{% block title %}{% endblock %}</h1>
+        </header>
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+        <footer>
+            <span>&copy; Stacia Class Eagle PDX Code Guild 2020</span>
+        </footer>
+    </body>
+</html> 
