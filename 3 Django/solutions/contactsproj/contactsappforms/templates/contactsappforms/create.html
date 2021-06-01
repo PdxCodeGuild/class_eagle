@@ -1,0 +1,31 @@
+
+{% extends 'contactsapp/base.html' %}
+
+
+{% block title %}Contacts App Forms{% endblock %}
+
+{% block content %}
+
+<form action=""  method="post" class="container">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn" type="submit">Create</button>
+</form>
+
+<style>
+    input[type="checkbox"] {
+        opacity: 1 !important;
+        position: relative !important;
+        pointer-events:auto !important;
+        margin-left: 4px;
+    }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elems, {});
+    });
+
+</script>
+{% endblock %}
+
