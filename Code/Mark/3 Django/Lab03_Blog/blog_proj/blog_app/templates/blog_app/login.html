@@ -6,22 +6,31 @@
 
 
 <div>login</div>
-<form action="{% url 'blog_app:login' %}" method="POST">
-    {% csrf_token %}
-    <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon3">Username</span>
-        <input type="text" class="form-control" name="username">
+<div class="container" id="login">
+    {% if error %}
+    <div class="error d-flex justify-content-center mb-2"><span class="bg-danger text-white p-3 rounded-pill">{{ error }}</span></div>
+    {% endif %}
+    <form action="{% url 'blog_app:login' %}" method="POST">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon3">Username</span>
+            <input type="text" class="form-control" name="username">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon3">Password</span>
+            <input type="text" class="form-control" name="password">
+        </div>
+        <div class="d-flex justify-content-center">
+            <button type="submit">Join us...</button>
+        </div>
+        
+    </form>
+    <div class="d-flex justify-content-center">
+        <div>New User?<a href="{% url 'blog_app:register' %}">Register</a></div>
     </div>
-    <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon3">Password</span>
-        <input type="text" class="form-control" name="password">
-    </div>
-    <button type="submit">Login</button>
-</form>
-
-
-<div>
-    <div>new user?<a href="{% url 'blog_app:register' %}">Register</a></div>
 </div>
+
+
+
 
 {% endblock %}
