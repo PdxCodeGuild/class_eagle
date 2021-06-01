@@ -1,13 +1,21 @@
 {% extends 'blog_app/base.html' %}
 
 
-{% block title %}index{% endblock %}
+{% block title %}Home Page{% endblock %}
 {% block content %}
 
-Hello world
+<div class="container mt-3 align-items-center" id="login">
+    <div class="row d-flex justify-content-center m-2">
+        Welcome Back!
+        <button href="{% url 'blog_app:login' %}" class="btn btn-danger">Login</button>
+    </div>
+    <div class="row d-flex justify-content-center m-2">
+        New to our Community?
+        <button href="{% url 'blog_app:register' %}" class="btn btn-danger">Register</button>
+    </div>
+</div>
 
-<a href="{% url 'blog_app:login' %}">login</a>
-<a href="{% url 'blog_app:register' %}">register</a>
+
 
 
 
