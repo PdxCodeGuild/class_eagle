@@ -15,8 +15,17 @@
     </div>
 </div>
 
-
-
+{% for blogpost in blogposts %}
+<div class="container mt-3">
+    <div id="post" class="card">
+        <h5 id="post_title" class="card-header text-center">{{blogpost.title}}</h5>
+        <div class="card-body">
+            <h6 class="card-title"><u>By {{blogpost.user}} on {{blogpost.date_created}}</u></h6>
+            <p class="card-text">{{blogpost.body}}</p>
+        </div>
+    </div>
+</div>
+{% endfor %}
 
 
 
