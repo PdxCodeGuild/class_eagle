@@ -3,9 +3,16 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 import django.contrib.auth
 from django.contrib.auth.decorators import login_required
+from django.utils import timezone
+from .models import BlogPost
+
 
 def index(request):
-    return render(request, 'blog_app/index.html')
+    blogposts = BlogPost.objects.filter(public='True').order_by('date_created')
+    context = {
+        blogposts: blogposts,
+    }
+    return render(request, 'blog_app/index.html', context)
 
 def register(request):
     if request.method == 'POST':
@@ -41,4 +48,15 @@ def logout(request):
 
 def create(request):
     print(request.POST)
+    # assign variables
+    title = request.POST['title']
+    body = request.POST['body']
+    # date created
+    date_created = timezone.now()
+    # verify whether it is public or not
+    public = 'public' in request.POST
+    # assigning the user
+    user = django.contrib.auth.get_user(request)
+    blogpost_set = BlogPost(title=title, body=body, date_created=date_created, public=public, user=user)
+    blogpost_set.save()
     return render(request, 'blog_app/profile.html')
