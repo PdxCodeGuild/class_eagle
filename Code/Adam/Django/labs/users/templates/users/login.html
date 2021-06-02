@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<div class="container">
+    {% if error %}
+    <div class="error">{{ error }}</div>
+    {% endif %}
+    <form action="" method="post" class="row">
+        {% csrf_token %}
+        <div class="input-field col s12 m6 l3">
+            <input id="input_username" name="username" type="text" class="validate">
+            <label for="input_username">Username:</label>
+        </div>
+        <div class="input-field col s12 m6 l3">
+            <input id="input_password" name="password" type="password" class="validate">
+            <label for="input_password">Password:</label>
+        </div class="input-field col s12 m6 l3">
+        <button class="btn waves-effect waves-light" type="submit" name="action">Login</button>
+    </form>
+</div>
+{% endblock %}

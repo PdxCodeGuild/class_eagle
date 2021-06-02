@@ -9,19 +9,22 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <style>
+        .error {
+            color:red;
+        }
     </style>
 </head>
 
 <body>
-    <header>
+    <header style="text-align: center;">
         <h1>{% block title %}{% endblock %}</h1>
     </header>
     <main>
         {% block content %}
         {% endblock %}
     </main>
-    <footer>
-        <span>&copy; Class Eagle 2021</span>
+    <footer style="text-align: center;">
+        <span>&copy;Class Eagle 2021</span>
     </footer>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
