@@ -12,7 +12,7 @@ def register(request):
         password = request.POST['password']
         user = User.objects.create_user(username, email, password)
         django.contrib.auth.login(request, user)
-        return HttpResponseRedirect(revers('users:profile'))
+        return HttpResponseRedirect(reverse('users:profile'))
 
     return render(request, 'users/register.html')
 
