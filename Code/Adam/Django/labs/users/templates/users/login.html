@@ -1,5 +1,17 @@
+
+
+
 {% extends 'blog/base.html' %}
-{% block title %}Login{% endblock %}
+
+{% block link %}
+<li><a href="{}">Home</a></li>
+<li><a href="{}">Register</a></li>
+{% endblock %}
+
+{% block title %}
+<h1 style="text-align: center;">Login</h1>
+{% endblock %}
+
 {% block content %}
 <div class="container">
     {% if error %}

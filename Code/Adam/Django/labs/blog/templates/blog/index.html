@@ -2,7 +2,15 @@
 
 
 {% extends 'blog/base.html' %}
-{% block title %}Home{% endblock %}
+
+{% block link %}
+<li><a href="{}">Login</a></li>
+{% endblock %}
+
+{% block title %}
+<h1 style="text-align: center;">Home</h1>
+{% endblock %}
+
 {% block content %}
-<p>this is the page content for the index page</p>
+<p style="text-align: center;">This is the page content for the index page</p>
 {% endblock %}
