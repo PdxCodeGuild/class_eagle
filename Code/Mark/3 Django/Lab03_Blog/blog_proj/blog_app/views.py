@@ -10,7 +10,7 @@ from .models import BlogPost
 def index(request):
     blogposts = BlogPost.objects.filter(public='True').order_by('date_created')
     context = {
-        blogposts: blogposts,
+        'blogposts': blogposts,
     }
     return render(request, 'blog_app/index.html', context)
 
@@ -40,7 +40,11 @@ def login(request):
 
 @login_required
 def profile(request):
-    return render(request, 'blog_app/profile.html')
+    blogposts = request.user.blogpost_set.all().order_by('-date_created')
+    context = {
+        'blogposts': blogposts,
+    }
+    return render(request, 'blog_app/profile.html', context)
 
 def logout(request):
     django.contrib.auth.logout(request)
