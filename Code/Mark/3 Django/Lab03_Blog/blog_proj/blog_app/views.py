@@ -47,10 +47,12 @@ def profile(request):
     }
     return render(request, 'blog_app/profile.html', context)
 
+@login_required
 def logout(request):
     django.contrib.auth.logout(request)
     return HttpResponseRedirect(reverse('blog_app:login'))
 
+@login_required
 def create(request):
     # assign variables
     title = request.POST['title']
@@ -65,6 +67,7 @@ def create(request):
     blogpost.save()
     return HttpResponseRedirect(reverse('blog_app:profile'))
 
+@login_required
 def edit(request, blogpost_id):
     blogpost = BlogPost.objects.get(id=blogpost_id)
     form = EditForm(instance=blogpost)
@@ -73,3 +76,17 @@ def edit(request, blogpost_id):
         'form': form
         }
     return render(request, 'blog_app/edit.html', context)
+
+@login_required
+def edit_save(request, blogpost_id):
+    blogpost = BlogPost.objects.get(id=blogpost_id)
+    form = EditForm(request.POST, instance=blogpost)
+    if form.is_valid():
+        blogpost = form.save()
+    return HttpResponseRedirect(reverse('blog_app:profile'))
+
+@login_required
+def delete(request, blogpost_id):
+    blogpost = BlogPost.objects.get(id=blogpost_id)
+    blogpost.delete()
+    return HttpResponseRedirect(reverse('blog_app:profile'))

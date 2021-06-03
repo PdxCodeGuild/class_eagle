@@ -32,6 +32,7 @@
 </div>>
 
 {% for blogpost in blogposts %}
+
 <div class="container mt-3">
     <div id="post" class="card">
         <h5 id="post_title" class="card-header text-center">{{blogpost.title}}</h5>
@@ -40,12 +41,13 @@
             <p class="card-text">{{blogpost.body}}</p>
             <div>
                 <a href="{% url 'blog_app:edit' blogpost.id %}" class="btn">Edit</a>
-                <a href="#" class="btn">Delete</a>
+                <a href="{% url 'blog_app:delete' blogpost.id %}" class="btn">Delete</a>
             </div>
             
         </div>
     </div>
 </div>
+
 {% endfor %}
 
 
