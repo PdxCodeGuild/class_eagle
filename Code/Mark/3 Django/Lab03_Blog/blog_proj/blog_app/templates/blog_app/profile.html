@@ -1,11 +1,10 @@
 {% extends 'blog_app/base.html' %}
 
 
-{% block title %}{% endblock %}
+{% block title %}Profile{% endblock %}
 {% block content %}
 
-<div>profile</div>
-<div class="container">
+<div class="container mt-3">
     <form action="{% url 'blog_app:create' %}" class="row" id="login" method="POST">
         {% csrf_token %}
         <div class="col">
@@ -39,6 +38,11 @@
         <div class="card-body">
             <h6 class="card-title"><u>By {{blogpost.user}} on {{blogpost.date_created}}</u></h6>
             <p class="card-text">{{blogpost.body}}</p>
+            <div>
+                <a href="{% url 'blog_app:edit' blogpost.id %}" class="btn">Edit</a>
+                <a href="#" class="btn">Delete</a>
+            </div>
+            
         </div>
     </div>
 </div>

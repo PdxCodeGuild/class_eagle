@@ -5,10 +5,11 @@ import django.contrib.auth
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from .models import BlogPost
+from .forms import EditForm
 
 
 def index(request):
-    blogposts = BlogPost.objects.filter(public='True').order_by('date_created')
+    blogposts = BlogPost.objects.filter(public='True').order_by('-date_created')
     context = {
         'blogposts': blogposts,
     }
@@ -40,7 +41,7 @@ def login(request):
 
 @login_required
 def profile(request):
-    blogposts = request.user.blogpost_set.all().order_by('-date_created')
+    blogposts = request.user.blogpost.all().order_by('-date_created')
     context = {
         'blogposts': blogposts,
     }
@@ -51,7 +52,6 @@ def logout(request):
     return HttpResponseRedirect(reverse('blog_app:login'))
 
 def create(request):
-    print(request.POST)
     # assign variables
     title = request.POST['title']
     body = request.POST['body']
@@ -61,6 +61,15 @@ def create(request):
     public = 'public' in request.POST
     # assigning the user
     user = django.contrib.auth.get_user(request)
-    blogpost_set = BlogPost(title=title, body=body, date_created=date_created, public=public, user=user)
-    blogpost_set.save()
-    return render(request, 'blog_app/profile.html')
+    blogpost = BlogPost(title=title, body=body, date_created=date_created, public=public, user=user)
+    blogpost.save()
+    return HttpResponseRedirect(reverse('blog_app:profile'))
+
+def edit(request, blogpost_id):
+    blogpost = BlogPost.objects.get(id=blogpost_id)
+    form = EditForm(instance=blogpost)
+    context = {
+        'blogpost': blogpost,
+        'form': form
+        }
+    return render(request, 'blog_app/edit.html', context)
