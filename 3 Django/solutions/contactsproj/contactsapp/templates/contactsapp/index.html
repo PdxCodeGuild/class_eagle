@@ -53,6 +53,7 @@
                 <th>Birthday</th>
                 <th>Organ Donor</th>
                 <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -67,6 +68,7 @@
                 {% else %}
                 <td><i class="material-icons">close</i></td>
                 {% endif %}
+                <td><a class="btn indigo" href="{% url 'contactsapp:edit' contact.id %}">Edit</a></td>
                 <td><a class="btn red" href="{% url 'contactsapp:delete' contact.id %}">Delete</a></td>
 
                 {% comment %}

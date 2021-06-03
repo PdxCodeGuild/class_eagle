@@ -1,0 +1,57 @@
+
+{% extends 'contactsapp/base.html' %}
+
+{% block title %}Edit Contact{% endblock %}
+{% block content %}
+
+<form action="{% url 'contactsapp:edit_save' contact.id %}" method="post" class="row">
+    {% csrf_token %}
+    <div class="input-field col s12">
+        <input name="name" id="input_name" type="text" class="validate" value="{{ contact.name }}">
+        <label for="input_name">Name</label>
+    </div>
+    <div class="input-field col s12">
+        <input name="email" id="input_email" type="email" class="validate" value="{{ contact.email }}">
+        <label for="input_email">Email</label>
+    </div>
+    <div class="input-field col s12">
+        <input name="birthday" id="input_birthday" type="text" class="datepicker" value="{{ contact.birthday|date:"M d, Y" }}">
+        <label for="input_birthday">Birthday</label>
+    </div>
+    <div class="input-field col">
+        <input id="input_birthday2" type="date" class="validate" value="{{ contact.birthday|date:'Y-m-d' }}">
+        <label for="input_birthday2">Birthday</label>
+    </div>
+    <div class="input-field col s12">
+        <select name="city_id" required>
+          <option value="" disabled>Choose City</option>
+          {% for city in cities %}
+          <option {% if city.id == contact.city.id %}selected{% endif %} value="{{ city.id }}">{{ city.name }}</option>
+          {% endfor %}
+        </select>
+        <label>City</label>
+      </div>
+    <div class="col s12">
+        <label>
+            <input name="organ_donor" type="checkbox" {% if contact.organ_donor %}checked{% endif %}/>
+            <span>Organ Donor</span>
+        </label>
+    </div>
+    <div class="col s12">
+        <button class="btn">Save</button>
+    </div>
+</form>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.datepicker');
+        var instances = M.Datepicker.init(elems, {
+            defaultDate: new Date({{contact.birthday.year}}, {{contact.birthday.month}}-1, {{contact.birthday.day}}, 0, 0, 0, 0),
+            setDefaultDate: true,
+        });
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elems, {});
+    });
+</script>
+{% endblock %}

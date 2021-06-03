@@ -9,20 +9,39 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+
     </style>
 </head>
 
 <body>
     <header>
-        <h1>{% block title %}{% endblock %}</h1>
+        <nav>
+            <div class="nav-wrapper">
+                <a class="brand-logo center">Vicarious Post</a>
+                <ul id="nav-mobile" class="right">
+                    {% block link %}{% endblock %}
+                </ul>
+            </div>
+        </nav>
     </header>
     <main>
+        {% block title %}{% endblock %}
         {% block content %}
         {% endblock %}
     </main>
-    <footer>
-        <span>&copy; Class Eagle 2021</span>
+    <footer class="page-footer" style="text-align: center;">
+        &copy; Class Eagle 2021
     </footer>
+
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
