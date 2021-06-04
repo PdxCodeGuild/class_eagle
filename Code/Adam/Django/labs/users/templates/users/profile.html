@@ -1,6 +1,3 @@
-
-
-
 {% extends 'blog/base.html' %}
 
 {% block link %}
@@ -12,5 +9,27 @@
 {% endblock %}
 
 {% block content %}
-<p style="text-align: center;">Welcome {{ user.username }}</p>
+<div class="container">
+    <p style="text-align: center;">Welcome {{ user.username }}</p>
+    <form class="col s12" action="{% url 'blog:create' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" id="input_user" name="user_id" value="{{ user.id }}">
+        <div class="input-field col s12">
+            <input id="input_title" name="title" type="text" class="validate">
+            <label for="input_title">Title</label>
+        </div>
+        <div class="input-field col s12">
+            <textarea id="input_body" name="body" class="materialize-textarea"></textarea>
+            <label for="input_body">Body</label>
+        </div>
+        <p>
+            <label>
+                <input name="public" type="checkbox" class="filled-in" checked="checked" />
+                <span>Make Public</span>
+            </label>
+        </p>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Post</button>
+    </form>
+</div>
+
 {% endblock %}
