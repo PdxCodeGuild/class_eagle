@@ -1,0 +1,46 @@
+{% extends 'blog/base.html' %}
+
+{% block title %} Create a post {% endblock %}
+
+
+
+{% block content %}
+
+<form action="" method="post">
+
+    <div class="row">
+        <div class="input-field col s12">
+            <input id="password" type="password" name="title">
+            <label for="password">Title</label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="input-field col s12">
+            <textarea id="textarea1" class="materialize-textarea"></textarea>
+            <label for="textarea1">Text area</label>
+        </div>
+    </div>
+
+    <p>
+        <label for=public>
+            <input type="checkbox" class="filled-in" checked="checked" id="public"/>
+            <span>Public</span>
+        </label>
+    </p>
+
+    <input type="text" class="datepicker" name="date_created">
+
+    <button class='btn' type="submit">Post</button>
+
+</form>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.datepicker');
+        var instances = M.Datepicker.init(elems, {});
+    });
+</script>
+
+{% endblock %}
+
