@@ -4,8 +4,7 @@
 {% extends 'blog/base.html' %}
 
 {% block link %}
-<li><a href="{}">Home</a></li>
-<li><a href="{}">Logout</a></li>
+<li><a href="{% url 'users:logout' %}">Logout</a></li>
 {% endblock %}
 
 {% block title %}
@@ -13,5 +12,5 @@
 {% endblock %}
 
 {% block content %}
-<p>Welcome {{ user.username }}</p>
+<p style="text-align: center;">Welcome {{ user.username }}</p>
 {% endblock %}
