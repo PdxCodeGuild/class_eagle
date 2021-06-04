@@ -9,16 +9,22 @@
 {% block content %}
 
 
-<div class="container">
+<div class="container mt-3">
     <div class="row">
         <form id="login" class="d-flex flex-column" action="{% url 'blog_app:edit_save' blogpost.id %}" method="post">
             {% csrf_token %}
-            <div class="d-flex flex-row align-items-end ms-5">
-                <span>{{ form.title|as_crispy_field }}</span>
-                <span class="mx-4">{{ form.public|as_crispy_field }}</span>
+            <div class="mx-5">
+                <div>{{form.title|as_crispy_field}}</div>
+
             </div>
-            {{ form.body|as_crispy_field }}
-            <button type="submit" class="btn bg-warning">Confirm</button>
+            <div class="mx-5">
+                {{form.body|as_crispy_field}}
+            </div>
+            <div class="mx-5 d-flex justify-content-around align-items-end">
+                <div>{{form.public|as_crispy_field}}</div>
+                <button type="submit" class="btn bg-warning mt-3">Confirm</button>
+            </div>
+            
         </form>
     </div>
 </div>

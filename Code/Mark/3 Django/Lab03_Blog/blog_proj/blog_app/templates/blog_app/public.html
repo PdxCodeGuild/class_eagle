@@ -1,0 +1,33 @@
+{% extends 'blog_app/base.html' %}
+
+
+{% block title %}Public Page{% endblock %}
+{% block content %}
+
+
+<div id="login">
+    You are looking at the public profile for {{user.username}}
+</div>
+
+{% for blogpost in blogposts %}
+<div class="container mt-3">
+    <div id="post" class="card">
+        <h5 id="post_title" class="card-header text-center">{{blogpost.title}}</h5>
+        <div class="card-body">
+            <div>
+                <h6 class="card-title"><u>By {{blogpost.user}} on {{blogpost.date_created}}</u></h6>
+            </div>
+            
+            <p class="card-text">{{blogpost.body}}</p>
+            {% if blogpost.date_edited %}
+            <div>
+                <u>Edited on: {{blogpost.date_edited}}</u>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+
+{% endblock %}
