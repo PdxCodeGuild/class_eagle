@@ -13,9 +13,16 @@ class TodoItem(models.Model):
     detail = models.CharField(max_length=200, null=True, blank=True)
     created_date = models.DateField()
     due_date = models.DateField(blank=True, null=True)
-
+    due_time = models.CharField(max_length=10, null=True)
     def __str__(self):
 
         return self.title
 
 
+class Archive(models.Model):
+    title = models.CharField(max_length=100)
+    detail = models.CharField(max_length=200)
+    due_date = models.DateField()
+    completed_date = models.DateField()
+    def __str__(self):
+        return self.title

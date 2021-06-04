@@ -1,0 +1,16 @@
+
+
+
+{% extends 'blog/base.html' %}
+
+{% block link %}
+<li><a href="{% url 'users:logout' %}">Logout</a></li>
+{% endblock %}
+
+{% block title %}
+<h1 style="text-align: center;">Profile</h1>
+{% endblock %}
+
+{% block content %}
+<p style="text-align: center;">Welcome {{ user.username }}</p>
+{% endblock %}

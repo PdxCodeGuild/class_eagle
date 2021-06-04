@@ -17,6 +17,7 @@
             background-position: center;
             background-repeat: no-repeat;
             font-family: 'Mate SC';
+            background-attachment: fixed;
         }
 
         .Low {
@@ -38,12 +39,13 @@
             background-color: white;
         }
         nav {
-            background-color: rgba(21,2,89,0.75);
+            background-color: rgba(2, 2, 2, 0.5);
         }
         #quote {
             background-color: rgba(21,2,89,0.75);
             border-style: solid;
             border-color: rgb(130,104,166);
+            margin-top: .25in;
         }
         #title_bar {
             display: flex;
@@ -61,6 +63,11 @@
             display: flex;
             align-items: center;
         }
+        #due_date {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
     </style>
 </head>
 
@@ -77,22 +84,20 @@
         <h5>"{{ quote }}"</h5>
         <p>-{{ author }}</p>
     </div>
-
-
-
+    <!-- Displaying current items on the todo list -->
     <div class="container">
         <div class="col">
             <ul class="collapsible">
                 {% for todo_item in todo_items %}
                 <li>
                     <div id="title_bar" class="collapsible-header {{ todo_item.priority }}">
-                        <h6 id="todo_title">{{ todo_item.title}}</h6>
-                        <a class="btn red" href="{% url 'todo_app:delete' todo_item.id %}">Delete</a>
+                        <h6 id="todo_title">Task: {{ todo_item.title}}</h6>
+                        <a class="btn red" href="{% url 'todo_app:delete' todo_item.id %}">Completed</a>
                     </div>
                     <div class="collapsible-body deep-purple lighten-2">
                         <ul>
                             <li>Priority: {{ todo_item.priority }}</li>
-                            <li>Due Date: {{ todo_item.due_date }}</li>
+                            <li>Due Date: {{ todo_item.due_date }} @ {{todo_item.due_time}}</li>
                             <hr>
                             <li>Detail: {{ todo_item.detail }}</li>
                         </ul>
@@ -102,13 +107,13 @@
             </ul>
 
         </div>
-
+        <!-- Form submission to add items to the todo list -->
         <div class="col">
             <form action="{% url 'todo_app:create' %}" id="form" class=" z-depth-4" method="POST">
                 {% csrf_token %}
                 <!-- Title -->
                 <div class="input-field col s12">
-                    <input id="title" type="text" class="validate" name="title" placeholder="Title" required>
+                    <input id="title" type="text" class="validate" name="title" placeholder="Task" required>
                 </div>
 
                 <!-- Priority -->
@@ -121,17 +126,45 @@
                     <label>Priority</label>
                 </div>
                 <!-- Details -->
-                <textarea id="textarea1" class="materialize-textarea" name="detail"></textarea>
-                <label for="textarea1">Additional Information</label>
+                <textarea id="textarea1" class="materialize-textarea" name="detail" placeholder="Additional Information"></textarea>
                 <!-- Due date -->
-                <input type="text" id="due_date" class="datepicker" name="due_date" required>
-                <label for="due_date">Due Date</label>
+                <div id="due_date">
+                    <span><input type="text" id="due_date" class="datepicker" name="due_date" required></span>
+                    <label for="due_date">Due Date</label>
+                    <span><input type="text" name="due_time" class="timepicker" required></span>
+                </div>
 
-
-                <button id="submit" type="submit" class="btn orange">Submit</button>
+                <div id="due_date">
+                    <button id="submit" type="submit" class="btn orange">Submit</button>
+                </div>
             </form>
         </div>
     </div>
+    <!-- An archive list of already completed items -->
+    <div id="quote" class="container white-text">
+        <table class="responsive-table">
+            <thead>
+              <tr>
+                  <th>Title</th>
+                  <th>Detail</th>
+                  <th>Due Date</th>
+                  <th>Completed Date</th>
+              </tr>
+            </thead>
+            {% for archive in archives%}
+            <tbody>
+              <tr>
+                <td>{{ archive.title }}</td>
+                <td>{{ archive.detail }}</td>
+                <td>{{ archive.due_date }}</td>
+                <td>{{ archive.completed_date }}</td>
+              </tr>
+            </tbody>
+            {%endfor%}
+          </table>        
+    </div>
+
+
 
     
 
@@ -160,6 +193,12 @@
             var elems = document.querySelectorAll('.collapsible');
             var instances = M.Collapsible.init(elems, {});
         });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.timepicker');
+            var instances = M.Timepicker.init(elems, {});
+        });
+
     </script>
 </body>
 

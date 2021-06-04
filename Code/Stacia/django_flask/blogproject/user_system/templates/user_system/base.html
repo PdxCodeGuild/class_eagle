@@ -1,0 +1,158 @@
+<html>
+    <head>
+        <title>Document</title>
+
+        <style>
+             body{
+      height: 100%;
+      width:100%
+    }
+    .textbox {
+      width: 200px;
+      height: 500px;
+      background-color: blanchedalmond;
+    }
+
+    .title {
+
+      background-color: aquamarine;
+      font-size: 32px;
+      text-align: center;
+      font-family: 'Indie Flower', cursive;
+      padding-top: 20px;
+      
+
+
+    }
+
+    .menu {
+      visibility: hidden;
+    }
+
+    button+.menu:active,
+    button:focus+.menu {
+      visibility: visible;
+    }
+
+    .left {
+      border: 3px solid darkseagreen;
+      border-radius: 60px;
+      background-color:honeydew;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 20px;
+      padding-bottom:20px;
+    }
+
+    .center {
+      border: 3px solid darkseagreen;
+      border-radius: 60px;
+      background-color:honeydew;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 20px;
+      padding-bottom:20px;
+     
+    }
+
+    .right {
+      border: 3px solid darkseagreen;
+      border-radius: 60px;
+      background-color:honeydew;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 20px;
+      padding-bottom:20px;
+    }
+
+    .form {
+      display: grid;
+      flex-direction: column;
+      height: 800px;
+      justify-content: space-between;
+    }
+
+    .list {
+      background-color: rgb(199, 199, 238);
+      height: 100px;
+      width: 100px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      display: flex;
+      align-items: stretch;
+      /* align-content: center; */
+      justify-content: space-around;
+      width: 100%;
+      background-color: burlywood;
+      height: 100%;
+
+    }
+
+    .box {
+
+      background-color: beige;
+      height: 200px;
+      border-radius: 60px;
+      border: 3px solid blueviolet;
+    
+      
+      padding-left: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .col {
+      background-color: rgb(33, 36, 211);
+      
+      display: flex;
+      flex-direction: column;
+     
+      justify-content: space-around;
+      /* width: 40%; */
+      
+
+
+
+
+    }
+    .dummy{
+
+    }
+    .logbook {
+      border: 3px solid blueviolet;
+      background-color: darksalmon;
+      display: flex;
+      flex-direction:row;
+      justify-content: space-around;
+      
+    }
+    .todos {
+      flex-grow:1;
+      display:flex;
+      flex-direction:column;
+      
+    }
+    .todos > div {
+      /* flex-grow:1; */
+      
+    }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>{% block title %}{% endblock %}</h1>
+        </header>
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+        <footer>
+            <span>&copy; Stacia Class Eagle PDX Code Guild 2020</span>
+        </footer>
+    </body>
+</html> 

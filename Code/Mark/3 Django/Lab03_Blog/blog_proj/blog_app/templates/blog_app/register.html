@@ -1,0 +1,30 @@
+{% extends 'blog_app/base.html' %}
+
+
+{% block title %}Register{% endblock %}
+{% block content %}
+
+<h1>Register</h1>
+<div>
+
+    <form action="{% url 'blog_app:register' %}" method="post" class="container" id="login">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            <span class="input-group-text">Username</span>
+            <input type="text" class="form-control" name="username">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">E-Mail</span>
+            <input type="text" class="form-control" name="email">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Password</span>
+            <input type="password" class="form-control" name="password">
+        </div>
+        <div class="d-flex justify-content-center">
+            <button type="submit">One of us....</button>
+        </div>
+    </form>
+
+</div>
+{% endblock %}
