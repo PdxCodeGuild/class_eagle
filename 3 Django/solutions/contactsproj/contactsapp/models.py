@@ -37,6 +37,7 @@ class City(models.Model):
 
 class Contact(models.Model):
     name = models.CharField(max_length=200)
+    profile_image = models.ImageField(upload_to='profile_images/', null=True, blank=True)
     email = models.EmailField()
     birthday = models.DateField()
     organ_donor = models.BooleanField()
