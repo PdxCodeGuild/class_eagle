@@ -2,16 +2,31 @@
 
 
 {% extends 'contactsapp/base.html' %}
+{% load static %}
 
 {% block title %}Contact List{% endblock %}
 {% block content %}
+<style>
+    table img {
+        width: 80px;
+    }
+    @media only screen and (max-width: 992px) {
+        .th_photo {
+            padding-bottom: 80px;
+        }
+    }
+</style>
 <div class="container">
     
-    <form action="{% url 'contactsapp:create' %}" method="post" class="row">
+    <form action="{% url 'contactsapp:create' %}" method="post" class="row" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="input-field col l2 m4 s12">
             <input name="name" id="input_name" type="text" class="validate">
             <label for="input_name">Name</label>
+        </div>
+        <div class="col l2 m4 s12">
+            <label for="input_profile_image">Profile Image</label>
+            <input id="input_profile_image" type="file" name="profile_image" accept="image/*" required>
         </div>
         <div class="input-field col l2 m4 s12">
             <input name="email" id="input_email" type="email" class="validate">
@@ -47,6 +62,7 @@
     <table class="responsive-table">
         <thead>
             <tr>
+                <th class="th_photo">Photo</th>
                 <th>Name</th>
                 <th>City</th>
                 <th>Email</th>
@@ -59,6 +75,11 @@
         <tbody>
             {% for contact in contacts %}
             <tr>
+                {% if contact.profile_image %}
+                <td><img src="{{ contact.profile_image.url }}"/></td>
+                {% else %}
+                <td><img src="{% static 'contactsapp/default_profile_photo.png' %}"/></td>
+                {% endif %}
                 <td>{{ contact.name }}</td>
                 <td>{{ contact.city.name }}</td>
                 <td>{{ contact.email }}</td>

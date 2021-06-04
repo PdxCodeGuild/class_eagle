@@ -11,7 +11,8 @@ class Priority(models.Model):
 class TodoItem(models.Model):
     text = models.CharField(max_length=200)
     priority = models.ForeignKey(Priority, on_delete=models.PROTECT)
-    created_date = models.DateTimeField()
+    created_date = models.DateTimeField(null= True)
 
     def __str__(self):
         return self.text
+

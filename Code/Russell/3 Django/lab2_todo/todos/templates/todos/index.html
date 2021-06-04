@@ -7,8 +7,26 @@
     <title>To Dos</title>
     <!-- Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
     <!-- Materialize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <style>
+        * {
+            color:ghostwhite
+        }
+        body h3{
+            font-family: 'Abril Fatface', cursive;
+        }
+        body{
+            background-color: dimgrey;
+            font-family: 'Open Sans', sans-serif;
+            
+        }
+      
+    </style>
 </head>
 
 <body>
@@ -29,9 +47,9 @@
 
                 <select name="priority">
                     <option value="" disabled selected>Choose your option</option>
-                    <option value="1">Low</option>
-                    <option value="2">Medium</option>
-                    <option value="3">High</option>
+                    <option value="1">High</option>
+                    <option value="2" selected >Medium</option>
+                    <option value="3">Low</option>
                 </select>
                 <label>Select Priority Level</label>
             </div>

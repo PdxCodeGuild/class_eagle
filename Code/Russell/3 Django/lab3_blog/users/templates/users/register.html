@@ -1,0 +1,41 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Register, yo! {% endblock %}
+
+
+
+{% block content %}
+
+<form class="col s12" action="" method="post">
+    {% csrf_token %}
+
+    <div class="row">
+        <div class="input-field col s12">
+            <input id="password" type="text" class="validate" name="username">
+            <label for="password">Username</label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="input-field col s12">
+            <input id="password" type="email" class="validate" name="email">
+            <label for="password">Email</label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="input-field col s12">
+            <input id="password" type="password" class="validate" name="password">
+            <label for="password">Password</label>
+        </div>
+    </div>
+
+    <button type="submit" class="btn">Register</button>
+
+    <div>Already a registered user? <a href="{% url 'users:login' %}">Login</a></div>
+
+</form>
+
+{% endblock %}
+
+
