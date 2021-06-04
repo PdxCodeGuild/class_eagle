@@ -32,3 +32,7 @@ def login(request):
         else:
             return render(request, 'users/login.html', { 'error': 'Invalid username / password' })
     return render(request, 'users/login.html')
+
+def logout(request):
+    django.contrib.auth.logout(request)
+    return HttpResponseRedirect(reverse('users:login'))

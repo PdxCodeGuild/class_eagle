@@ -1,5 +1,13 @@
 {% extends 'blog/base.html' %}
-{% block title %}Register{% endblock %}
+
+{% block link %}
+<li><a href="{% url 'users:login' %}">Login</a></li>
+{% endblock %}
+
+{% block title %}
+<h1 style="text-align: center;">Register</h1>
+{% endblock %}
+
 {% block content %}
 <div class="container">
     <form action="" method="post" class="row">

@@ -5,12 +5,13 @@ import django.contrib.auth
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from .models import BlogPost
+from .forms import EditForm
 
 
 def index(request):
-    blogposts = BlogPost.objects.filter(public='True').order_by('date_created')
+    blogposts = BlogPost.objects.filter(public='True').order_by('-date_created')
     context = {
-        blogposts: blogposts,
+        'blogposts': blogposts,
     }
     return render(request, 'blog_app/index.html', context)
 
@@ -40,14 +41,19 @@ def login(request):
 
 @login_required
 def profile(request):
-    return render(request, 'blog_app/profile.html')
+    blogposts = request.user.blogpost.all().order_by('-date_created')
+    context = {
+        'blogposts': blogposts,
+    }
+    return render(request, 'blog_app/profile.html', context)
 
+@login_required
 def logout(request):
     django.contrib.auth.logout(request)
     return HttpResponseRedirect(reverse('blog_app:login'))
 
+@login_required
 def create(request):
-    print(request.POST)
     # assign variables
     title = request.POST['title']
     body = request.POST['body']
@@ -57,6 +63,30 @@ def create(request):
     public = 'public' in request.POST
     # assigning the user
     user = django.contrib.auth.get_user(request)
-    blogpost_set = BlogPost(title=title, body=body, date_created=date_created, public=public, user=user)
-    blogpost_set.save()
-    return render(request, 'blog_app/profile.html')
+    blogpost = BlogPost(title=title, body=body, date_created=date_created, public=public, user=user)
+    blogpost.save()
+    return HttpResponseRedirect(reverse('blog_app:profile'))
+
+@login_required
+def edit(request, blogpost_id):
+    blogpost = BlogPost.objects.get(id=blogpost_id)
+    form = EditForm(instance=blogpost)
+    context = {
+        'blogpost': blogpost,
+        'form': form
+        }
+    return render(request, 'blog_app/edit.html', context)
+
+@login_required
+def edit_save(request, blogpost_id):
+    blogpost = BlogPost.objects.get(id=blogpost_id)
+    form = EditForm(request.POST, instance=blogpost)
+    if form.is_valid():
+        blogpost = form.save()
+    return HttpResponseRedirect(reverse('blog_app:profile'))
+
+@login_required
+def delete(request, blogpost_id):
+    blogpost = BlogPost.objects.get(id=blogpost_id)
+    blogpost.delete()
+    return HttpResponseRedirect(reverse('blog_app:profile'))
