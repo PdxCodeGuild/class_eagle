@@ -5,11 +5,14 @@
 {% block content %}
 
 
-<div id="login">
-    You are looking at the public profile for {{user.username}}
+<div id="login" class="text-center">
+    <div>Welcome to the profile of,</div>
+    <hr>
+    <h3>{{user.username}}</h3>
 </div>
 
 {% for blogpost in blogposts %}
+
 <div class="container mt-3">
     <div id="post" class="card">
         <h5 id="post_title" class="card-header text-center">{{blogpost.title}}</h5>
