@@ -52,8 +52,10 @@ def public(request, blogpost_user):
 @login_required
 def profile(request):
     blogposts = request.user.blogpost.all().order_by('-date_created')
+    user_profile = request.user.userprofile
     context = {
         'blogposts': blogposts,
+        'user_profile': user_profile,
     }
     return render(request, 'blog_app/profile.html', context)
 
