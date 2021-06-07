@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+        <style>
+            :root {
+                --primary-color: seagreen;
+                --accent-color: lightcoral;
+                --background-color: cadetblue;
+            }
+            h1 {
+                margin-top: 0;
+            }
+            body {
+                background-color: var(--background-color);
+                font-family: 'Open Sans', sans-serif;
+                margin: 0;
+            }
+            nav {
+                background-color: var(--primary-color);
+                color:white;
+                display:flex;
+                flex-direction:row;
+                justify-content:space-between;
+                align-items: center;
+                padding: 10px;
+                box-shadow: 0 0 10px grey;
+            }
+            .site-title {
+                font-size: 32px;
+            }
+            nav img {
+                width: 20px;
+                border-radius: 20px;
+            }
+
+            .error {
+                color:white;
+                background-color:var(--accent-color);
+                padding: 10px;
+                font-size: 20px;
+            }
+            #page {
+                background-color:white;
+                max-width: 800px;
+                margin: 0 auto;
+                min-height: 100vh;
+            }
+            main {
+                padding: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="page">
+            <nav>
+                <div class="site-title">
+                    Plants of the Aquatic
+                </div>
+                <div>
+                    {% if user.is_authenticated %}
+                    <span>Welcome {{user.username}}</span>
+                    {% if user.photo %}
+                    <img src="{{ user.photo.url }}"/>
+                    {% else %}
+                    <img src="{% static 'users/default_profile_photo.png' %}"/>
+                    {% endif %}
+                    <a href="{% url 'users:logout' %}">Logout</a>
+                    {% else %}
+                    <a href="{% url 'users:login' %}">Login</a>
+                    <a href="{% url 'users:register' %}">Register</a>
+                    {% endif %}
+                </div>
+            </nav>
+
+
+            <main>
+                <h1>{% block title %}{% endblock %}</h1>
+                {% if error %}
+                <div class="error">{{ error | title }}</div>
+                {% endif %}
+                {% block content %}
+                {% endblock %}
+            </main>
+        </div>
+    </body>
+</html>
