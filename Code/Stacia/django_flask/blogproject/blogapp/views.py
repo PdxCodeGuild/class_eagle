@@ -1,10 +1,19 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse
 from django.utils import timezone
+import django.contrib.auth
+from django.contrib.auth.models import User
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import Post
 
-# Create your views here.
-def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'blog/post_list.html', {})
+def splash(request):
 
+      return HttpResponse ("blogapp:splash")
+
+
+def home (request):
+    context ={
+        'posts': Post.objects.all()
+
+    }
+    return render(request , 'blog/home.html' , context )
 

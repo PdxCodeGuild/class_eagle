@@ -1,0 +1,10 @@
+
+{extends "blog/base.html %"}
+{% block content %}
+<div> {{} post.author }</div>
+ <div> {{ post.date_posted |date: "F d, Y"}}</div>
+<div>{{ post.title}}</div>
+<div> {{post.content}}</div>
+</article>
+{% endblock content %}
+
