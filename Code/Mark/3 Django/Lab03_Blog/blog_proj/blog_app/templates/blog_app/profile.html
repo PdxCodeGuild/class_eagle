@@ -37,11 +37,16 @@
     <div id="post" class="card">
         <h5 id="post_title" class="card-header text-center">{{blogpost.title}}</h5>
         <div class="card-body">
-            <h6 class="card-title"><u>By {{blogpost.user}} on {{blogpost.date_created}}</u></h6>
+            <h6 class="card-title"><u>By: {{blogpost.user}} on {{blogpost.date_created}}</u></h6>
             <p class="card-text">{{blogpost.body}}</p>
+            {% if blogpost.date_edited %}
             <div>
-                <a href="{% url 'blog_app:edit' blogpost.id %}" class="btn">Edit</a>
-                <a href="{% url 'blog_app:delete' blogpost.id %}" class="btn">Delete</a>
+                <u>Edited on: {{blogpost.date_edited}}</u>
+            </div>
+            {% endif %}
+            <div>
+                <a href="{% url 'blog_app:edit' blogpost.id %}" class="btn bg-warning">Edit</a>
+                <a href="{% url 'blog_app:delete' blogpost.id %}" class="btn bg-danger">Delete</a>
             </div>
             
         </div>

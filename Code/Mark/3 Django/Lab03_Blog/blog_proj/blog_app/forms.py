@@ -4,4 +4,4 @@ from .models import BlogPost
 class EditForm(ModelForm):
     class Meta:
         model = BlogPost
-        exclude = ['date_created','user']
+        exclude = ['date_created','user', 'date_edited']

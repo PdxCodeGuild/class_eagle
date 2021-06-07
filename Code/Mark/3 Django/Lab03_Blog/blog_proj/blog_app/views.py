@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse
+from django.shortcuts import get_object_or_404, render, reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 import django.contrib.auth
@@ -37,6 +37,16 @@ def login(request):
             return render(request, 'blog_app/login.html', {'error': 'Incorrect username or password'})
     else:
         return render(request, 'blog_app/login.html')
+
+def public(request, blogpost_user):
+    blogposts = BlogPost.objects.filter(user_id=blogpost_user,public=True).order_by('-date_created')
+    user = User.objects.get(id=blogpost_user)
+    print(user)
+    context = {
+        'blogposts':blogposts,
+        'user': user,
+    }
+    return render(request, 'blog_app/public.html', context)
 
 
 @login_required
@@ -82,7 +92,9 @@ def edit_save(request, blogpost_id):
     blogpost = BlogPost.objects.get(id=blogpost_id)
     form = EditForm(request.POST, instance=blogpost)
     if form.is_valid():
-        blogpost = form.save()
+        blogpost = form.save(commit=False)
+        blogpost.date_edited = timezone.now()
+        blogpost.save()
     return HttpResponseRedirect(reverse('blog_app:profile'))
 
 @login_required

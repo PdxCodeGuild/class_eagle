@@ -1,30 +1,44 @@
 
 {% extends 'user_system/base.html' %}
 {% block content %} 
-<form>
-
+ 
+    
     <div class='container'>
-        
-        <div class ='column'>
-            <form action="" method="post" id="user">
-                {% csrf_token %}
-                <div>
-                    <label for ="user_name">User_Name</label>
-                    <input id="user_name" name="user_name" type="text">
-                </div>
-                <div>
-                    <label for ="password">Password</label>
-                    <input id="password" name="password" type="text">
-                </div>
-                <div>
-                    
-                </div>
-                
-                <button input type="datetime-local" id="submit" name="time" value="time" class="btn">Submit</button>
-            </div>
+        <div class = "topbar">
+            <h1> Yeah</h1>
         </div>
-    </form>
-        <div> Already a member? <a href ="{%url 'user_system:login'%}"> login here!</a> </div>
+        <div class= "floatbox"><p>This is a text this is a text about nothing. This text exists for the simple moment of existing and nothing more. It exists to hold space. To be, and to exist. It shall occupy the space in which it exists in this form and many other forms. It shall be a holder of space while it is needed. It shall sow space beyond the space it is allotted as it exists now until it is needed next. This text holds a moment of interaction and awareness of existing, of the realness in the moment and meta existentiality and the human moment of awareness, declaration, and acknowledgement of belief and value of the validity of existence for joy. </p></div>
+        <div class ='column'>
+            <form.as_p action="" method="POST" id="User">
+                {% csrf_token %}
+                <div class= "bar">
+                    
+                    <div class="title"> <h1> Assimilate</h1></div>
+                    <div class='box'>
+                        
+                        <label for ="user_name">User Name</label>
+                        <input id="user_name" name="user_name" type="text">
+                    </div>
+                    <div class="box">
+                        <label for ="password">Password   </label>
+                        <input id="password" name="password" type="text">
+                    </div>
+                    <div class ="box">
+                        <label for ="email">Email</label>
+                        <input id ="email" name ="email" type = "email">
+                    </div>
+                    <div class="box">
+                        
+                        <button input type="submit" class="btn">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class ="bottombar">
+        <h1>secret club</h1>
+    </div>
+    <div> Already a member? <a href ="{%url 'user_system:login'%}"> login here!</a> </div>
         
 
 {% endblock %}

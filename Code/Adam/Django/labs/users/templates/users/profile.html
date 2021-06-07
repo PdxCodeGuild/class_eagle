@@ -11,6 +11,7 @@
 {% block content %}
 <div class="container">
     <p style="text-align: center;">Welcome {{ user.username }}</p>
+    <h4>Create New Post</h4>
     <form class="col s12" action="{% url 'blog:create' %}" method="post">
         {% csrf_token %}
         <input type="hidden" id="input_user" name="user_id" value="{{ user.id }}">
@@ -28,8 +29,24 @@
                 <span>Make Public</span>
             </label>
         </p>
-        <button class="btn waves-effect waves-light" type="submit" name="action">Post</button>
+        <button class="btn waves-effect waves-light center" type="submit" name="action">Post</button>
     </form>
+    <h4>Your Posts</h4>
+    <table>
+        <thead>
+          <tr>
+              <th>Title</th>
+              <th>date Created</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
 </div>
 
 {% endblock %}
