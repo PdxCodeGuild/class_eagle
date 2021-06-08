@@ -23,15 +23,28 @@
     <div class ="container">
 
         <div class="profile_box"> </div>
-        <!-- What  about you? -->
+        <div class = "col"> </div>
+
         <!-- user input name -->
         <!-- age -->
         <!-- location -->
         <!-- favorite dinosaur -->
         <!-- vax status -->
-        <div class ="scroll box"> </div>
-    
+      
+        <form action="{ url 'blogapp:create' %}" method="POST" id="Blog">
+            {% csrf_token %}
+           
+                
+            <div class='box'>
+                
+                <div class="title"> <h1> New Post</h1></div>
+                <input type="text" class="form-control" name="title">
+                    
+                    <button input type="submit" class="btn">Submit</button>
+                </div>
+            </div>
+        </form>
     <!-- end container -->
     </div>
 </body>
-</html>
+</html> 

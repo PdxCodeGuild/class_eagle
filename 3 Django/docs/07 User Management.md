@@ -46,7 +46,7 @@ from django.contrib.auth.models import User
 user = User.objects.get(username='jane')
 user.set_password('newpassword')
 user.save()
-``` 
+```
 
 ```
 python manage.py changepassword jane
@@ -150,7 +150,41 @@ def my_view(request):
 
 ## Extending the User Model
 
-The built-in user model may not have all the fields you need (e.g. phone number, location, profile image). One option is to have another model with a one-to-one field connected to the built-in user model. 
+The built-in user model only has a few fields (username, email, first name, last name). If you'd like to associate more information with the user (phone number, location, profile image), there are two main strategies.
+
+### Inherit from AbstractUser
+
+We can create a custom user model by inheriting from `AbstractUser`. You should create one **when you start a project**. It's much more difficult to change once you already have users in your database. You can read more [here](https://docs.djangoproject.com/en/3.2/topics/auth/customizing/#auth-custom-user).
+
+
+**models.py**
+```python
+from django.contrib.auth.models import AbstractUser
+
+class User(AbstractUser):
+    phone_number = models.CharField(max_length=20)
+    ...
+```
+
+**settings.py**
+```python
+AUTH_USER_MODEL = 'myapp.User'
+```
+
+**admin.py**
+```python
+from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
+from .models import User
+
+admin.site.register(User, UserAdmin)
+```
+
+
+
+### Separate UserProfile Model
+
+Another option is to have a separate model with a one-to-one field connected to the built-in user model.
 
 ```python
 from django.contrib.auth.models import User
@@ -168,34 +202,6 @@ The caveat of this approach is that accessing that information via the ORM takes
 def index(request):
     print(request.user.user_profile.phone_number)
 ```
-
-
-A better approach is to extend the User model by inheriting from AbstractUser. You should create one **when you start a project**. It's much more difficult to change once you already have users in your database. You can read more [here](https://docs.djangoproject.com/en/3.2/topics/auth/customizing/#auth-custom-user).
-
-
-**settings.py**
-```python
-AUTH_USER_MODEL = 'myapp.User'
-```
-
-**models.py**
-```python
-from django.contrib.auth.models import AbstractUser
-
-class User(AbstractUser):
-    phone_number = models.CharField(max_length=20)
-    ...
-```
-
-**admin.py**
-```python
-from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
-from .models import User
-
-admin.site.register(User, UserAdmin)
-```
-
 
 
 ## Managing Groups and Permissions

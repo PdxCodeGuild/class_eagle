@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse
+from django.shortcuts import get_object_or_404, render, reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 import django.contrib.auth
@@ -39,8 +39,8 @@ def login(request):
         return render(request, 'blog_app/login.html')
 
 def public(request, blogpost_user):
-    blogposts = BlogPost.objects.filter(user=blogpost_user,public=True).order_by('-date_created')
-    user = User.objects.filter(username=blogpost_user)
+    blogposts = BlogPost.objects.filter(user_id=blogpost_user,public=True).order_by('-date_created')
+    user = User.objects.get(id=blogpost_user)
     print(user)
     context = {
         'blogposts':blogposts,
@@ -52,8 +52,10 @@ def public(request, blogpost_user):
 @login_required
 def profile(request):
     blogposts = request.user.blogpost.all().order_by('-date_created')
+    user_profile = request.user.userprofile
     context = {
         'blogposts': blogposts,
+        'user_profile': user_profile,
     }
     return render(request, 'blog_app/profile.html', context)
 
