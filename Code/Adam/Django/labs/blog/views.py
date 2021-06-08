@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, reverse
 from .models import Blogpost
 from datetime import datetime
 
@@ -24,5 +25,15 @@ def create(request):
     new_post = Blogpost(title=title, body=body, user_id=user_id, public=public, date_created=date_created, date_edited=date_edited )
     new_post.save()
 
-    return render(request, 'users/profile.html')
+    return HttpResponseRedirect(reverse('users:profile'))
+
+def entry(request, post_id):
+    blog_entry = Blogpost.objects.get(id=post_id)
+    context = {
+        'title': blog_entry.title,
+        'author': blog_entry.user,
+        'body': blog_entry.body,
+        'date': blog_entry.date_created,
+    }
+    return render(request, 'blog/entry.html', context)
 

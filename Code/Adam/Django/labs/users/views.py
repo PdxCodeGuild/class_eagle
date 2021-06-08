@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 import django.contrib.auth
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
+from blog.models import Blogpost
 
 def register(request):
     print(request.POST)
@@ -18,7 +19,13 @@ def register(request):
 
 @login_required
 def profile(request):
-    return render(request, 'users/profile.html')
+    logged_in_user = request.user
+    logged_in_user_posts = Blogpost.objects.filter(user=logged_in_user)
+    print(logged_in_user_posts)
+    context = {
+        'posts': logged_in_user_posts
+    }
+    return render(request, 'users/profile.html', context)
 
 
 def login(request):

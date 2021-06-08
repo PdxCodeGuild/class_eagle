@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+
+{% block link %}
+<li><a href="{% url 'users:profile' %}">Profile</a></li>
+<li><a href="{% url 'users:login' %}">Login</a></li>
+{% endblock %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="center">
+            <h3>{{ title }}</h3>
+            <h5>by {{ author }}</h5>
+            <p>{{ date }}</p>
+        </div>
+        <img class="center" src="https://random.imagecdn.app/500/300">
+        <p class="flow-text">{{ body }}</p>
+    </div>
+</div>
+{% endblock %}
