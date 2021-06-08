@@ -27,11 +27,23 @@
                 flex-direction:row;
                 justify-content:space-between;
                 align-items: center;
-                padding: 10px;
                 box-shadow: 0 0 10px grey;
+                min-height: 60px;
+                padding: 10px;
             }
             .site-title {
                 font-size: 32px;
+            }
+            nav a {
+                color:white;
+                text-decoration: none;
+                padding: 10px;
+                transition: all 200ms;
+                display:inline-block;
+            }
+            nav a:hover {
+              text-shadow: 0 0 4px yellow;
+              transform:scale(1.01);
             }
             nav img {
                 width: 20px;
@@ -53,33 +65,49 @@
             main {
                 padding: 20px;
             }
+            .btn {
+                background-color: var(--primary-color);
+                color:white;
+                border: 1px solid lightgrey;
+                border-radius: 4px;
+                padding: 6px;
+                transition: all 200ms;
+                text-decoration:none;
+            }
+            .btn:hover {
+                background-color:var(--accent-color);
+            }
+            .page-title {
+                font-size: 40px;
+                margin-bottom: 20px;
+            }
         </style>
     </head>
     <body>
         <div id="page">
             <nav>
                 <div class="site-title">
-                    Plants of the Aquatic
+                    <a href="{% url 'blogapp:index' %}">Plants of the Aquatic</a>
                 </div>
                 <div>
                     {% if user.is_authenticated %}
-                    <span>Welcome {{user.username}}</span>
-                    {% if user.photo %}
-                    <img src="{{ user.photo.url }}"/>
+                        <span>Welcome {{user.username}}</span>
+                        {% if user.photo %}
+                        <img src="{{ user.photo.url }}"/>
+                        {% else %}
+                        <img src="{% static 'users/default_profile_photo.png' %}"/>
+                        {% endif %}
+                        <a href="{% url 'users:logout' %}">Logout</a>
                     {% else %}
-                    <img src="{% static 'users/default_profile_photo.png' %}"/>
-                    {% endif %}
-                    <a href="{% url 'users:logout' %}">Logout</a>
-                    {% else %}
-                    <a href="{% url 'users:login' %}">Login</a>
-                    <a href="{% url 'users:register' %}">Register</a>
+                        <a href="{% url 'users:login' %}">Login</a>
+                        <a href="{% url 'users:register' %}">Register</a>
                     {% endif %}
                 </div>
             </nav>
 
 
             <main>
-                <h1>{% block title %}{% endblock %}</h1>
+                <div class="page-title">{% block title %}{% endblock %}</div>
                 {% if error %}
                 <div class="error">{{ error | title }}</div>
                 {% endif %}
