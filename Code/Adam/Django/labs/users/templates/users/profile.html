@@ -4,49 +4,67 @@
 <li><a href="{% url 'users:logout' %}">Logout</a></li>
 {% endblock %}
 
-{% block title %}
-<h1 style="text-align: center;">Profile</h1>
-{% endblock %}
+{% block title %}Profile{% endblock %}
 
 {% block content %}
+<style>
+	.section {
+		background-color: white;
+		padding: 15px;
+		margin-bottom: 15px;
+		border-radius: 5px;
+	}
+</style>
 <div class="container">
-    <p style="text-align: center;">Welcome {{ user.username }}</p>
-    <h4>Create New Post</h4>
-    <form class="col s12" action="{% url 'blog:create' %}" method="post">
-        {% csrf_token %}
-        <input type="hidden" id="input_user" name="user_id" value="{{ user.id }}">
-        <div class="input-field col s12">
-            <input id="input_title" name="title" type="text" class="validate">
-            <label for="input_title">Title</label>
-        </div>
-        <div class="input-field col s12">
-            <textarea id="input_body" name="body" class="materialize-textarea"></textarea>
-            <label for="input_body">Body</label>
-        </div>
-        <p>
-            <label>
-                <input name="public" type="checkbox" class="filled-in" checked="checked" />
-                <span>Make Public</span>
-            </label>
-        </p>
-        <button class="btn waves-effect waves-light center" type="submit" name="action">Post</button>
-    </form>
-    <h4>Your Posts</h4>
-    <table>
-        <thead>
-          <tr>
-              <th>Title</th>
-              <th>date Created</th>
-          </tr>
-        </thead>
+	<p style="text-align: center;">Welcome {{ user.username }}</p>
+	<div class="section z-depth-2">
+		<h5>Create Post</h5>
+		<form class="col s12" action="{% url 'blog:create' %}" method="post">
+			{% csrf_token %}
+			<input type="hidden" id="input_user" name="user_id" value="{{ user.id }}">
+			<div class="input-field col s12">
+				<input id="input_title" name="title" type="text" class="validate">
+				<label for="input_title">Title</label>
+			</div>
+			<div class="input-field col s12">
+				<textarea id="input_body" name="body" class="materialize-textarea"></textarea>
+				<label for="input_body">Body</label>
+			</div>
+			<p>
+				<label>
+					<input name="public" type="checkbox" class="filled-in" checked="checked" />
+					<span>Make Public</span>
+				</label>
+			</p>
+			<button class="btn waves-effect waves-light center" type="submit" name="action">Post</button>
+		</form>
+	</div>
+	<div class="section z-depth-2">
+		<h5>Post History</h5>
+		<table class="striped highlight">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Date Created</th>
+					<th>Edit</th>
+				</tr>
+			</thead>
 
-        <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
+			<tbody>
+				{% for post in posts %}
+				<tr>
+					<td><a href="{% url 'blog:entry' post.id %}">{{ post.title }}</a></td>
+					<td>{{ post.date_created }}</td>
+					<td>
+						<a class="waves-effect waves-light btn red lighten-1" href="{% url 'blog:edit' post.id %}"
+							type="submit">
+							<i class="material-icons">edit</i></a>
+					</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
 </div>
 
 {% endblock %}

@@ -6,13 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog</title>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat&family=Playfair+Display:ital,wght@0,600;1,500&display=swap"
+        rel="stylesheet">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Materialize Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         body {
             display: flex;
             min-height: 100vh;
             flex-direction: column;
+        }
+
+        .brand-logo {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 900;
+            text-shadow: 2px 2px black;
         }
 
         main {
@@ -23,7 +37,18 @@
             display: block;
             margin-left: auto;
             margin-right: auto;
-            /* width: 50%; */
+        }
+
+        h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .error {
+            color: red;
+        }
+
+        nav {
+            background-image: linear-gradient(#256385, #120000);
         }
     </style>
 </head>
@@ -31,7 +56,7 @@
 <body>
     <header>
         <nav>
-            <div class="nav-wrapper">
+            <div class="nav-wrapper blue-grey darken-2 z-depth-2">
                 <a href="{% url 'blog:index' %}" class="brand-logo center">Blog</a>
                 <ul id="nav-mobile" class="right">
                     {% block link %}{% endblock %}
@@ -39,12 +64,12 @@
             </div>
         </nav>
     </header>
-    <main>
-        {% block title %}{% endblock %}
-        {% block content %}
-        {% endblock %}
+    <main class="blue-grey lighten-5">
+        <h4 style="text-align: center;">{% block title %}{% endblock %}</h4>
+        {% block content %}{% endblock %}
     </main>
-    <footer class="page-footer" style="text-align: center;">
+    <div class="divider"></div>
+    <footer class="page-footer blue-grey darken-2" style="text-align: center;">
         &copy; Class Eagle 2021
     </footer>
 
