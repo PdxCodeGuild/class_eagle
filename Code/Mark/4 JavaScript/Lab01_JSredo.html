@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #gen_form {
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+            margin-left: 2in;
+            margin-right: 2in;
+            margin-top: 10px;
+        }
+        #title_bar {
+            text-align: center;
+        }
+        #char_input {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="title_bar">
+        <h2>Password Generator 10X</h2>
+    </div>
+    <div id="gen_form">
+        <div id="char_input">
+            <label for="characters">How many Uppercase would you like?</label>
+            <span><input type="number" id="uppercase"></span>
+        </div>
+        
+        <div id="char_input">
+            <label for="characters">How many Lowercase would you like?</label>
+            <span><input type="number" id="lowercase"></span>
+        </div>
+
+        <div id="char_input">
+            <label for="characters">How many Numbers would you like?</label>
+            <span><input type="number" id="numbers"></span>
+        </div>
+
+        <div id="char_input">
+            <label for="characters">How many Special Characters would you like?</label>
+            <span><input type="number" id="special"></span>
+        </div>
+        
+        <span><button id="character_button">Click me!</button></span>
+        
+    
+    
+        <div id="output"></div>
+    </div>
+
+    <!-- JavaScript section -->
+    <script>
+        let up_select = document.querySelector('#uppercase')
+        let lo_select = document.querySelector('#lowercase')
+        let num_select = document.querySelector('#numbers')
+        let spec_select = document.querySelector('#special')
+        let run_click = document.querySelector('#character_button')
+        let output_html = document.querySelector('#output')
+
+        // random choice functions -------------------------------
+        function randint(a, b) {
+            return Math.floor(a + Math.random() * (b - a + 1))
+        }
+        function randomChoice(arr) {
+            let i = randint(0, arr.length - 1)
+            return arr[i]
+        }
+        // -------------------------------------------------------
+
+        // function +
+        run_click.addEventListener('click', function () {
+            let up_characters = up_select.value
+            let lo_characters = lo_select.value
+            let num_characters = num_select.value
+            let spec_characters = spec_select.value
+            let new_password = ""
+            // uppercase-------------------------------------
+            for (let i = 1; i <= up_characters; i++) {
+                let up_choices = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                new_password += randomChoice(up_choices)
+            }
+            // lowercase-------------------------------------
+            for (let i = 1; i <= lo_characters; i++) {
+                let lo_choices = "abcdefghijklmnopqrstuvwxyz"
+                new_password += randomChoice(lo_choices)
+            }
+            // numbers-------------------------------------
+            for (let i = 1; i <= num_characters; i++) {
+                let num_choices = "0123456789"
+                new_password += randomChoice(num_choices)
+            }
+            // special characters-------------------------------------
+            for (let i = 1; i <= spec_characters; i++) {
+                let spec_choices = "!'#$%&()*+,-./:;\"<=>?@[\\]_`{|}~"
+                new_password += randomChoice(spec_choices)
+            }
+            // shuffle code-------------------------------------
+            let shuffled_password = new_password.split('').sort(function () { return 0.5 - Math.random() }).join('');
+            output_html.innerText = shuffled_password
+        })
+    </script>
+</body>
+
+</html>
