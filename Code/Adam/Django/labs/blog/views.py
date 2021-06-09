@@ -6,9 +6,10 @@ from datetime import datetime
 
 
 def index(request):
-    all_posts = Blogpost.objects.all()
+    all_posts = Blogpost.objects.all().order_by('-date_created')
     context = {
-        'all_posts': all_posts,
+        'top_story': all_posts[0],
+        'other_posts': all_posts[1:]
     }
     print(all_posts)
     return render(request, 'blog/index.html', context)
@@ -30,10 +31,15 @@ def create(request):
 def entry(request, post_id):
     blog_entry = Blogpost.objects.get(id=post_id)
     context = {
-        'title': blog_entry.title,
-        'author': blog_entry.user,
-        'body': blog_entry.body,
-        'date': blog_entry.date_created,
+        'blog_entry': blog_entry,
+
     }
     return render(request, 'blog/entry.html', context)
+
+def edit(request, post_id):
+    blog_entry = Blogpost.objects.get(id=post_id)
+    context = {
+        'blog_entry': blog_entry,
+    }
+    return render(request, 'blog/edit.html', context)
 

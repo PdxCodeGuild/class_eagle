@@ -9,6 +9,8 @@ class Blogpost(models.Model):
     public = models.BooleanField()
     date_created = models.DateTimeField(auto_now_add=True)
     date_edited = models.DateTimeField(auto_now=True)
+    # add image
+    # add category
 
     def __str__(self):
-        return self.title
+        return self.title + ' by ' + self.user.username
