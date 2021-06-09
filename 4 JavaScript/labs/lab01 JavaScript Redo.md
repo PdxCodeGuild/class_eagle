@@ -1,4 +1,4 @@
-# Lab 1-3: JavaScript Redo
+# Lab 1: JavaScript Redo
 
 ## Version 1
 
