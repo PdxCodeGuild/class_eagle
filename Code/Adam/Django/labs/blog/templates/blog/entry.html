@@ -11,12 +11,12 @@
 <div class="container">
     <div class="row">
         <div class="center">
-            <h3>{{ title }}</h3>
-            <h5>by {{ author }}</h5>
-            <p>{{ date }}</p>
+            <h3>{{ blog_entry.title }}</h3>
+            <h5>by {{ blog_entry.user }}</h5>
+            <p>{{ blog_entry.date_created }}</p>
         </div>
         <img class="center" src="https://random.imagecdn.app/500/300">
-        <p class="flow-text">{{ body }}</p>
+        <p class="flow-text">{{ blog_entry.body }}</p>
     </div>
 </div>
 {% endblock %}
