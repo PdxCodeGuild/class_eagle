@@ -1,8 +1,125 @@
 
 {% extends 'blogapp/base.html' %}
 
-{% block title %}Blog{% endblock %}
+{% block title %}
+    <div class="featured-post-title">{{ blog_posts.0.title }}</div>
+    <div class="featured-post-author">By {{ blog_posts.0.user.username }}, Published {{ blog_posts.0.date_created | date:"M d, Y" }}</div>
+    <div class="featured-post-body">{{ blog_posts.0.body | striptags |truncatechars:120 }}</div>
+    <a class="btn" href="{% url 'blogapp:detail' blog_posts.0.id %}">Read More</a>
+{% endblock %}
 
 {% block content %}
-list of blog posts
+<style>
+    .post-list {
+        display:flex;
+        flex-direction:column;
+    }
+    .post {
+        margin-bottom: 20px;
+        display:flex;
+        flex-direction:row;
+        justify-content:space-between;
+        align-items:center;
+        cursor:pointer;
+        transition: all 200ms;
+        padding: 10px;
+        color:black;
+        text-decoration:none;
+    }
+    .post:hover {
+        box-shadow: 0 4px 10px lightgrey;
+    }
+    .post-image {
+        width:120px;
+        height:120px;
+        background-position:center;
+        background-size: cover;
+        flex-shrink: 0;
+    }
+    .post-left {
+        display:flex;
+        flex-direction:row;
+    }
+    .post-text {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .post-title {
+        font-size: 30px;
+    }
+    .post-icon {
+        color: var(--accent-color);
+        font-size: 32px;
+        padding: 20px;
+    }
+    .post-text-preview {
+        color:grey;
+    }
+
+    /* featured blog post at the top */
+    .page-title {
+        background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('{{blog_posts.0.banner_image.url}}');
+        /* background-image: url('{{blog_posts.0.banner_image.url}}'); */
+
+        background-position:center;
+        background-size:cover;
+
+        color:white;
+        padding: 30px 10px;
+        text-shadow: 0 0 7px black;
+    }
+    .page-title a {
+        font-size: 12px;
+    }
+    .featured-post-author {
+        font-size: 14px;
+    }
+    .featured-post-body {
+        font-size: 14px;
+        opacity: 0.5;
+    }
+    .btns {
+        margin-top: 20px;
+    }
+    .pagination {
+        display:flex;
+        flex-direction:row;
+        justify-content:center;
+        align-items:center;
+    }
+    .pagination > * {
+        margin: 10px;
+    }
+    .pagination a {
+        font-size: 20px;
+        padding: 4px 20px;
+    }
+</style>
+<div>
+    <h2></h2>
+</div>
+<div class="post-list">
+    {% for blog_post in blog_posts|slice:"1:" %}
+    <a href="{% url 'blogapp:detail' blog_post.id %}" class="post">
+        <div class="post-left">
+            <div class="post-image" style="background-image:url('{{blog_post.banner_image.url}}')"></div>
+            <div class="post-text">
+                <div class="post-title">{{blog_post.title}}</div>
+                <div>By {{ blog_post.user.username }}, Published {{ blog_post.date_created | date:"M d, Y" }}</div>
+                <div class="post-text-preview">{{ blog_post.body | striptags |truncatechars:120 }}</div>
+            </div>
+        </div>
+        <div class="post-icon">&#10148;</div>
+    </a>
+    {% endfor %}
+    <div class="pagination">
+        {% if blog_posts.has_previous %}
+        <a class="btn" href="?page={{blog_posts.previous_page_number}}">&lt;</a>
+        {% endif %}
+        <span>{{ blog_posts.number }}</span>
+        {% if blog_posts.has_next %}
+        <a class="btn" href="?page={{blog_posts.next_page_number}}">&gt;</a>
+        {% endif %}
+    </div>
+</div>
 {% endblock %}
