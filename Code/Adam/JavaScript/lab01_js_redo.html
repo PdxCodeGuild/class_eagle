@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let lowercase = 'abcdefghijklmnopqrstuvwxyz'
+        console.log(lowercase)
+        let uppercase = lowercase.toUpperCase()
+        console.log(uppercase)
+        let punctuation = !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+        console.log(punctuation)
+        let numbers = '0123456789'
+        console.log(numbers)
+        let char_pool = lowercase + uppercase + numbers
+        console.log(char_pool)
+        let password = ''
+        
+        password_len = prompt('How many characters in your password? ')
+        
+        let i = 0
+        while (i <= password_len) {
+            function randomChoice(arr) {
+                let i = randint(0, arr.length - 1)
+                return arr[i]
+            }
+            console.log(i)
+            password = randomChoice(char_pool)
+            ++i
+        }
+        alert(password)
+        </script>
+</body>
+
+</html>
