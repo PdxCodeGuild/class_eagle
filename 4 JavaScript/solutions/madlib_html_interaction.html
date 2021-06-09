@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Hello world!</title>
+        <!-- Icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Materialize CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <style>
+            #btn_make_madlib {
+                width: 100%;
+            }
+            #div_output {
+                text-align:center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <h1>Madlib</h1>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 m6 l3">
+                    <input id="input_noun1" type="text" class="validate">
+                    <label for="input_noun1">Noun</label>
+                </div>
+                <div class="input-field col s12 m6 l3">
+                    <input id="input_noun_plural" type="text" class="validate">
+                    <label for="input_noun_plural">Noun (Plural)</label>
+                </div>
+                <div class="input-field col s12 m6 l3">
+                    <input id="input_noun2" type="text" class="validate">
+                    <label for="input_noun2">Noun</label>
+                </div>
+                <div class="input-field col s12 m6 l3">
+                    <input id="input_place" type="text" class="validate">
+                    <label for="input_place">Place</label>
+                </div>
+                <div class="input-field col s12 m6 l3">
+                    <input id="input_adjective" type="text" class="validate">
+                    <label for="input_adjective">Adjective</label>
+                </div>
+                <div class="input-field col s12 m6 l3">
+                    <input id="input_noun3" type="text" class="validate">
+                    <label for="input_noun3">Noun</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <button id="btn_make_madlib" class="btn">Make a Madlib!</button>
+                </div>
+            </div>
+            <div class="row">
+                <div id="div_output" class="col s12">
+                </div>
+            </div>
+        </div>
+
+        <!-- Materialize JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script>
+            let input_noun1 = document.querySelector('#input_noun1')
+            let input_noun_plural = document.querySelector('#input_noun_plural')
+            let input_noun2 = document.querySelector('#input_noun2')
+            let input_place = document.querySelector('#input_place')
+            let input_adjective = document.querySelector('#input_adjective')
+            let input_noun3 = document.querySelector('#input_noun3')
+            let btn_make_madlib = document.querySelector('#btn_make_madlib')
+            let div_output = document.querySelector('#div_output')
+
+            btn_make_madlib.addEventListener('click', function() {
+                let noun1 = input_noun1.value
+                let noun_plural = input_noun_plural.value
+                let noun2 = input_noun2.value
+                let place = input_place.value
+                let adjective = input_adjective.value
+                let noun3 = input_noun3.value
+                let madlib = `Be kind to your ${noun1}-footed ${noun_plural}
+For a duck may be somebody's ${noun2},
+Be kind to your ${noun_plural} in ${place}
+Where the weather is always ${adjective}.
+
+You may think that this is the ${noun3},
+Well it is. `
+                div_output.innerText = madlib
+            })
+
+        </script>
+    </body>
+</html>
