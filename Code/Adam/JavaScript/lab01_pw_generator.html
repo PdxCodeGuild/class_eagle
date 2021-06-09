@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PW Generator</title>
+</head>
+
+<body>
+    <script>
+        let lowercase = 'abcdefghijklmnopqrstuvwxyz'
+        let uppercase = lowercase.toUpperCase()
+        let punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+        let numbers = '0123456789'
+        let char_pool = lowercase + uppercase + numbers + punctuation
+        let password = ''
+
+        password_len = prompt('How many characters in your password? ')
+
+        while (password_len) {
+            console.log(password_len)
+            password += randomChoice(char_pool)
+            password_len--
+        }
+
+        function randint(a, b) {
+            return Math.floor(a + Math.random() * (b - a + 1))
+        }
+
+        function randomChoice(arr) {
+            let i = randint(0, arr.length - 1)
+            return arr[i]
+        }
+
+        alert(password)
+
+    </script>
+</body>
+
+</html>
