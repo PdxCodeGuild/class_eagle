@@ -4,7 +4,7 @@
 {% block title %}Register{% endblock %}
 {% block content %}
 
-<h1>Register</h1>
+
 <div>
 
     <form action="{% url 'blog_app:register' %}" method="post" class="container" id="login">
@@ -20,6 +20,14 @@
         <div class="input-group mb-3">
             <span class="input-group-text">Password</span>
             <input type="password" class="form-control" name="password">
+        </div>
+        <div class="mb-3">
+            <label for="profile_image">Select a profile picture: </label>
+            <input type="file" id="profile_image" name="profile_picture">
+        </div>
+        <div>
+            <span class="input-group-text">Tell us about yourself:</span>
+            <textarea class="form-control" aria-label="With textarea" name="bio" placeholder="Character limit 300"></textarea>
         </div>
         <div class="d-flex justify-content-center">
             <button type="submit">One of us....</button>

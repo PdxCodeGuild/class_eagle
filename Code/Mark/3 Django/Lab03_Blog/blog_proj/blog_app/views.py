@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 import django.contrib.auth
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
-from .models import BlogPost
+from .models import BlogPost, UserProfile
 from .forms import EditForm
 
 
@@ -21,7 +21,11 @@ def register(request):
         username = request.POST['username']
         email = request.POST['email']
         password = request.POST['password']
-        user = User.objects.create_user(username, email, password)
+        profile_image = request.POST['profile_picture']
+        created_user = User.objects.create_user(username, email, password)
+        bio = request.POST['bio']
+        userprofile = UserProfile(user=created_user, profile_image=profile_image, bio=bio)
+        userprofile.save()
         return HttpResponseRedirect(reverse('blog_app:index'))
     return render(request, 'blog_app/register.html')
 
