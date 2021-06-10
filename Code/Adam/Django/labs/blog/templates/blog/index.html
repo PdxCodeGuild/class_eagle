@@ -1,6 +1,3 @@
-
-
-
 {% extends 'blog/base.html' %}
 
 {% block link %}
@@ -8,12 +5,26 @@
 <li><a href="{% url 'users:login' %}">Login</a></li>
 {% endblock %}
 
-{% block title %}
-<h1 style="text-align: center;">Headline</h1>
-<img class="center" src="https://random.imagecdn.app/600/300">
-<p style="text-align: center;">And espresso caramelization id, viennese caffeine, fair trade brewed black strong saucer single shot seasonal. Milk french press iced coffee mocha chicory caffeine dark foam organic, black spoon mazagran cortado irish. Barista in filter caramelization, wings, roast viennese foam, eu latte body, cup, eu black sit affogato seasonal white. Java aroma, instant pumpkin spice, so foam half and half instant french press flavour mug carajillo cultivar eu acerbic. Seasonal cortado spoon saucer frappuccino, con panna ut shop so roast a single shot qui est doppio, mug, so mug galão grounds foam.</p>
-<p style="text-align: center;">Coffee, whipped, mocha trifecta grinder steamed foam coffee saucer foam blue mountain, est at kopi-luwak mug eu con panna cortado. Extra , viennese aroma robust percolator, blue mountain mocha galão foam sugar wings and extra. Dripper variety, french press coffee cinnamon java aged cream plunger pot mazagran and doppio filter that as aftertaste. Dripper, carajillo black in coffee crema arabica ristretto wings crema et froth saucer, cultivar java instant caramelization spoon dripper sweet java rich organic filter. Est et froth filter saucer iced dark, sit cortado seasonal, viennese, trifecta pumpkin spice plunger pot, cultivar, latte, roast variety extra , mug cream trifecta strong instant.</p>
-{% endblock %}
+{% block title %}{% endblock %}
 
 {% block content %}
+<div class="container">
+    <div class="row">
+        <h1 style="text-align: center;">Top Story</h1>
+        <img class="center" src="https://picsum.photos/500/300">
+        <p class="flow-text">And espresso caramelization id, viennese caffeine, fair trade brewed black strong saucer
+            single shot seasonal. Milk french press iced coffee mocha chicory caffeine dark foam organic, black spoon
+            mazagran cortado irish. Barista in filter caramelization, wings, roast viennese foam, eu latte body, cup, eu
+            black sit affogato seasonal white. Java aroma, instant pumpkin spice, so foam half and half instant french
+            press flavour mug carajillo cultivar eu acerbic. Seasonal cortado spoon saucer frappuccino, con panna ut
+            shop so roast a single shot qui est doppio, mug, so mug galão grounds foam.</p>
+        <p class="flow-text">Coffee, whipped, mocha trifecta grinder steamed foam coffee saucer foam blue mountain, est
+            at kopi-luwak mug eu con panna cortado. Extra , viennese aroma robust percolator, blue mountain mocha galão
+            foam sugar wings and extra. Dripper variety, french press coffee cinnamon java aged cream plunger pot
+            mazagran and doppio filter that as aftertaste. Dripper, carajillo black in coffee crema arabica ristretto
+            wings crema et froth saucer, cultivar java instant caramelization spoon dripper sweet java rich organic
+            filter. Est et froth filter saucer iced dark, sit cortado seasonal, viennese, trifecta pumpkin spice plunger
+            pot, cultivar, latte, roast variety extra , mug cream trifecta strong instant.</p>
+    </div>
+</div>
 {% endblock %}

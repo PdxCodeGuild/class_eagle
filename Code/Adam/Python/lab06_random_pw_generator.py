@@ -9,7 +9,8 @@ import string
 # string.ascii_uppercase
 # string.ascii_lowercase
 # string.digits
-# string.punctuation
+
+print(string.punctuation)
 
 # Part 1 - Use a while loop to generate a random password, the length of which 
 # is chosen by the user.

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <input id="input_name" class="myclass" type="text" placeholder="enter your name"/>
+        <button id="button_click">click</button>
+        <div id="div_output">output goes here</div>
+        <script src="https://cdn.jsdelivr.net/npm/mathjs@9.4.2/lib/browser/math.min.js"></script>
+        <script>
+
+            // get html elements out of the page
+            let input_name = document.querySelector('#input_name')
+            let button_click = document.querySelector('#button_click')
+            let div_output = document.querySelector('#div_output')
+
+            // adding a click event listener
+            button_click.addEventListener('click', function() {
+                // get what the user typed into the input element
+                let name = input_name.value
+                // string concatenation
+                let output = "Hello " + name + "! How are you today?"
+                // set the inner text of an output div
+                div_output.innerText = output
+
+            })
+
+            // function setRandomColor() {
+            //     setTimeout(function() {
+            //         // let r = Math.floor(Math.random()*256)
+            //         // let g = Math.floor(Math.random()*256)
+            //         // let b = Math.floor(Math.random()*256)
+            //         // div_output.style.color = 'rgb(' + r + ',' + g + ',' + b + ')'
+            //         let h = Math.floor(Math.random()*360)
+            //         div_output.style.backgroundColor = 'hsl(' + h + ',100%,50%)'
+            //         setRandomColor()
+            //     }, Math.floor(Math.random()*1000))
+            // }
+            // setRandomColor()
+
+            // function perform_operation(arr, f) {
+            //   for (let i=0; i<arr.length; ++i) {
+            //     arr[i] = f(arr[i])
+            //   }
+            // }
+            //
+            // let nums = [1, 2, 3];
+            // perform_operation(nums, function(x) {
+            //   return x*x
+            // });
+            // alert(nums) // [1, 4, 9]
+
+
+        </script>
+    </body>
+</html>

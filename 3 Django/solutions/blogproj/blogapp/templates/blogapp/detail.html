@@ -1,0 +1,26 @@
+
+{% extends 'blogapp/base.html' %}
+
+{% block title %}{{ blog_post.title }}{% endblock %}
+
+{% block content %}
+<style>
+    .page-title {
+        background-image: url('{{blog_post.banner_image.url}}');
+        background-position:center;
+        background-size:cover;
+        color:white;
+        padding: 30px 10px;
+        text-shadow: 0 0 7px black;
+    }
+    .btns {
+        margin-top: 20px;
+    }
+</style>
+<div>
+{{ blog_post.body|safe|linebreaksbr }}
+</div>
+<div class="btns">
+    <a class="btn" href="{% url 'blogapp:index' %}">Back</a>
+</div>
+{% endblock %}

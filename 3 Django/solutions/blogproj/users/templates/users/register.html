@@ -1,0 +1,50 @@
+{% extends 'blogapp/base.html' %}
+
+{% block title %}Register{% endblock %}
+{% block content %}
+<style>
+    form > div {
+        display:flex;
+        flex-direction:column;
+        margin-bottom: 10px;
+    }
+    form input {
+        border-radius: 4px;
+        border: 1px solid grey;
+        padding: 10px;
+    }
+    form label {
+        margin-bottom: 4px;
+    }
+</style>
+<form action="{% url 'users:register' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div>
+        <label for="input_username">Username</label>
+        <input id="input_username" type="text" placeholder="username" name="username" required/>
+    </div>
+    <div>
+        <label for="input_email">Email</label>
+        <input id="input_email" type="email" placeholder="email" name="email" required/>
+    </div>
+    <div>
+        <label for="input_phone">Phone</label>
+        <input id="input_phone" type="text" placeholder="phone" name="phone" required/>
+    </div>
+    <div>
+        <label for="input_photo">Photo</label>
+        <input id="input_photo" type="file" placeholder="photo" name="photo" accept="image/*" required/>
+    </div>
+    <div>
+        <label for="input_password">Password</label>
+        <input id="input_password" type="password" placeholder="password" name="password" required/>
+    </div>
+    <div>
+        <label for="input_retype_password">Retype Password</label>
+        <input id="input_retype_password" type="password" placeholder="retype_password" name="retype_password" required/>
+    </div>
+    <button class="btn" type="submit">Register</button>
+
+</form>
+<div>Already have an account? <a href="{% url 'users:login' %}">Login</a></div>
+{% endblock %}

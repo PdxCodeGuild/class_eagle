@@ -23,16 +23,18 @@ def index(request):
 @login_required
 def create(request):
     # check that we received form data
-    print(request.POST)
+    # print(request.POST)
+    # print(request.FILES)
     # get the values out of the form data
     name = request.POST['name']
+    profile_image = request.FILES['profile_image']
     email = request.POST['email']
     birthday = request.POST['birthday']
     birthday = datetime.strptime(birthday, '%b %d, %Y')
     organ_donor = 'organ_donor' in request.POST # handle checkboxes in a special way
     city_id = request.POST['city_id']
     # create a record and save it to the database
-    contact = Contact(name=name, email=email, birthday=birthday, organ_donor=organ_donor, city_id=city_id, user=request.user)
+    contact = Contact(name=name, profile_image=profile_image, email=email, birthday=birthday, organ_donor=organ_donor, city_id=city_id, user=request.user)
 
     # city = City.objects.get(id=city_id)
     # contact = Contact(name=name, email=email, birthday=birthday, organ_donor=organ_donor, city=city)

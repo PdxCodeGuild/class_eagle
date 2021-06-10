@@ -1,5 +1,5 @@
 from django.shortcuts import render, reverse, get_object_or_404
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from .models import Priority, TodoItem
 from datetime import datetime
 

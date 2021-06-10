@@ -4,6 +4,36 @@
 {% block title %}Profile{% endblock %}
 {% block content %}
 
+<style>
+    #profile_heading {
+        background-color: rgba(131, 215, 209, 0.819);
+        border: solid;
+        border-color: black;
+        border-width: 4px;
+        padding: 10px;
+    }
+</style>
+
+<!-- User information -->
+<div class="container mt-3">
+    <div id="profile_heading" class="row align-items-center rounded-pill">
+        <div class="col d-flex justify-content-center">
+            <img id="prof_image" src="{{user.userprofile.profile_image.url}}" width="200">
+        </div>
+
+        <div class="col">
+            <h3>
+                Welcome, {{user.username}}
+            </h3>
+            <hr>
+            <p>
+                {{user.userprofile.bio}}
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- form for creating a new post -->
 <div class="container mt-3">
     <form action="{% url 'blog_app:create' %}" class="row" id="login" method="POST">
         {% csrf_token %}
@@ -31,19 +61,25 @@
     </form>
 </div>>
 
+<!-- All the blogposts by the user sorted by date created -->
 {% for blogpost in blogposts %}
 
 <div class="container mt-3">
     <div id="post" class="card">
         <h5 id="post_title" class="card-header text-center">{{blogpost.title}}</h5>
         <div class="card-body">
-            <h6 class="card-title"><u>By {{blogpost.user}} on {{blogpost.date_created}}</u></h6>
+            <h6 class="card-title"><u>By: {{blogpost.user}} on {{blogpost.date_created}}</u></h6>
             <p class="card-text">{{blogpost.body}}</p>
+            {% if blogpost.date_edited %}
             <div>
-                <a href="{% url 'blog_app:edit' blogpost.id %}" class="btn">Edit</a>
-                <a href="{% url 'blog_app:delete' blogpost.id %}" class="btn">Delete</a>
+                <u>Edited on: {{blogpost.date_edited}}</u>
             </div>
-            
+            {% endif %}
+            <div>
+                <a href="{% url 'blog_app:edit' blogpost.id %}" class="btn bg-warning">Edit</a>
+                <a href="{% url 'blog_app:delete' blogpost.id %}" class="btn bg-danger">Delete</a>
+            </div>
+
         </div>
     </div>
 </div>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPS</title>
+</head>
+
+<body>
+    <script>
+        let options = ['rock', 'paper', 'scissor']
+        let comp_choice = randomChoice(options)
+        let users_choice = prompt('Enter rock, paper, or scissor: ')
+        let message = ('Computer Chose: ' + comp_choice + '\nYou chose: ' + users_choice + '\n')
+
+        if (users_choice == comp_choice) {
+            alert(message + 'It\'s a Draw! \n')
+        }
+        else if (users_choice == 'rock' && comp_choice != 'paper') {
+            alert(message + 'You Win! \n')
+        }
+        else if (users_choice == 'paper' && comp_choice != 'scissor') {
+            alert(message + 'You Win! \n')
+        }
+        else if (users_choice == 'scissor' && comp_choice != 'rock') {
+            alert(message + 'You Win! \n')
+        }
+        else {
+            alert(message + 'You Lose! \n')
+        }
+
+        function randint(a, b) {
+            return Math.floor(a + Math.random() * (b - a + 1))
+        }
+
+        function randomChoice(arr) {
+            let i = randint(0, arr.length - 1)
+            return arr[i]
+        }
+    </script>
+</body>
+
+</html>
