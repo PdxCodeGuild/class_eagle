@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1> Bye Pluto! uwu </h1>
+    <!-- collect how many of each type of character goes into password -->
+
+    <script>
+        let lower_case_list = ["a", "b", "c", "d", 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+        let upper_case_list = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+        let number_list = ["1",'2','3','4','5','6','7','8','9']
+        let symbols_list = ['!', '.', '_', '%', '$', '#', '<', '*',]
+        let lowercase = parseInt(prompt('how many lower case letters?:'))
+        let capital = parseInt(prompt('how many upper case letters?:'))
+        let numbers = parseInt(prompt('how many numbers?:'))
+        let symbols = parseInt(prompt('how many symbols?:'))
+        // create an array of character types
+        let set = [lowercase, capital, numbers, symbols]
+        let list = [lower_case_list, upper_case_list, number_list, symbols_list]
+        // create an empty string
+        let password = []
+
+        let i = 0
+
+        while (i <= set.length) {
+            
+            for (let j = 0; j < set[i]; ++j) {
+                // console.log(list[i])
+                let h= list[i]
+                // console.log(h)
+                let k = (list[i].length)
+                let l = Math.floor(Math.random()*k)
+                // console.log(l)
+                // console.log(h[l])
+                
+                password.push(h[l])
+                // console.log(password)
+                
+                
+            }
+            i++
+        
+        }
+
+
+    //    shuffle
+        // let z=0
+        // let pass_length = password.length
+        // let shuffle_array = []
+        // while (z <= password.length) {
+        //     for (let y = 0; y < pass_length; ++y) {
+        //         let magic_number = Math.floor(Math.random()*100)
+        //         console.log(magic_number)
+        //         shuffle_array.push(magic_number)
+        //         console.log(shuffle_array)
+        //     }
+        //     z++
+        // }
+
+        
+    // get length of list
+    // asign empty array random numbers
+    // binary sort both lists
+    // 
+    // join
+    function shuffleArray(array) {
+
+        for (let i = 0; i < array.length; i++) {
+            let indexnumber = randint(0,array.length -1);
+            let temp = array[indexnumber];
+            array[indexnumber] = array[i];
+            array[i] = temp;
+        }
+        
+    }
+    function randint(a, b) {
+        return Math.floor(a + Math.random()*(b-a+1))
+    }
+    shuffleArray(password)
+    // output
+        let gift = `Your password is ${password} `
+    
+    // call
+        alert(gift)
+    </script>
+    <!-- -->
+</body>
+
+</html>

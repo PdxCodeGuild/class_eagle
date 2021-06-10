@@ -1,8 +1,8 @@
 
-{extends "blog/base.html %"}
+{%extends "user_system/base.html"%}
 {% block content %}
-<div> {{} post.author }</div>
- <div> {{ post.date_posted |date: "F d, Y"}}</div>
+<div> {{ post.author}}</div>
+<div> {{ post.date_posted }}</div>
 <div>{{ post.title}}</div>
 <div> {{post.content}}</div>
 </article>
