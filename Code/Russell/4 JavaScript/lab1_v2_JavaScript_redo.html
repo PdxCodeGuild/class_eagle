@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Password Generator</title>
+        <!-- Icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Materialize CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    </head>
+    <body>
+        <h1>Password Generator</h1>
+
+        <div class="input-field col s12 m6 l3">
+            <input id="pass_length" type="number" class="validate">
+            <label for="pass_length">Password Length</label>
+        </div>
+
+        <button class="btn" id='button_click'>Get password</button>
+
+        <div id="output_field">Your password is:</div>
+
+        <!-- Materialize JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+        <script>
+            let pass_length = document.querySelector( '#pass_length');
+
+            let alpha = 'abcdefghijklmnopqrstuvwxyzACBCEFGHIJKLMNOPQRSTUVWXYZ123456789'
+            let password = ''
+
+            let char_count = 0
+
+            let output_field = document.querySelector( '#output_field');
+
+            button_click.addEventListener('click', function() {
+                let length = pass_length.value
+
+                while (char_count < length ){
+            
+                var random = Math.floor(Math.random() * 52) + 1;
+                password += alpha[random]
+                char_count++ 
+                }
+
+                let output = "Your password is:" + password
+
+                output_field.innerText = output
+
+
+
+            })
+        </script>
+    </body>
+</html>
