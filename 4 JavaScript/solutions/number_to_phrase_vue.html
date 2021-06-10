@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+        <!-- Materialize CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    </head>
+    <body>
+        <div id="app" class="container">
+            <div class="row">
+                <h1>{{ title }} {{ number }}</h1>
+            </div>
+            <div class="row">
+                <div class="input-field col s10">
+                    <input id="input_number" type="number" v-model="number" class="validate">
+                    <label for="input_number">Enter a Number</label>
+                </div>
+                <div class="input-field col s2">
+                    <button v-on:click="numberToPhrase" class="btn">Convert</button>
+                </div>
+            </div>
+            <div class="row center-align">
+                <h3>{{ output }}</h3>
+            </div>
+        </div>
+        <!-- Materialize JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <!-- Vue JS -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script>
+
+            // let Math = {
+            //     abs: function(x) {
+            //         if (x < 0) {
+            //             return -x
+            //         } else {
+            //             return x
+            //         }
+            //     }
+            // }
+            //
+            // let x = -5
+            // x = Math.abs(x)
+            // console.log(x)
+
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    title: 'Number to Phrase',
+                    number: 55,
+                    output: 'fifty-five',
+                    ones_teens: {
+                        0: 'zero',
+                        1: 'one',
+                        2: 'two',
+                        3: 'three',
+                        4: 'four',
+                        5: 'five',
+                        6: 'six',
+                        7: 'seven',
+                        8: 'eight',
+                        9: 'nine',
+                        10: 'ten',
+                        11: 'eleven',
+                        12: 'twelve',
+                        13: 'thirteen',
+                        14: 'fourteen',
+                        15: 'fifteen',
+                        16: 'sixteen',
+                        17: 'seventeen',
+                        18: 'eighteen',
+                        19: 'nineteen'
+                    },
+                    tens: {
+                        2: 'twenty',
+                        3: 'thirty',
+                        4: 'forty',
+                        5: 'fifty',
+                        6: 'sixty',
+                        7: 'seventy',
+                        8: 'eighty',
+                        9: 'ninety'
+                    }
+                },
+                methods: {
+                    numberToPhrase: function() {
+                        let n = this.number
+                        this.number = ''
+                        let output = n + ' -> '
+                        if (n < 0) {
+                            output += 'negative '
+                            n = -n
+                        }
+                        if (n < 20) {
+                            output += this.ones_teens[n]
+                        } else if (n < 100) {
+                            let ones_digit = n%10
+                            let tens_digit = Math.floor(n/10)
+                            if (ones_digit == 0) {
+                                output += this.tens[tens_digit]
+                            } else {
+                                output += this.tens[tens_digit] + '-' + this.ones_teens[ones_digit]
+                            }
+                        }
+                        this.output = output
+                    }
+                },
+                created: function() {
+
+                }
+            })
+        </script>
+    </body>
+</html>
