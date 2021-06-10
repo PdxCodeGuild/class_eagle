@@ -1,5 +1,5 @@
 
-# DOM Manipulation
+# HTML Interaction
 
 1. [Overview](#overview)
 2. [Accessing Elements](#accessing-elements)
@@ -54,7 +54,7 @@ The following code demonstrates how each of these are used:
 
 ## Setting innerText and innerHTML
 
-You can set the value 'inside' a tag `<div>this</div>` using `innerText` and `innerHTML`. As you might guess, `innerText` is for text, `innerHTML` is for a string containing HTML.
+You can set the text between a open and close tag (`<div>this</div>`) using `innerText` and `innerHTML`. As you might guess, `innerText` is for text, `innerHTML` is for a string containing HTML.
 
 ```html
 <div id="div1"></div>
