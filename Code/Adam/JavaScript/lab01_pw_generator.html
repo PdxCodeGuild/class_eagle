@@ -9,21 +9,29 @@
 </head>
 
 <body>
+    <input id="length_input" type="number" />
+    <label for="length_input">Password Length</label>
+    <button id="bt">click</button>
     <script>
-        let lowercase = 'abcdefghijklmnopqrstuvwxyz'
-        let uppercase = lowercase.toUpperCase()
-        let punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
-        let numbers = '0123456789'
-        let char_pool = lowercase + uppercase + numbers + punctuation
-        let password = ''
-
-        password_len = prompt('How many characters in your password? ')
-
-        while (password_len) {
-            console.log(password_len)
-            password += randomChoice(char_pool)
-            password_len--
-        }
+        let bt = document.querySelector('#bt');
+        bt.addEventListener('click', function () {
+            let length_input = document.querySelector('#length_input')
+            let length_value = length_input.value
+            let lowercase = 'abcdefghijklmnopqrstuvwxyz'
+            let uppercase = lowercase.toUpperCase()
+            let punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+            let numbers = '0123456789'
+            let char_pool = lowercase + uppercase + numbers + punctuation
+            let password = ''
+    
+            while (length_value) {
+                console.log(length_value)
+                password += randomChoice(char_pool)
+                length_value--
+            }
+    
+            alert(password);
+        });
 
         function randint(a, b) {
             return Math.floor(a + Math.random() * (b - a + 1))
@@ -33,9 +41,6 @@
             let i = randint(0, arr.length - 1)
             return arr[i]
         }
-
-        alert(password)
-
     </script>
 </body>
 

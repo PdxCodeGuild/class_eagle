@@ -6,20 +6,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
+    <style>  
+        * {
+            margin:0;
+            padding: 0;
+        }
+        body {
+            background-image: linear-gradient(rgb(27, 124, 32), rgb(115,22,143), rgb(27, 124, 32));
+
+        }
         #gen_form {
+            background-color: rgba(0, 247, 255, 0.548);
             display: flex;
             flex-direction: column;
             align-items: end;
             margin-left: 2in;
             margin-right: 2in;
-            margin-top: 10px;
+            margin-top: 1in;
+            padding: 10px;
+            border: solid;
+            border-radius: 25px;
+            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.616);
         }
         #title_bar {
+            background-color: rgba(0, 247, 255, 0.548);
             text-align: center;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border-bottom: solid;
+            box-shadow:  0px 10px 10px rgba(0, 0, 0, 0.616);
         }
         #char_input {
             margin-bottom: 5px;
+        }
+        #output_box {
+            background-color: rgba(0, 247, 255, 0.548);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 2in;
+            margin-right: 2in;
+            margin-top: 15px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border: solid;
+            box-shadow:  0px 10px 10px rgba(0, 0, 0, 0.616);
+            border-radius: 25px;
+
+        }
+        #button {
+            display: flex;
+            align-self: center;
         }
     </style>
 </head>
@@ -49,13 +86,15 @@
             <span><input type="number" id="special"></span>
         </div>
         
-        <span><button id="character_button">Click me!</button></span>
+        <span id="button"><button id="character_button">Click me!</button></span>
         
     
     
+        
+    </div>
+    <div id="output_box">
         <div id="output"></div>
     </div>
-
     <!-- JavaScript section -->
     <script>
         let up_select = document.querySelector('#uppercase')
