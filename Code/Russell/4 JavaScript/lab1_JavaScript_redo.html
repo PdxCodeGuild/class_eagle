@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    
+    <script>
+
+        let alpha = 'abcdefghijklmnopqrstuvwxyzACBCEFGHIJKLMNOPQRSTUVWXYZ123456789'
+        let password = ''
+
+        let password_length = prompt('How many characters?')
+
+        
+        let char_count = 0
+        while (char_count < password_length ){
+            
+            var random = Math.floor(Math.random() * 52) + 1;
+            password += alpha[random]
+            char_count++ 
+        }
+
+        alert ("Your password is:" + password )
+
+        console.log(random)
+        console.log(alpha[random])
+        console.log(password)
+
+
+
+    </script>
+    
+</body>
+</html>
