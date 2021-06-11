@@ -22,19 +22,19 @@
               </div>
             <div class="input-field col s4">
                 <select v-model="start_unit" class="browser-default">
-                    <option v-for="unit in units" value="{{unit.value}}">{{unit.unit}}</option>
+                    <option v-for="unit in units" v-bind:value="unit">{{unit.unit}}</option>
                 </select>
             </div>
             <div class="input-field col s4">
                 <select v-model="end_unit" class="browser-default">
-                    <option v-for="unit in units" value="{{unit.value}}">{{unit.unit}}</option>
+                    <option v-for="unit in units" v-bind:value="unit">{{unit.unit}}</option>
                 </select>
             </div>
             <div class="col s12 center">
                 <button v-on:click="convert" class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
             </div>
             <div v-if="output != '' " class="center">
-                {{distance}} {{start_unit}} --> {{converted_distance}} {{end_unit}}
+                {{distance}} {{start_unit.unit}} --> {{converted_distance}} {{end_unit.unit}}
             </div>
         </div>
 
