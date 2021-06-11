@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        html {
+            min-height: 100vh;
+        }
+        body {
+            background-image: radial-gradient(yellow,orange,red);
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100%;
+        }
+        #unit_form {
+            background-color: rgba(128, 128, 128, 0.623);
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 1.5in;
+            margin-right: 1.5in;
+            margin-top: 50px;
+            padding: 15px;
+            border: dashed;
+            border-color: teal;
+            box-shadow: 0px 10px 5px rgba(128, 0, 128, 0.541)
+        }
+        #output {
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        nav {
+            text-align: center;
+            background-color: rgba(128, 128, 128, 0.623);
+        }
+    </style>
+</head>
+<body id="body">
+    <nav>
+        <h2>Unit Converter</h2>
+    </nav>
+    <div id="unit_form">
+        <label for="from_unit">What unit are you converting from?</label>
+        <select id="from_unit">
+            <option value="ft">Foot</option>
+            <option value="m">Meter</option>
+            <option value="mi">Mile</option>
+            <option value="km">Kilometer</option>
+            <option value="yd">Yard</option>
+        </select>
+        
+        <label for="distance">How far in previous unit?</label>
+        <input type="number" id="distance">
+    
+        <label for="to_unit">What unit are you converting to?</label>
+        <select id="to_unit">
+            <option value="ft">Foot</option>
+            <option value="m">Meter</option>
+            <option value="mi">Mile</option>
+            <option value="km">Kilometer</option>
+            <option value="yd">Yard</option>
+        </select>
+        <button id="form_button">Submit</button>
+    </div>
+
+    <div id="output">
+        <div id="result"></div>
+    </div>
+
+
+
+
+
+    <!-- JavaScript Section -->
+    <script>
+
+        let from_select = document.querySelector('#from_unit')
+        let dist_select = document.querySelector('#distance')
+        let to_select = document.querySelector('#to_unit')
+        let button_click = document.querySelector('#form_button')
+        let result_html = document.querySelector('#result')
+
+        function converUnit(from, distance, to) {
+            let unit_values = {
+                "ft": 0.3048,
+                "m": 1,
+                "mi": 1609.34,
+                "NM": 1852,
+                "km": 1000,
+                "yd": 0.9144,
+                "in": 0.0254,
+                "cm": 0.01,
+                "mm": 0.001
+            }
+            let meters = distance * unit_values[from]
+            let output = meters/unit_values[to]
+            return output
+        }
+
+        button_click.addEventListener('click', function() {
+            let from_choice = from_select.value
+            let dist_choice = dist_select.value
+            let to_choice = to_select.value
+            let result = converUnit(from_choice,dist_choice,to_choice)
+            final_result = result + ' ' + to_choice
+            result_html.innerText = final_result
+        })
+
+    </script>
+</body>
+</html>

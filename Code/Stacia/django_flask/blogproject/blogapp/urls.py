@@ -8,5 +8,5 @@ urlpatterns = [
     # path('index', views.index, name = 'index'),
  
     path('splash/', views.splash, name='splash'),
-    path ('home',views.home, name ="home"),
+    path('home/',views.home, name="home"),
 ]
