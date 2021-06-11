@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+</head>
+
+<body>
+<div class="container">
+    <div id="app">
+        {{ title }}
+
+
+        <div class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input v-model="message" placeholder="Get gud" type="text" class="validate">
+                    <label for="first_name">Get Gud</label>
+
+                </div>
+                <div class="col">
+                    <button v-on:click="hacks" class="btn">enter</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h3>{{ output }}</h3>
+        </div>
+    </div>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                title: 'Hello Vue!',
+                output: '',
+                alpha: ['a','b','e','g','l','o','s','t',],
+                swap: [
+                    '4', '8', '3', '9', '1', '0', '5', '7', 
+                ],
+                message: ''
+            },
+            methods: {
+                hacks: function(){
+                    let splitMessage = this.message.split("");
+                    for(let i=0; i < splitMessage.length; ++i){
+                        for(let j = 0; j < this.alpha.length; ++j){
+                            if (splitMessage[i] === this.alpha[j]){
+                                splitMessage[i] = this.swap[j]
+                            }
+                        }
+                    }
+                    let output = splitMessage.join("-");
+                    console.log(splitMessage);
+                    console.log(output)
+                    alert(output);
+                    this.output = output
+                }
+                
+
+            },
+            created: function () {
+
+            }
+        })
+    </script>
+</body>
+
+</html>
