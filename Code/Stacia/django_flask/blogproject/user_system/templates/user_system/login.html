@@ -11,10 +11,25 @@
 </head>
 <body>
     <h1>WHAT IT BE GLOBE! its ya boi login</h1>
-    <form>
-
+    <form action= "{% url 'user_system:login'%}" method="POST" id="Login-Form">
+        {% csrf_token %}
+        <div class= "bar">
+            
+        <div class="title"> <h1> Get in there!</h1></div>
+        <div class='box'>
+            
+            <label for ="username">User Name</label>
+            <input id="username" name="username" type="text">
+        </div>
+        <div class="box">
+            <label for ="password">Password   </label>
+            <input id="password" name="password" type="text">
+        </div>
+        <button input type="submit" class="btn">Submit</button>
     </form>
-    <div> Join us? <a href ="{%url 'user_system:register'%}">Register here!</a> </div>
+    <div> Wanna get in on this? <a href ="{%url 'user_system:register'%}">Register here!</a> </div>
 </body>
 </html> 
+{% endblock %}
+{%block foot%}
 {% endblock %}
