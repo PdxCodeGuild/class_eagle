@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
+<body class="teal">
+    <div id="app">
+        <div class="container purple lighten-1">
+            <h1 class="center-align green">Leetastic Translator</h1>
+            <div class="row">
+                <div class="input-field col s12 white">
+                    <label for="textarea1">Enter your message:</label>
+                    <textarea v-model="input_message" id="textarea1" class="materialize-textarea"></textarea>
+                </div>
+                <div>
+                    <p>
+                        <label>
+                            <input v-model="picked" value="numbers" class="with-gap" name="group1" type="radio" />
+                            <span>Leet Numbers</span>
+                        </label> 
+                    </p>
+                    <p>
+                        <label>
+                            <input v-model="picked" value="slashes" class="with-gap" name="group1" type="radio" />
+                            <span>Leet Slashes</span>
+                        </label>
+                    </p>
+                </div>
+                <div style="text-align: center;">
+                    <button v-on:click="leet" class="btn green">LEETIFY!!!</button>
+                </div>
+            </div>
+            <div class="row white">
+                {{leet_message}}
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Vue JS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- javascript -->
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                input_message: "",
+                leet_message: "",
+                picked: null,
+            },
+            methods: {
+                leet: function () {
+                    // alert(this.input_message)
+                    var alphabet = "abcdefghijklmnopqrstuvwxyz"
+                    var leet_nums = "48cd3f9h1jklmn0pqr57uvwxy2"
+                    var leet_chars = ["/-\\", "|3", "(", "|)", "3", "|=", "9", "|-|", "|", "_|", "|<", "|", "|\\/|", "|\\|", "()", "|?", ".()", "|2", "s", "+", "|_|", "\\/", "\\/\\/", ")(", "y", "-/_"]
+                    var leet_message = ""
+                    for (char of this.input_message) {
+                        if (char === " ") {
+                            leet_message += " "
+                        }
+                        var index = alphabet.indexOf(char)
+                        if (index === -1) {
+                            leet_message += char
+                        } else {
+                            if (this.picked === "numbers"){
+                                leet_message += leet_nums[index]
+                            } else {
+                                leet_message += leet_chars[index]
+                            }
+                        }
+                    }
+                    this.leet_message = leet_message
+
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
