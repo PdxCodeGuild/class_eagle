@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vue Unit Converter</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+</head>
+
+<body>
+    <div id="app" class="container">
+        <div class="row">
+            <div class="center">
+                <h1>Unit Converter</h1>
+            </div>
+            <div class="input-field col s4">
+                <input v-model="distance" id="distance" type="number" class="validate">
+                <label for="distance">Distance</label>
+              </div>
+            <div class="input-field col s4">
+                <select v-model="start_unit" class="browser-default">
+                    <option v-for="unit in units" v-bind:value="unit">{{unit.unit}}</option>
+                </select>
+            </div>
+            <div class="input-field col s4">
+                <select v-model="end_unit" class="browser-default">
+                    <option v-for="unit in units" v-bind:value="unit">{{unit.unit}}</option>
+                </select>
+            </div>
+            <div class="col s12 center">
+                <button v-on:click="convert" class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+            </div>
+            <div v-if="output != '' " class="center">
+                {{distance}} {{start_unit.unit}} --> {{converted_distance}} {{end_unit.unit}}
+            </div>
+        </div>
+
+    </div>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- vue.js cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                start_uint: '',
+                end_unit: '',
+                distance: '',
+                converted_distance: '',
+                output: '',
+                units: [{
+                    unit: 'inches', value: .0254,
+                }, {
+                    unit: 'feet', value: .3048,
+                }, {
+                    unit: 'yards', value: .9144,
+                }, {
+                    unit: 'meters', value: 1,
+                }, {
+                    unit: 'miles', value: 1609.34,
+                }, {
+                    unit: 'kilometers', value: 1000,
+                }],
+            },
+            methods: {
+                convert: function () {
+                    var unit_to_meters = this.distance*this.start_uint.value
+                    this.output = unit_to_meters/this.end_unit.value
+                    alert('Convert!')
+                }
+            },
+            created: function () {
+
+            }
+        })
+    </script>
+</body>
+
+</html>
