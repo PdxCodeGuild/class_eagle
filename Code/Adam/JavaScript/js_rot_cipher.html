@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROT Cipher</title>
+</head>
+
+<body>
+    <script>
+        let text_input = prompt('Enter the text you\'d like encrypted: ')
+        let rot_input = parseInt(prompt('Enter rotation amount: '))
+        alert(rot13(text_input, rot_input))
+
+        function rot13(text, rot) {
+            let output = ''
+            let alphabet = 'abcdefghijklmnopqrstuvwxyz'
+            for (char in text) {
+                let alp_index = alphabet.indexOf(char)
+                console.log('alp_index: ' + alp_index)
+                let rot_index = alp_index + rot
+                console.log('rot_index: ' + rot_index)
+                if (char == ' ') {
+                    output += ' '
+                    continue
+                }
+                if (rot_index >= alphabet.length) {
+                    rot_index %= alphabet.length
+                    let rot_char = alphabet[rot_index]
+                    console.log('rot_char: ' + rot_char)
+                    output += rot_char
+                    console.log('output: ' + output)
+                }
+                else {
+                    let rot_char = alphabet[rot_index]
+                    console.log('rot_char: ' + rot_char)
+                    output += rot_char
+                    console.log('output: ' + output)
+                }
+            }
+            return output
+        }
+    </script>
+</body>
+
+</html>

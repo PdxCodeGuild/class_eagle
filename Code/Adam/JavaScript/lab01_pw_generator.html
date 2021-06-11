@@ -6,24 +6,73 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PW Generator</title>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Raleway&display=swap"
+        rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        .container {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            background-color: lavender;
+            border-radius: 10px;
+            border-style: solid;
+            border-color: black;
+            border-width: 1px;
+        }
+        h4 {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        h5 {
+            font-family: 'Raleway', sans-serif;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="container z-depth-3">
+        <div class="row">
+            <div class="col s12">
+                <div class="center">
+                    <h4>Random Password Generator</h4>
+                </div>
+                <div class="input-field col s12">
+                    <input id="length_input" type="number" />
+                    <label for="length_input">Password Length</label>
+                </div>
+                <div class="center">
+                    <button class="btn waves-effect waves-light" id="bt" type="submit" name="action">Submit</button>
+                </div>
+                <div class="center">
+                    <h5 id='output'></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
     <script>
-        let lowercase = 'abcdefghijklmnopqrstuvwxyz'
-        let uppercase = lowercase.toUpperCase()
-        let punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
-        let numbers = '0123456789'
-        let char_pool = lowercase + uppercase + numbers + punctuation
-        let password = ''
+        let bt = document.querySelector('#bt');
+        bt.addEventListener('click', function () {
+            let length_input = document.querySelector('#length_input')
+            let length_value = length_input.value
+            let lowercase = 'abcdefghijklmnopqrstuvwxyz'
+            let uppercase = lowercase.toUpperCase()
+            let punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+            let numbers = '0123456789'
+            let char_pool = lowercase + uppercase + numbers + punctuation
+            let password = ''
 
-        password_len = prompt('How many characters in your password? ')
-
-        while (password_len) {
-            console.log(password_len)
-            password += randomChoice(char_pool)
-            password_len--
-        }
+            while (length_value) {
+                console.log(length_value)
+                password += randomChoice(char_pool)
+                length_value--
+            }
+            document.getElementById('output').innerHTML = 'Your Password is: ' + password
+        });
 
         function randint(a, b) {
             return Math.floor(a + Math.random() * (b - a + 1))
@@ -33,10 +82,9 @@
             let i = randint(0, arr.length - 1)
             return arr[i]
         }
-
-        alert(password)
-
     </script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 
 </html>

@@ -1,50 +1,58 @@
+{% extends 'user_system/base.html' %}
+{% block content %} 
 <!DOCTYPE html>
+
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bloguen</title>
-    <style>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bloguen</title>
+        <style>
 
-    .container{
-
-    }
-    body{
-
-    }
-
-    .profile_box{
-
-    }
+    
     </style>
 </head>
 <body>
     <div class ="container">
 
-        <div class="profile_box"> </div>
-        <div class = "col"> </div>
+        <div class="featured-post-title">{{ blog_posts.0.title }}</div>
+    <div class="featured-post-author">By {{ blog_posts.0.user.username }}, Published {{ blog_posts.0.date_created | date:"M d, Y" }}</div>
+    <div class="featured-post-body">{{ blog_posts.0.body | striptags |truncatechars:120 }}</div>
+    <a class="btn" href="{% url 'blogapp:detail' blog_posts.0.id %}">Read More</a>
+        <div class= col>
 
-        <!-- user input name -->
-        <!-- age -->
-        <!-- location -->
-        <!-- favorite dinosaur -->
-        <!-- vax status -->
-      
-        <form action="{ url 'blogapp:create' %}" method="POST" id="Blog">
-            {% csrf_token %}
-           
+            <div class="floatbox">
                 
-            <div class='box'>
+                <h1>yeah?</h1>
+                <div class="profile_box"> </div>
+                <div class = "col"> </div>
+            </div>
+            
+            <!-- user input name -->
+            <!-- age -->
+            <!-- location -->
+            <!-- favorite dinosaur -->
+            <!-- vax status -->
+            
+            
+            <div class ="floatbox" >
+                <form action="{% url 'blogapp:splash' %}" method="POST" id="Blog">
+                    {% csrf_token %}
                 
-                <div class="title"> <h1> New Post</h1></div>
-                <input type="text" class="form-control" name="title">
+                    
+                    <h1>Rant</h1>
+                    <input type = text  maxlength="80" class="form-control" name="title" label = "blarg">
+                    <textarea id= "rantbox" maxlength="500" class="form-control" name="rant" ></textarea>
                     
                     <button input type="submit" class="btn">Submit</button>
-                </div>
+                   
+                </form>
             </div>
-        </form>
-    <!-- end container -->
-    </div>
-</body>
-</html> 
+            
+        </div>
+            <!-- end container -->
+        </div>
+    </body>
+    {% endblock %}
+    </html> 

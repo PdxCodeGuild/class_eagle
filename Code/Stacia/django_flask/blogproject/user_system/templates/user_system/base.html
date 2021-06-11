@@ -1,17 +1,19 @@
-
 {% load static %}
 <html>
-    <head>
-        <title>Document</title>
 
-        <style>
-             body{
+<head>
+  <title>{% block title %}Welcome {{user.username}}{% endblock %}</title>
+
+  <style>
+    .body {
       height: 100%;
-      width:100%
+      width: 100%;
+      margin: 0px;
     }
+
     .textbox {
       width: 200px;
-      height:80%;
+      height: 80%;
       background-color: blanchedalmond;
       display: flex;
       flex-direction: column;
@@ -19,9 +21,9 @@
       border: 3px solid darkseagreen;
       border-radius: 60px;
       margin-top: 100px;
-  margin-bottom: 100px;
-  margin-right: 150px;
-  margin-left: 80px;
+      margin-bottom: 100px;
+      margin-right: 150px;
+      margin-left: 80px;
     }
 
     .title {
@@ -30,19 +32,26 @@
       font-size: 8;
       text-align: center;
       font-family: 'Indie Flower', cursive;
-     
+
       border-radius: 20px;
 
 
     }
-.floatbox{
-  background-color: antiquewhite;
-  background opacity: 60%;
-  float:left;
-  max-width:45%;
-  max-height:45%;
-  margin-top:10%
-}
+
+    .floatbox {
+      background-color: antiquewhite;
+      /* background-opacity: 60%; */
+      float: left;
+      max-width: 60%;
+      max-height: 45%;
+      margin-top: 10%;
+    }
+
+    #rantbox {
+      resize: none;
+      width: 90%;
+    }
+
     .menu {
       visibility: hidden;
     }
@@ -55,16 +64,16 @@
     .bar {
       border: 3px solid darkseagreen;
       border-radius: 60px;
-      background-color:honeydew;
+      background-color: honeydew;
       padding-left: 10px;
       padding-right: 10px;
       padding-top: 20px;
-      padding-bottom:20px;
+      padding-bottom: 20px;
       margin-top: 100px;
+      display: block;
     }
 
 
-    }
 
     .form {
       display: flex;
@@ -82,6 +91,7 @@
     }
 
     .container {
+      margin: 0px;
       display: flex;
       align-items: stretch;
       /* align-content: center; */
@@ -98,10 +108,10 @@
       height: 15%;
       border-radius: 60px;
       border: 3px solid blueviolet;
-    max-width:10%
+      width: 30%;
       padding-left: 10px;
       padding-right: 10px;
-      
+
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -110,62 +120,84 @@
 
     .col {
       background-color: rgb(33, 36, 211);
-      
+
       display: flex;
       flex-direction: column;
-     
+      width: 90%;
       justify-content: space-around;
       /* width: 40%; */
-      
-
-
-
 
     }
-    .dummy{
 
-    }
+    .dummy {}
+
     .logbook {
       border: 3px solid blueviolet;
       background-color: darksalmon;
       display: flex;
-      flex-direction:row;
+      flex-direction: row;
       justify-content: space-around;
-      
+
     }
-    .todos {
-      flex-grow:1;
-      display:flex;
-      flex-direction:column;
-      
-    }
-    .todos > div {
-      /* flex-grow:1; */
-      
-    }
-    .topbar{
+
+
+    .topbar {
       background-color: antiquewhite;
       display: block;
+      height: 10%
     }
-        </style>
-    </head>
-    <body>
-        <header>
-            <h1>{% block title %}{% endblock %}</h1>
-        </header>
-        <main>
-          {% if messages %}
-          {% for message in messages %}
-          <div>
-            {{message}}
-          </div>
-          {% endfor %}
-          {% endif %}
-            {% block content %}
-            {% endblock %}
-        </main>
-        <footer>
-            <span>&copy; Stacia Class Eagle PDX Code Guild 2020</span>
-        </footer>
-    </body>
-</html> 
+
+    .bottombar {
+      background-color: white;
+      border: 3px solid black;
+      display: flex;
+      align-items: center;
+      justify-items: center;
+      width: 100%;
+      flex-direction: column
+    }
+  </style>
+</head>
+
+<body>
+  {% block head %}
+  <header>
+    <div>
+      <h1>Welcome</h1>
+      {% if user.is_authenticated %}
+      <li>Welcome {{user.username}}</li>
+      <li><a href="{% url 'user_system:logout' %}">Logout</a></li>
+      {% else %}
+      <li><a href="{% url 'user_system:login' %}">Login</a></li>
+      <li><a href="{% url 'user_system:register' %}">Register</a></li>
+      {% endif %}
+    </div>
+
+  </header>
+  {% endblock %}
+  {% block float %}
+
+  {% endblock %}
+  <main>
+    {% if messages %}
+    {% for message in messages %}
+    <div>
+      {{message}}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% block content %}
+    {% endblock %}
+  </main>
+  <footer>
+    {% block foot %}
+    <div class="bottombar">
+      <h1>secret club</h1>
+      <span>&copy; Stacia Class Eagle PDX Code Guild 2020</span>
+    </div>
+  </footer>
+  {% endblock %}
+
+</body>
+
+</html>

@@ -6,8 +6,11 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .models import Post
 
 def splash(request):
-
-      return HttpResponse ("blogapp:splash")
+    # print(request.POST)
+    if request.method == 'POST':
+        print(request.POST)
+    # rant = request.POST['rant']
+    return render(request, 'blogapp/splash.html',)
 
 
 def home (request):
@@ -15,5 +18,5 @@ def home (request):
         'posts': Post.objects.all()
 
     }
-    return render(request , 'blog/home.html' , context )
+    return render(request, 'blogapp/home.html', context)
 
