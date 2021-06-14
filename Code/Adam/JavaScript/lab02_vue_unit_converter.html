@@ -36,16 +36,36 @@
         #distance {
             background-color: whitesmoke;
             border-radius: 3px;
+            border-style: solid;
+            border-color: black;
+            border-width: 2px;
         }
         #start_unit {
             border-radius: 3px;
+            border-style: solid;
+            border-color: black;
+            border-width: 2px;
         }
         #end_unit {
             border-radius: 3px;
+            border-style: solid;
+            border-color: black;
+            border-width: 2px;
         }
         .divider {
             background-color: goldenrod;
             padding-top: 10px;
+        }
+
+        .btn {
+            border-radius: 3px;
+            border-style: solid;
+            border-color: black;
+            border-width: 2px;
+        }
+
+        .distance_label {
+            padding-left: 5px;
         }
 
     </style>
@@ -59,7 +79,7 @@
             </div>
             <div class="input-field col s4">
                 <input v-model="distance" id="distance" type="number" class="validate">
-                <label for="distance">Distance</label>
+                <label for="distance" class="distance_label">Distance</label>
             </div>
             <div class="input-field col s4">
                 <select v-model="start_unit" class="browser-default" id="start_unit">
@@ -116,7 +136,8 @@
                 convert: function () {
                     var unit_to_meters = this.distance * this.start_unit.value
                     this.converted_distance = unit_to_meters / this.end_unit.value
-                    this.converted_distance = this.converted_distance.toPrecision(3)
+                    // this.converted_distance = this.converted_distance.toPrecision(3) 
+                    this.converted_distance = Math.round((this.converted_distance + Number.EPSILON) * 100) / 100
                 }
             },
             created: function () {
