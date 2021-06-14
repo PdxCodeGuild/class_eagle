@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let upperIn = prompt('How many uppercase letters would you like? ')
+        let lowerIn = prompt('How many lowercase letters would you like? ')
+        let numIn = prompt('How many numbers would you like? ')
+        let specIn = prompt('How many special characters would you like? ')
+
+        let password = ''
+
+       while(upperIn > 0 || lowerIn > 0 || numIn > 0 || specIn > 0){
+            randCharVal = Math.floor(Math.random() *93) + 33 // 33 because that's the ASCII value of "!" (33), 
+                                                             // and 93 because we want to end at the ASCII value of "~" (126)
+                                                             // So we do  (126 - 33) / (1 - 0) to find the slope (93)
+
+            if (randCharVal <= "Z".charCodeAt(0) && randCharVal >= "A".charCodeAt(0)){
+                if (upperIn > 0){
+                    upperIn--
+                    password += String.fromCharCode(randCharVal)
+                }
+            }
+            else if (randCharVal <= "z".charCodeAt(0) && randCharVal >= "a".charCodeAt(0)){
+                if (lowerIn > 0){
+                    lowerIn--
+                    password += String.fromCharCode(randCharVal)
+                }
+            }
+            else if (randCharVal <= "9".charCodeAt(0) && randCharVal >= "0".charCodeAt(0)){
+                if (numIn > 0){
+                    numIn--
+                    password += String.fromCharCode(randCharVal)
+                }
+            }
+            else{
+                if (specIn > 0){
+                    specIn--
+                    password += String.fromCharCode(randCharVal)
+                }
+            }
+        }   
+        console.log("Your password is " + password)
+    </script>
+</body>
+</html>
