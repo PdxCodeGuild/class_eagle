@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Hello world!</title>
+        <!-- Icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Materialize CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    </head>
+    <body>
+        <div id="app">
+            <h1>Guess the Number</h1>
+            <button v-for="i in 10" v-bind:disabled="disabled[i-1]" v-on:click="check_num(i-1)" class="btn purple">{{i}}</button>
+
+            <div>{{chosen_num}}</div>
+            <div v-if="user_message != ''">{{ user_message }}</div>
+            <div v-if="wrong_answers > 0">Times guessed: {{wrong_answers}}</div>
+            {{disabled}}
+        </div>
+
+
+
+
+        <!-- Materialize JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <!-- Vue CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <!-- Materialize JS-->
+        <script>
+
+        </script>
+        <!-- Vue JS -->
+        <script>
+            let app = new Vue ({
+                el: '#app',
+                data: {
+                    chosen_num: "",
+                    user_message: "",
+                    wrong_answers: 0,
+                    disabled: [],
+                },
+                methods: {
+                    check_num: function(user_number) {
+
+                        if (this.chosen_num-1 === user_number) {
+                            alert('You win! Bud!')
+                            this.startover()
+                        } else {
+                            // alert('Wrong! Guess again, Tough Guy?!')
+                            this.user_message = 'Wrong! Guess again, Tough Guy?!'
+                            setTimeout(() => {
+                                this.user_message = ''
+                            }, 1500)
+                            this.wrong_answers ++
+                            this.disabled[user_number] = true
+                        }
+                    },
+                    startover: function() {
+                        this.wrong_answers = 0
+                        this.disabled = []
+                        let random_num = Math.floor(Math.random()*10) + 1
+                        this.chosen_num = random_num
+                        for (let i=0; i<10; ++i) {
+                            this.disabled.push(false)
+                        }  
+                        // this.$forceUpdate()
+                    }
+                },
+                created: function() {
+                    this.startover()
+
+                },
+            })
+        </script>
+    </body>
+</html>
