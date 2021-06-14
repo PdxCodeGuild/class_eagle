@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Madness</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+</head>
+<body>
+<div id="app" class ="container">
+    <div class= "row">
+        <button v-on:click="guess(i)"  class ="btn" v-for="i in parseInt(highEnd)"> {{i}} </button>
+    </div>
+    <input v-model= "highEnd" label= "How many buttons" type="number" min="2"/>
+    <!-- display 'message' from the 'data' part of the app in the page -->
+    
+    <!-- allow the user to set the value of the input -->
+    
+    <!-- handle a click event of a button - calls the method sayHello -->
+    {{message}}
+
+<div class ="row">{{ randomNumber}}</div>
+
+  </div>
+  <script>
+    let app = new Vue({
+      // query selector of the html element representing the app
+      el: '#app',
+      // app data
+      // data stored with the app
+      // for displaying in the page: {{message}}
+      // for getting input from the user: v-model="message"
+      // for modifying in methods: this.message
+      data: {
+        
+        randomNumber: Math.floor(1 + Math.random()*10) ,
+        clickedNumber: "",
+        clicks:"",
+        message: "Guess the Number!",
+        highEnd: 10,
+      },
+      // app methods
+      // can be called from events in the page: v-on:click="method"
+      // can be called from other methods: this.method()
+      // can be called from outside the app: app.method()
+      methods: {
+        sayHello: function() {
+          console.log(this.message)
+        },
+        
+        guess: function(i){
+            console.log(i)
+
+            if(i === this.randomNumber){
+                ++this.clicks
+                this.message = "Correct! you guessed the number in " +  this.clicks + " clicks"
+                
+                this.clicks = 0
+                this.randomNumber = Math.floor(1 + Math.random()*(highEnd))
+
+        }
+            else{
+                ++this.clicks
+                console.log( this.clicks)
+                this.message = ("Thats wrong  guess number " +  this.clicks)
+            }
+           
+        },
+      },
+      // created - a lifecycle hook
+      // called when the app is created
+      // useful for setting up app data
+      created: function() {
+        console.log(this.message)
+      }
+    })
+  </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
