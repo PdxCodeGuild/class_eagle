@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+        <title>Contact List</title>
+        <style>
+            .error {
+                color:red;
+            }
+            input[type="color"] {
+                height: 37.6px;
+            }
+            .checkbox_div {
+                padding-top: 30px;
+            }
+            .row {
+                margin-top: 40px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app" class="container">
+            <div class="row">
+                <h1>{{ title }}</h1>
+                {{ create_contact }}
+            </div>
+            <div class="row">
+                <div class="col-lg-2 col-md-4 col-sm-12">
+                    <label for="input_name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="input_name" v-model="create_contact.name" v-on:keypress.enter="createContact">
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-12">
+                    <label for="input_birthday" class="form-label">Birthday</label>
+                    <input type="date" class="form-control" id="input_birthday" v-model="create_contact.birthday">
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-12">
+                    <label for="input_color" class="form-label">Favorite Color</label>
+                    <input type="color" class="form-control" id="input_color" v-model="create_contact.favorite_color">
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-12">
+                    <label for="input_blood_type" class="form-label">Blood Type</label>
+                    <select class="form-control" id="input_blood_type" v-model="create_contact.blood_type">
+                        <option v-for="blood_type in blood_types" v-bind:value="blood_type">{{ blood_type}}</option>
+                    </select>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-12 checkbox_div">
+                    <label for="input_organ_donor" class="form-label">Organ Donor</label>
+                    <input type="checkbox" id="input_organ_donor" v-model="create_contact.organ_donor">
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-12 checkbox_div">
+                    <button class="btn btn-primary" v-on:click="createContact">Create Contact</button>
+                </div>
+            </div>
+            <div class="row">
+                <table class="table">
+                    <tr>
+                        <th>Name</th>
+                        <th>Birthday</th>
+                        <th>Favorite Color</th>
+                        <th>Blood Type</th>
+                        <th>Organ Donor</th>
+                    </tr>
+                    <tr v-for="contact in contacts">
+                        <td>{{ contact.name }}</td>
+                        <td>{{ contact.birthday }}</td>
+                        <td>{{ contact.favorite_color }}</td>
+                        <td>{{ contact.blood_type }}</td>
+                        <td><input type="checkbox" v-bind:checked="contact.organ_donor" disabled/></td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+        <!-- Vue JS -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+            let app = new Vue({
+                el: '#app',
+                data: {
+                    title: 'Contact List',
+                    contacts: [],
+                    blood_types: ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'],
+                    create_contact: {
+                        name: '',
+                        birthday: '',
+                        favorite_color: '',
+                        blood_type: '',
+                        organ_donor: false
+                    }
+                },
+                methods: {
+                    createContact: function() {
+                        this.contacts.push(this.create_contact)
+                        this.create_contact = {
+                            name: '',
+                            birthday: '',
+                            favorite_color: '',
+                            blood_type: '',
+                            organ_donor: false
+                        }
+                        this.saveContacts()
+                    },
+                    saveContacts: function() {
+                        localStorage.setItem('contacts', JSON.stringify(this.contacts))
+                    },
+                    loadContacts: function() {
+                        let contacts = localStorage.getItem('contacts')
+                        if (contacts == null) {
+                            contacts = []
+                            contacts.push({
+                                name: 'Danelle R. Baggett',
+                                birthday: 'October 14, 1976',
+                                favorite_color: 'purple',
+                                blood_type: 'O+',
+                                organ_donor: true
+                            })
+                            contacts.push({
+                                name: 'Raymond E. Bayer',
+                                birthday: 'January 11, 1993',
+                                favorite_color: 'blue',
+                                blood_type: 'A+',
+                                organ_donor: false
+                            })
+                            contacts.push({
+                                name: 'Stephen V. Francis',
+                                birthday: 'September 24, 1961',
+                                favorite_color: 'green',
+                                blood_type: 'A+',
+                                organ_donor: true
+                            })
+                        } else {
+                            contacts = JSON.parse(contacts)
+                        }
+                        this.contacts = contacts
+                    }
+                },
+                created: function() {
+                    this.loadContacts()
+                }
+            })
+        </script>
+
+    </body>
+</html>

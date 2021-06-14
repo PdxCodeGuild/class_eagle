@@ -29,7 +29,7 @@ Create the following model:
   - user (`ForeignKey` to `django.contrib.auth.models.User`)
   - public (`BooleanField`)
   - date_created (`DateTimeField` with `auto_now_add=True`)
-  - (optional) date_edited (`DateTimeField` with `auto_now=True`)
+  - date_edited (`DateTimeField` with `auto_now=True`)
 
 Create the following pages:
 
@@ -57,5 +57,5 @@ Add pages for users to browse each other's posts.
 
 ## Part 5: Images (optional)
 
-Add an `ImageField` to your model.
+Add an `ImageField` to your model so each blog post can have a header image. Show a preview of this image on every post list, and the full image on a post detail.
 
