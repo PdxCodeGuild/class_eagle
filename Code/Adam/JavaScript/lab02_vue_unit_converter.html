@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <style>
         .container {
-            display:flex;
+            display: flex;
             margin-top: 15px;
             padding-bottom: 15px;
             background-color: goldenrod;
@@ -40,18 +40,21 @@
             border-color: black;
             border-width: 2px;
         }
-        #start_unit {
+
+        #startUnit {
             border-radius: 3px;
             border-style: solid;
             border-color: black;
             border-width: 2px;
         }
-        #end_unit {
+
+        #endUnit {
             border-radius: 3px;
             border-style: solid;
             border-color: black;
             border-width: 2px;
         }
+
         .divider {
             background-color: goldenrod;
             padding-top: 10px;
@@ -67,41 +70,48 @@
         .distance_label {
             padding-left: 5px;
         }
-
     </style>
 </head>
 
 <body>
+    <!-- html element represnting the app, referenced by 'el' -->
     <div id="app" class="container z-depth-3">
         <div class="row">
             <div class="center">
                 <h1>Unit Converter</h1>
             </div>
+            <!-- allow the user to set the value of the distance, startUnit, endUnit -->
             <div class="input-field col s4">
+                <!-- input ids #distance, #startUnit, #endUnit are for css -->
                 <input v-model="distance" id="distance" type="number" class="validate">
                 <label for="distance" class="distance_label">Distance</label>
             </div>
             <div class="input-field col s4">
-                <select v-model="start_unit" class="browser-default" id="start_unit">
+                <select v-model="startUnit" class="browser-default" id="startUnit">
                     <option value="" disabled selected>Select start unit: </option>
-                    <option v-for="unit in units" v-bind:value="unit">{{unit.unit}}</option>
+                    <!-- units is an array of objects -->
+                    <!-- each unit is an object containing the units name and value-->
+                    <option v-for="unit in units" v-bind:value="unit">{{unit.name}}</option>
                 </select>
             </div>
             <div class="input-field col s4">
-                <select v-model="end_unit" class="browser-default" id="end_unit">
+                <select v-model="endUnit" class="browser-default" id="endUnit">
                     <option value="" disabled selected>Select end unit: </option>
-                    <option v-for="unit in units" v-bind:value="unit">{{unit.unit}}</option>
+                    <option v-for="unit in units" v-bind:value="unit">{{unit.name}}</option>
                 </select>
             </div>
             <div class="col s12 center">
+                <!-- handle a click event of a button - calls the method convert -->
                 <button v-on:click="convert" class="btn waves-effect waves-light" type="submit"
                     name="action">Convert</button>
             </div>
             <div class="section col s12">
                 <div class="divider"></div>
             </div>
-            <div v-if="converted_distance != '' " class="center">
-                <h3>{{distance}} {{start_unit.unit}} converts to {{converted_distance}} {{end_unit.unit}}</h3>
+            <!-- display 'message' from the 'data' part of the app in the page -->
+            <div v-if="convertedDistance != '' " class="center">
+                <!-- <h3>{{distance}} {{startUnit.name}} converts to {{convertedDistance}} {{endUnit.name}}</h3> -->
+                <h3>{{message}}</h3>
             </div>
         </div>
 
@@ -112,32 +122,35 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script>
         var app = new Vue({
+            // query selector of the html element representing the app
             el: '#app',
             data: {
-                start_unit: '',
-                end_unit: '',
+                message: '',
+                startUnit: '',
+                endUnit: '',
                 distance: '',
-                converted_distance: '',
+                convertedDistance: '',
                 units: [{
-                    unit: 'inches', value: .0254,
+                    name: 'inches', value: .0254,
                 }, {
-                    unit: 'feet', value: .3048,
+                    name: 'feet', value: .3048,
                 }, {
-                    unit: 'yards', value: .9144,
+                    name: 'yards', value: .9144,
                 }, {
-                    unit: 'meters', value: 1,
+                    name: 'meters', value: 1,
                 }, {
-                    unit: 'miles', value: 1609.34,
+                    name: 'miles', value: 1609.34,
                 }, {
-                    unit: 'kilometers', value: 1000,
+                    name: 'kilometers', value: 1000,
                 }],
             },
             methods: {
                 convert: function () {
-                    var unit_to_meters = this.distance * this.start_unit.value
-                    this.converted_distance = unit_to_meters / this.end_unit.value
-                    // this.converted_distance = this.converted_distance.toPrecision(3) 
-                    this.converted_distance = Math.round((this.converted_distance + Number.EPSILON) * 100) / 100
+                    var unitToMeters = this.distance * this.startUnit.value
+                    this.convertedDistance = unitToMeters / this.endUnit.value
+                    // this.convertedDistance = this.convertedDistance.toPrecision(3) 
+                    this.convertedDistance = Math.round((this.convertedDistance + Number.EPSILON) * 100) / 100
+                    this.message = this.distance + ' ' + this.startUnit.name + ' converts to ' + this.convertedDistance + ' ' + this.endUnit.name
                 }
             },
             created: function () {
