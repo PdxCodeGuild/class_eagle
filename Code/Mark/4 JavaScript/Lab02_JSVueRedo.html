@@ -9,6 +9,21 @@
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <style>
+        html {
+            height: 100%;
+        }
+        body {
+            background-image: radial-gradient(rgb(29,28,63), rgb(143,80,135), rgb(139,243,193));
+            background-repeat:no-repeat;
+        }
+        #en_form {
+            background-color: rgba(41,34,71,0.5);
+        }
+        #result {
+            background-color: rgba(41,34,71,0.5);
+        }
+    </style>
 </head>
 
 <body>
@@ -20,32 +35,24 @@
         </nav>
 
 
-        <div class="container mt-3 border p-4">
+        <div class="container mt-3 border p-4" id="en_form">
             <div class="input-group">
                 <span class="input-group-text">Text to be encoded:</span>
                 <textarea v-model="message" class="form-control" aria-label="With textarea"></textarea>
             </div>
-            <div class="input-group mt-3">
-                <span class="input-group-text">Rotation Amount</span>
-                <input v-model="rot_amount" id="rot_amount" class="form-control" type="number">
-            </div>
             <div class="d-flex justify-content-evenly mt-3">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" v-model="decrypt" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">Decrypt</label>
-                </div>
-
                 <button v-on:click="encrypt" type="button" class="btn btn-success d-flex">Encrypt</button>
+                <button v-on:click="decrypt" type="button" class="btn btn-success d-flex">Decrypt</button>
             </div>
 
         </div>
-        <div v-if="seen" class="container text-center mt-3 border">
+        <div id="result" v-if="seen" class="container text-center mt-3 border text-white">
             {{encrypted_message}}
         </div>
 
 
     </div>
-    <!-- ----------------------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------------------------->
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
@@ -59,42 +66,52 @@
             data: {
                 title: 'ROT Cipher',
                 message: '',
-                rot_amount: '',
                 encrypted_message: '',
                 seen: false,
-                decrypt: false,
             },
             methods: {
-                pythonModulus: function (a, b) {
-                    let m = a%b
-                    if (m < 0) {
-                        m += b
-                    }
-                    return m
-                },
+                pythonModulus: function(a, b) {
+                        let m = a%b
+                        if (m < 0) {
+                            m += b 
+                        }
+                        return m
+                    },
                 encrypt: function () {
                     let message = this.message
                     let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                    let special_chars = "! '#$%&()*+,-./:;\"<=>?@[\\]_`{|}~"
                     let encrypted_message = ""
-                    for (i in message) {
-                        if (special_chars.indexOf(message[i]) !== -1) {
-                            encrypted_message += message[i]
-                        }
-                        else {
-                            let x = letters.indexOf(message[i])
-                            if (this.decrypt === true) {
-                                x -= this.rot_amount
-                            } else {
-                                x += this.rot_amount
-                            }
-                            x = this.pythonModulus(x, letters.length)
-                            console.log(x)
-                            encrypted_message += letters[x]
+                    for (char of message) {
+                        let index = letters.indexOf(char)
+                        if (index === -1) {
+                            encrypted_message += char
+                        } else {
+                            index += 13
+                            index %= letters.length
+                            console.log(index)
+                            encrypted_message += letters[index]
                         }
                     }
                     this.encrypted_message = encrypted_message
                     this.seen = true
+                },
+                decrypt: function () {
+                    let message = this.message
+                    let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                    let decrypted_message = ""
+                    for (char of message) {
+                        let index = letters.indexOf(char)
+                        if (index === -1) {
+                            decrypted_message += char
+                        } else {
+                            index -= 13
+                            console.log(index)
+                            index = this.pythonModulus(index, letters.length)
+                            console.log(index)
+                            decrypted_message += letters[index]
+                        }
+                    }
+                    this.encrypted_message = decrypted_message
                 }
             }
         })
