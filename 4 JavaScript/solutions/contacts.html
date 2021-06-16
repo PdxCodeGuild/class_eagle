@@ -6,6 +6,8 @@
 
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <!-- Bootstrap Icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
         <title>Contact List</title>
         <style>
@@ -18,64 +20,93 @@
             .checkbox_div {
                 padding-top: 30px;
             }
-            .row {
-                margin-top: 40px;
-            }
         </style>
     </head>
     <body>
         <div id="app" class="container">
             <div class="row">
-                <h1>{{ title }}</h1>
-                {{ create_contact }}
-            </div>
-            <div class="row">
-                <div class="col-lg-2 col-md-4 col-sm-12">
-                    <label for="input_name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="input_name" v-model="create_contact.name" v-on:keypress.enter="createContact">
+                <div class="col p-0">
+                    <h1>{{ title }}</h1>
                 </div>
-                <div class="col-lg-2 col-md-4 col-sm-12">
-                    <label for="input_birthday" class="form-label">Birthday</label>
-                    <input type="date" class="form-control" id="input_birthday" v-model="create_contact.birthday">
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-12">
-                    <label for="input_color" class="form-label">Favorite Color</label>
-                    <input type="color" class="form-control" id="input_color" v-model="create_contact.favorite_color">
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-12">
-                    <label for="input_blood_type" class="form-label">Blood Type</label>
-                    <select class="form-control" id="input_blood_type" v-model="create_contact.blood_type">
-                        <option v-for="blood_type in blood_types" v-bind:value="blood_type">{{ blood_type}}</option>
-                    </select>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-12 checkbox_div">
-                    <label for="input_organ_donor" class="form-label">Organ Donor</label>
-                    <input type="checkbox" id="input_organ_donor" v-model="create_contact.organ_donor">
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-12 checkbox_div">
-                    <button class="btn btn-primary" v-on:click="createContact">Create Contact</button>
+                <div class="col d-flex justify-content-end align-items-center">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" v-on:click="openCreateModal" data-bs-target="#contact_modal">
+                      <i class="bi-person-plus"></i>
+                    </button>
                 </div>
             </div>
-            <div class="row">
-                <table class="table">
-                    <tr>
-                        <th>Name</th>
-                        <th>Birthday</th>
-                        <th>Favorite Color</th>
-                        <th>Blood Type</th>
-                        <th>Organ Donor</th>
-                    </tr>
-                    <tr v-for="contact in contacts">
-                        <td>{{ contact.name }}</td>
-                        <td>{{ contact.birthday }}</td>
-                        <td>{{ contact.favorite_color }}</td>
-                        <td>{{ contact.blood_type }}</td>
-                        <td><input type="checkbox" v-bind:checked="contact.organ_donor" disabled/></td>
-                    </tr>
 
-                </table>
+            <div class="row">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tr>
+                            <th>Name</th>
+                            <th>Birthday</th>
+                            <th>Favorite Color</th>
+                            <th>Blood Type</th>
+                            <th>Organ Donor</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        <tr v-for="(contact, index) in contacts">
+                            <td><button class="btn btn-small" v-on:click="copyContact(contact)"><i class="bi-clipboard-plus"></i></button>{{ contact.name }}</td>
+                            <td>{{ contact.birthday }}</td>
+                            <td>{{ contact.favorite_color }}</td>
+                            <td>{{ contact.blood_type }}</td>
+                            <td><input type="checkbox" v-bind:checked="contact.organ_donor" disabled/></td>
+                            <td><button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#contact_modal" v-on:click="openEditModal(index)"><i class="bi-pencil"></i></button></td>
+                            <td><button class="btn btn-danger" v-on:click="deleteContact(index)"><i class="bi-x"></i></button></td>
+                        </tr>
+
+                    </table>
+                </div>
             </div>
-        </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="contact_modal" tabindex="-1" aria-labelledby="modal_title" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modal_title">{{ editing? 'Edit Contact': 'Create Contact' }}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-12">
+                                        <label for="input_name" class="form-label">Name</label>
+                                        <input type="text" class="form-control" id="input_name" v-model="modal_contact.name" v-on:keypress.enter="createContact">
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <label for="input_birthday" class="form-label">Birthday</label>
+                                        <input type="date" class="form-control" id="input_birthday" v-model="modal_contact.birthday">
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <label for="input_color" class="form-label">Favorite Color</label>
+                                        <input type="color" class="form-control" id="input_color" v-model="modal_contact.favorite_color">
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <label for="input_blood_type" class="form-label">Blood Type</label>
+                                        <select class="form-control" id="input_blood_type" v-model="modal_contact.blood_type">
+                                            <option v-for="blood_type in blood_types" v-bind:value="blood_type">{{ blood_type}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 checkbox_div">
+                                        <label for="input_organ_donor" class="form-label">Organ Donor</label>
+                                        <input type="checkbox" id="input_organ_donor" v-model="modal_contact.organ_donor">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" v-on:click="saveContact">{{ editing? 'Save': 'Create'}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div> <!-- close app -->
 
         <!-- Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
@@ -88,25 +119,49 @@
                     title: 'Contact List',
                     contacts: [],
                     blood_types: ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'],
-                    create_contact: {
-                        name: '',
-                        birthday: '',
-                        favorite_color: '',
-                        blood_type: '',
-                        organ_donor: false
-                    }
+                    modal_contact: null,
+                    editing: false,
+                    edit_contact_index: 0
                 },
                 methods: {
-                    createContact: function() {
-                        this.contacts.push(this.create_contact)
-                        this.create_contact = {
+                    resetModalContact: function() {
+                        this.modal_contact = {
                             name: '',
                             birthday: '',
                             favorite_color: '',
                             blood_type: '',
                             organ_donor: false
                         }
+                    },
+                    saveContact: function() {
+                        if (this.editing) {
+                            this.contacts[this.edit_contact_index] = this.modal_contact
+                        } else {
+                            this.contacts.push(this.modal_contact)
+                        }
+                        this.resetModalContact()
                         this.saveContacts()
+                    },
+                    deleteContact: function(index) {
+                        this.contacts.splice(index, 1)
+                        this.saveContacts()
+                    },
+                    copyContact: function(contact) {
+                        navigator.clipboard.writeText(contact.name)
+                    },
+                    openEditModal: function(index) {
+                        // this.modal_contact = {
+                        //     name: this.contacts[index].name,
+                        //     birthday: this.contact[index].birthday
+                        //     ...
+                        // }
+                        this.modal_contact = {...this.contacts[index]}
+                        this.editing = true
+                        this.edit_contact_index = index
+                    },
+                    openCreateModal: function() {
+                        this.editing = false
+                        this.resetModalContact()
                     },
                     saveContacts: function() {
                         localStorage.setItem('contacts', JSON.stringify(this.contacts))
@@ -144,6 +199,7 @@
                 },
                 created: function() {
                     this.loadContacts()
+                    this.resetModalContact()
                 }
             })
         </script>

@@ -4,19 +4,21 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Vue Unit Converter</title>
+    <!-- vue.js cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Shadows+Into+Light&display=swap"
-        rel="stylesheet">
+    rel="stylesheet">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Vue Unit Converter</title>
     <style>
         .container {
             display: flex;
             margin-top: 15px;
             padding-bottom: 15px;
-            background-color: goldenrod;
+            background-image: url('D:/Pictures/Images/blueprint-6063929_640.jpg');
             border-radius: 20px;
             border-style: solid;
             border-color: black;
@@ -26,11 +28,14 @@
         h1 {
             margin-top: 20px;
             font-family: 'Amatic SC', cursive;
-            font-weight: 800;
+            color: white;
+            text-shadow: 2px 2px black;
         }
 
         h3 {
             font-family: 'Shadows Into Light', cursive;
+            color: white;
+            text-shadow: 2px 2px black;
         }
 
         #distance {
@@ -42,6 +47,7 @@
         }
 
         #startUnit {
+            background-color: whitesmoke;
             border-radius: 3px;
             border-style: solid;
             border-color: black;
@@ -49,15 +55,11 @@
         }
 
         #endUnit {
+            background-color: whitesmoke;
             border-radius: 3px;
             border-style: solid;
             border-color: black;
             border-width: 2px;
-        }
-
-        .divider {
-            background-color: goldenrod;
-            padding-top: 10px;
         }
 
         .btn {
@@ -65,6 +67,7 @@
             border-style: solid;
             border-color: black;
             border-width: 2px;
+            background-color: brown;
         }
 
         .distance_label {
@@ -105,12 +108,11 @@
                 <button v-on:click="convert" class="btn waves-effect waves-light" type="submit"
                     name="action">Convert</button>
             </div>
-            <div class="section col s12">
+            <!-- <div class="section col s12">
                 <div class="divider"></div>
-            </div>
+            </div> -->
             <!-- display 'message' from the 'data' part of the app in the page -->
             <div v-if="convertedDistance != '' " class="center">
-                <!-- <h3>{{distance}} {{startUnit.name}} converts to {{convertedDistance}} {{endUnit.name}}</h3> -->
                 <h3>{{message}}</h3>
             </div>
         </div>
@@ -118,8 +120,6 @@
     </div>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <!-- vue.js cdn -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script>
         var app = new Vue({
             // query selector of the html element representing the app
