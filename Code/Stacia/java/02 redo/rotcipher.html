@@ -22,6 +22,7 @@
         </select>
         <button type="button" class="btn btn-danger" v-on:click="clicker">SSSSSHHHHHHH!</button>
 
+        {{message}} 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script>
@@ -31,7 +32,9 @@
                 secret: " ",
                 alphaList: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
                 inputWord: "",
-                cipherList: [""]
+                cipherList: [""],
+                message :""
+
             },
             methods: {
                 clicker: function () {
@@ -39,48 +42,52 @@
                     let word = this.inputWord.toUpperCase()
                     let inputArray = word.split('');
                     let secret = this.secret
-                    //  split into letters
-                    // itterate over letters
+
                     let i = 0
 
                     while (i < word.length) {
                         // console.log(word[i])
-                        let j = 0
-                        for (j in this.alphaList) {
+                        
+                        for (let j=0; j<this.alphaList.length; j++) {
                             // console.log(this.alphaList[j])
                             
+
                             if (this.alphaList[j] === word[i]) {
                                 console.log(this.alphaList[j])
-                                
-                                if (j >= 13) {
-                                    // this.secret.push(this.alphaList[j+13])
-                                    console.log(this.alphaList[j])
-                                }
+                                console.log(j)
+                                let k = 0
                                 if (j < 13) {
-                                    // this.secret.push( this.alphaList[j-13])
-                                    console.log(this.alphaList[j])
-                                    
-                                    
+                                    k = j + 13
                                 }
-                                j++
+                                else {
+                                    k = (j +13 -26 )
+
+                                }
+
+                                this.secret += (this.alphaList[k])
+                                console.log(k)
+                                console.log(this.alphaList[k])
                             }
+
                             
                         }
                         i++
-
-                        //  take length of list
-                        //  decide to move forward or back x clicks
-
-
-                        //  itterate over list add to code 
-
                     }
-                    alert(this.secret)
-                    // 
-                    //    _________________________________________________
-                }
+
+
+                    //  take length of list
+                    //  decide to move forward or back x clicks
+
+
+                    //  itterate over list add to code 
+                    this.message= this.secret
+                    
+                },
+                // 
+                //    _________________________________________________
             }
         })
+
 
 
 
