@@ -26,7 +26,7 @@
         <div id="app" class="container">
             <div class="row">
                 <div class="col p-0">
-                    <h1>{{ title }}</h1>
+                    <h1>{{ title | titleize }}</h1>
                 </div>
                 <div class="col d-flex justify-content-end align-items-center">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" v-on:click="openCreateModal" data-bs-target="#contact_modal">
@@ -113,10 +113,23 @@
         <!-- Vue JS -->
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script>
+
+            // function titleize(text) {
+            //     let words = text.split(' ')
+            //     for (let i=0; i<words.length; i++) {
+            //         let first_letter = words[i][0].toUpperCase()
+            //         let rest_of_word = words[i].substring(1)
+            //         words[i] = first_letter + rest_of_word
+            //     }
+            //     return words.join(' ')
+            // }
+            // console.log(titleize('hello world, llama abc')) // Hello World, Llama Abc
+
+
             let app = new Vue({
                 el: '#app',
                 data: {
-                    title: 'Contact List',
+                    title: 'contact list',
                     contacts: [],
                     blood_types: ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'],
                     modal_contact: null,
@@ -140,6 +153,7 @@
                             this.contacts.push(this.modal_contact)
                         }
                         this.resetModalContact()
+                        this.sortContacts()
                         this.saveContacts()
                     },
                     deleteContact: function(index) {
@@ -195,6 +209,51 @@
                             contacts = JSON.parse(contacts)
                         }
                         this.contacts = contacts
+                        this.sortContacts()
+                    },
+                    sortContacts: function() {
+                        this.contacts.sort(function(a, b) {
+                            if (a.name < b.name) {
+                                return -1
+                            } else if (a.name > b.name) {
+                                return 1
+                            } else {
+                                return 0
+                            }
+                        })
+                    }
+                },
+
+                // https://vuejs.org/v2/guide/computed.html
+                computed: {
+                    sorted_contacts: function() {
+                        // https://holycoders.com/javscript-copy-array/
+                        let output = [...this.contacts]
+                        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+                        output.sort(function(a, b) {
+                            if (a.name < b.name) {
+                                return -1
+                            } else if (a.name > b.name) {
+                                return 1
+                            } else {
+                                return 0
+                            }
+                        })
+                        return output
+                    }
+                },
+                // https://vuejs.org/v2/guide/filters.html
+                filters: {
+                    titleize: function (value) {
+                        if (!value) return ''
+                        value = value.toString()
+                        let words = value.split(' ')
+                        for (let i=0; i<words.length; i++) {
+                            let first_letter = words[i][0].toUpperCase()
+                            let rest_of_word = words[i].substring(1)
+                            words[i] = first_letter + rest_of_word
+                        }
+                        return words.join(' ')
                     }
                 },
                 created: function() {
