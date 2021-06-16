@@ -17,6 +17,10 @@
     - [Docs](#docs-2)
     - [Labs](#labs-2)
     - [Mob](#mob-2)
+  - [JavaScript](#javascript)
+    - [Docs](#docs-3)
+    - [Labs](#labs-3)
+    - [Mob](#mob-3)
 - [Schedule](#schedule)
   - [Week 1 / Python / Basics](#week-1--python--basics)
   - [Week 2 / Python / Intermediate](#week-2--python--intermediate)
@@ -188,12 +192,50 @@ Schedule Overview:
 
 - [01 Django Redo](3%20Django/labs/01%20Django%20Redo.md)
 - [02 Todo](3%20Django/labs/02%20Todo.md)
+- [03 Blog](3%20Django/labs/03%20Blog.md)
 
 #### Mob
 
 - [01 Polls](3%20Django/mob/01%20Polls.md)
+- [02 URL Shortener](3%20Django/mob/02%20URL%20Shortener.md)
+- [03 Cat API](3%20Django/mob/03%20Cat%20API.md)
 
 
+### JavaScript
+
+#### Docs
+
+- [01 Overview](4%20JavaScript/docs/01%20-%20Overview.md)
+- [02 JavaScript Fundamentals](4%20JavaScript/docs/02%20-%20JavaScript%20Fundamentals.md)
+- [03 Numbers and Arithmetic](1%20Python/docs/03%20Numbers%20&%20Arithmetic.md)
+- [04 Booleans, Comparisons, and Conditionals](4%20JavaScript/docs/04%20-%20Booleans,%20Comparisons%20and%20Conditionals.md)
+- [05 Strings](4%20JavaScript/docs/05%20-%20Strings.md)
+- [06 Objects](4%20JavaScript/docs/06%20-%20Objects.md)
+- [07 Loops](4%20JavaScript/docs/07%20-%20Loops.md)
+- [08 Arrays](4%20JavaScript/docs/08%20-%20Arrays.md)
+- [09 Functions](4%20JavaScript/docs/09%20-%20Functions.md)
+- [10 Classes](4%20JavaScript/docs/10%20-%20Classes.md)
+- [11 HTML Interaction](4%20JavaScript/docs/11%20-%20HTML%20Interaction.md)
+- [12 Events](4%20JavaScript/docs/12%20-%20Events.md)
+- [13 APIs and Ajax](4%20JavaScript/docs/13%20-%20APIs%20and%20Ajax.md)
+- [Canvas Drawing](4%20JavaScript/docs/Canvas%20Drawing.md)
+- [jQuery](4%20JavaScript/docs/jQuery.md)
+- [Python vs JavaScript](4%20JavaScript/docs/Python%20vs%20JavaScript.md)
+- [Regex and Form Validation](4%20JavaScript/docs/Regex%20and%20Form%20Validation.md)
+- [Timing](4%20JavaScript/docs/Timing.md)
+- [Vue vs Vanilla](4%20JavaScript/docs/Vue%20vs%20Vanilla.md)
+- [Vue](4%20JavaScript/docs/Vue.md)
+
+#### Labs
+
+- [01 JavaScript Redo](4%20JavaScript/labs/lab01%20JavaScript%20Redo.md)
+- [02 Vue Redo](4%20JavaScript/labs/lab02%20Vue%20Redo.md)
+
+
+#### Mob
+
+- [01 Vue Redo](4%20JavaScript/mob/lab01%20Vue%20Redo.md)
+- [02 Leet Translator](4%20JavaScript/mob/mob02%20Leet%20Translator.md)
 
 ## Schedule
 

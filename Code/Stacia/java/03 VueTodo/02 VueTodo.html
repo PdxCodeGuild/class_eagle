@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Space Bunny todo</title>
+
+    <style>
+        .container {
+            background-color: lightsalmon;
+            height: 100%;
+            width: 100%;
+
+        }
+
+        .body {
+            color: lightsalmon;
+            min-height: 100%;
+            min-width: 100%;
+        }
+
+        .inputbar {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
+            width: 30%;
+            margin: 5%;
+            padding-bottom: 5%;
+        }
+
+        .col {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
+
+
+        }
+
+        .bar {
+            padding-top: 5%;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <div id="app">
+
+        <div class="container">
+            {{welcome}}
+
+            <div class="inputbar">
+
+
+                <div class="col">
+                    <div class="bar">
+
+                        <label for="task">Task</label>
+                        <input v-model='taskName' id="task" name="task" type="text" />
+                    </div>
+
+                    <div class="bar">
+                        <textarea  v-model='details' name="details">details</textarea>
+
+                    </div>
+
+                    <div class="bar">
+                        <button v-on:click="newTask">send it</button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="col">
+                <button  v-for="task in taskList">{{task.taskName}} {{task.details}}</button>
+            </div>
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                welcome: 'Hello',
+                userName: 'Stacia',
+                taskName: '',
+                
+                details: '',
+
+                task: null,
+                taskList: [],
+                listLength: 2
+
+            },
+
+            methods: {
+                newTask: function () {
+                    let task = {
+                        taskName:this.taskName,
+                        details:this.details,
+                    }
+                    this.taskList.push(task)
+                      
+                       
+
+                    
+                }
+            },
+
+            created: function () {
+                console.log(this.welcome)
+            }
+        })
+    </script>
+</body>
+
+</html>

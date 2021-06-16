@@ -23,6 +23,8 @@ def index(request):
     data = response.json()
     joke = data['joke']
     # encoded_joke = urllib.parse.quote_plus(joke)
+
+    # generate text for image macro
     sentences = joke.count('.') + joke.count('?') + joke.count('!') + joke.count(',')
     top_text = ''
     bottom_text = ''
@@ -38,6 +40,8 @@ def index(request):
         bottom_text = joke
     top_text = urllib.parse.quote_plus(top_text)
     bottom_text = urllib.parse.quote_plus(bottom_text)
+    
+
     context = {
         'joke': joke,
         'top_text': top_text,

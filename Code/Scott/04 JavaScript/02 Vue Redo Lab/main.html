@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <span>{{ message }}</span>
+        <input id="user_input" type="text" v-model="user_choice"/>
+        <button v-on:click="roundStarted">Start Round!</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+
+            data: {
+                message: 'Rock, paper, or scissors?',
+                user_choice: ''
+            },
+
+            methods: {
+                roundStarted: function(){
+                    let user = this.user_choice
+                    user = user.toLowerCase()
+
+                    let user_val = 0
+                    let bot_val = Math.floor(Math.random() * 3)
+                    let winner = 0
+
+                    if(user == 'rock'){
+                        user_val = 0
+                    }
+                    else if(user == 'paper'){
+                        user_val = 1
+                    }
+                    else if(user == 'scissors'){
+                        user_val = 2
+                    }
+                    else{
+                        alert('Invalid Input!')
+                        return
+                    }
+
+                    if(user_val == 0 &&  bot_val == 2){
+                        winner = 1
+                    }
+                    else if(user_val == 2 && bot_val == 0){
+                        winner = -1
+                    }
+                    else{
+                        if(user_val < bot_val){
+                            winner = -1
+                        }
+                        else if(user_val > bot_val){
+                            winner = 1
+                        }
+                        else{
+                            winner = 0
+                        }
+                    }
+
+                    if(bot_val == 0){
+                        alert('You chose ' + user + ' | The bot chose rock')
+                    }
+                    else if(bot_val == 1){
+                        alert('You chose ' + user + ' | The bot chose paper')
+                    }
+                    else{
+                        alert('You chose ' + user + ' | The bot chose scissors')
+                    }
+
+                    if(winner == 1){
+                        alert('Player wins round!')
+                    }
+                    else if(winner == -1){
+                        alert('Player lost round!')
+                    }
+                    else{
+                        alert('It\'s a tie!')
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
