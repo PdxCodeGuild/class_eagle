@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 
@@ -14,11 +12,12 @@
 <body>
 
     <div id="app">
-    
+
         <div class="input-group mb-3">
-            <input v-model="inputWord" id="inputWord" type="text" class="form-control" placeholder="encrypt a secret message">
-           
-          </div>
+            <input v-model="inputWord" id="inputWord" type="text" class="form-control"
+                placeholder="encrypt a secret message">
+
+        </div>
 
         </select>
         <button type="button" class="btn btn-danger" v-on:click="clicker">SSSSSHHHHHHH!</button>
@@ -28,58 +27,70 @@
     <script>
         var app = new Vue({
             el: '#app',
-            data: { 
+            data: {
                 secret: " ",
                 alphaList: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
                 inputWord: "",
-                cipherList:[""]
+                cipherList: [""]
             },
             methods: {
                 clicker: function () {
                     // take input  
-                    let word = this.inputWord    
+                    let word = this.inputWord.toUpperCase()
                     let inputArray = word.split('');
-                    
+                    let secret = this.secret
                     //  split into letters
-                    
-                    
-                    //  take length of list
-                    //  decide to move forward or back x clicks
-                    if (word.length >   this.alphaList.length/2){
-                        
-                        for (let i=0; i<(inputWord.length); i++) {
+                    // itterate over letters
+                    let i = 0
+
+                    while (i < word.length) {
+                        // console.log(word[i])
+                        let j = 0
+                        for (j in this.alphaList) {
+                            // console.log(this.alphaList[j])
                             
-                            secret.push(alpha[i+13])
+                            if (this.alphaList[j] === word[i]) {
+                                console.log(this.alphaList[j])
+                                
+                                if (j >= 13) {
+                                    // this.secret.push(this.alphaList[j+13])
+                                    console.log(this.alphaList[j])
+                                }
+                                if (j < 13) {
+                                    // this.secret.push( this.alphaList[j-13])
+                                    console.log(this.alphaList[j])
+                                    
+                                    
+                                }
+                                j++
+                            }
+                            
                         }
+                        i++
+
+                        //  take length of list
+                        //  decide to move forward or back x clicks
+
+
+                        //  itterate over list add to code 
+
                     }
-                    if (word.length <  this.alphaList.length/2){
-                        
-                        for (let i=0; i<inputWord.length; i++) {
-                            
-                            secret.push( this.alpha[i-13])
-                            alert(this.secret) 
-                        } 
-                        alert(this.password)
-                    }
-                    
-                    //  itterate over list add to code 
-                    
-                    
+                    alert(this.secret)
                     // 
                     //    _________________________________________________
                 }
-                
             }
-            
         })
-        
-        
-        
-        
-        </script>
+
+
+
+
+
+
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
-    crossorigin="anonymous"></script>
+        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
