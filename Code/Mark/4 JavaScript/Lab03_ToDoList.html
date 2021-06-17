@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello, world!</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: rgb(35,58,89);
+        }
+        #todo_form {
+            background-color: rgb(41,117,217);
+        }
+        #todo_display {
+            background-color: rgb(242,158,55);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <span class="navbar-brand mb-0 h1">To-Do List</span>
+            </div>
+        </nav>
+        <!-- Container for todo creation -->
+        <div id="todo_form" class="container my-3 p-3">
+            <div class="row align-items-center g-3">
+                <div class="col input-group">
+                    <label class="input-group-text" for="title_input">Title:</label>
+                    <input type="text" id="title_input" class="form-control" v-model="created_item.title">
+                </div>
+                <div class="col input-group">
+                    <label class="input-group-text" for="priority_select">Priority:</label>
+                    <select class="form-select" id="priority_select" v-model="created_item.priority">
+                        <option v-for="i of priority" v-bind:value="i">{{i}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="input-group mt-3">
+                <label class="input-group-text" for="desc_input">Description</label>
+                <textarea type="text" class="form-control" id="desc_input"
+                    v-model="created_item.description"></textarea>
+            </div>
+            <div class="row mt-3">
+                <div class="col input-group">
+                    <label for="due_date" class="input-group-text">Due Date:</label>
+                    <input type="datetime-local" id="due_date" class="form-control" v-model="created_item.due_date">
+                </div>
+                <div class="col">
+                    <button class="btn btn-success" v-on:click="createContact">Create</button>
+                </div>
+            </div>
+
+        </div>
+        <!-- Container for all items -->
+        <div id="todo_display" class="container mt-3">
+            <div class="row">
+                <div class="col p-0">
+                    <!-- Carousel for the active todo items -->
+                    <div class="col">
+                        <div id="carouselControls" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="card">
+                                        <h5 class="card-header">Mark's To-Do items</h5>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Good morning!</h5>
+                                            <p class="card-text"> You have {{item_amount}} items today!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div v-for="(item, index) of todo_items" class="carousel-item">
+                                    <div class="card">
+                                        <h5 class="card-header">{{item.title}}</h5>
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{item.priority}} Due: {{item.due_date}}</h5>
+                                            <p class="card-text">{{item.description}}</p>
+                                            <div class="d-flex justify-content-center">
+                                                <a href="#" class="btn btn-warning"
+                                                    v-on:click="completedTask(index)">Completed</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselControls"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- table for completed items -->
+                <div class="col">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Task</th>
+                                <th scope="col">Priority</th>
+                                <th scope="col">Completed Date</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(item, index) of completed_items">
+                                <td>{{item.title}}</td>
+                                <td>{{item.priority}}</td>
+                                <td>{{item.completed_date}}</td>
+                                <td>
+                                    <a class="btn bg-danger" v-on:click="deleteItem(index)">Delete</a>
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary" v-on:click="detailModal(index)" data-bs-toggle="modal" data-bs-target="#detailmodal">
+                                        Details
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Modal for completed details -->
+        <div class="modal fade" id="detailmodal" tabindex="-1" aria-labelledby="detailmodalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="detailmodalLabel">{{modal_item.title}}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <ul>
+                            <li>{{modal_item.priority}}</li>
+                            <li>Completed: {{modal_item.completed_date}}</li>
+                            <li>Due: {{modal_item.due_date}}</li>
+                        </ul>
+                        <p>{{modal_item.description}}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        
+    </div> <!-- End of app div-->
+    
+
+    
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+        crossorigin="anonymous"></script>
+    <!-- Vue Code -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                priority: ['Low', 'Medium', 'High', 'Urgent'],
+                todo_items: [],
+                completed_items: [],
+                created_item: {
+                    title: '',
+                    priority: '',
+                    description: '',
+                    due_date: '',
+                },
+                modal_item: {},
+                item_amount: 0,
+            },
+            methods: {
+                createContact: function () {
+                    let due_date = new Date(this.created_item['due_date'])
+                    this.created_item['due_date'] = due_date.toUTCString()
+                    console.log(this.created_item['due_date'])
+                    this.todo_items.push(this.created_item)
+                    this.saveTodolist()
+                    this.clearFields()
+                },
+                saveTodolist: function () {
+                    localStorage.setItem('todo_items', JSON.stringify(this.todo_items))
+                    localStorage.setItem('completed_items', JSON.stringify(this.completed_items))
+                    this.item_amount = this.todo_items.length
+                },
+                loadTodolist: function () {
+                    let todo_items = localStorage.getItem('todo_items')
+                    todo_items = JSON.parse(todo_items)
+                    if (todo_items === null) {
+                        todo_items = []
+                    }
+                    this.todo_items = todo_items
+                    let completed_items = localStorage.getItem('completed_items')
+                    completed_items = JSON.parse(completed_items)
+                    if (completed_items === null) {
+                        completed_items = []
+                    }
+                    this.completed_items = completed_items
+                },
+                deleteItem: function (index) {
+                    this.completed_items.splice(index, 1)
+                    this.saveTodolist()
+                },
+                clearFields: function () {
+                    cleared_item = {
+                        title: '',
+                        priority: '',
+                        description: '',
+                        due_date: '',
+                    }
+                    this.created_item = cleared_item
+                },
+                completedTask: function (index) {
+                    let date = new Date()
+                    let completed_task = {
+                        title: this.todo_items[index]['title'],
+                        description: this.todo_items[index]['description'],
+                        priority: this.todo_items[index]['priority'],
+                        due_date: this.todo_items[index]['due_date'],
+                        completed_date: date.toDateString(),
+                    }
+                    this.todo_items.splice(index, 1)
+                    this.completed_items.push(completed_task)
+                    this.saveTodolist()
+                },
+                detailModal: function(index) {
+                    let modal_item = {
+                        title:this.completed_items[index]['title'],
+                        description:this.completed_items[index]['description'],
+                        priority:this.completed_items[index]['priority'],
+                        due_date:this.completed_items[index]['due_date'],
+                        completed_date:this.completed_items[index]['completed_date']
+                    }
+                    this.modal_item = modal_item
+                    console.log(this.modal_item)
+                }
+
+            },
+            created: function () {
+                this.loadTodolist()
+                this.item_amount = this.todo_items.length
+            }
+        })
+    </script>
+</body>
+
+</html>

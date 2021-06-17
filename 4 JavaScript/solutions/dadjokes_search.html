@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Dad Jokes</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- https://fonts.google.com/specimen/Indie+Flower -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+        <style>
+            #app {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            .joke_container {
+                display: flex;
+                flex-direction:column;
+            }
+            .joke {
+                font-family: 'Indie Flower', cursive;
+                font-size: 32px;
+                text-align:center;
+                margin-bottom: 20px;
+            }
+            .search_form {
+                display: flex;
+                flex-direction: row;
+                margin-bottom: 40px;
+            }
+            /* https://css-tricks.com/snippets/css/a-guide-to-flexbox/#flex-grow */
+            .input_search {
+                flex-grow:10;
+                font-size: 20px;
+            }
+            .btn {
+                flex-grow:1;
+                cursor: pointer;
+                /* https://htmlcolorcodes.com/color-names/ */
+                background-color: DeepPink;
+                text-align:center;
+                padding: 20px;
+                margin-left: 10px;
+                border-radius: 4px;
+                color:white;
+                user-select:none;
+                transition: all 200ms;
+            }
+            .btn:hover {
+                box-shadow: 2px 2px 4px lightgrey;
+                transform: translateY(-1px);
+            }
+            .btn:active {
+                box-shadow: none;
+                transform: translateY(1px);
+                color:lightgrey;
+                background-color: MediumVioletRed;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <div class="search_form">
+                <input class="input_search" type="text" v-model="search_text"/>
+                <span class="btn" v-on:click="getJokes">Search</span>
+            </div>
+            <div class="joke_container">
+                <div class="joke" v-for="(joke, index) in jokes">
+                    {{ joke }}<br/>
+                    <span v-if="index < jokes.length-1">•</span>
+                </div>
+            </div>
+        </div>
+        <!-- Vue -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <!-- Axios -->
+        <!-- https://github.com/axios/axios -->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+            let app = new Vue({
+                el: '#app',
+                data: {
+                    jokes: [],
+                    search_text: 'hipster'
+                },
+                methods: {
+                    // https://icanhazdadjoke.com/api
+                    getJokes: function() {
+                        axios({
+                            method: 'get',
+                            url: 'https://icanhazdadjoke.com/search',
+                            headers: {
+                                'Accept': 'application/json'
+                            },
+                            params: {
+                                page: 1,
+                                limit: 30,
+                                term: this.search_text
+                            }
+                        }).then(response => {
+                            let data = response.data.results
+                            this.jokes = []
+                            for (let i=0; i<data.length; ++i) {
+                                this.jokes.push(data[i].joke)
+                            }
+                        })
+                    }
+                },
+                created: function() {
+                    this.getJokes()
+                }
+            })
+
+        </script>
+    </body>
+</html>
