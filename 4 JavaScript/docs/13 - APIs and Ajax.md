@@ -29,7 +29,7 @@ AJAX stands for "asynchronous javascript and XML", and allows you to execute HTT
 
 ### AJAX in Axios
 
-Axios is a JavaScript library which handles AJAX more succinctly. Ultimately it's built upon vanilla JavaScript, so it doesn't offer anything you can't otherwise do with vanilla JS.
+[Axios](https://github.com/axios/axios) is a JavaScript library which handles AJAX more succinctly. Ultimately it's built upon vanilla JavaScript, so it doesn't offer anything you can't otherwise do with vanilla JS.
 
 ```es6
 axios({
