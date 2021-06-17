@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Word Coder</title>
+        <!-- Icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Materialize CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    </head>
+
+    <body>
+        <div id="app">
+            <h1>{{ message }}</h1>
+
+            <div class="input-field">
+                <input v-model="uncoded_word" type="text">
+                <label for="text here">Enter Word</label>
+            </div>
+            <button v-on:click="encode" class="btn">Enter</button>
+
+            <h1>Your coded word is: {{ coded_word }}</h1>
+        </div>
+
+
+        <!-- Materialize JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+            let app= new Vue({
+                el: '#app',
+
+                data: {
+                    message: 'Encode a word',
+                    alpha: 'abcdefghijklmnopqrstuvwxyz',
+                    uncoded_word: '',
+                    offset: 4,
+                    coded_word: '',
+
+                },
+
+                methods: {
+                    encode: function(){
+                        let uncoded_word = this.uncoded_word
+                        // console.log(this.uncoded_word)
+                        for (let i=0; i<uncoded_word.length; i++ ){
+                            
+                            // console.log(this.alpha.search(uncoded_word[i]) + this.offset)
+
+                            let index = this.alpha.search(uncoded_word[i]) + this.offset
+                            if (index > this.alpha.length) {
+                                index = index - this.alpha.length 
+                            }
+                           
+
+                            this.coded_word += this.alpha[index]
+
+                        
+                            // console.log(index)
+                            // console.log(this.coded_word)
+                            // console.log(this.output)
+                            
+                            
+                        }
+                        console.log(this.coded_word)
+                    },
+                    
+                 
+                },
+                
+                
+                created: function() {
+                    
+                }
+
+            })
+        </script>
+    </body>
+</html>
+
