@@ -61,6 +61,7 @@
         <label for="name">Name</label>
         <input type="text" id="name" v-model="name" />
         <button @click="addPlayer">Add player</button>
+        <button @click="players = []">Remove All</button>
       </div>
       <div class="players">
         <transition-group name="player" class="players2" tag="div">
