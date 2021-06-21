@@ -1,33 +1,21 @@
 
-# APIs and AJAX
-
-
-- [API](#api)
-- [AJAX](#ajax)
-  - [AJAX in Axios](#ajax-in-axios)
-    - [Setting Query Parameters](#setting-query-parameters)
-    - [Setting Custom Request Headers](#setting-custom-request-headers)
-    - [Sending Data](#sending-data)
-  - [AJAX in Vanilla JavaScript](#ajax-in-vanilla-javascript)
-  - [AJAX in jQuery](#ajax-in-jquery)
-- [CORS](#cors)
-- [JSONP](#jsonp)
-
-See also: [Networking](../../0%20General/08%20-%20Networking.md)
-
-## API
-
-API stands for "application programming interface", it's a standardized way to send and receive data from a web service via HTTP requests (GET, POST, PUT, DELETE). For example, try executing this url in your browser `http://api.forismatic.com/api/1.0/?method=getQuote&key=457653&format=json&lang=en`. This is an api for random inspiration quotes. Note the query parameters which specify a key, format, and language. When you enter it in your browser, you execute an HTTP GET request. You can do the same thing from JavaScript, then process the result and control how it's displayed to the user. Websites are for people, APIs are for programs.
-
-There are many free and open APIs available on the internet that can provide many different forms of data. You can find some public APIs [here](https://github.com/toddmotto/public-apis) and [here](https://catalog.data.gov/dataset?q=-aapi+api+OR++res_format%3Aapi#topic=developers_navigation). When trying to access a url, remember the [parts of a url](https://doepud.co.uk/images/blogs/complex_url.png). APIs can receive parameters through query parameters and headers. You can see query parameters in the example url.
-
-## AJAX
+# AJAX
 
 AJAX stands for "asynchronous javascript and XML", and allows you to execute HTTP requests from JavaScript. You can read more about AJAX [here](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started), [here](https://developer.mozilla.org/en-US/docs/AJAX) and [here](https://www.w3schools.com/xml/ajax_intro.asp).
 
 
+- [AJAX in Axios](#ajax-in-axios)
+  - [Setting Query Parameters](#setting-query-parameters)
+  - [Setting Custom Request Headers](#setting-custom-request-headers)
+  - [Sending Data](#sending-data)
+- [AJAX in Vanilla JavaScript](#ajax-in-vanilla-javascript)
+- [AJAX in jQuery](#ajax-in-jquery)
+- [CORS](#cors)
+- [JSONP](#jsonp)
 
-### AJAX in Axios
+
+
+## AJAX in Axios
 
 [Axios](https://github.com/axios/axios) is a JavaScript library which handles AJAX more succinctly. Ultimately it's built upon vanilla JavaScript, so it doesn't offer anything you can't otherwise do with vanilla JS.
 
@@ -40,7 +28,7 @@ axios({
 })
 ```
 
-#### Setting Query Parameters
+### Setting Query Parameters
 
 You can set query parameters using string concatenation or by setting the `params` property. Just remember that if you use string concatenation, you may have to use `encodeURIComponent` if the value has special characters in it. If you use `params` with Axios, it will automatically encode your parameters for you.
 
@@ -56,59 +44,59 @@ The code below sends the request to `https://opentdb.com/api.php?amount=10&categ
 
 ```javascript
 axios({
-  method: 'get',
-  url: 'https://opentdb.com/api.php',
-  params: {
-    amount: 10,
-    category: 18,
-    difficulty: 'easy'
-  }
+    method: 'get',
+    url: 'https://opentdb.com/api.php',
+    params: {
+        amount: 10,
+        category: 18,
+        difficulty: 'easy'
+    }
 }).then((response) => {
-  this.questions = response.data.results
+    this.questions = response.data.results
 })
 ```
 
-#### Setting Custom Request Headers
+### Setting Custom Request Headers
 
 Depending on the API specification, you may need to put an API key inside the headers of the request.
 
 ```javascript
 axios({
-  method: 'get',
-  url: 'https://favqs.com/api/qotd',
-  headers: {
-    'x-api-key': 'api_key'
-  }
+    method: 'get',
+    url: 'https://favqs.com/api/qotd',
+    headers: {
+        'x-api-key': 'api_key'
+    }
 }).then((response) => {
-  console.log(response.data)
+    console.log(response.data)
 })
 ```
 
-#### Sending Data
+### Sending Data
 
 ```javascript
 axios({
-  method: 'post',
-  url: 'https://favqs.com/api/qotd',
-  data: {
-    name: 'joe',
-    age: '34'
-  }
+    method: 'post',
+    url: 'https://favqs.com/api/qotd',
+    data: {
+        name: 'joe',
+        age: '34'
+    }
 }).then((response) => {
-  console.log(response.data)
+    console.log(response.data)
 })
 ```
 
-### AJAX in Vanilla JavaScript
+## AJAX in Vanilla JavaScript
 
 Here's how to execute an AJAX request in native JavaScript. You can read more about XMLHttpRequest [here](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest). If you have many query parameters, consider using a function to [convert an object](https://stackoverflow.com/questions/111529/how-to-create-query-parameters-in-javascript). Remember status 200 means 'success'.
 
 ```javascript
 let xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
-  if (this.readyState === 4 && this.status === 200) {
-    console.log(this.responseText);
-  }
+    if (this.readyState === 4 && this.status === 200) {
+        console.log(this.responseText);
+    }
 };
 xhttp.open("GET", 'https://api.iify.org/?format=json');
 xhttp.send();
@@ -127,14 +115,14 @@ Adding a key-value pair to the request header is done by invoking `setRequestHea
 ```javascript
 let xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
-  if (this.readyState === 1) {
-    xhttp.setRequestHeader('Authorization', 'Token token="a1b2c3"')
-  } else if (this.readyState === 4 && this.status === 200) {
-    let data = JSON.parse(xhttp.responseText);
-    // do something with data
-  } else if (this.readyState === 4 && this.status === 404) {
-    // handle 404
-  }
+    if (this.readyState === 1) {
+        xhttp.setRequestHeader('Authorization', 'Token token="a1b2c3"')
+    } else if (this.readyState === 4 && this.status === 200) {
+        let data = JSON.parse(xhttp.responseText);
+        // do something with data
+    } else if (this.readyState === 4 && this.status === 404) {
+        // handle 404
+    }
 };
 xhttp.open("GET", url);
 xhttp.send();
@@ -162,16 +150,16 @@ http_get("https://api.ipify.org/?format=json", function(data) {
 ```
 
 
-### AJAX in jQuery
+## AJAX in jQuery
 
 ```javascript
 $.ajax({
-  method: "GET", // specify the HTTP Verb
-  url: 'https://api.iify.org/?format=json' // specify the URL
+    method: "GET", // specify the HTTP Verb
+    url: 'https://api.iify.org/?format=json' // specify the URL
 }).done(function(data) {
-  console.log(data); // log the data we get in response
+    console.log(data); // log the data we get in response
 }).fail(function() {
-  alert("error"); // indicate that an error has occurred
+    alert("error"); // indicate that an error has occurred
 });
 ```
 

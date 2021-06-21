@@ -1,7 +1,6 @@
 
 
-
-# Vue.js
+# Vue
 
 
 - [Overview](#overview)
