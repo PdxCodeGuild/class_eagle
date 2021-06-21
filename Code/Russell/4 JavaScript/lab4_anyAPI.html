@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quotes Finder</title>
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+</head>
+
+<body>
+
+    <div class="container" id="app">
+
+        <h1>{{ message }}</h1>
+
+        <div class="input-field col s6">
+            <input id="search_term" v-model="search_term" type="text" class="validate">
+            <label for="search_term">Enter term</label>
+        </div>
+
+        <button v-on:click="get_quotes"class="btn">search</button>
+
+        <div v-for="quote in quotes">
+
+            <h2> {{ quote.body}} </h2>
+            <p> {{ quote.author }} </p>
+        </div>
+
+
+
+
+
+    </div>
+
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- Axios-->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+
+        let app = new Vue({
+            el: '#app',
+
+            data: {
+                message: 'Check out some quotes.',
+                search_term: 'dogs',
+                quotes: [],
+                quote_body: '',
+                quote_author: '',
+
+            },
+
+            methods: {
+
+                get_quotes: function () {
+                    axios({
+                        method: 'get',
+                        url: 'https://favqs.com/api/quotes?filter=' + this.search_term,
+                        params: {
+
+                        },
+                        headers: {
+                            'Authorization': 'Token token=5f235a5a2ef1eee1a9712ed2fa2bb86d'
+                        }
+                    }).then((response) => {
+                        this.quotes = response.data
+                        this.quotes = this.quotes['quotes']
+
+                    })
+
+                },
+
+            },
+
+            created: function () {
+                this.get_quotes()
+            },
+        })
+
+
+    </script>
+
+</body>
+
+</html>
