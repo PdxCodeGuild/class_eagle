@@ -13,9 +13,19 @@
             background-color: rgb(35,58,89);
         }
         #todo_form {
-            background-color: rgb(41,117,217);
+            background-color: rgb(191,4,4);
+            box-shadow: 0px 10px 20px rgb(166,28,53);
+            border: ridge;
+            border-color: black
         }
-        #todo_display {
+        #completed_display {
+            background-color: rgb(41,117,217);
+            border:solid;
+        }
+        #navbar {
+            background-color: rgb(242,158,55);
+        }
+        #current_todos {
             background-color: rgb(242,158,55);
         }
     </style>
@@ -24,8 +34,8 @@
 <body>
 
     <div id="app">
-        <nav class="navbar navbar-light bg-light">
-            <div class="container-fluid">
+        <nav class="navbar navbar-light bg-light p-0">
+            <div id="navbar" class="container-fluid justify-content-center">
                 <span class="navbar-brand mb-0 h1">To-Do List</span>
             </div>
         </nav>
@@ -65,10 +75,10 @@
                 <div class="col p-0">
                     <!-- Carousel for the active todo items -->
                     <div class="col">
-                        <div id="carouselControls" class="carousel slide" data-bs-ride="carousel">
+                        <div id="carouselControls" class="carousel slide" data-bs-interval="false" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <div class="card">
+                                    <div id="current_todos" class="card">
                                         <h5 class="card-header">Mark's To-Do items</h5>
                                         <div class="card-body">
                                             <h5 class="card-title">Good morning!</h5>
@@ -105,7 +115,7 @@
                     </div>
                 </div>
                 <!-- table for completed items -->
-                <div class="col">
+                <div id="completed_display" class="col">
                     <table class="table">
                         <thead>
                             <tr>
@@ -238,6 +248,7 @@
                     }
                     this.todo_items.splice(index, 1)
                     this.completed_items.push(completed_task)
+                    location.reload()
                     this.saveTodolist()
                 },
                 detailModal: function(index) {
