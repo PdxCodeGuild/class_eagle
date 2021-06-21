@@ -1,19 +1,18 @@
 
 
+# Vue
 
-# Vue.js
 
-
-1. [Overview](#overview)
-2. [Including Vue](#including-vue)
-3. [Anatomy of a Vue App](#anatomy-of-a-vue-app)
-4. [1 Rendering Values](#1-rendering-values)
-5. [2 Setting Attributes](#2-setting-attributes)
-6. [3 Conditionals](#3-conditionals)
-7. [4 Loops](#4-loops)
-8. [5 Input Fields](#5-input-fields)
-9. [6 Event Listeners](#6-event-listeners)
-10. [7 Lifecycle Hooks](#7-lifecycle-hooks)
+- [Overview](#overview)
+- [Including Vue](#including-vue)
+- [Anatomy of a Vue App](#anatomy-of-a-vue-app)
+- [Rendering Values](#rendering-values)
+- [Setting Attributes](#setting-attributes)
+- [Conditionals](#conditionals)
+- [Loops](#loops)
+- [Input Fields](#input-fields)
+- [Event Listeners](#event-listeners)
+- [Lifecycle Hooks](#lifecycle-hooks)
 
 ## Overview
 
@@ -88,7 +87,7 @@ You can include Vue in your page like so:
 
 
 
-## 1 Rendering Values
+## Rendering Values
 
 Render variables in the HTML using `{{}}`. [more info](https://vuejs.org/v2/guide/syntax.html#Interpolations)
 
@@ -106,7 +105,7 @@ Render variables in the HTML using `{{}}`. [more info](https://vuejs.org/v2/guid
 </script>
 ```
 
-## 2 Setting Attributes
+## Setting Attributes
 
 Set attribute values using `v-bind`. [more info](https://vuejs.org/v2/guide/syntax.html#Attributes)
 
@@ -141,7 +140,7 @@ If the value of the variable is falsey, the attribute won't be added to the elem
 </script>
 ```
 
-## 3 Conditionals
+## Conditionals
 
 
 There are two directive for controlling the visibility of an HTML element, `v-if` and `v-show`. If the variable they're associated with is `true`, the element will be shown, if it is `false`, it won't be. `v-if` actually removes the element, while `v-show` simply hides it. `v-if` has a higher toggle cost, but `v-show` has a higher initial cost (if the value is initially `false`). [more info](https://vuejs.org/v2/guide/conditional.html)
@@ -161,7 +160,7 @@ There are two directive for controlling the visibility of an HTML element, `v-if
 </script>
 ```
 
-## 4 Loops
+## Loops
 
 Loop over a list using `v-for`, repeatedly generating elements. Just like with Python, the variable name is arbitrary. You can optionally add an index. [more info](https://vuejs.org/v2/guide/list.html)
 
@@ -184,7 +183,7 @@ Loop over a list using `v-for`, repeatedly generating elements. Just like with P
 </script>
 ```
 
-## 5 Input Fields
+## Input Fields
 
 You can bind app variables to input fields using `v-model`. If the user changes the value of the input field, the variable in the app will be updated and vice versa. [more info](https://vuejs.org/v2/guide/forms.html)
 
@@ -209,7 +208,7 @@ You can bind app variables to input fields using `v-model`. If the user changes 
 </script>
 ```
 
-## 6 Event Listeners
+## Event Listeners
 
 Bind events on elements to methods using `v-on`. [list of event types](12%20-%20Events.md#list-of-events) [more info](https://vuejs.org/v2/guide/events.html)
 
@@ -231,7 +230,7 @@ Bind events on elements to methods using `v-on`. [list of event types](12%20-%20
 ```
 
 
-## 7 Lifecycle Hooks
+## Lifecycle Hooks
 
 Lifecycle hooks are special functions called throughout the lifecycle of a Vue app, `created` is called when an app is created, `mounted` is called when an app is mounted, etc. These are useful if you want to generate app data or load it from an api. [more info](https://vuejs.org/v2/guide/instance.html#Instance-Lifecycle-Hooks)
 

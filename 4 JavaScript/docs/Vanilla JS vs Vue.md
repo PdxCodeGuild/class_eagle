@@ -1,13 +1,13 @@
 
 
-# Vanilla vs Vue
+# Vanilla JS vs Vue
 
-1. [Setting Inner Text](#setting-inner-text)
-2. [Setting Inner HTML](#setting-inner-html)
-3. [Setting Attributes](#setting-attributes)
-4. [Handling Events](#handling-events)
-5. [Getting Input](#getting-input)
-6. [Generating Elements](#generating-elements)
+- [Setting Inner Text](#setting-inner-text)
+- [Setting Inner HTML](#setting-inner-html)
+- [Setting Attributes](#setting-attributes)
+- [Handling Events](#handling-events)
+- [Getting Input](#getting-input)
+- [Generating Elements](#generating-elements)
 
 
 ## Setting Inner Text
