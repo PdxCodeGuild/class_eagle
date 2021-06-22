@@ -33,7 +33,7 @@ Create a project `pokeproj` and app `pokeapp`. In the app, create a model `Pokem
 
 ## Part 2: Load Data into DB
 
-Write a [custom management command](../../3%20Django/docs/01%20Django%20Overview.md#custom-management-commands) `load_pokemon.py` to load the data from [pokemon.json](./pokemon.json) into your database. You can do this by saving the file next to your `.py` file and using [open](../../1%20Python/docs/FileIO.md). In the first line of your management command, you may want to delete all the records in the table so each time you run it you start with a clean slate. To verify that the data was loaded, log into your admin panel and check that the pokemon are there.
+Write a [custom management command](../../3%20Django/docs/01%20Django%20Overview.md#custom-management-commands) `load_pokemon.py` to load the data from [pokemon.json](./pokemon.json) into your database. You can do this by saving the file next to your `.py` file and using [open](../../1%20Python/docs/File%20IO.md). In the first line of your management command, you may want to delete all the records in the table so each time you run it you start with a clean slate. To verify that the data was loaded, log into your admin panel and check that the pokemon are there.
 
 ## Part 3: Create a View with a JsonResponse
 
