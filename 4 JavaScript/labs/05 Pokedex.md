@@ -41,7 +41,7 @@ Create a view `pokemon` that gets a list of `Pokemon` out of the database and tu
 
 ## Part 4: Create a Vue App
 
-Create a second view `index` that renders a template containing a Vue app (don't forget to change the delimiters on the Vue app so it doesn't conflict with the template rendering syntax). Use Axios to send a request to the `pokemon` view and display a list of pokemon on the page with their images.
+Create a second view `index` that renders a template containing a Vue app (don't forget to change the delimiters on the Vue app so it doesn't conflict with the template rendering syntax). Use Axios to send a request to the `pokemon` view and display a list of pokemon on the page with their images. In your Vue app, you'll need to [switch the delimiters](https://stackoverflow.com/questions/48125577/how-to-change-delimiters-in-vue-js) so they don't conflict with the Django template rendering syntax.
 
 ## Part 5: Add Search
 
@@ -50,7 +50,7 @@ Add an input and button at the top to search for pokemon. When the user hits 'en
 
 ## Part 7: Add Types (optional)
 
-Instead of storing our types as comma-separated strings we must parse every time we want to display it, it's much beter to store types as a many to many field.
+Instead of storing our types as comma-separated strings we must parse every time we want to display it, it's much beter to store types as a [many-to-many](https://docs.djangoproject.com/en/3.2/topics/db/examples/many_to_many/) field.
 
 - PokemonType
   - name (CharField)
