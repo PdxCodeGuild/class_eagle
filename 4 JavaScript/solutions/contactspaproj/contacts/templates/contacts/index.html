@@ -7,26 +7,48 @@
     <title>Hello World!</title>
     <!-- Materialize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
     <!-- Page Content -->
-    <div id="app">
-        <h1>[[ title ]]</h1>
-        <table class="responsive-table">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="contact in contacts">
-                    <td>[[ contact.name ]]</td>
-                    <td>[[ contact.email ]]</td>
-                </tr>
-            </tbody>
-        </table>
+    <div id="app" class="container">
+        <div class="row">
+            <h1>[[ title ]]</h1>
+        </div>
+        <div class="row">
+            <div class="input-field col s10">
+                <input id="input_search" type="text" class="validate" v-model="search" v-on:keypress.enter="page = 1; getContacts()">
+                <label for="input_search">Search</label>
+            </div>
+            <div class="input-field col s2">
+                <button class="btn" v-on:click="page = 1; getContacts()">Search</button>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn" v-on:click="firstPage" v-bind:disabled="page == 1"><i class="material-icons">first_page</i></button>
+            <button class="btn" v-on:click="previousPage" v-bind:disabled="page == 1"><i class="material-icons">navigate_before</i></button>
+            <span>[[ page ]] / [[ total_pages ]]</span>
+            <button class="btn" v-on:click="nextPage" v-bind:disabled="page == total_pages"><i class="material-icons">navigate_next</i></button>
+            <button class="btn" v-on:click="lastPage" v-bind:disabled="page == total_pages"><i class="material-icons">last_page</i></button>
+        </div>
+        <div class="row">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="contact in contacts">
+                        <td>[[ contact.name ]]</td>
+                        <td>[[ contact.email ]]</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
     <!-- Materialize JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -44,16 +66,50 @@
             delimiters: ["[[", "]]"],
             data: {
                 title: "Hello World!",
-                contacts: []
+                contacts: [],
+                search: '',
+                page: 1,
+                total_pages: 10
+            },
+            methods: {
+                firstPage: function() {
+                    this.page = 1
+                    this.getContacts()
+                },
+                previousPage: function() {
+                    if (this.page > 1) {
+                        this.page -= 1
+                        this.getContacts()
+                    }
+                },
+                nextPage: function() {
+                    if (this.page < this.total_pages) {
+                        this.page += 1
+                        this.getContacts()
+                    }
+                },
+                lastPage: function() {
+                    this.page = this.total_pages
+                    this.getContacts()
+                },
+                getContacts: function() {
+                    axios({
+                        method: "get",
+                        url: '{% url "contacts:contacts" %}',
+                        params: {
+                            search: this.search,
+                            page: this.page,
+                            limit: 5
+                        }
+                    }).then((response) => {
+                        console.log(response.data);
+                        this.contacts = response.data.contacts
+                        this.total_pages = response.data.total_pages
+                    });
+                }
             },
             created: function () {
-                axios({
-                    method: "get",
-                    url: '{% url "contacts:contacts" %}',
-                }).then((response) => {
-                    console.log(response.data);
-                    this.contacts = response.data.contacts
-                });
+                this.getContacts()
             },
         });
     </script>
