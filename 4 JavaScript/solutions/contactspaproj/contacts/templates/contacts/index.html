@@ -18,6 +18,19 @@
             <h1>[[ title ]]</h1>
         </div>
         <div class="row">
+            <div class="input-field col m5 s12">
+                <input id="input_name" type="text" class="validate" v-model="create_name" v-on:keypress.enter="createContact">
+                <label for="input_name">Name</label>
+            </div>
+            <div class="input-field col m5 s12">
+                <input id="input_email" type="text" class="validate" v-model="create_email" v-on:keypress.enter="createContact">
+                <label for="input_email">Email</label>
+            </div>
+            <div class="input-field col s2">
+                <button class="btn" v-on:click="createContact">Create</button>
+            </div>
+        </div>
+        <div class="row">
             <div class="input-field col s10">
                 <input id="input_search" type="text" class="validate" v-model="search" v-on:keypress.enter="page = 1; getContacts()">
                 <label for="input_search">Search</label>
@@ -39,12 +52,16 @@
                     <tr>
                         <th>Name</th>
                         <th>Email</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="contact in contacts">
                         <td>[[ contact.name ]]</td>
                         <td>[[ contact.email ]]</td>
+                        <td>
+                            <button class="btn red" v-on:click="deleteContact(contact.id)"><i class="material-icons">close</i></button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -69,7 +86,9 @@
                 contacts: [],
                 search: '',
                 page: 1,
-                total_pages: 10
+                total_pages: 10,
+                create_name: '',
+                create_email: ''
             },
             methods: {
                 firstPage: function() {
@@ -106,6 +125,46 @@
                         this.contacts = response.data.contacts
                         this.total_pages = response.data.total_pages
                     });
+                },
+                createContact: function() {
+                    if (this.create_name == '' || this.create_email == '') {
+                        alert('Please fill in all the fields!') // TODO: replace with toast
+                        return
+                    }
+                    axios({
+                        method: 'post',
+                        url: '{% url "contacts:create" %}',
+                        // use Django template rendering to get the csrf token into the request header
+                        headers: {
+                            'X-CSRFToken': '{{ csrf_token }}'
+                        },
+                        // Axios will turn this JavaScript object into JSON
+                        data: {
+                            name: this.create_name,
+                            email: this.create_email
+                        }
+                    }).then(response => {
+                        // console.log(response.data)
+                        // reset the form
+                        this.create_name = ''
+                        this.create_email = ''
+                        this.page = 1
+                        this.search = ''
+                        // get fresh data out of the database
+                        this.getContacts()
+                    })
+                },
+                deleteContact: function(id) {
+                    console.log(id)
+                    axios({
+                        method: 'get',
+                        url: '{% url "contacts:delete" %}',
+                        params: {
+                            id: id
+                        }
+                    }).then(response => {
+                        this.getContacts()
+                    })
                 }
             },
             created: function () {
