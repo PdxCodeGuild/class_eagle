@@ -6,5 +6,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('pokedexapp/', include('pokedexapp.urls'))
+    path('', include('pokedexapp.urls'))
 ]

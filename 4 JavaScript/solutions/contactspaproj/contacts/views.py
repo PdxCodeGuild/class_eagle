@@ -41,7 +41,9 @@ def contacts(request):
         contacts_data.append({
             'id': contact.id,
             'name': contact.name,
-            'email': contact.email
+            'email': contact.email,
+            'favorited': contact.favorited,
+            'tags': contact.tags.split(',')
         })
     return JsonResponse({'contacts': contacts_data, 'total_pages': paginator.num_pages})
 
@@ -63,4 +65,11 @@ def delete(request):
     id = request.GET['id']
     contact = Contact.objects.get(id=id)
     contact.delete()
+    return HttpResponse('ok')
+
+def toggle_favorite(request):
+    id = request.GET['id']
+    contact = Contact.objects.get(id=id)
+    contact.favorited = not contact.favorited
+    contact.save()
     return HttpResponse('ok')
