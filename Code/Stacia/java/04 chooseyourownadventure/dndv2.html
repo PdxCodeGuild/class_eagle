@@ -1,0 +1,247 @@
+
+
+<!-- SHIT TO DO
+
+X* monsters returns only index name and url
+Desired features remove a monster from battle zone
+Xadd and remove cr points to challange rating
+Xsearch monster by url to see if we get different results.
+set upper and lower bound search results. 
+ 
+
+add score box
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Monster Match</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- https://fonts.google.com/specimen/Indie+Flower -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        .body{
+            background-color: lightblue;
+        }
+        #app {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: lightblue;
+            
+        }
+
+        .title {
+            font-size: 20px;
+        }
+
+        .button {
+            width: 100px;
+            height: 100px;
+            background-color: navajowhite;
+            margin: 1px;
+            border: 5px solid rgb(61, 36, 26);
+            border-radius: 25% 10%;
+            box-shadow: 10px 10px 5px grey;
+        }
+
+        .row {
+            display: block;
+        }
+
+        .detail-box {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+            background-color: lightseagreen;
+            margin: 5%;
+            padding: 5%;
+            word-wrap: break-word;
+            border: 5px solid rgb(70, 43, 226);
+            border-radius: 25% 10%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="detail-box">
+
+            <span class="row">
+                <span>What Level Adventure would you like to add to the party</span>
+                <input class="input_search" type="number" v-model="lvl" />
+                <button v-on:click="joinTheParty">Join</button>
+            </span>
+            <div class="detail-box"> <span>APL</span>{{apl}}</div>
+        </div>
+
+        <span class="row">
+            <input class="input_search" type="number" v-model="set_cr" />
+            <button v-on:click="huntMonsters">Search by challenge_rating</button>
+        </span>
+
+        <!-- monster display list -->
+<div class="detail-box"> {{cr_score}}</div>
+        <div class="detail-box">
+            <h1 class="title">monster list </h1>
+            <button class="button" v-on:click="addtoEncounter(monster)" v-for="monster in monsters">{{monster.name}}</button>
+        </div>
+        <!-- monster Bank -->
+        <div class="detail-box">
+            <button class="button" v-on:click= "openURL(monster)" v-for="monster in monsterBank">{{monster.name}}{{monster.url}}</button>
+        </div>
+        <span v-for="monster in monsterBank"> </span>
+        
+    </div>
+    </div>
+    </div>
+    <!-- Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- Axios -->
+    <!-- https://github.com/axios/axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                index: '',
+                name: '',
+                size:"",
+                type:"",
+                subtype:"",
+                alignment:"",
+                armor_class:0,
+                hit_points:0,
+                hit_dice:0,
+                speed:0,
+                strength:0,
+                dexterity:0,
+                constitution:0,
+                intelligence:0,
+                wisdom:0,
+                charisma:0,
+                proficiencies:[],
+                damage_vulnerabilities:[],
+                damage_resistances:[],
+                damage_immunities:[],
+                condition_immunities:[],
+                senses:[],
+                languages:[],
+                special_abilities:[],
+                actions:[],
+                challenge_rating: '0',
+                url: '',
+                set_cr: 4,
+                monsters: [],
+                monsterBank: [],
+                details:[],
+                cr_score: 0,
+                party_size: 0,
+                party:[],
+                adventurer: 0,
+                apl:0,
+                lvl: 0,
+                partylvl: 0,
+                xpPool:0, 
+            },
+            methods: {
+               joinTheParty:function (){
+                   this.party_size += 1
+                   this.partylvl += parseInt(this.lvl)
+                   console.log(this.partylvl)
+                   console.log(this.party_size )
+                   this.apl = this.partylvl / this.party_size
+                   console.log(this.apl)
+                  
+
+
+               },
+               calculateChallange: function(){
+                   this.partySize
+
+               },
+                getDetails: function(monster) {
+                    console.log('https://www.dnd5eapi.co' + monster.url)
+                    axios({
+                        method: 'get',
+                        url: 'https://www.dnd5eapi.co'+ monster.url,
+                        
+                       
+                       
+                    }).then(response => {
+                        console.log(response.data)
+                        let data = response.data.results
+                        this.monster = data
+                        
+                    })
+                    
+                    
+                },
+                
+                addtoEncounter: function (monster) {
+                    console.log(this.monster)
+                    this.cr_score += parseInt(this.set_cr)
+                    this.getDetails(monster)
+                    // this.xpPool += parseInt(this.monster.xp)
+                    this.monsterBank.unshift(monster)
+                    // this.monsters.forEach(monster => {
+                    //     console.log(monster.index)
+                    //     if (monster.index === this.selectedMonster.index) {
+                    //         this.monsterBank.unshift(monster)
+                    //         console.log("match")
+
+                    //     }
+                    // })
+                },
+                removefromEncounter: function (monster) {
+                    // pass the index of the monster in MonsterBank as a parameter from the html
+                    // remove the monster at the given index (splice)
+                    this.selectedMonster = monster
+                    console.log("start search")
+                    console.log(this.selectedMonster)
+                    // 
+                    this.monsters.forEach(monster => {
+                        console.log(monster.index)
+                        if (monster.index === this.selectedMonster.index) {
+                            this.monsterBank.unshift(monster)
+                            console.log("match")
+
+                        }
+                    })
+                },
+
+                openURL:function(monster){
+                    this.getDetails(monster)
+                    
+                    
+                    window.open('https://www.dnd5eapi.co' + monster.url);
+                },
+
+                huntMonsters: function () {
+                    axios({
+                        method: 'get',
+                        url: 'https://www.dnd5eapi.co/api/monsters',
+                        params: {
+                            challenge_rating: this.set_cr
+                        }
+                    }).then(response => {
+                        let data = response.data.results
+                        this.monsters = data
+                   
+                        console.log(this.monsters)
+                    })
+                }
+            },
+            created: function () {
+                this.huntMonsters()
+            }
+        })
+
+    </script>
+</body>
+
+</html>

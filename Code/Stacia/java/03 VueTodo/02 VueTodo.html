@@ -8,16 +8,34 @@
 
     <style>
         .container {
-            background-color: lightsalmon;
+            background-image:url('stars2.jpg');
+
             height: 100%;
             width: 100%;
+            display: block;
+            height:100%;
+           
+           flex-grow: inherit;
 
         }
 
         .body {
-            color: lightsalmon;
+            
             min-height: 100%;
             min-width: 100%;
+            display: flex;
+            background-image:C:\Users\16616\pdx_code\class_eagle\Code\Stacia\java\03 VueTodo\imgs\stars.jpg ;
+
+            max-height: 100%;
+        }
+
+        .button {
+            background-color: cadetblue;
+            height: 10%;
+            border-radius: 10% 30% 50% 70%;
+            width: 30%;
+            height: min-content;
+            height: 50px;
         }
 
         .inputbar {
@@ -26,8 +44,49 @@
             align-content: center;
             flex-direction: column;
             width: 30%;
-            margin: 5%;
+            margin: 1%;
             padding-bottom: 5%;
+            border: 5px solid blueviolet;
+            background-color:mediumpurple;
+            border-radius: 25% 10%;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: #fff;
+            text-shadow:
+                0 0 7px #fff,
+                0 0 10px #fff,
+                0 0 21px #fff,
+                0 0 42px #0fa,
+                0 0 82px #0fa,
+                0 0 92px #0fa,
+                0 0 102px #0fa,
+                0 0 151px #0fa;
+        }
+
+        .neonText {
+            color: #fff;
+            text-shadow:
+                0 0 7px #fff,
+                0 0 10px #fff,
+                0 0 21px #fff,
+                0 0 42px #0fa,
+                0 0 82px #0fa,
+                0 0 92px #0fa,
+                0 0 102px #0fa,
+                0 0 151px #0fa;
+        }
+
+        .todobar {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
+            width: 30%;
+            margin: 1%;
+            padding-bottom: 5%;
+            border: 5px solid blueviolet;
+            background-color:mediumpurple;
+            padding-top: 5%;
+            border-radius: 25% 10%;
         }
 
         .col {
@@ -40,7 +99,62 @@
         }
 
         .bar {
+            display: flex;
             padding-top: 5%;
+        }
+
+        .detailbar {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
+            width: 30%;
+            margin: 1%;
+            padding-bottom: 5%;
+            border: 5px solid blueviolet;
+            background-color:mediumpurple;
+            border-radius: 25% 10%;
+        }
+
+        .topbar {}
+
+        .done {
+            display:inline;
+           
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
+            background-color:mediumpurple;
+            margin: 5%;
+            padding: 5%;
+            word-wrap: break-word;
+            border: 5px solid blueviolet;
+            border-radius: 25% 10%;
+        }
+
+        .detail-box {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
+            background-color:lightseagreen
+            margin: 5%;
+            padding: 5%;
+            word-wrap: break-word;
+            border: 5px solid blueviolet;
+            border-radius: 25% 10%;
+        }
+
+        .row {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+
+        }
+        .app{
+           height:100%;
+           display:flex;
+           flex-grow: inherit;
         }
     </style>
 
@@ -52,36 +166,64 @@
     <div id="app">
 
         <div class="container">
-            {{welcome}}
+<div class="row">
+    <div class="header"><h1 class="neonText">Hello {{userName}}</h1></div>
+</div>
+            <div class="row">
 
-            <div class="inputbar">
+                <div class="inputbar">
 
 
-                <div class="col">
-                    <div class="bar">
+                    <div class="col">
+                        <div class="detail-box">
 
-                        <label for="task">Task</label>
-                        <input v-model='taskName' id="task" name="task" type="text" />
-                    </div>
+                            <div class="bar">
 
-                    <div class="bar">
-                        <textarea  v-model='details' name="details">details</textarea>
+                                <label for="task">Task</label>
+                                <input v-model='taskName' id="task" name="task" type="text" />
+                            </div>
 
-                    </div>
+                            <div class="bar">
+                                <textarea v-model='details' name="details">details</textarea>
 
-                    <div class="bar">
-                        <button v-on:click="newTask">send it</button>
+                            </div>
+
+                            <div class="bar">
+                                <button class="button" v-on:click="newTask">send it</button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
+                <div class="todobar">
+
+                    <div class="col">
+                        <button class="button" v-on:click="displayInfo(task)"
+                            v-for="task in taskList">{{task.taskName}}</button>
+                    </div>
+
+                </div>
+
+                <div class="detailbar">
+                    <div class="detail-box">
+                        <h3>{{selectedTask.taskName}}</h3>
+                        <P>{{selectedTask.details}} </p>
+                        <div class="row">
+                            <button class="button" v-on:click="finish(task)">done</button>
+                            <button class="button" v-on:click="nope(task)">forget about</button>
+
+                        </div>
+                    </div>
+                </div>
             </div>
-
-
-            <div class="col">
-                <button  v-for="task in taskList">{{task.taskName}} {{task.details}}</button>
-            </div>
-
+            
+            
+            <div class="done">
+                <h3 v-for="task in doneTask">{{task.taskName}}</h3>
         </div>
+        </div>
+        
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script>
@@ -91,33 +233,64 @@
                 welcome: 'Hello',
                 userName: 'Stacia',
                 taskName: '',
-                
+                doneTask: [],
                 details: '',
-
+                selectedTask: '',
                 task: null,
                 taskList: [],
-                listLength: 2
+
 
             },
 
             methods: {
                 newTask: function () {
                     let task = {
-                        taskName:this.taskName,
-                        details:this.details,
+                        taskName: this.taskName,
+                        details: this.details,
                     }
                     this.taskList.push(task)
-                      
-                       
+                },
 
-                    
-                }
-            },
+                displayInfo: function (task) {
+                    this.selectedTask = task
 
-            created: function () {
-                console.log(this.welcome)
+                },
+                nope: function (task) {
+                    this.taskList.forEach(task => {
+
+                        if (task.taskName === this.selectedTask.taskName) {
+                            console.log("checkpoint!")
+                            let i = this.taskList.indexOf(task)
+                            this.taskList.splice(i, 1)
+                        }
+                    })
+                },
+
+
+                finish: function (task) {
+                    console.log(this.selectedTask)
+
+
+                    // console.log(task)
+                    this.taskList.forEach(task => {
+                        console.log(task.taskName)
+                        if (task.taskName === this.selectedTask.taskName) {
+                            console.log("checkpoint!")
+                            this.doneTask.unshift(task)
+                            let i = this.taskList.indexOf(task)
+                            this.taskList.splice(i, 1)
+
+                        }
+
+                    });
+
+                },
+                created: function () {
+                    console.log(this.welcome)
+                },
             }
         })
+
     </script>
 </body>
 
