@@ -10,4 +10,4 @@ class Pokemon(models.Model):
     types = models.CharField(max_length=200)
 
     def __str__(self):
-        return self.number + '. ' + self.name + ' (' + self.types + ') '
+        return self.name
