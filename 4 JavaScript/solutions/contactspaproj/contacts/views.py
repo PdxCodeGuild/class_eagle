@@ -3,6 +3,7 @@ from django.http import HttpResponse, JsonResponse
 from .models import Contact
 from django.db.models import Q
 from django.core.paginator import Paginator
+import json
 
 def index(request):
     return render(request, 'contacts/index.html')
@@ -26,7 +27,8 @@ def contacts(request):
     limit = request.GET.get('limit', '10')
     limit = int(limit) if limit.isdigit() else 10
 
-    contacts = Contact.objects.filter(Q(name__icontains=search)|Q(email__icontains=search))
+    contacts = Contact.objects.order_by('-id').filter(Q(name__icontains=search)|Q(email__icontains=search))
+    # contacts = Contact.objects.filter(name__icontains=search, email__icontains=email)
 
     paginator = Paginator(contacts, limit)
     if page > paginator.num_pages:
@@ -37,7 +39,28 @@ def contacts(request):
     contacts_data = []
     for contact in contacts:
         contacts_data.append({
+            'id': contact.id,
             'name': contact.name,
             'email': contact.email
         })
     return JsonResponse({'contacts': contacts_data, 'total_pages': paginator.num_pages})
+
+
+def create(request):
+    # print(request.body)
+    # request.body is JSON
+    # turn the JSON into a Python dictionary
+    data = json.loads(request.body)
+    # create a Contact from our data and save it to the database
+    contact = Contact(name=data['name'], email=data['email'])
+    contact.save()
+    # it doesn't really matter what we respond with
+    return HttpResponse('ok')
+
+
+def delete(request):
+    print(request.GET)
+    id = request.GET['id']
+    contact = Contact.objects.get(id=id)
+    contact.delete()
+    return HttpResponse('ok')

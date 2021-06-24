@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<style>
+    html body {
+        background-color: black;
+    }
+
+    .container {
+        background-color: black;
+    }
+
+    .search {
+        padding-top: 40px;
+    }
+
+    #search_box {
+        border-width: 1px;
+        border-color: #FF6BCA;
+        background: -webkit-linear-gradient(#FF9952, #FF6BCA);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    h1 {
+        border-width: 1px;
+        border-color: #FF6BCA;
+        background: -webkit-linear-gradient(#FF9952, #FF6BCA);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .input-group .btn {
+        border-width: 1px;
+        border-color: #FF6BCA;
+        background: -webkit-linear-gradient(#FF9952, #FF6BCA);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    #advice {
+        list-style-type: none;
+        font-size: 35px;
+        margin-top: 50px;
+        background: -webkit-linear-gradient(#FF9952, #FF6BCA);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    li {
+        padding-top: 60px;
+    }
+</style>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- vue.js cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Advice</title>
+</head>
+
+<body>
+    <div id="app" class="container">
+        <div class="row">
+            <div class="search col-sm-6 mx-auto">
+                <h1 class="text-center">Need Advice?</h1>
+                <div class="input-group mb-3">
+                    <input id="search_box" v-on:keyup.enter="getAdvice" v-model="keyword" type="text"
+                        class="form-control" placeholder="Search Keyword" aria-label="Search Keyword"
+                        aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button v-on:click="getAdvice" class="btn btn-outline-secondary" type="button">Search</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 text-center">
+                <ul id="advice" v-for="(slip, index) in slips">
+                    <li>{{slip.advice}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                slips: [],
+                keyword: '',
+            },
+            methods: {
+                getAdvice: function () {
+                    axios({
+                        method: 'get',
+                        url: 'https://api.adviceslip.com/advice/search/' + this.keyword,
+                    }).then((response) => {
+                        var data = response.data
+                        console.log(data)
+                        if (data.slips) {
+                            console.log('good response')
+                            this.slips = data.slips
+                        } else {
+                            console.log('bad response')
+                            this.slips = [{ "advice": data.message.text }]
+                        }
+                    })
+                }
+
+            },
+            created: function () {
+
+            }
+        })
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
