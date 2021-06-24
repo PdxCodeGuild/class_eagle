@@ -17,6 +17,11 @@ class Command(BaseCommand):
             weight = pokemon['weight']
             image_front = pokemon['image_front']
             image_back = pokemon['image_back']
-            type = pokemon['types']
-            pokemon = Pokemon(name=name,number=number,height=height,weight=weight,image_front=image_front,image_back=image_back,type=type)
+            types = ''
+            for element in pokemon['types']:
+                if types != '':
+                    types = types+', '+element
+                else:
+                    types = element
+            pokemon = Pokemon(name=name,number=number,height=height,weight=weight,image_front=image_front,image_back=image_back,types=types)
             pokemon.save()

@@ -7,7 +7,7 @@ class Pokemon(models.Model):
     weight = models.FloatField()
     image_front = models.CharField(max_length=200)
     image_back = models.CharField(max_length=200)
-    type = models.CharField(max_length=50)
+    types = models.CharField(max_length=50)
 
     def __str__(self):
         return str(self.number) + ". " + self.name
