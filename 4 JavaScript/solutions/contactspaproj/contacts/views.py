@@ -9,6 +9,8 @@ def index(request):
     return render(request, 'contacts/index.html')
 
 def contacts(request):
+
+    # return JsonResponse({'name': 'bob', 'age': 45})
     # JSON can only contain the following types:
     # Arrays, objects, null, boolean, number, string
     # Object of type QuerySet is not JSON serializable

@@ -21,15 +21,6 @@
     - [Docs](#docs-3)
     - [Labs](#labs-3)
     - [Mob](#mob-3)
-- [Schedule](#schedule)
-  - [Week 1 / Python / Basics](#week-1--python--basics)
-  - [Week 2 / Python / Intermediate](#week-2--python--intermediate)
-  - [Week 3 / Python / Data Structures & Algorithms](#week-3--python--data-structures--algorithms)
-  - [Week 4 / Python  / Requests & APIs](#week-4--python---requests--apis)
-  - [Week 5 / Flask & HTML & CSS / Basics](#week-5--flask--html--css--basics)
-  - [Week 6 / Flask & HTML & CSS / Intermediate](#week-6--flask--html--css--intermediate)
-  - [Week 7 / Django / Basics](#week-7--django--basics)
-  - [Week 8 / Django / Intermediate](#week-8--django--intermediate)
 
 
 
@@ -46,7 +37,7 @@ Schedule Overview:
 
 ### 0 General
 
-- [01 Course Overview](0%20General/Course%20Overview.md)
+- [01 Course Overview](0%20General/01%20Course%20Overview.md)
 - [02 Setup](0%20General/02%20Setup.md)
 - [03 Git](0%20General/03%20Git.md)
 - [04 Markdown](0%20General/04%20Markdown.md)
@@ -95,9 +86,9 @@ Schedule Overview:
 - [09 Blackjack Advice](1%20Python/labs/09%20Blackjack%20Advice.md) [(solution)](1%20Python/solutions/lab09_blackjack_advice.py)
 - [10 Dad Joke API](1%20Python/labs/10%20Dad%20Joke%20API.md) [(solution)](1%20Python/solutions/lab10_dad_joke_api.py)
 - [11 Rot Cipher](1%20Python/labs/11%20Rot%20Cipher.md) [(solution)](1%20Python/solutions/lab11_rot_cipher.py)
-- [12 Unit Converter](1%20Python/labs/Unit%20Converter.md) [(solution)](1%20Python/solutions/lab12_unit_converter.py)
-- [13 Count Words](1%20Python/labs/Count%20Words.md) [(solution)](1%20Python/solutions/lab13_count_words.py)
-- [14 ARI](1%20Python/labs/ARI.md) [(solution)](1%20Python/solutions/lab14_ari.py)
+- [12 Unit Converter](1%20Python/labs/12%20Unit%20Converter.md) [(solution)](1%20Python/solutions/lab12_unit_converter.py)
+- [13 Count Words](1%20Python/labs/13%20Count%20Words.md) [(solution)](1%20Python/solutions/lab13_count_words.py)
+- [14 ARI](1%20Python/labs/14%20ARI.md) [(solution)](1%20Python/solutions/lab14_ari.py)
 - [15 Rain Data](1%20Python/labs/15%20Rain%20Data.md)
 - [16 Searching and Sorting](1%20Python/labs/16%20Searching%20and%20Sorting.md)
 - [17 Contact List](1%20Python/labs/17%20Contact%20List.md)
@@ -156,7 +147,7 @@ Schedule Overview:
 
 #### Labs
 
-- [01 Bio](2%20Flask%20+%20HTML%20+%20CSS/labs/1%20Bio.md)
+- [01 Bio](2%20Flask%20+%20HTML%20+%20CSS/labs/01%20Bio.md)
 - [02 Blog](2%20Flask%20+%20HTML%20+%20CSS/labs/02%20Blog.md)
 - [03 Company](2%20Flask%20+%20HTML%20+%20CSS/labs/03%20Company.md)
 - [04 Personal Portfolio](2%20Flask%20+%20HTML%20+%20CSS/labs/04%20Personal%20Portfolio.md)
@@ -215,9 +206,10 @@ Schedule Overview:
 - [08 Arrays](4%20JavaScript/docs/08%20-%20Arrays.md)
 - [09 Functions](4%20JavaScript/docs/09%20-%20Functions.md)
 - [10 Classes](4%20JavaScript/docs/10%20-%20Classes.md)
-- [11 HTML Interaction](4%20JavaScript/docs/11%20-%20HTML%20Interaction.md)
+- [11 Editing HTML](4%20JavaScript/docs/11%20-%20Editing%20HTML.md)
 - [12 Events](4%20JavaScript/docs/12%20-%20Events.md)
-- [13 APIs and Ajax](4%20JavaScript/docs/13%20-%20APIs%20and%20Ajax.md)
+- [13 Vue](4%20JavaScript/docs/13%20-%20Vue.md)
+- [14 Ajax](4%20JavaScript/docs/14%20-%20Ajax.md)
 - [Canvas Drawing](4%20JavaScript/docs/Canvas%20Drawing.md)
 - [jQuery](4%20JavaScript/docs/jQuery.md)
 - [Python vs JavaScript](4%20JavaScript/docs/Python%20vs%20JavaScript.md)
@@ -230,13 +222,19 @@ Schedule Overview:
 
 - [01 JavaScript Redo](4%20JavaScript/labs/lab01%20JavaScript%20Redo.md)
 - [02 Vue Redo](4%20JavaScript/labs/lab02%20Vue%20Redo.md)
-
+- [03 Vue Todo](4%20JavaScript/labs/03%20Vue%20Todo.md)
+- [04 Any API](4%20JavaScript/labs/04%20Any%20API.md)
+- [05 Pokedex](4%20JavaScript/labs/05%20Pokedex.md)
 
 #### Mob
 
 - [01 Vue Redo](4%20JavaScript/mob/lab01%20Vue%20Redo.md)
 - [02 Leet Translator](4%20JavaScript/mob/mob02%20Leet%20Translator.md)
+- [03 Guess the Number](4%20JavaScript/mob/03%20Guess%20the%20Number.md)
+- [04 Vue Snowman](4%20JavaScript/mob/04%20Vue%20Snowman.md)
 
+
+<!--
 ## Schedule
 
 ### Week 1 / Python / Basics
@@ -345,3 +343,7 @@ Schedule Overview:
 ### Week 8 / Django / Intermediate
 
 - [lab: Todo](3%20Django/labs/02%20Todo.md)
+
+
+-->
+
