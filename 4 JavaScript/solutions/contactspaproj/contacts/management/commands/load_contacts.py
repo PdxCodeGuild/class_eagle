@@ -14,8 +14,10 @@ class Command(BaseCommand):
         for contact_data in contacts_data:
             name = contact_data['name']
             email = contact_data['email']
+            tags = ','.join(contact_data['tags'])
+            print(tags)
             # save data to our database
-            contact = Contact(name=name, email=email)
+            contact = Contact(name=name, email=email, favorited=False, tags=tags)
             contact.save()
 
 

@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        .favorite-btn {
+            cursor:pointer;
+        }
+    </style>
 </head>
 
 <body>
@@ -53,12 +58,16 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="contact in contacts">
                         <td>[[ contact.name ]]</td>
                         <td>[[ contact.email ]]</td>
+                        <td>
+                            <i class="favorite-btn material-icons amber-text text-darken-2" v-on:click="toggleFavorite(contact.id)">[[ (contact.favorited)? 'star': 'star_border' ]]</i>
+                        </td>
                         <td>
                             <button class="btn red" v-on:click="deleteContact(contact.id)"><i class="material-icons">close</i></button>
                         </td>
@@ -163,6 +172,18 @@
                             id: id
                         }
                     }).then(response => {
+                        this.getContacts()
+                    })
+                },
+                toggleFavorite: function(id) {
+                    axios({
+                        method: 'get',
+                        url: '{% url "contacts:toggle_favorite" %}',
+                        params: {
+                            id: id
+                        }
+                    }).then(response => {
+                        // contact.favorited = !contact.favorited
                         this.getContacts()
                     })
                 }
