@@ -16,5 +16,5 @@ def pokedex(request):
             'weight' : monster.weight,
             'image_front': monster.image_front,
             'image_back': monster.image_back,
-            'types': monster.types})
+            'types': monster.types.split()})
     return JsonResponse({'pokedex':pokedex_data})

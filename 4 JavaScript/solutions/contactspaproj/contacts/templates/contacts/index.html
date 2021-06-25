@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello World!</title>
+    <title>Contact List</title>
     <!-- Materialize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
     <!-- Material Icons -->
@@ -59,12 +59,14 @@
                         <th>Email</th>
                         <th></th>
                         <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="contact in contacts">
                         <td>[[ contact.name ]]</td>
                         <td>[[ contact.email ]]</td>
+                        <td>[[ contact.tags.join(', ') ]]</td>
                         <td>
                             <i class="favorite-btn material-icons amber-text text-darken-2" v-on:click="toggleFavorite(contact.id)">[[ (contact.favorited)? 'star': 'star_border' ]]</i>
                         </td>
@@ -91,7 +93,7 @@
             el: "#app",
             delimiters: ["[[", "]]"],
             data: {
-                title: "Hello World!",
+                title: "Contact List",
                 contacts: [],
                 search: '',
                 page: 1,
