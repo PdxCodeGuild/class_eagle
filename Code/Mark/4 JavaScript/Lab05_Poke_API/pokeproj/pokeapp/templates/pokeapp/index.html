@@ -80,7 +80,7 @@
         </nav>
         <div class="container input-group mt-3">
             <input type="text" class="form-control" v-model="pokeSearch">
-            <button class="btn btn-primary" type="button" @click="pokeFind">Search</button>
+            <button class="btn btn-primary" type="button" @click="getPokemon">Search</button>
         </div>
 
         <div class="container">
@@ -175,6 +175,7 @@
                         method: 'get',
                         url: '{% url "pokeapp:pokedex" %}',
                         params: {
+                            search: this.pokeSearch,
                         }
                     }).then(response => {
                         this.pokedex = response.data.pokedex
@@ -202,20 +203,6 @@
                         this.image_display = false
                     }
                 },
-                pokeFind: function() {
-                    axios({
-                        method: 'get',
-                        url: '{% url "pokeapp:search" %}',
-                        params: {
-                            search: this.pokeSearch
-                        }
-                    }).then(response => {
-                        this.pokedex = response.data.pokedex
-                        for(let i=0;i<this.pokedex.length; i++) {
-                            this.pokedex[i].types = this.pokedex[i].types.join(' ')
-                        }
-                    })
-                }
             },
             created: function () {
                 this.getPokemon()
