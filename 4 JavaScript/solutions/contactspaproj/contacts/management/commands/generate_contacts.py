@@ -9,5 +9,5 @@ class Command(BaseCommand):
         # print(faker.name())
         # print(faker.email())
         for i in range(1000):
-            contact = Contact(name=faker.name(), email=faker.email())
+            contact = Contact(name=faker.name(), email=faker.email(), favorited=faker.boolean(), tags='')
             contact.save()
