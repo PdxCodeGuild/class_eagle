@@ -31,6 +31,11 @@ Schedule Overview:
 - Weeks 9-11: JavaScript
 - Weeks 12-14: Capstone
 
+Topics Covered:
+- Languages: Python, HTML, CSS, JavaScript
+- Libraries: Requests, Flask, Materialize, Bootstrap, Django, Vue, Axios
+- Software: VS Code, Git, Browser / Developer Panel
+- Concepts: Data Structures, Algorithms, Web Requests, Forms, SPA, SLDC
 
 
 ## Course Files
