@@ -8,6 +8,11 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <style>
+        ul {
+            list-style-type: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -15,8 +20,19 @@
     <div id="app" class="container">
         <div class="row">
             <h1>[[title]]</h1>
+            <div class="input-group mb-3">
+                <input id="search_box" v-on:keyup.enter="getPokemon" v-model="search_input" type="text" class="form-control" placeholder="Search Pokemon"
+                    aria-label="Search Pokemon" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button v-on:click="getPokemon" class="btn btn-outline-secondary" type="button">Search</button>
+                </div>
+            </div>
             <ul v-for="monster in pokemon">
-                <li style="text-transform:capitalize">[[monster.name]] </li>
+                <li>
+                    <div style="text-transform: capitalize;">[[ monster.name ]]</div>
+                    <img v-bind:src="monster.image_front" class="img-thumbnail">
+                    <img v-bind:src="monster.image_back" class="img-thumbnail">
+                </li>
             </ul>
         </div>
     </div>
@@ -36,12 +52,16 @@
             data: {
                 title: 'Pokedex',
                 pokemon: [],
+                search_input: '',
             },
             methods: {
                 getPokemon: function () {
                     axios({
                         method: "get",
                         url: '{% url "pokedexapp:pokemon" %}',
+                        params: {
+                            search_input: this.search_input
+                        }
                     }).then((response) => {
                         console.log(response.data);
                         this.pokemon = response.data.pokemon
