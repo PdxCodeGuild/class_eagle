@@ -24,6 +24,6 @@ class Command(BaseCommand):
                 image_back= pokemon['image_back']
                 types= pokemon['types']
                 # print(type(img_front))
-                pokemon = Pokemon.objects.create(number= number, name =name ,  height = height, weight = weight, image_front = image_front, image_back = image_back, types = types)
+                pokemon = Pokemon.objects.create(number = number, name = name ,  height = height, weight = weight, image_front = image_front, image_back = image_back, types = types)
                 # print(number, name , height , weight)
-                # print(pokemon)
+                # print(pokemon)S

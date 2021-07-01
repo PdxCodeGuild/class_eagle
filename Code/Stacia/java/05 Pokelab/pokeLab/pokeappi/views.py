@@ -1,25 +1,25 @@
 from django.shortcuts import render
 from .models import Pokemon
-
+from django.http import JsonResponse
 # pokeLab\pokeappi\views.py
 # pokeLab\pokeappi\management\commands\pokemon.py
 
-def pokeappi(request):
-    pokemon = Pokemon.objects.all()
-   
-    
-    return render(request, 'Pokeappi/pokeappi.html',)
+def index(request):
+    return render(request, 'pokeappi/pokeappi.html')
+
 
 def pokeappi(request):
     poke_data = Pokemon.objects.all()
     pokedex_data = []
-    for monster in poke_data:
+    for pokemon in poke_data:
         pokedex_data.append({
-            'name' : monster.name,
-            'number' : monster.number,
-            'height' : monster.height,
-            'weight' : monster.weight,
-            'image_front': monster.image_front,
-            'image_back': monster.image_back,
-            'type': monster.type})
-    return JsonResponse({'pokedex':pokedex_data})
+            'name' : pokemon.name,
+            'number' : pokemon.number,
+            'height' : pokemon.height,
+            'weight' : pokemon.weight,
+            'image_front': pokemon.image_front,
+            'image_back': pokemon.image_back
+       
+            # 'type': pokemon.type
+            })
+    return JsonResponse({'poke_data':pokedex_data})
