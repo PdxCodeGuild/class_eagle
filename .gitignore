@@ -4,12 +4,11 @@
 
 .vscode
 
-currency_exchange_secrets.py
-<<<<<<< HEAD
-Super_secrets.js
-=======
+secrets.py
 secrets.js
->>>>>>> 46f272281bb330a2e52370798ca5273acfff73c6
+
+currency_exchange_secrets.py
+Super_secrets.js
 NASA_API.html
 
 # Byte-compiled / optimized / DLL files
