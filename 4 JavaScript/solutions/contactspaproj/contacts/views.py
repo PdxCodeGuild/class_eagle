@@ -51,12 +51,13 @@ def contacts(request):
 
 
 def create(request):
-    # print(request.body)
+    print(request.body)
     # request.body is JSON
     # turn the JSON into a Python dictionary
     data = json.loads(request.body)
+    
     # create a Contact from our data and save it to the database
-    contact = Contact(name=data['name'], email=data['email'])
+    contact = Contact(name=data['name'], email=data['email'], favorited=False)
     contact.save()
     # it doesn't really matter what we respond with
     return HttpResponse('ok')
