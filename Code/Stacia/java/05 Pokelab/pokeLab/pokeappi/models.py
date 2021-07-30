@@ -12,7 +12,7 @@ class Pokemon(models.Model):
     image_front= models.CharField(max_length=5000, default='')
     image_back= models.CharField(max_length=5000, default='')
     # types= models.CharField(max_length=5000, default='')
-    
+     
     def __str__(self):
         return self.Pokemon
 
