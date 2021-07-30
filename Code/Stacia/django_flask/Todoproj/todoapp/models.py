@@ -3,19 +3,15 @@ import datetime
 from django.utils import timezone
 
 
-class Priority(models.Model):
+
+
+class Todo(models.Model):
     name = models.CharField(max_length=200)
+    priority = models.CharField(max_length=200, default="Low")
+    deadline = models.DateField(auto_now_add=True)
+    ogday = datetime.date.today()
+    done = models.BooleanField()
+    
 
     def __str__(self):
         return self.name
-
-class Todo(models.Model):
-    task = models.CharField(max_length=20)
-    priority = models.ForeignKey(Priority,on_delete=models.PROTECT, null=True, blank=True)
-    time = models.DateField(auto_now_add=True)
-    
-    
-    def __str__(self):
-        return self.task
-
-        

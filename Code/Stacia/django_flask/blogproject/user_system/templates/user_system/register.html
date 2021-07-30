@@ -1,44 +1,66 @@
-
 {% extends 'user_system/base.html' %}
-{% block content %} 
- 
-    
-    <div class='container'>
-        <div class = "topbar">
-            <h1> Yeah</h1>
-        </div>
-        <div class= "floatbox"><p>This is a text this is a text about nothing. This text exists for the simple moment of existing and nothing more. It exists to hold space. To be, and to exist. It shall occupy the space in which it exists in this form and many other forms. It shall be a holder of space while it is needed. It shall sow space beyond the space it is allotted as it exists now until it is needed next. This text holds a moment of interaction and awareness of existing, of the realness in the moment and meta existentiality and the human moment of awareness, declaration, and acknowledgement of belief and value of the validity of existence for joy. </p></div>
-        <div class ='column'>
-            <form action= "{% url 'user_system:register'%}" method="POST" id="User">
-                {% csrf_token %}
-                <div class= "bar"></div>
-                    
-                    <div class="title"> <h1> Assimilate</h1></div>
-                    <div class='box'>
-                        
-                        <label for ="username">User Name</label>
-                        <input id="username" name="username" type="text">
-                    </div>
-                    <div class="box">
-                        <label for ="password">Password   </label>
-                        <input id="password" name="password" type="text">
-                    </div>
-                    <div class ="box">
-                        <label for ="email">Email</label>
-                        <input id ="email" name ="email" type = "email">
-                    </div>
-                    <div class="box">
-                        
-                        <button input type="submit" class="btn">Submit</button>
+{% block content %}
+<div class="pinkring">
+    <div class="col">
+        <div class="pinkring">
+
+
+            <div class='display'>
+                <div class="pinkring">
+                    <h1> Yeah</h1>
+                    <div class="pinkring">
+                        <p>This is a text this is a text about nothing. This text exists for the simple moment of
+                            existing
+                            and
+                            nothing more. It exists to hold space. To be, and to exist. It shall occupy the space in
+                            which
+                            it
+                            exists in this form and many other forms. It shall be a holder of space while it is needed.
+                            It
+                            shall
+                            sow space beyond the space it is allotted as it exists now until it is needed next. This
+                            text
+                            holds
+                            a moment of interaction and awareness of existing, of the realness in the moment and meta
+                            existentiality and the human moment of awareness, declaration, and acknowledgement of belief
+                            and
+                            value of the validity of existence for joy. </p>
                     </div>
                 </div>
-            </form>
+                <div class='pinkring'>
+                    <form action="{% url 'user_system:register'%}" method="POST" id="User">
+                        {% csrf_token %}
+                        <div class="col"></div>
+
+                        <div class="title">
+                            <h1> Assimilate</h1>
+                        </div>
+                        <div class='box'>
+
+                            <label for="username">User Name</label>
+                            <input id="username" name="username" type="text">
+                        </div>
+                        <div class="box">
+                            <label for="password">Password </label>
+                            <input id="password" name="password" type="text">
+                        </div>
+                        <div class="box">
+                            <label for="email">Email</label>
+                            <input id="email" name="email" type="email">
+                        </div>
+                        <div class="box">
+
+                            <button input type="submit" class="btn">Submit</button>
+                        </div>
+                </div>
+                </form>
+            </div>
         </div>
-        </div>
+        <div class="fancytext"> Already Crew?   <a href="{%url 'user_system:login'%}">        login here!</a> </div>
     </div>
-   
-    
-    {% endblock %}
-    <div> Already Crew? <a href ="{%url 'user_system:login'%}"> login here!</a> </div>
-    
-        
+</div>
+
+
+
+
+{% endblock %}

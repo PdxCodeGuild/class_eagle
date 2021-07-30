@@ -5,178 +5,195 @@
   <title>{% block title %}Welcome {{user.username}}{% endblock %}</title>
 
   <style>
-    .body {
-      height: 100%;
-      width: 100%;
-      margin: 0px;
-    }
+:root{
 
-    .textbox {
-      width: 200px;
-      height: 80%;
-      background-color: blanchedalmond;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      border: 3px solid darkseagreen;
-      border-radius: 60px;
-      margin-top: 100px;
-      margin-bottom: 100px;
-      margin-right: 150px;
-      margin-left: 80px;
-    }
-
-    .title {
-
-      background-color: aquamarine;
-      font-size: 8;
-      text-align: center;
-      font-family: 'Indie Flower', cursive;
-
-      border-radius: 20px;
+--basepanel: #2f2f4f;
+--bevelshaddow: #191970;
+--bevelhighlight: #d01ee0;
 
 
-    }
+--baselight: #3cb371;
+--lightwarm: #7cfc00;
+--lightreflect: #7fffd4;
+--otherpink: #d4568b;
+--button:#b8869b;
+--chillerblue:#a4cadb;
+}
 
-    .floatbox {
-      background-color: antiquewhite;
-      /* background-opacity: 60%; */
-      float: left;
-      max-width: 60%;
-      max-height: 45%;
-      margin-top: 10%;
-    }
+body{
+  padding:5%;
+  padding-right:5% ;
+display:flex;
+margin:0px;
+flex-direction: column;
+background-color: var(--basepanel);
+}
 
-    #rantbox {
-      resize: none;
-      width: 90%;
-    }
+.basepannel{
+display: grid;
+ background-color: var(--basepanel); 
 
-    .menu {
-      visibility: hidden;
-    }
+ height:100%;
+padding:15%;
 
-    button+.menu:active,
-    button:focus+.menu {
-      visibility: visible;
-    }
-
-    .bar {
-      border: 3px solid darkseagreen;
-      border-radius: 60px;
-      background-color: honeydew;
-      padding-left: 10px;
-      padding-right: 10px;
-      padding-top: 20px;
-      padding-bottom: 20px;
-      margin-top: 100px;
-      display: block;
-    }
+font-family: 'Orbitron', sans-serif;
 
 
+/* width:auto;
+min-width:100%; */
 
-    .form {
-      display: flex;
-      flex-direction: column;
-      height: 800px;
-      justify-content: space-between;
-    }
+grid-template-columns: 10% 20%  auto  15% 10% ;
+grid-template-rows: 15% auto  15%;
+grid-template-areas:
+". . . header ."
 
-    .list {
-      background-color: rgb(199, 199, 238);
-      height: 100px;
-      width: 100px;
-      display: flex;
-      flex-direction: column;
-    }
+"s s1 main s2 . "
+"f f f f f"
 
-    .container {
-      margin: 0px;
-      display: flex;
-      align-items: stretch;
-      /* align-content: center; */
-      justify-content: space-around;
-      width: 100%;
-      background-color: burlywood;
-      height: 80%;
+;
+}
 
-    }
+.fancytext{
+  height:100px;
+  color: #fff;
+  text-shadow:
+  0 0 7px #fff,
+  0 0 10px #fff,
+  0 0 21px #fff,
+  0 0 42px #0fa,
+  0 0 82px #0fa,
+  0 0 92px #0fa,
+  0 0 102px #0fa,
+  0 0 151px #0fa;
+  display:flex;
+  width:60%;
+  justify-content: center;
+  align-content: center;
+  border: 3px solid rgb(216, 19, 150);
+  border-radius: 25% 10%;
+  box-shadow: 10px 10px 5px var(--lightreflect);
+  font-family: 'Audiowide', cursive;
+}
 
-    .box {
-      margin-top: 10px;
-      background-color: beige;
-      height: 15%;
-      border-radius: 60px;
-      border: 3px solid blueviolet;
-      width: 30%;
-      padding-left: 10px;
-      padding-right: 10px;
+header{
+grid-area: header;
+height:100px;
+color: #fff;
+text-shadow:
+  0 0 7px #fff,
+  0 0 10px #fff,
+  0 0 21px #fff,
+  0 0 42px #0fa,
+  0 0 82px #0fa,
+  0 0 92px #0fa,
+  0 0 102px #0fa,
+  0 0 151px #0fa;
+  display:flex;
+  width: grow 1;
+  justify-content: center;
+  align-content: center;
+  border: 3px solid rgb(216, 19, 150);
+  border-radius: 25% 10%;
+  box-shadow: 10px 10px 5px var(--lightreflect);
+  font-family: 'Audiowide', cursive;
+}
 
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+.footer{
+  grid-area: foot;
+  display :grid;
+  justify-content: space-around;
+  align-content: space-around;
+  flex-direction: row;
+  background-color: var(--basepanel);
+  width:100%
+}
+.display {
+  display: flex;
+  grid-area: main;
+  
+  width:80%;
+  flex-direction: column;
+  margin-top: 10%;
+  border: solid rgb(216, 19, 150);
+  border-radius: 25% 10%;
+  box-shadow: 10px 10px 5px var(--bevelshaddow);
+  background-color: var(--button);
+  padding:5%;
+ 
+}
+.secrets
+.box{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.pinkring{
+  border: solid 2px rgb(216, 19, 150);
+  border-radius: 25% 10%;
+  box-shadow: 10px 10px 5px var(--bevelshaddow);
+  padding:20px;
+  margin-bottom: 5%;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.box{
+  display:flex;
+  width:auto;
+  flex-grow: 1;
+  margin-top: 10%;
+}
+.title{
+  
+  display:flex;
+  align-items:center;
+  justify-content: center;
+  margin-bottom: 5%;
+  background-color: var(--basepanel);
+  box-shadow: 10px 10px 10px 10px var(--bevelshaddow);
+  width:75%;
+  border-radius: 25% 10%;
+}
+.col{
+  display:flex;
+  flex-direction: column;
+  height:100%;
+  margin-bottom: 2%;
+}
 
-    .col {
-      background-color: rgb(33, 36, 211);
-
-      display: flex;
-      flex-direction: column;
-      width: 90%;
-      justify-content: space-around;
-      /* width: 40%; */
-
-    }
-
-    .dummy {}
-
-    .logbook {
-      border: 3px solid blueviolet;
-      background-color: darksalmon;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-
-    }
-
-
-    .topbar {
-      background-color: antiquewhite;
-      display: block;
-      height: 10%
-    }
-
-    .bottombar {
-      background-color: white;
-      border: 3px solid black;
-      display: flex;
-      align-items: center;
-      justify-items: center;
-      width: 100%;
-      flex-direction: column
-    }
-  </style>
+.panel{
+  display:flex;
+  flex-direction: column;
+  background-color: var (--otherpink);
+  width:100%;
+  height:100%;
+}
+</style>
 </head>
 
 <body>
   {% block head %}
   <header>
     <div>
-      <h1>Welcome</h1>
-      {% if user.is_authenticated %}
-      <li>Welcome {{user.username}}</li>
-      <li><a href="{% url 'user_system:logout' %}">Logout</a></li>
-      {% else %}
-      <li><a href="{% url 'user_system:login' %}">Login</a></li>
-      <li><a href="{% url 'user_system:register' %}">Register</a></li>
-      {% endif %}
+      <h1>Secret Club</h1>
+      <div class = "col">
+        {% if user.is_authenticated %}
+        
+        <div>Welcome {{user.username}}</div>
+        <div><a href="{% url 'user_system:logout' %}">Logout</a></div>
+        {% else %}
+        <div><a href="{% url 'user_system:login' %}">Login</a></div>
+        <div><a href="{% url 'user_system:register' %}">Register</a></div>
+        {% endif %}
+      </div>
     </div>
-
+    
   </header>
   {% endblock %}
   {% block float %}
-
+  
   {% endblock %}
   <main>
     {% if messages %}
