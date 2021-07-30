@@ -31,7 +31,6 @@ def pokeappi(request):
 
     
     
-
     return JsonResponse({'poke_data':pokedex_data})
 
     # paginator = Paginator(pokemon, limit)
