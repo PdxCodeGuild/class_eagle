@@ -12,9 +12,9 @@ class Pokemon(models.Model):
     image_front= models.CharField(max_length=5000, default='')
     image_back= models.CharField(max_length=5000, default='')
     # types= models.CharField(max_length=5000, default='')
-    
+     
     # def __str__(self):
-        # return self.Pokemon
+    #     return self.Pokemon
 
 
 # [{'number': 1, 'name': 'bulbasaur', 'height': 7, 'weight': 69, 'image_front': 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png', 'image_back': 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png', 'types': ['poison', 'grass'], 'url': 'https://pokemon.fandom.com/wiki/bulbasaur'},
