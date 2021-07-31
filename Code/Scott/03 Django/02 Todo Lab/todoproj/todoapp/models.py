@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils import timezone
 
 # Create your models here.
 class Priority(models.Model):
@@ -15,12 +15,10 @@ class Priority(models.Model):
 class TodoItem(models.Model):
     priorities_dict = {'h': 'high', 'm': 'medium', 'l': 'low'}
     text = models.CharField(max_length=200)
-    created_date = models.DateTimeField()
+    created_date = models.DateTimeField(default=timezone.now)
+    completed_date = models.DateTimeField(blank=True, null=True)
     priority = models.ForeignKey(
         Priority,
         null=True,
         on_delete=models.SET_NULL
     )
-    
-    def __str__(self):
-        return f'Created: {self.created_date} | TODO: {self.text} | Priority: {self.priorities_dict[str(self.priority)]}'
