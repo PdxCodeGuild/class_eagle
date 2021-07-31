@@ -24,9 +24,8 @@ def pokeappi(request):
                 'height' : pokemon.height,
                 'weight' : pokemon.weight,
                 'image_front': pokemon.image_front,
-                'image_back': pokemon.image_back
-        
-                # 'type': pokemon.type
+                'image_back': pokemon.image_back,
+                'type': pokemon.type.split()
                 })
 
     
