@@ -25,7 +25,7 @@ def register(request):
         django.contrib.auth.login(request, user)
          
         # form.save()
-        return HttpResponseRedirect(reverse('blogapp:home'))
+        return HttpResponseRedirect(reverse('blogapp:splash'))
     return render(request, 'user_system/register.html')
 
 

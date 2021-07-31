@@ -8,7 +8,7 @@
     .body {
       height: 100%;
       width: 100%;
-      
+
 
     }
 
@@ -44,15 +44,15 @@
       box-shadow: 10px 10px 5px grey;
     }
 
-    .pokebutton{
+    .pokebutton {
       margin: 1px;
       box-shadow: 10px 10px 5px grey;
       padding-top: 1 px;
-     
+
       margin: 1px;
-     height:3rem;
-     width: 90%;
-     border: 2px solid black;
+      height: 3rem;
+      width: 90%;
+      border: 2px solid black;
     }
   </style>
 </head>
@@ -61,104 +61,140 @@
   <div id="app">
     <div class=" slider">
       <!-- up slider -->
-      <button class ="pokebutton" v-on:click="chooseYou"  v-for="(pokemon ,index) in pokedex">[[pokemon.name]]</button>
+      <button class="pokebutton" v-on:click="chooseYou" v-for="(pokemon , index) in pokedex">[[pokemon.name]]</button>
 
     </div>
-    <!-- {% if checkmon != "none" %} -->
-<div class="pokemonCard" v-for="selectedMon">
+    {% if checkmon %}
 
-  <div class="cardTitle">
-   
-    [[pokemon.number]][[pokemon.name]]
+    <div class="pokemonCard">
+
+      <div class="cardTitle">
+
+        [[pokemon.number]][[pokemon.name]]
+      </div>
+      {%endif%}
+    </div>
+    <div>
+
+      <input v-model="pokesearch" id="pokesearch" type="text" placeholder="Look up a Pokemon by name!" />
+      <button v-on:click="tallgrass"> find it</button>
+
+    </div>
+
+    <button v-for="pokemon in pokematch">[pokemon.name]</button>
   </div>
-</div>
-    
   </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script>
-      let app = new Vue({
-        // query selector of the html element representing the app
-        el: '#app',
-        delimiters: ['[[', ']]'],
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    let app = new Vue({
+      // query selector of the html element representing the app
+      el: '#app',
+      delimiters: ['[[', ']]'],
 
-        // app data
-        // data stored with the app
-        // for displaying in the page: {{message}}
-        // for getting input from the user: v-model="message"
-        // for modifying in methods: this.message
-        data: {
-          message: 'Got to Catch Em all!',
-          pokedex: [],
-          pokemonFacts: [],
-          Pokepal: {},
-          search: "",
-          pokemom: {},
-          selectedMon:{},
-          checkmon= false,
-        },
-        // app methods
-        // can be called from events in the page: v-on:click="method"
-        // can be called from other methods: this.method()
-        // can be called from outside the app: app.method()
-        methods: {
-          sayHello: function () {
-            console.log(this.message)
-          },
-
-          chooseYou:function (pokemon){
-            this.selectedMon = pokemon
-          },
-
-
-
-          cacheEmAll: function () {
-            axios({
-              method: 'get',
-              url: '{% url "pokeappi:pokeappi" %}',
-              params: {
-              }
-            }).then(response => {
-              // console.log(response.data)
-              this.pokedex  = response.data.poke_data
-              
-              // console.log(this.pokedex)
-              // for (let i = 0; i < this.pokedex.length; i++) {
-              //   this.pokedex[i].types = this.pokedex[i].types.join(' ')
-              // }
-            })
-          },
-          pokeFacts: function (index) {
-            this.pokemon = {
-              number: this.pokedex[index].number,
-              name: this.pokedex[index].name,
-              height: this.pokedex[index].height,
-              weight: this.pokedex[index].weight,
-              image_front: this.pokedex[index].image_front,
-              image_back: this.pokedex[index].image_back,
-              types: this.pokedex[index].types
-            }
-
-          },
-
-          twirl: function () {
-            // if front shows
-            // 
-            // if back shows
-
-          },
-
-        },
-        // created - a lifecycle hook
-        // called when the app is created
-        // useful for setting up app data
-        created: function () {
-          this.cacheEmAll()
+      // app data
+      // data stored with the app
+      // for displaying in the page: {{message}}
+      // for getting input from the user: v-model="message"
+      // for modifying in methods: this.message
+      data: {
+        message: 'Got to Catch Em all!',
+        pokedex: [],
+        pokemonFacts: {},
+        Pokepal: {},
+        search: "",
+        pokemom: {},
+        selectedMon: {},
+        checkmon: false,
+        twirler: false,
+        
+        pokematch: [],
+        
+        page =0,
+        search_term: '',
+      
+      },
+      // app methods
+      // can be called from events in the page: v-on:click="method"
+      // can be called from other methods: this.method()
+      // can be called from outside the app: app.method()
+      methods: {
+        sayHello: function () {
           console.log(this.message)
-        }
-      })
-    </script>
-    
+        },
+
+        chooseYou: function (pokemon) {
+          this.selectedMon = pokemon
+        },
+
+
+        tallgrass: function () {
+          alert(this.pokematch)
+        
+          console.log(this.pokematch)
+          // this.pokematch = this.Pokemon.objects.filter(name = this.pokesearch)
+        },
+        previousPage: function () {
+					if (this.page > 1) {
+						this.page -= 1
+						this.cacheEmAll()
+					}
+				},
+				nextPage: function () {
+					if (this.page < this.total_pages) {
+						this.page += 1
+						this.cacheEmAll()
+					}
+				},
+        cacheEmAll: function () {
+          axios({
+            method: 'get',
+            url: '{% url "pokeappi:pokeappi" %}',
+            params: {
+							search_term: this.search_term
+						
+						}
+ 
+          }).then(response => {
+            // console.log(response.data)
+            this.pokedex = response.data.pokedex
+
+            // console.log(this.pokedex)
+            // for (let i = 0; i < this.pokedex.length; i++) {
+            //   this.pokedex[i] = this.pokedex[i]('')
+            //   }
+          })
+        },
+        pokeFacts: function (index) {
+          this.pokemon = {
+            number: this.pokedex[index].number,
+            name: this.pokedex[index].name,
+            height: this.pokedex[index].height,
+            weight: this.pokedex[index].weight,
+            image_front: this.pokedex[index].image_front,
+            image_back: this.pokedex[index].image_back,
+
+          }
+
+        },
+
+        twirl: function () {
+
+          this.twirler = !this.twirler
+
+        },
+
+      },
+      // created - a lifecycle hook
+      // called when the app is created
+      // useful for setting up app data
+      created: function () {
+        this.cacheEmAll()
+        console.log(this.message)
+      }
+    })
+  </script>
+
 </body>
 
 </html>

@@ -1,10 +1,37 @@
 
 {%extends "user_system/base.html"%}
 {% block content %}
+
 <div> {{ post.author}}</div>
 <div> {{ post.date_posted }}</div>
 <div>{{ post.title}}</div>
 <div> {{post.content}}</div>
 </article>
+
+
+
+
+<form action= "{% url 'blogapp:home'%}" method="POST" id="NewPost">
+      {% csrf_token %}
+      <div class= "bar">
+          
+      <div class="title"> <h1> Get in there!</h1></div>
+      <div class='box'>
+          
+          <label for ="title">Title</label>
+          <input id="title" name="title" type="text">
+      </div>
+      <div class="box">
+          <label for ="rant">Go Off   </label>
+          <input id="rant" name="rant" type="textfield">
+      </div>
+      
+      <button input type="submit" class="btn">Submit</button>
+  </form>
+
+  
+
+
+
 {% endblock content %}
 

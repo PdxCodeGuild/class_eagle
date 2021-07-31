@@ -175,8 +175,8 @@
 
 
         <div class="box">
-          <label for="task">Task</label>
-          <input id="task" name="task" type="text">
+          <label for="todo">Task</label>
+          <input id="todo" name="todo" type="text">
         </div>
 
         <div class="box">
@@ -208,7 +208,7 @@
        
         <div class="left">
 
-          <p>{{todo.task}}</p>
+          <p>{{todo.name}}</p>
           
 
         </div>
@@ -226,17 +226,23 @@
               
               <p>{{todo.time}}</p>
 
+              
             </div>
           </div>
+          <form  action="{% url 'todoapp:done' todo.id %}" method="post" id="todo">
+            {% csrf_token %}
+
+            <button id="submit" name="done" value="done">DONE!</button>
+          </form>
         </div>
         {%endfor%}
-
+        
       </div>
     </div>
   </div>
 <div class ="done">
-  <div class="title">G</div>
 </div>
+<div class="title">done</div>
 </body>
 
 </html>
