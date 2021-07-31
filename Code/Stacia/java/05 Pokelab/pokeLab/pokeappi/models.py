@@ -11,8 +11,8 @@ class Pokemon(models.Model):
     weight= models.FloatField( default=0)
     image_front= models.CharField(max_length=5000, default='')
     image_back= models.CharField(max_length=5000, default='')
-    type = models.CharField(max_length=20)
-    # types= models.CharField(max_length=5000, default='')
+    type = models.CharField(max_length=20,  default='')
+    
      
     def __str__(self):
         return self.Pokemon
