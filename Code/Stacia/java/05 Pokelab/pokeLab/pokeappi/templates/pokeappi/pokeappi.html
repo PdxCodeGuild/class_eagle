@@ -61,19 +61,30 @@
   <div id="app">
     <div class=" slider">
       <!-- up slider -->
-      <button class="pokebutton" v-on:click="chooseYou" v-for="(pokemon , index) in pokedex">[[pokemon.name]]</button>
 
+      <button v-on:click="previousPage">^</button>
+      <button class="pokebutton" v-on:click="chooseYou(pokemon)" v-for="pokemon in pokedex">[[pokemon.name]]</button>
+
+      <button v-on:click="nextPage">v</button> 
     </div>
-    {% if checkmon %}
+    
 
     <div class="pokemonCard">
 
       <div class="cardTitle">
 
-        [[pokemon.number]][[pokemon.name]]
+        [[selectedMon.number]] [[selectedMon.name]]
       </div>
-      {%endif%}
+      <div>height [[selectedMon.height]]</div>
+      <div>weight[[selectedMon.weight]]</div>
+      <div v-for type in selectedMon.types>[[type]]</div>
     </div>
+    <img v-on:click="twirl" v-if="twirler == true" id="pokeimage" class="col"
+    :src="[[selectedMon.image_front]]" width="151px" alt="">
+
+    <img v-on:click="twirl" v-if="twirler == false" id="pokeimage" class="col"
+        :src="[[selectedMon.image_back]]" width="151px" alt="">
+    
     <div>
 
       <input v-model="pokesearch" id="pokesearch" type="text" placeholder="Look up a Pokemon by name!" />
@@ -103,15 +114,17 @@
         pokemonFacts: {},
         Pokepal: {},
         search: "",
-        pokemom: {},
+        pokemon: {},
         selectedMon: {},
         checkmon: false,
-        twirler: false,
+        twirler: true,
+        pokesearch: "",
         
         pokematch: [],
         
-        page :0,
-        search_term: '',
+				page: 1,
+				total_pages: 10,
+        search_term: 'mew',
       
       },
       // app methods
@@ -119,51 +132,43 @@
       // can be called from other methods: this.method()
       // can be called from outside the app: app.method()
       methods: {
-        sayHello: function () {
-          console.log(this.message)
-        },
-
-        chooseYou: function (pokemon) {
-          this.selectedMon = pokemon
-        },
 
 
-        tallgrass: function () {
-          alert(this.pokematch)
-        
-          console.log(this.pokematch)
-          // this.pokematch = this.Pokemon.objects.filter(name = this.pokesearch)
-        },
-        previousPage: function () {
+				previousPage: function () {
 					if (this.page > 1) {
 						this.page -= 1
-						this.cacheEmAll()
+						this.cacheEmAll(this.pokesearch)
 					}
 				},
 				nextPage: function () {
 					if (this.page < this.total_pages) {
 						this.page += 1
-						this.cacheEmAll()
+						this.cacheEmAll(this.pokesearch)
 					}
 				},
-        cacheEmAll: function () {
-          axios({
+
+        chooseYou: function (pokemon) {
+          this.selectedMon = pokemon
+        },
+
+        tallgrass: function () {
+          this.cacheEmAll(this.pokesearch)
+        },
+       
+        cacheEmAll: async function (searchTerm) {
+          await axios({
             method: 'get',
             url: '{% url "pokeappi:pokeappi" %}',
             params: {
-							search_term: this.search_term
-						
+							search_term: searchTerm,
+              page: this.page,
+							limit: 20
 						}
  
           }).then(response => {
-            // console.log(response.data)
             this.pokedex = response.data.pokedex
-
-            // console.log(this.pokedex)
-            // for (let i = 0; i < this.pokedex.length; i++) {
-            //   this.pokedex[i] = this.pokedex[i]('')
-            //   }
           })
+          
         },
         pokeFacts: function (index) {
           this.pokemon = {
@@ -189,7 +194,7 @@
       // called when the app is created
       // useful for setting up app data
       created: function () {
-        this.cacheEmAll()
+        this.cacheEmAll("")
         console.log(this.message)
       }
     })

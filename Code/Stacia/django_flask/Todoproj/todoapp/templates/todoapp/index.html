@@ -222,12 +222,7 @@
         
 
           <div class="right">
-            <div>
-              
-              <p>{{todo.time}}</p>
-
-              
-            </div>
+          
           </div>
           <form  action="{% url 'todoapp:done' todo.id %}" method="post" id="todo">
             {% csrf_token %}
