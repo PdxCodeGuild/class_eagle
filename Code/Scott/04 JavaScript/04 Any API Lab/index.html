@@ -22,9 +22,9 @@
     <div id="app">
         <div class="container d-flex justify-content-start">
             <div v-if="advice != null" id="adviceDisplay">
-                <span>"{{ advice }}"</span><br>                
+                <span>{{ advice }}</span><br>                
             </div>
-            <button type="button" id="adviceBtn"class="btn btn-primary align-self-center" v-on:click="getAdvice()">Get Advice</button>
+            <button type="button" id="adviceBtn"class="btn btn-secondary align-self-center" v-on:click="getAdvice()">Get a Random Piece of Advice</button>
         </div>
         <div class="container">
             <div>
@@ -34,7 +34,14 @@
             </div>
         </div>
         <div>
-            <span>{{ searchTerm }}</span>
+            <div v-if="resultsExist == true">
+                <ul>
+                    <li v-for="result in searchResults">{{ result.advice }}</li>
+                </ul>
+            </div>
+            <div v-if="resultsExist == false">
+                {{searchResults}}
+            </div>
         </div>
     </div>
     <!-- Bootstrap -->
@@ -51,7 +58,8 @@
                 adviceSearched: null,
                 searchTerm: '',
                 searchUrl: 'https://api.adviceslip.com/advice/search/',
-                searchResults: ''
+                searchResults: null,
+                resultsExist: null
             },
             methods: {
                 getAdvice: function(){
@@ -62,19 +70,30 @@
                         this.advice = response.data.slip.advice
                     })
                 },
-                created: function() {
-                    this.getAdvice()
-                },
-                seachAdvice: function(){
+                searchAdvice: function(){
+                    searchResult = null
                     this.serachUrl = this.searchUrl + this.searchTerm
                     axios({
                         method: 'get',
                         url: this.serachUrl,
                     }).then(response => {
-                        console.log('got it!')
-                        this.searchResults = response.data.slips
+                        searchResult = response.data.slips
+                        console.log(response.data)
+                        
+                        if(searchResult == null){
+                            this.searchResults = response.data.message.text
+                            this.resultsExist = false
+                        }
+                        else {
+                            this.searchResults = searchResult
+                            this.resultsExist = true
+                        }
                     })
-                } 
+                    
+                } ,
+                created: function() {
+                    this.getAdvice()
+                }
             }
         })
     </script>
