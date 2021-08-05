@@ -9,34 +9,71 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Materialize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Montserrat&display=swap" rel="stylesheet">
+
+    <style>
+
+        main {
+            margin: 0px;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0px;
+            padding-top: 45px;
+            padding-bottom: 45px;
+            
+        }
+    
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            padding-top: 150px;
+            
+        }
+
+        p {
+            font-family: 'Montserrat', sans-serif;
+            padding-bottom: 150px;
+        }
+
+
+    </style>
 
 </head>
 
 <body>
 
-    <div class="container" id="app">
 
-        <h1>{{ message }}</h1>
+    <main class="amber lighten-4">
 
-        <div class="input-field col s6">
-            <input id="search_term" v-model="search_term" type="text" class="validate">
-            <label for="search_term">Enter term</label>
+        <div class="container" id="app">
+
+            <h1 class="orange-text text-lighten-1">{{ message }}</h1>
+
+            <div class="input-field col s6">
+                <input id="search_term" v-model="search_term" type="text">
+                <label for="search_term">Enter term</label>
+            </div>
+
+            <button v-on:click="get_quotes"class="btn" style="background-color: #455a64" >search</button>
+
+            <div v-for="quote in quotes">
+
+                <h2 class="orange-text text-lighten-1"> {{ quote.body}} </h2>
+                <p class="orange-text text-lighten-1"> {{ quote.author }} </p>
+            </div>
+
+
+
+
+
         </div>
 
-        <button v-on:click="get_quotes"class="btn">search</button>
+    </main>
 
-        <div v-for="quote in quotes">
-
-            <h2> {{ quote.body}} </h2>
-            <p> {{ quote.author }} </p>
-        </div>
-
-
-
-
-
-    </div>
-
+    
     <!-- Materialize JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- Vue -->
