@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+<style>
+    /* simple margins to tidy up what bootstrap doesn't do */
+    li{
+        margin: 10px;
+    }
+    #inputs{
+        margin-left: 20px;
+    }
+    #field{
+        margin: 10px;
+    }
+</style>
+<body>
+    <div id="app">
+        <ul>
+            <!-- list every item in items that is NOT completed -->
+            <li v-for="(item, index) in items" v-if="item.completed == false">  
+                {{ item.id }} | 
+                <s v-if="item.completed == true"> {{ item.msg }} </s> 
+                <b v-else> {{ item.msg }} </b>
+                <div>
+                <!-- When the complete button is clicked, run the completeItem function -->
+                <button v-on:click="completeItem(index)">Complete</button>
+                <!-- If this is the first task in the task group, then display the 'remove all items in that group' button -->
+                <button v-if="itemsById(item.id, index) == 0" v-on:click="removeItem(item.id)" class="btn btn-secondary btn-sm">Remove All Items in Group {{ item.id }}</button>
+            </li>
+            <!-- Border to distinguish between the complete and not complete lists -->
+            <div style="border-top: black solid 2px"></div>
+            <!-- Lines [40,47] are very similar to lines [27,36] only difference being on the if conditonal in line 40 and the button on line 45 -->
+            <li v-for="(item, index) in items" v-if="item.completed == true">
+                {{ item.id }} | 
+                <s v-if="item.completed == true"> {{ item.msg }} </s>
+                <b v-else> {{ item.msg }} </b>
+                <div>
+                <button v-on:click="decompleteItem(index)">Un-Complete</button>
+                <button v-if="itemsById(item.id, index) == 0" v-on:click="removeItem(item.id)" class="btn btn-secondary btn-sm">Remove All Items in Group {{ item.id }}</button>
+            </li>
+        </ul>
+        <!-- Input Fields -->
+        <div id="inputs" class="container">
+            <div id="field">
+                <span>Select Task Group</span>
+                <input type="number" v-model="newId"/>
+            </div>
+            <div id="field">
+                <span>Enter Task Message</span>
+                <input type="text" v-model="newMsg"/>
+            </div>
+            <button v-on:click="addItem" class="btn btn-primary">Add Task</button>
+        </div>
+    </div>
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <!-- VueJS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                items: [],
+                newMsg: '',
+                newId: 0, //synonymous with task group
+                tempIdCount: 0
+            },
+            methods: {
+                //removes an item by using the arr.filter command, and returning everything that does NOT have that item id
+                removeItem: function(itemId){
+                    this.items = this.items.filter((obj) => {
+                        return obj.id != itemId;
+                    })
+                },
+                //adds an item using the arr.push command, each item has an id, a message, and a boolean for if it's completed
+                addItem: function(){
+                    this.items.push({id: this.newId, msg: this.newMsg, completed: false})
+                    this.newMsg = ''
+                },
+                //returns the count of items that have the given id up until the given array index is reached
+                itemsById: function(itemId, curInd){
+                    this.tempIdCount = 0
+                    for(let i = 0; i < curInd; i++){
+                        if (this.items[i].id == itemId){
+                            this.tempIdCount++
+                        }
+                    }
+                    return this.tempIdCount
+
+                },
+                completeItem: function(curInd){
+                    this.items[curInd].completed = true
+                },
+                decompleteItem: function(curInd){
+                    this.items[curInd].completed = false
+                }
+            }
+        })
+    </script>
+</body>
+</html>

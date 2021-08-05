@@ -1,49 +1,125 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Hello world!</title>
-        <!-- Icons -->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!-- Materialize CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    </head>
-    <body>
-        <div id="app">
-            {{title}}
-            <button class="btn" v-on:click="getSuperhero">Click Me!</button>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello world!</title>
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        #button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #user_input {
+            margin-top: 10px;
+            padding: 5px;
+            background-color: rgba(196, 206, 69, 0.616);
+            border: solid;
+        }
+        #search_form {
+            margin-top: 10px;
+            padding: 5px;
+            background-color: rgba(196, 206, 69, 0.616);
+            border: solid;
+        }
+    </style>
+</head>
+
+<body class="purple darken-3">
+    <div id="app">
+        <nav>
+            <div class="nav-wrapper green darken-2">
+                <div class="brand-logo center">Daily Advice</div>
+            </div>
+        </nav>
+        <div id="user_input" class="container">
+            <div class="row center-align" v-if="advice != ''">
+                <h5>"{{advice}}"</h5>
+            </div>
+            <hr>
+            <div id="button" class="row">
+                <div class="col"><button class="btn" v-on:click="getAdvice">Random Advice</button></div>
+            </div>
         </div>
-        <!-- Materialize JS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <!-- Axios -->
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <!-- Vue JS -->
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-        <script src="Super_secrets.js"></script>
-        <script>
-            let app = new Vue({
-                el: '#app',
-                data: {
-                    title: '',
-                    superhero: {},
+        <div id="search_form" class="container">
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea id="searchterm" v-model="searchTerm" class="materialize-textarea"></textarea>
+                            <label for="searchterm">Search Advice</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="button" class="col"><button class="btn" v-on:click="searchAdvice">Search Advice</button></div>
+            <div class="row">
+                <ul v-for="advice in slips">
+                    <li> - {{advice.advice}}</li>
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Vue JS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="Super_secrets.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                title: '',
+                advice: '',
+                searchTerm: '',
+                slips: [],
+            },
+            methods: {
+                getAdvice: function () {
+                    axios({
+                        method: 'get',
+                        url: 'https://api.adviceslip.com/advice',
+                        params: {}
+                    }).then((response) => {
+                        let data = response
+                        this.advice = data['data']['slip']['advice']
+                        console.log(data['data']['slip']['advice'])
+                    })
                 },
-                methods: {
-                    getSuperhero: function() {
-                        axios({
-                            method: 'get',
-                            url: 'https://api.nasa.gov/insight_weather/',
-                            params: {
-                                'version': 1.0,
-                                'feedtype': 'json',
-                                'api_key': nasa_key
-                            }
-                        }).then((response) => {
-                            console.log(response)
-                        })
-                    }
+                searchAdvice: function () {
+                    axios({
+                        method: 'get',
+                        url: 'https://api.adviceslip.com/advice/search/' + this.searchTerm,
+                        params: {}
+                    }).then((response) => {
+                        let data = response
+                        if (data['data'].hasOwnProperty('message')) {
+                            this.advice = data['data']['message']['text']
+                        } else {
+                            console.log(data['data']['slips'])
+                            this.slips = data['data']['slips']
+                        }
+                        this.clearField()
+                    })
+                },
+                clearField: function () {
+                    this.searchTerm = ''
                 }
-            })
-        </script>
-    </body>
+            },
+            created: function() {
+                this.getAdvice()
+            }
+        })
+    </script>
+</body>
+
 </html>

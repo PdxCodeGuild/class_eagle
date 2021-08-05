@@ -109,6 +109,11 @@ The **back-end** consists of code, files, and a database. Unlike the front-end, 
 
 ## Web APIs
 
+
+<!-- API stands for "application programming interface", it's a standardized way to send and receive data from a web service via HTTP requests (GET, POST, PUT, DELETE). For example, try executing this url in your browser `http://api.forismatic.com/api/1.0/?method=getQuote&key=457653&format=json&lang=en`. This is an api for random inspiration quotes. Note the query parameters which specify a key, format, and language. When you enter it in your browser, you execute an HTTP GET request. You can do the same thing from JavaScript, then process the result and control how it's displayed to the user. Websites are for people, APIs are for programs.
+
+There are many free and open APIs available on the internet that can provide many different forms of data. You can find some public APIs [here](https://github.com/toddmotto/public-apis) and [here](https://catalog.data.gov/dataset?q=-aapi+api+OR++res_format%3Aapi#topic=developers_navigation). When trying to access a url, remember the [parts of a url](https://doepud.co.uk/images/blogs/complex_url.png). APIs can receive parameters through query parameters and headers. You can see query parameters in the example url. -->
+
 API stands for "[application programming interface](https://en.wikipedia.org/wiki/API)", and represents an software interface. Examples include the [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API) which allows JavaScript to interact with a browser and produce sound. You can view long lists of public APIs [here](https://github.com/toddmotto/public-apis), [here](https://github.com/abhishekbanthia/Public-APIs), and [here](https://apilist.fun/). [Here's](http://www.pythonforbeginners.com/api/list-of-python-apis) a few more!
 
 - Users

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Super PokeDex 15000</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P">
+    <style>
+        .main_body {
+            background-color:#5DA66F;
+        }
+        .modal-content {
+            background-color: rgb(209, 18, 18);
+            font-family: "Press Start 2P";
+            border: black;
+        }
+
+        #pokeimage {
+            background-color: rgb(76, 129, 153);
+            border-radius: 1%;
+        }
+
+        #image_display {
+            border: solid;
+            border-width: 15px;
+            border-radius: 5%;
+            border-color: rgb(170,170,171);
+            margin: 10px;
+        }
+
+        #pokeinfo {
+            background-color: rgb(109, 107, 90);
+            color:rgb(56, 77, 61);
+            border: solid;
+            border-color: rgb(170,170,171);
+            border-radius: 2%;
+            border-width: 5px;
+            padding: 5px;
+        }
+        #rev_button {
+            position:absolute;
+            left:10%;
+            top:65%;
+        }
+        nav {
+            background-color: #123859;
+            font-family: "Press Start 2P";
+        }
+        #nav_text {
+            color:#F2D541;
+        }
+        #detail_btn {
+            background-color: #F2B05E;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .table {
+            background-color: #D96A88;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Page Content -->
+    <div class="main_body" id="app">
+        <nav class="navbar navbar-light">
+            <div class="container-fluid justify-content-center">
+                <span class="navbar-brand mb-0">
+                    <span id="nav_text" class="h3"><em>SUPER</em></span>
+                    <span id="nav_text" class="h2">Poke'Dex</span>
+                    <span id="nav_text" class="h3"><em>15000</em></span>
+                </span>
+            </div>
+        </nav>
+        <div class="container input-group mt-3">
+            <input type="text" class="form-control" v-model="pokeSearch">
+            <button class="btn btn-primary" type="button" @click="getPokemon">Search</button>
+        </div>
+
+        <div class="container">
+            <table class="table mt-4">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">type</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-capitalize" v-for="(pokemon, index) in pokedex">
+                        <th scope="row">[[pokemon.number]]</th>
+                        <td>[[pokemon.name]]</td>
+                        <td>[[pokemon.types]]</td>
+                        <!-- Modal Poke-Detail Launch button -->
+                        <td class="d-flex justify-content-center">
+                            <button id="detail_btn" type="button" v-on:click="pokeDetail(index)" class="mx-2" data-bs-toggle="modal" data-bs-target="#PokedexModal">PokeInfo</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Modal for detail page -->
+        <div class="modal fade" id="PokedexModal" tabindex="-1" aria-labelledby="PokedexModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-capitalize" id="PokedexModalLabel">[[pokeModal.number]].
+                            [[pokeModal.name]]</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="image_display" class="row">
+                            <img v-if="image_display == true" id="pokeimage" class="col"
+                                :src="[[pokeModal.image_front]]" width="70px" alt="">
+                            <img v-if="image_display == false" id="pokeimage" class="col"
+                                :src="[[pokeModal.image_back]]" width="70px" alt="">
+                        </div>
+                        <button id="rev_button" type="button" class="btn btn-success" v-on:click="flipImage">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z" />
+                                <path
+                                    d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z" />
+                            </svg>
+                        </button>
+                        <hr>
+                        <div id="pokeinfo">
+                            <div class="text-capitalize text-center"><u>Types: [[pokeModal.types]]</u></div>
+                            <div class="d-flex flex-column">
+                                <span>Height: [[pokeModal.height]] m</span>
+                                <span>Weight: [[pokeModal.weight]] kgs</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+    <!-- Vue JS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- Axios JS -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Page JS -->
+    <script type="text/javascript">
+        let app = new Vue({
+            el: '#app',
+            delimiters: ["[[", "]]"],
+            data: {
+                title: 'Hello World!',
+                pokedex: [],
+                pokeModal: {},
+                image_display: true,
+                pokeSearch: '',
+            },
+            methods: {
+                getPokemon: function () {
+                    axios({
+                        method: 'get',
+                        url: '{% url "pokeapp:pokedex" %}',
+                        params: {
+                            search: this.pokeSearch,
+                        }
+                    }).then(response => {
+                        this.pokedex = response.data.pokedex
+                        for(let i=0;i<this.pokedex.length; i++) {
+                            this.pokedex[i].types = this.pokedex[i].types.join(' ')
+                        }
+                    })
+                },
+                pokeDetail: function (index) {
+                    let pokeModal = {
+                        number: this.pokedex[index].number,
+                        name: this.pokedex[index].name,
+                        height: this.pokedex[index].height,
+                        weight: this.pokedex[index].weight,
+                        image_front: this.pokedex[index].image_front,
+                        image_back: this.pokedex[index].image_back,
+                        types: this.pokedex[index].types
+                    }
+                    this.pokeModal = pokeModal
+                },
+                flipImage: function () {
+                    if (this.image_display != true) {
+                        this.image_display = true
+                    } else {
+                        this.image_display = false
+                    }
+                },
+            },
+            created: function () {
+                this.getPokemon()
+            }
+        })
+    </script>
+</body>
+
+</html>

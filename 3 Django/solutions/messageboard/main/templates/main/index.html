@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World!</title>
+    <!-- Recpatcha JS -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style type="text/css">
+        .collapsible li i {
+            transition: all 200ms;
+        }
+
+        .collapsible li.active i {
+            transform: rotate(180deg);
+        }
+
+        .collapsible-header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .container > .row {
+            margin-bottom: 60px;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <h1>Messages</h1>
+        </div>
+        {% if error_message %}
+        <div class="row red-text">
+            {{ error_message }}
+        </div>
+        {% endif %}
+        <form class="row" action="" method="post">
+            {% csrf_token %}
+            <div class="col s12">
+                <div class="row">
+                    <h5>Create Message</h5>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="input_title" type="text" class="validate" name="title">
+                        <label for="input_title">Title</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="input_author" type="text" class="validate" name="author">
+                        <label for="input_author">Author</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea name="body"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="g-recaptcha" data-sitekey="6LcYJG8bAAAAAAAr-NvzFM2q5-0CkokMTHFPCHpi
+                        "></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <button class="btn" type="submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+        <div class="row">
+            <ul class="collapsible">
+                {% for message in messages %}
+                <li>
+                    <div class="collapsible-header">
+                        <span>{{ message.title }} by {{ message.author}}</span>
+                        <i class="material-icons">expand_more</i>
+                    </div>
+                    <div class="collapsible-body">
+                        {{ message.body | safe }}
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <!-- CKEditor JS -->
+    <script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
+
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Page JS -->
+    <script type="text/javascript">
+        // initialize Materialize components
+        M.AutoInit();
+
+        CKEDITOR.replace('body');
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style>
+    .grid {
+      height: 100%;
+      width: 100%;
+      display: grid;
+
+
+
+
+      grid-template-columns: 5% 15% auto 10%;
+      grid-template-rows: 5% auto;
+      grid-template-areas:
+        " . p1 . ."
+        ". p1  p2 ."
+      ;
+
+    }
+
+    .col {}
+
+    .row {}
+
+    .cardArea {
+      display: grid;
+      grid-area: p2;
+margin-left:50%;
+    }
+
+    .pokemonCard {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      padding: 5%;
+
+    }
+
+    .cardTitle {}
+
+    .cardMain {
+      background-color: white;
+      height: 40%;
+
+
+    }
+
+    .cardData {}
+
+    .slider {
+
+      grid-area: p2;
+      display: grid;
+      /* flex-direction: column; */
+      max-width: 20%;
+      padding-top: 20px;
+      border: 3px solid black;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 10px 10px 5px grey;
+    }
+
+    .pokebutton {
+      margin: 1px;
+      box-shadow: 10px 10px 5px grey;
+      padding-top: 1 px;
+
+      margin: 1px;
+      height: 2rem;
+      width: 90%;
+      border: 2px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="grid">
+
+
+      <div class=" slider">
+        <!-- up slider -->
+
+        <button v-on:click="previousPage">^</button>
+        <button class="pokebutton" v-on:click="chooseYou(pokemon)" v-for="pokemon in pokedex">[[pokemon.name]]</button>
+
+        <button v-on:click="nextPage">v</button>
+
+        <input v-model="pokesearch" id="pokesearch" type="text" placeholder="Look up a Pokemon by name!" />
+        <button v-on:click="tallgrass"> find it</button>
+      </div>
+
+      <div class="cardArea">
+        <div class="pokemonCard">
+
+          <div class="cardTitle">
+
+            [[selectedMon.number]] [[selectedMon.name]]
+          </div>
+          <div>height [[selectedMon.height]]</div>
+          <div>weight[[selectedMon.weight]]</div>
+          <div v-for type in selectedMon.types>[[type]]</div>
+          <img v-on:click="twirl" v-if="twirler == true" id="pokeimage" class="col" :src="[[selectedMon.image_front]]"
+            width="151px" alt="">
+
+          <img v-on:click="twirl" v-if="twirler == false" id="pokeimage" class="col" :src="[[selectedMon.image_back]]"
+            width="151px" alt="">
+        </div>
+      </div>
+
+    </div>
+
+
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    let app = new Vue({
+      // query selector of the html element representing the app
+      el: '#app',
+      delimiters: ['[[', ']]'],
+
+      // app data
+      // data stored with the app
+      // for displaying in the page: {{message}}
+      // for getting input from the user: v-model="message"
+      // for modifying in methods: this.message
+      data: {
+        message: 'Got to Catch Em all!',
+        pokedex: [],
+        pokemonFacts: {},
+        Pokepal: {},
+        search: "",
+        pokemon: {},
+        selectedMon: {},
+        checkmon: false,
+        twirler: true,
+        pokesearch: "",
+
+        pokematch: [],
+
+        page: 1,
+        total_pages: 10,
+        search_term: 'mew',
+
+      },
+      // app methods
+      // can be called from events in the page: v-on:click="method"
+      // can be called from other methods: this.method()
+      // can be called from outside the app: app.method()
+      methods: {
+
+
+        previousPage: function () {
+          if (this.page > 1) {
+            this.page -= 1
+            this.cacheEmAll(this.pokesearch)
+          }
+        },
+        nextPage: function () {
+          if (this.page < this.total_pages) {
+            this.page += 1
+            this.cacheEmAll(this.pokesearch)
+          }
+        },
+
+        chooseYou: function (pokemon) {
+          this.selectedMon = pokemon
+          this.twirler = true
+        },
+
+        tallgrass: function () {
+          this.cacheEmAll(this.pokesearch)
+        },
+
+        cacheEmAll: async function (searchTerm) {
+          await axios({
+            method: 'get',
+            url: '{% url "pokeappi:pokeappi" %}',
+            params: {
+              search_term: searchTerm,
+              page: this.page,
+              limit: 20
+            }
+
+          }).then(response => {
+            this.pokedex = response.data.pokedex
+          })
+
+        },
+        pokeFacts: function (index) {
+          this.pokemon = {
+            number: this.pokedex[index].number,
+            name: this.pokedex[index].name,
+            height: this.pokedex[index].height,
+            weight: this.pokedex[index].weight,
+            image_front: this.pokedex[index].image_front,
+            image_back: this.pokedex[index].image_back,
+
+          }
+
+        },
+
+        twirl: function () {
+
+          this.twirler = !this.twirler
+
+        },
+
+      },
+      // created - a lifecycle hook
+      // called when the app is created
+      // useful for setting up app data
+      created: function () {
+        this.cacheEmAll("")
+        console.log(this.message)
+      }
+    })
+  </script>
+
+</body>
+
+</html>

@@ -1,58 +1,81 @@
 {% extends 'user_system/base.html' %}
-{% block content %} 
+{% block content %}
 <!DOCTYPE html>
 
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Bloguen</title>
-        <style>
 
-    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloguen</title>
+    <style>
+
+
     </style>
 </head>
-<body>
-    <div class ="container">
 
-        <div class="featured-post-title">{{ blog_posts.0.title }}</div>
-    <div class="featured-post-author">By {{ blog_posts.0.user.username }}, Published {{ blog_posts.0.date_created | date:"M d, Y" }}</div>
-    <div class="featured-post-body">{{ blog_posts.0.body | striptags |truncatechars:120 }}</div>
-    <a class="btn" href="{% url 'blogapp:detail' blog_posts.0.id %}">Read More</a>
-        <div class= col>
+<div class="basepannel">
 
-            <div class="floatbox">
-                
-                <h1>yeah?</h1>
-                <div class="profile_box"> </div>
-                <div class = "col"> </div>
+    
+    
+    
+    <!-- <div class="display"> -->
+
+
+
+
+        <div class="pinkring">
+            <div> {% for post in posts %}
+                <div  class ="pinkring">
+                    <h2>{{ post.title }}</h2>
+                    <div class="pinkring">
+                        <p>{{ post.rant }}</p>
+
+                    </div>
+                    <p>By {{ post.author}} on {{post.date_posted}}</p>
+                </div>
+                {% endfor %}
             </div>
-            
-            <!-- user input name -->
-            <!-- age -->
-            <!-- location -->
-            <!-- favorite dinosaur -->
-            <!-- vax status -->
-            
-            
-            <div class ="floatbox" >
-                <form action="{% url 'blogapp:splash' %}" method="POST" id="Blog">
-                    {% csrf_token %}
-                
-                    
-                    <h1>Rant</h1>
-                    <input type = text  maxlength="80" class="form-control" name="title" label = "blarg">
-                    <textarea id= "rantbox" maxlength="500" class="form-control" name="rant" ></textarea>
-                    
-                    <button input type="submit" class="btn">Submit</button>
-                   
-                </form>
-            </div>
-            
+
+
+
         </div>
+
+
+        <div class="col">
+
+            <div class="panel">
+
+
+
+
+                <div class="pinkring">
+                    <form action="{% url 'blogapp:create' %}" method="POST" id="Blog">
+                        {% csrf_token %}
+
+
+                        <h1>Go Off</h1>
+                        <div class="box"><input type=text maxlength="80" class="form-control" name="title"
+                                label="blarg">
+                        </div>
+                        <div class="box"> <textarea id="rantbox" maxlength="500" class="form-control"
+                                name="rant"></textarea>
+                        </div>
+                        <div class="box"><button input type="submit" class="btn">Submit</button></div>
+
+
+
+                    </form>
+
+
+                </div>
+
+            </div>
             <!-- end container -->
         </div>
-    </body>
-    {% endblock %}
-    </html> 
+    </div>
+</div>
+{% endblock %}
+
+</html>

@@ -9,10 +9,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
   <style>
-    body{
+    body {
       height: 100%;
-      width:100%
+      width: 100%
     }
+
     .textbox {
       width: 200px;
       height: 500px;
@@ -26,15 +27,13 @@
       text-align: center;
       font-family: 'Indie Flower', cursive;
       padding-top: 20px;
-      
-
-
     }
 
-   
-.sidebar{
-  background-color: bisque;
-}
+
+    .sidebar {
+      background-color: bisque;
+    }
+
     .menu {
       visibility: hidden;
     }
@@ -47,32 +46,32 @@
     .left {
       border: 3px solid darkseagreen;
       border-radius: 60px;
-      background-color:honeydew;
+      background-color: honeydew;
       padding-left: 10px;
       padding-right: 10px;
       padding-top: 20px;
-      padding-bottom:20px;
+      padding-bottom: 20px;
     }
 
     .center {
       border: 3px solid darkseagreen;
       border-radius: 60px;
-      background-color:honeydew;
+      background-color: honeydew;
       padding-left: 10px;
       padding-right: 10px;
       padding-top: 20px;
-      padding-bottom:20px;
-     
+      padding-bottom: 20px;
+
     }
 
     .right {
       border: 3px solid darkseagreen;
       border-radius: 60px;
-      background-color:honeydew;
+      background-color: honeydew;
       padding-left: 10px;
       padding-right: 10px;
       padding-top: 20px;
-      padding-bottom:20px;
+      padding-bottom: 20px;
     }
 
     .form {
@@ -88,6 +87,10 @@
       width: 100px;
       display: flex;
       flex-direction: column;
+    }
+
+    .blacktext {
+      color: black;
     }
 
     .container {
@@ -107,8 +110,8 @@
       height: 200px;
       border-radius: 60px;
       border: 3px solid blueviolet;
-    
-      
+
+
       padding-left: 50px;
       display: flex;
       flex-direction: column;
@@ -118,42 +121,44 @@
 
     .notepad {
       background-color: rgb(33, 36, 211);
-      
+
       display: flex;
       flex-direction: column;
-     
+
       justify-content: space-around;
       /* width: 40%; */
-      
+
 
     }
-    .dummy{
 
-    }
+    .dummy {}
+
     .logbook {
       border: 3px solid blueviolet;
       background-color: darksalmon;
       display: flex;
-      flex-direction:row;
+      flex-direction: row;
       justify-content: space-around;
-      
-    }
-    .todos {
-      flex-grow:1;
-      display:flex;
-      flex-direction:column;
-      
-    }
-    .todos > div {
-      /* flex-grow:1; */
-      
+
     }
 
-  .done{
-    width: 100%;
-    color:aliceblue;
-    
-  }
+    .todos {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+
+    }
+
+    .todos>div {
+      /* flex-grow:1; */
+
+    }
+
+    .done {
+      width: 100%;
+      color: aliceblue;
+
+    }
   </style>
 </head>
 
@@ -163,7 +168,7 @@
 
 
 
-   
+
     <div class="notepad">
       <div class="title">
         <span> Get shit done</span>
@@ -175,8 +180,8 @@
 
 
         <div class="box">
-          <label for="task">Task</label>
-          <input id="task" name="task" type="text">
+          <label for="todo">Task</label>
+          <input id="todo" name="todo" type="text">
         </div>
 
         <div class="box">
@@ -203,40 +208,58 @@
 
     <div class="todos">
       <div class="title">Things to do.</div>
+
+
       {%for todo in todos%}
+
+
+      {%if todo.done != True%}
       <div class="logbook">
-       
+
         <div class="left">
 
-          <p>{{todo.task}}</p>
-          
-
+          <p >{{todo.name}}</p>
         </div>
 
         <div class="center">
-          
-          <p>{{todo.priority}}</p>
-
-          
+          <p >{{todo.priority}}</p>
         </div>
-        
 
-          <div class="right">
-            <div>
-              
-              <p>{{todo.time}}</p>
 
-            </div>
-          </div>
-        </div>
-        {%endfor%}
 
+        <form action="{% url 'todoapp:done' todo.id %}" method="post" id="todo">
+          {% csrf_token %}
+
+          <button id="submit" name="done" value="done">DONE!</button>
+        </form>
       </div>
+      {%endif%}
+      {%endfor%}
+
     </div>
   </div>
-<div class ="done">
-  <div class="title">G</div>
-</div>
+  </div>
+  <div class="done">
+    <div class="title">done</div>
+    {%for todo in todos%}
+
+
+    <div class="logbook"></div>
+
+    {%if todo.done == True%}
+
+
+
+    <p class ="blacktext">{{todo.name}}</p>
+
+
+
+    <p class ="blacktext">{{todo.priority}}</p>
+
+    {%endif%}
+    {%endfor%}
+  </div>
+
 </body>
 
 </html>

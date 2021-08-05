@@ -1,0 +1,15 @@
+{
+    "contacts":[{
+        "name": "Michele B. Kennedy",
+        "email": "MicheleBKennedy@rhyta.com",
+        "tags": ["coworker", "friend"]
+    },{
+        "name": "Dennis R. Campbell",
+        "email": "DennisRCampbell@teleworm.us",
+        "tags": ["family", "enemy"]
+    },{
+        "name": "Kate M. Auyeung",
+        "email": "KateMAuyeung@jourrapide.com",
+        "tags": ["enemy", "coworker"]
+    }]
+}

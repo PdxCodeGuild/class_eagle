@@ -1,10 +1,10 @@
 
 # Timing Events
 
-1. [Overview](#overview)
-2. [Using setTimeout and clearTimeout](#using-settimeout-and-cleartimeout)
-3. [Using setInterval](#using-setinterval)
-4. [window.requestAnimationFrame](#windowrequestanimationframe)
+- [Overview](#overview)
+- [Using setTimeout and clearTimeout](#using-settimeout-and-cleartimeout)
+- [Using setInterval](#using-setinterval)
+- [Request Animation Frame](#request-animation-frame)
 
 ## Overview
 
@@ -61,7 +61,7 @@ let interval = setInterval(function() {
 ```
 
 
-## window.requestAnimationFrame
+## Request Animation Frame
 
 To have code called 'as often as possible' without locking up the entire page, you can use `window.requestAnimationFrame`.
 
