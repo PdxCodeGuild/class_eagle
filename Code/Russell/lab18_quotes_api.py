@@ -27,7 +27,7 @@ data = response.json()
 data_list = data['quotes']
 
 for thing in data_list:
-    print(thing['body'])
+    print(thing['body'],thing['author'])
     
 #Ask the user for their next move and adjust the search accordingly 
 while True:   
@@ -46,7 +46,7 @@ while True:
     data_list = data['quotes']
 
     for thing in data_list:
-        print(thing['body'])
+        print(thing['body'],thing['author'])
 
 
 
