@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+<body>
+<div id="app">
+    <div class="container input-group mt-3">
+        <input type="text" class="form-control" placeholder="Search..." v-model="search_term" @keyup.enter="get_db()">
+        <button class="btn btn-primary" type="button" @click="get_db()">Search Pokedex</button>
+    </div>
+    <div class="container">
+        <ol>
+            <li v-for="(pokemon, index) in pokedex">
+                <div class="container border">
+                    <h5><% pokemon.name %></h5>
+                    <div class="row">
+                        <div class="col">
+                            <img v-bind:src="pokemon.image_front" width="250px" alt="" class="align-bottom">
+                            <img v-bind:src="pokemon.image_back" width="100px" alt="" class="align-bottom">
+                        </div>
+                        <div class="col">
+                            <span>Height: <% pokemon.height %> m</span></br>
+                            <span>Weight: <% pokemon.weight %> kg</span></br>
+                            <span>Types:</span>
+                            <ul>
+                                <li v-for="(type, index) in pokemon.types"><% type %></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ol>
+    </div>
+</div>
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <!-- VueJS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            delimiters: ['<%', '%>'],
+            data: {
+                search_term: '',
+                pokedex: null
+            },
+            methods: {
+                get_db: function(){
+                    axios({
+                        method: 'get',
+                        url: '{% url "pokeapp:pokemon" %}',
+                        params: {
+                            term: this.search_term,
+                        }
+                    }).then(response => {
+                        this.pokedex = response.data.pokedex
+                        console.log(this.pokedex)
+                    })
+                },
+            }
+        })
+    </script>
+</body>
+</html>
