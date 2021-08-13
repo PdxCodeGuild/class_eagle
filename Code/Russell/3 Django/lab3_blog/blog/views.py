@@ -1,29 +1,30 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse
 from django.http import HttpResponse, HttpResponseRedirect
+from .models import Blogpost
+from django.utils import timezone
 
-posts = [
-    {
-        'author': 'russell',
-        'title': 'posty-post',
-        'content': 'Life ain\'t always so heck.',
-        'date_created': 'Jan 12 2020',
-    },
-      {
-        'author': 'Satan',
-        'title': 'I want your soul',
-        'content': 'I can has soul?',
-        'date_created': 'Jan 13 2020',
-    }
-]
+
 
 def index(request):
     context = {
-        'posts': posts
+        'posts': Blogpost.objects.all()
     }
     return render(request, 'blog/index.html', context)
 
 def create(request):
     return render(request, 'blog/create.html')
+
+def save(request):
+    title = request.POST['title']
+    post = request.POST['body']
+    public = 'public' in request.POST
+    blogpost = Blogpost(title=title, post=post, public=public, user=request.user)
+    blogpost.save()
+    print(request.POST)
+    return HttpResponseRedirect(reverse('blog:blog-home'))
+
+
+
 
 
 

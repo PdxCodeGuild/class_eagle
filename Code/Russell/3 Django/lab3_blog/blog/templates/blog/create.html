@@ -6,25 +6,26 @@
 
 {% block content %}
 
-<form action="" method="post">
+<form action="{% url 'blog:save' %}" method="post">
+    {% csrf_token %}
 
     <div class="row">
         <div class="input-field col s12">
-            <input id="password" type="password" name="title">
+            <input  type="text" name="title">
             <label for="password">Title</label>
         </div>
     </div>
 
     <div class="row">
         <div class="input-field col s12">
-            <textarea id="textarea1" class="materialize-textarea"></textarea>
+            <textarea id="textarea1" class="materialize-textarea" name="body"></textarea>
             <label for="textarea1">Text area</label>
         </div>
     </div>
 
     <p>
         <label for=public>
-            <input type="checkbox" class="filled-in" checked="checked" id="public"/>
+            <input type="checkbox" class="filled-in" checked="checked" id="public" name="public"/>
             <span>Public</span>
         </label>
     </p>

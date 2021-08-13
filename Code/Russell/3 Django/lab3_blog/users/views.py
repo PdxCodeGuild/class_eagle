@@ -3,6 +3,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 import django.contrib.auth
+from django.contrib.auth import logout,login,authenticate
+from blog.models import Blogpost
 
 def register(request):
     print(request.POST)
@@ -26,19 +28,26 @@ def login(request):
         password = request.POST['password']
         user = django.contrib.auth.authenticate(request, username=username, password=password)
         if user is not None:
+            print(username)
             django.contrib.auth.login(request, user)
-            return HttpResponseRedirect(reverse('blog:index'))
+            return HttpResponseRedirect(reverse('blog:blog-home'))
         else:
             return render(request, 'users/login.html', {'error': 'Bad username / password'})
     return render(request, 'users/login.html')
 
 @login_required
 def profile(request):
-    print(request.user.username)
-    return render(request, 'users/profile.html')
+    logged_in_user = request.user.username
+    print(logged_in_user)
+    user_posts = Blogpost.objects.filter(user=request.user)
+    context = {
+        'user_posts': user_posts
+    }
+    print(context)
+    return render(request, 'users/profile.html', context)
     
 def logout(request):
-    django.contrib.logout(request)
+    django.contrib.auth.logout(request)
     return HttpResponseRedirect(reverse('users:login')) 
 
 

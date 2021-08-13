@@ -14,10 +14,15 @@
 <body>
     <nav>
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Blog</a>
+            <a href="/blog/" class="brand-logo">Blog</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="badges.html">Login</a></li>
-                <li><a href="collapsible.html">Register</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'users:logout' %}">Logout</a></li>
+                <li><a href="{% url 'users:profile' %}">Profile</a></li>
+                {% else %}
+                <li><a href="{% url 'users:login' %}">Login</a></li>
+                <li><a href="{% url 'users:register' %}">Register</a></li>
+                {% endif %}
             </ul>
         </div>
     </nav>
@@ -37,3 +42,5 @@
 </body>
 
 </html>
+
+

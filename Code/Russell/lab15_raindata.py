@@ -49,8 +49,9 @@ for x in data_list:
 
  
 #Iterate over the data list to find the day with the highest rainfall 
+highest = max(seq)
 for i in range(len(data_list)):
-    if data_list[i]['total'] == max(seq):
+    if data_list[i]['total'] == highest:
         print(f"The highest rainfall was on: {data_list[i]['date']}")
 
 

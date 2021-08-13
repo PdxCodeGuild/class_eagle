@@ -8,8 +8,8 @@
 
     {% for post in posts %}
     <h2>{{ post.title }}</h2>
-    <p>By {{ post.author}} on {{post.date_created}}</p>
-    <p>{{ post.content }}</p>
+    <p>By {{ post.user}} on {{post.date_created}}</p>
+    <p>{{ post.post }}</p>
     {% endfor %}
 
 {% endblock %}
