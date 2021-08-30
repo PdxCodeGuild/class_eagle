@@ -25,6 +25,24 @@
             font-family: 'Open Sans', sans-serif;
             
         }
+        .single_item{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            height: 35px;
+        }
+
+        .single_item_buttons{
+            display: flex;
+            min-width: 200px;
+            justify-content: space-between;
+        }
+        .done_item{
+            text-decoration:line-through
+        }
+     
+
+      
       
     </style>
 </head>
@@ -56,7 +74,7 @@
 
             <div>
 
-                <input class="btn" type="submit" value="update">
+                <input class="btn purple darken-4" type="submit" value="update">
 
 
             </div>
@@ -65,12 +83,33 @@
 
         <ul>
             {% for todo_item in todo_items %}
-            <li>
-                {{todo_item.text}}
+            {% if todo_item.completed_date == None %}
+            <li class="single_item">
+                {{todo_item.text}} 
+                {{todo_item.priority}}
+                <div class="single_item_buttons">
+                    <a class="btn-small pink darken-4" href="{% url 'todos:delete' todo_item.id %}">delete</a>
+                    
+                    <a class="btn-small indigo darken-4" href="{% url 'todos:done' todo_item.id %}">done</a>
+                </div>
             </li>
+            {% endif %}
             {% endfor %}
         </ul>
-
+        
+        <ul>
+            
+            
+            {% for todo_item in todo_items %}
+            {% if todo_item.completed_date != None %}
+            <li class="done_item">
+                {{todo_item.text}} 
+                {{todo_item.priority}}
+            </li>
+            {% endif %}
+            {% endfor %}
+            
+        </ul>
 
 
     </div>
@@ -86,3 +125,4 @@
 </body>
 
 </html>
+

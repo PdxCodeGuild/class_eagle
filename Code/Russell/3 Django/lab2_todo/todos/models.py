@@ -12,6 +12,7 @@ class TodoItem(models.Model):
     text = models.CharField(max_length=200)
     priority = models.ForeignKey(Priority, on_delete=models.PROTECT)
     created_date = models.DateTimeField(null= True)
+    completed_date = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
         return self.text
