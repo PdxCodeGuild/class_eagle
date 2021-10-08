@@ -9,12 +9,111 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Materialize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        p {
+            font-family: 'Roboto Slab', serif;
+            text-align: left;
+            color: #311b92;
+            
+        }
+
+        h2 {
+            font-size: 25px;
+            color: #311b92;
+        }
+
+        h3 {
+            color: #311b92;
+            font-size: 18px;
+            margin-left: 25px;
+            margin-bottom: 165px;
+        }
+
+        body{
+            background-color: #b39ddb;
+        }
+
+        .nav-wrapper li{
+            font-family: 'Roboto Slab', serif;
+            font-weight: 200;
+        }
+
+        .blog-logo{
+            font-family: 'Roboto Slab', serif;
+            margin-left: 25px;
+            letter-spacing: 10px;
+            font-weight: 600; 
+        }
+
+        .center{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+        }
+
+        .centered {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 800px;
+        }
+
+        .each_post {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            background-color: #d1c4e9;
+        }
+
+        .each_post h2, p{
+            margin-left: 20px;
+        }
+
+        .each_post h2 {
+            margin-top: 10px;
+            margin-bottom: 0px;
+        }
+
+        .edit_delete {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+        }
+
+        .edit_delete h2{
+            margin: 0px;
+        }
+
+        .edit_delete a{
+            margin-left: 20px;
+        }
+
+        .ed_buttons {
+            display: flex;
+            flex-direction: row;
+        }
+
+
+    </style>
 </head>
 
 <body>
     <nav>
-        <div class="nav-wrapper">
-            <a href="/blog/" class="brand-logo">Blog</a>
+        <div class="nav-wrapper deep-purple darken-4">
+            <a href="/blog/" class="blog-logo">CAVE DWELLER</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 {% if user.is_authenticated %}
                 <li><a href="{% url 'users:logout' %}">Logout</a></li>
@@ -27,17 +126,18 @@
         </div>
     </nav>
 
-    <h1>{% block title %}{% endblock %}</h1>
-    <main>
+    <h3>{% block title %}{% endblock %}</h3>
+
+    <div class="center">
+    <main class="centered">
         {% block content%} {% endblock %}
     </main>
+    </div>
 
 
     <!-- Materialize JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     
-   
-
 
 </body>
 

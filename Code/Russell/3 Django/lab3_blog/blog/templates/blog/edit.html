@@ -1,0 +1,48 @@
+{% extends 'blog/base.html' %}
+
+{% block title %} Edit your post {% endblock %}
+
+
+
+{% block content %}
+
+<a class="btn" href="{% url 'blog:delete' edit_posts.id %}">delete</a>
+
+<form action="{% url 'blog:edit_save' edit_posts.id %}" method="post">
+    {% csrf_token %}
+
+    <div class="row">
+        <div class="input-field col s12">
+            <input  type="text" name="title" value="{{ edit_posts.title }}">
+            <!-- <label for="password">Title</label> -->
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="input-field col s12">
+            <textarea type="text" id="textarea1" class="materialize-textarea" name="body">{{ edit_posts.post }}</textarea>
+            <!-- <label for="textarea1">{{ edit_posts.body }}</label> -->
+        </div>
+    </div>
+
+    <p>
+        <label for=public>
+            <input type="checkbox" class="filled-in" checked="checked" id="public" name="public"/>
+            <span>Public</span>
+        </label>
+    </p>
+
+    <input type="text" class="datepicker" name="date_created">
+
+    <button class='btn' type="submit">Post</button>
+
+</form>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.datepicker');
+        var instances = M.Datepicker.init(elems, {});
+    });
+</script>
+
+{% endblock %}

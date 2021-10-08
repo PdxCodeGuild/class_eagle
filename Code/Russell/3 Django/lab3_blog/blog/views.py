@@ -24,7 +24,29 @@ def save(request):
     return HttpResponseRedirect(reverse('blog:blog-home'))
 
 
+def edit(request, edit_post_id):
+    edit_posts = Blogpost.objects.get(id= edit_post_id)
+    context = {
+        'edit_posts': edit_posts
+    }
+    
+    print(context)
+    return render(request, 'blog/edit.html', context)
 
 
+def edit_save(request, edit_post_id):
+    print(request.POST)
+    edit_post = Blogpost.objects.get(id=edit_post_id)
+    edit_post.title = request.POST['title']
+    edit_post.post = request.POST['body']
+    print(edit_post.post)
+    edit_post.save()
+    return HttpResponseRedirect(reverse('users:profile'))
 
+
+def delete(request, edit_post_id):
+    delete_post = Blogpost.objects.get(id=edit_post_id)
+    delete_post.delete()
+    return HttpResponseRedirect(reverse('users:profile'))
+    
 

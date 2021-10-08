@@ -13,3 +13,14 @@ class Blogpost(models.Model):
         return self.title
 
 
+class Profile(models.Model):
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    bio = models.TextField()
+    profile_pic = models.ImageField(upload_to='images/',null=True, blank=True)
+
+    def __str__(self):
+        return str(self.user)
+
+
+
+

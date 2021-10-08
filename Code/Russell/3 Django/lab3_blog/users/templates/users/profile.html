@@ -9,8 +9,19 @@
 <div>
     <h1>Welcome {{ user.username }}</h1>
 
+    <p>Bio:</p> {{ user.profile.bio }}
+
+    <br>
+
+    <a class="btn" href="{% url 'blog:create' %}">write</a>
+
     {% for post in user_posts %}
-    <h2>{{ post.title }}</h2>
+    <div class="edit_delete">
+        <h2>{{ post.title }}</h2>
+        <div class="ed_buttons">
+            <a class="btn" href="{% url 'blog:edit' post.id %}">edit</a>
+        </div>
+    </div>
     {% endfor %}
 </div>
 

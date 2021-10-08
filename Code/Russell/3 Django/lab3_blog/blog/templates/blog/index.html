@@ -2,14 +2,32 @@
 
 
 
-{% block title %}Blog Homepage{% endblock %}
+{% block title %}* A cool dark biosphere for weird music people.{% endblock %}
+
 
 {% block content %}
 
-    {% for post in posts %}
+
+<style>
+    .profile_img {
+        width: 65px;
+    }
+</style>
+
+
+{% for post in posts %}
+<div class="each_post">
+    
     <h2>{{ post.title }}</h2>
     <p>By {{ post.user}} on {{post.date_created}}</p>
     <p>{{ post.post }}</p>
-    {% endfor %}
+
+    <img class="profile_img" src="{{ post.user.profile.profile_pic.url }}" alt="">   
+    <!-- <img src="{{ user.profile.profile_pic.url }}" alt="">    -->
+
+</div>
+{% endfor %}
+
+
 
 {% endblock %}
