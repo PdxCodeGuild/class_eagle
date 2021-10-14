@@ -17,6 +17,12 @@
         * {
             color:ghostwhite
         }
+
+        h2{ 
+            margin: 0px;
+            font-size: 14px;
+            color:rgb(188, 188, 189)
+        }
         body h3{
             font-family: 'Abril Fatface', cursive;
         }
@@ -38,7 +44,15 @@
             justify-content: space-between;
         }
         .done_item{
+            display: flex;
+            justify-content: space-between;
             text-decoration:line-through
+        }
+
+        .done_item a {
+            /* position:absolute;
+            left: 925px;
+            padding-left: 25px; */
         }
      
 
@@ -86,11 +100,17 @@
             {% if todo_item.completed_date == None %}
             <li class="single_item">
                 {{todo_item.text}} 
-                {{todo_item.priority}}
                 <div class="single_item_buttons">
-                    <a class="btn-small pink darken-4" href="{% url 'todos:delete' todo_item.id %}">delete</a>
                     
-                    <a class="btn-small indigo darken-4" href="{% url 'todos:done' todo_item.id %}">done</a>
+                    <h2>{{todo_item.priority}}</h2>
+
+                    <a href="{% url 'todos:delete' todo_item.id %}">
+                        <i class="material-icons">clear</i>
+                    </a>
+
+                    <a href="{% url 'todos:done' todo_item.id %}">
+                        <i class="material-icons">check</i>
+                    </a>
                 </div>
             </li>
             {% endif %}
@@ -105,6 +125,9 @@
             <li class="done_item">
                 {{todo_item.text}} 
                 {{todo_item.priority}}
+                <a href="{% url 'todos:delete' todo_item.id %}">
+                    <i class="material-icons">clear</i>
+                </a>
             </li>
             {% endif %}
             {% endfor %}
