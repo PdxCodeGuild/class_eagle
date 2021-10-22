@@ -17,8 +17,9 @@ def create(request):
 def save(request):
     title = request.POST['title']
     post = request.POST['body']
+    url = request.POST['url']
     public = 'public' in request.POST
-    blogpost = Blogpost(title=title, post=post, public=public, user=request.user)
+    blogpost = Blogpost(title=title, post=post, url=url, public=public, user=request.user)
     blogpost.save()
     print(request.POST)
     return HttpResponseRedirect(reverse('blog:blog-home'))
